@@ -1,0 +1,34 @@
+.selection{
+    margin-left: 7%;
+}
+
+.selection option{
+    font-size: 20px;
+}
+
+.selection select{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 22px;
+    line-height: 27px;
+    border: none;
+    cursor: pointer;
+    width: 455px;
+    height: 48px;
+    background: #FFFFFF;
+    box-shadow: inset 0px 0px 8px rgba(0, 0, 0, 0.25);
+    border-radius: 6px;
+    padding: 10px;
+
+    appearance: none;
+    background: url('../../../public/img/_select.svg') no-repeat right;
+    background-position-x: 410px;
+
+    color: #9F9F9F;
+}
+
+.selection select:focus{
+    outline: 0;
+    outline-offset: 0;
+}

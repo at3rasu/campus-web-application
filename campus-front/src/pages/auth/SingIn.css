@@ -1,0 +1,158 @@
+*{
+    margin: 0;
+    padding: 0;;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+.auth{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    background-position: center;
+    background-size: cover;
+}
+
+.box-auth{
+    width: 546px;
+    height: 512px;
+    left: calc(50% - 546px/2);
+    position: relative;
+    top: calc(50% - 512px/2);
+    background: #FFFFFF;
+    box-shadow: 0px 0px 30px 6px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+}
+
+.sing-up img{
+    padding-top: 17px;
+    padding-left: 223px;
+}
+
+.sing-up h1{
+    font-style: normal;
+    font-weight: 700;
+    font-size: 45px;
+    line-height: 54px;
+    text-align: center;
+    color: #000000
+}
+
+.login{
+    padding-left: 56px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 22px;
+
+    color: rgba(0, 0, 0, 0.65)
+}
+
+.input-data{
+    padding-top: 20px;
+    display: flex;
+    padding-left: 62px;
+    padding-bottom: 10px;
+}
+
+.input-data input{
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+    border: none;
+    padding-left: 25px;
+
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.input-data input:focus{
+    outline: none;
+}
+
+.hr-depart{
+    width: 433.01px;
+    height: 0px;
+    border: 1px solid #636363;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.password{
+    padding-left: 56px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 22px;
+    padding-top: 25px;
+    display: block;
+
+    color: rgba(0, 0, 0, 0.65)
+}
+
+.remember-me{
+    width: 551.4px;
+    height: 24.49px;
+    display: flex;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 24px;
+    padding-left: 74px;
+    padding-top: 10px;
+    display: block;
+
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.remember-me label{
+    padding-left: 14px;
+}
+
+.auth-btn{
+    padding-left: 211px;
+    padding-top: 32px;
+}
+
+.auth-btn button{
+    width: 122.89px;
+    height: 42.21px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-size: 30px;
+    line-height: 36px;
+    text-align: center;
+    color: #FFFFFF; /* цвет текста */
+    border: none;
+
+    text-decoration: none; /* убирать подчёркивание у ссылок */
+    user-select: none; /* убирать выделение текста */
+    background: #F52D30; /* фон кнопки */
+    border-radius: 10px;
+    outline: none;
+}
+
+.auth-btn button:hover{
+    cursor: pointer;
+}
+
+.next{
+    display: flex;
+    justify-content: center;
+}
+
+.next button{
+    background: none;
+    border: none;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    padding-top: 18px;
+}
+
+.next button:hover{
+    cursor: pointer;
+}

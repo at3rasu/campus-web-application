@@ -1,0 +1,18 @@
+.mouth-selection select{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 45px;
+    line-height: 54px;
+    border: none;
+    cursor: pointer;
+
+    appearance: none;
+    background: url('../../../public/img/select.svg') no-repeat right;
+
+    color: #000000;
+}
+
+.mouth-selection option{
+    font-size: 20px;
+}

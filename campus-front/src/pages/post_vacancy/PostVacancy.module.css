@@ -1,0 +1,148 @@
+.container{
+    min-height: calc(100vh - 80px);
+    width: 1680px;
+    margin: 0px auto;
+}
+
+@media(max-width:1680px){
+    .container{
+        max-width: 1400px;
+    }
+
+}
+
+
+.title{
+    display: flex;
+    justify-content: center;
+    padding-top: 103px;
+    align-items: center;
+}
+
+.title hr{
+    border: 1px solid rgba(245, 45, 48, 0.2);
+    width: 100px;
+    height: 0;
+}
+
+.title h1{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 36px;
+    text-align: center;
+    padding-left: 10px;
+    padding-right: 10px;
+
+    color: #F52D30;
+}
+
+.hrData{
+    width: 96%;
+    margin-left: 2%;
+    margin-right: 2%;
+    margin-top: 103px;
+    margin-bottom: 100px;
+}
+
+.inputData{
+    display: flex;
+    margin-top: 40px;
+}
+
+.inputData label{
+    width: 320px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 36px;
+    white-space: nowrap;
+
+    color: #000000;
+}
+
+.inputData p{
+    margin-left: 4%;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 30px;
+    width: 600px;
+
+    color: rgba(0, 0, 0, 0.8);
+}
+
+.inputData button{
+    margin-left: 7%;
+    margin-right: 24%;
+    font-family: 'Inter';
+    width: 117px;
+    font-weight: 300;
+    font-size: 25px;
+    line-height: 30px;
+    text-decoration-line: underline;
+    text-decoration-skip-ink: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+
+    color: rgba(6, 100, 211, 0.8);
+    font-variation-settings: 'slnt' 0;
+}
+
+.inputData input{
+    margin-left: 7%;
+    width: 500px;
+    height: 48px;
+    background: #FFFFFF;
+    box-shadow: inset 0px 0px 8px rgba(0, 0, 0, 0.25);
+    border-radius: 6px;
+    border: none;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 30px;
+    padding: 10px;
+}
+
+.inputData input:focus{
+    outline: none;
+}
+
+.boxContent{
+    margin-left: 14%;
+}
+
+.buttonSubmit{
+    margin-top: 100px;
+    margin-left: 33%;
+}
+
+.buttonSubmit button{
+    width: 324px;
+    height: 76px;
+    background: #F52D30;
+    border-radius: 7px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 28px;
+    line-height: 34px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    cursor: pointer;
+    border: none;
+
+    color: #FFFFFF;
+}
+
+.buttonSubmit img{
+    padding-right: 32px;
+    padding-left: 29px;
+}
+

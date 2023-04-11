@@ -1,0 +1,7 @@
+.chart-city{
+    display: flex;
+}
+
+.chart-city table{
+    padding-right: 600px;
+}
