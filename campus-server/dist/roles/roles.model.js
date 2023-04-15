@@ -11,7 +11,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Role = void 0;
 const sequelize_typescript_1 = require("sequelize-typescript");
-const users_company_model_1 = require("../users-company/users-company.model");
 const users_model_1 = require("../users/users.model");
 const user_roles_1 = require("./user-roles");
 let Role = class Role extends sequelize_typescript_1.Model {
@@ -32,10 +31,6 @@ __decorate([
     (0, sequelize_typescript_1.BelongsToMany)(() => users_model_1.User, () => user_roles_1.UserRoles),
     __metadata("design:type", Array)
 ], Role.prototype, "users", void 0);
-__decorate([
-    (0, sequelize_typescript_1.BelongsToMany)(() => users_company_model_1.UserCompany, () => user_roles_1.UserRoles),
-    __metadata("design:type", Array)
-], Role.prototype, "users_company", void 0);
 Role = __decorate([
     (0, sequelize_typescript_1.Table)({ tableName: 'roles' })
 ], Role);

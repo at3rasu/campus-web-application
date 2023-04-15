@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import { useNavigate } from 'react-router-dom'
 import "./SingUp.css"
-import { registration } from '../../http/userApi'
+import { registration } from '../../api/userApi'
 
 export const SingUp = () =>{
   const [login, setLogin] = useState('')

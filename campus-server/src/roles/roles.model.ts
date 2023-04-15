@@ -21,7 +21,4 @@ export class Role extends Model<Role, RoleCreationAttrs>{
 
     @BelongsToMany(() => User, () => UserRoles)
     users: User[]
-
-    @BelongsToMany(() => UserCompany, () => UserRoles)
-    users_company: UserCompany[]
 }

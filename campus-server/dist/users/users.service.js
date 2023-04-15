@@ -17,6 +17,7 @@ const common_1 = require("@nestjs/common");
 const sequelize_1 = require("@nestjs/sequelize");
 const roles_service_1 = require("../roles/roles.service");
 const users_model_1 = require("./users.model");
+const common_2 = require("@nestjs/common");
 let UsersService = class UsersService {
     constructor(userRepository, roleService) {
         this.userRepository = userRepository;
@@ -40,6 +41,17 @@ let UsersService = class UsersService {
     async getUserByLogin(login) {
         const user = await this.userRepository.findOne({ where: { login }, include: { all: true } });
         return user;
+    }
+    async addRole(dto) {
+        const user = await this.userRepository.findByPk(dto.userId);
+        const role = await this.roleService.getRoleByValue(dto.value);
+        if (role && user) {
+            await user.$add('role', role.id);
+            return dto;
+        }
+        console.log(user);
+        console.log(role);
+        throw new common_2.HttpException('Пользователь или роль не были найдены', common_2.HttpStatus.NOT_FOUND);
     }
 };
 UsersService = __decorate([

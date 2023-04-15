@@ -23,7 +23,4 @@ export class UserCompany extends Model<UserCompany, UserCompanyCreationAttrs>{
 
     @Column({type: DataType.STRING, allowNull: false})
     companyName: string
-
-    @BelongsToMany(() => Role, () => UserRoles)
-    roles: Role[]
 }

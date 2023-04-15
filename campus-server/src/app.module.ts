@@ -7,16 +7,17 @@ import { RolesModule } from './roles/roles.module';
 import { Role } from "./roles/roles.model";
 import { UserRoles } from "./roles/user-roles";
 import { AuthModule } from './auth/auth.module';
-import { UsersCompanyController } from './users-company/users-company.controller';
 import { UsersCompanyModule } from './users-company/users-company.module';
 import { UserCompany } from "./users-company/users-company.model";
+import { PostsModule } from './posts/posts.module';
+import { Post } from "./posts/posts.model";
 
 @Module({
     controllers: [],
     providers: [],
     imports: [
       ConfigModule.forRoot({
-        envFilePath: '.env'
+        envFilePath: '.development.env'
       }),
       SequelizeModule.forRoot({
         dialect: 'postgres',
@@ -25,13 +26,14 @@ import { UserCompany } from "./users-company/users-company.model";
         username: process.env.POSTGRES_USER,
         password: process.env.POSTGRESS_PASSWORD,
         database: process.env.POSTGRES_DB,
-        models: [User, Role, UserRoles, UserCompany],
+        models: [User, Role, UserRoles, UserCompany, Post],
         autoLoadModels: true
       }),
       UsersModule,
       RolesModule,
       AuthModule,
-      UsersCompanyModule
+      UsersCompanyModule,
+      PostsModule
     ]
 })
 

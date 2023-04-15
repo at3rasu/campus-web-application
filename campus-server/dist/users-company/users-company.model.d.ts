@@ -1,5 +1,4 @@
 import { Model } from "sequelize-typescript";
-import { Role } from "src/roles/roles.model";
 interface UserCompanyCreationAttrs {
     email: string;
     password: string;
@@ -10,6 +9,5 @@ export declare class UserCompany extends Model<UserCompany, UserCompanyCreationA
     password: string;
     login: string;
     companyName: string;
-    roles: Role[];
 }
 export {};
