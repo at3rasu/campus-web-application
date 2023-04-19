@@ -1,4 +1,4 @@
-import "./MainPage.css"
+import styles from './MainPage.module.css'
 import { Header } from "../../components/header/Header"
 import { Footer } from "../../components/footer/Footer"
 import { useNavigate } from "react-router-dom"
@@ -15,26 +15,31 @@ export const MainPage = () => {
     return(
         <div className="MainPage">
             <Header />
-            <div className="main-content">
-                <h1 className='text-h1'>Сделай первый шаг — попробуй себя на стажировке.</h1>
-                <p className="text-description">Онлайн-платформа "Кампус" поможет на пути к желаемой работе.
-                    Найди подходящую стажировку прямо сейчас.</p>
-                <div className="search-vacancy">
-                    <input 
-                        type={Text}
-                        placeholder="Введите вашу должность..."></input>
-                    <button><img src='/img/search_logo.svg' alt='search'/></button>
+            <div className={styles.container}>
+                <div className={styles.fisrtContent}>
+                    <div className={styles.firstText}>
+                        <h1>Сделай первый шаг — попробуй себя на стажировке.</h1>
+                        <p>Онлайн-платформа "Кампус" поможет на пути к желаемой работе.
+                            Найди подходящую стажировку прямо сейчас.</p>
+                    </div>
+                    <div className={styles.search}>
+                        <input 
+                            type={Text}
+                            placeholder="Введите вашу должность..."></input>
+                        <button><img src='/img/search_logo.svg' alt='search'/></button>
+                    </div>
+                    <div className={styles.btnView}>
+                        <button
+                            onClick={() => navigate('/Statistics')}
+                            >Посмотреть стажировки</button>  
+                    </div>
                 </div>
-                <div className="view-internships">
-                    <button
-                        onClick={() => navigate('/Statistics')}>Посмотреть стажировки</button>  
-                </div>
-                <div className="fund-campus">
-                    <div className="text-fund">
+                <div className={styles.secondContent}>
+                    <div className={styles.secondText}>
                         <h1>Фонд «Кампус»</h1>
                         <p>Объединяя сердца</p>
                     </div>
-                    <div className="fund-content">
+                    <div className={styles.textContent}>
                         <p>Свердловская область — идеальное место для
                             получения высшего образования, а Екатеринбург –
                             настоящая студенческая столица России. В нашем
@@ -44,17 +49,17 @@ export const MainPage = () => {
                             программ поддержки студенчества Свердловской области. Создавай свою лучшую
                             студенческую жизнь вместе с нами.</p1>
                     </div>
-                    <div className="btn-fund">
+                    <div className={styles.btn}>
                         <button
-                            id="post-vacancy"
+                            id={styles.postVacancy}
                             onClick={() => navigate('/PostVacancy')}>Опубликовать вакансию</button>
                         <button 
-                            id="create-resume"
+                            id={styles.createResume}
                             onClick={() => navigate('/CreateResume')}>Создать резюме</button>
                     </div>
                 </div>
-                <Footer />
             </div>
+            <Footer />
         </div>
     )
 }

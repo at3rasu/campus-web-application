@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom'
 import { useEffect } from 'react'
 import './SingUpCompany.css'
 import { registrationUserCompany } from '../../api/userApi'
-
 export const SingUpCompany = () =>{
     const [login, setLogin] = useState('')
     const [pass, setPass] = useState('')
@@ -12,7 +11,7 @@ export const SingUpCompany = () =>{
     const[email, setEmail] = useState('')
 
     const navigate = useNavigate()
-
+    let response = undefined
     const handleSubmit = (e) =>{
         e.preventDefault()
         console.log(login)
@@ -96,7 +95,7 @@ export const SingUpCompany = () =>{
                 <div className='company-btn'>
                     <button
                         onClick={async () => {
-                            const response = await registrationUserCompany(email, pass, login, secondPass, companyName)
+                            response = await registrationUserCompany(email, pass, login, secondPass, companyName)
                             navigate('/')
                           }}
                         type='submit'>Зарегистрироваться</button>

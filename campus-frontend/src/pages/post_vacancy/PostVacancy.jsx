@@ -15,6 +15,7 @@ export const PostVacancy = () =>{
     const [сompanyDescription, setCompanyDescription] = useState('')
     const [city, setCity] = useState('')
     const [vacancyDescription, setVacancyDescription] = useState('')
+    const [image, setImage] = useState('')
     const [fullAddress, setFullAddress] = useState('')
     const [number, setNumber] = useState('')
     const [email, setEmail] = useState('')
@@ -60,9 +61,12 @@ export const PostVacancy = () =>{
                             Какие требования к стажеру?
                             Какими навыками необходимо владеть?</p>
                     </div>
-                    <div className={styles.inputData}>
+                    <div className={styles.inputFile}>
                         <label>Изображения</label>
-                        <button>Добавить</button>
+                        <input
+                            type='file'
+                            value={image}
+                            onChange={(e) => setImage(e.target.value)}></input>
                         <p>Добавьте медиафайлы для полного описания</p>
                     </div>
                 </div>

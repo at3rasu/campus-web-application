@@ -5,18 +5,29 @@
     font-family: 'Inter', sans-serif;
 }
 
-.main-content{
-    height: 93%;
-    width: 100%;
-    position: absolute;
-    background-position: top 500%;
-    background-size: cover;
-    background-image: url(/public/img/background-mainPage.jpg);
+.container{
+    min-height: calc(100vh - 80px);
+    width: 1680px;
+    margin: 0px auto;
 }
 
-.text-h1{
-    margin-top: 10%;
-    margin-left: 6%;
+@media(max-width:1680px){
+    .container{
+        max-width: 1400px;
+    }
+
+}
+
+
+.fisrtContent{
+    height: 850px;
+}
+
+.firstText{
+    padding-top: 10%;
+}
+
+.firstText h1{
     font-family: 'Inter';
     font-style: normal;
     font-weight: 600;
@@ -28,7 +39,7 @@
     color: #000000;
 }
 
-.text-description{
+.firstText p{
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
@@ -36,20 +47,18 @@
     line-height: 29px;
     display: flex;
     align-items: center;
-    margin-left: 6%;
     padding-top: 41px;
     width: 530px;
 
     color: #000000;
 }
 
-.search-vacancy{
-    margin-left: 6%;
+.search{
     display: flex;
     padding-top: 61px;
 }
 
-.search-vacancy input{
+.search input{
     width: 546px;
     height: 57px;
     font-family: 'Inter';
@@ -69,11 +78,11 @@
     border: none;
 }
 
-.search-vacancy input:focus{
+.search input:focus{
     outline: none;
 }
 
-.search-vacancy button{
+.search button{
     margin-left: 20px;
     width: 57px;
     display: block;
@@ -84,12 +93,13 @@
     cursor: pointer;
 }
 
-.view-internships{
-    margin-left: 44%;
-    padding-top: 10%; 
+.btnView{
+    display: flex;
+    justify-content: center;
+    padding-top: 12%; 
 }
 
-.view-internships button{
+.btnView button{
     background: none;
     border: none;
     cursor: pointer;
@@ -105,57 +115,58 @@
     color: #000000;
 }
 
-.fund-campus{
-    padding-top: 5%;
+.secondContent{
+    margin-top: 5%;
 }
 
-.text-fund{
+.secondText{
     font-family: 'Inter';
     font-style: normal;
     align-items: center;
     text-align: center;
 }
 
-.text-fund h1{
+.secondText h1{
     font-weight: 600;
     font-size: 104px;
     line-height: 126px;
-    /* identical to box height */
-
     color: #000000;
 }
 
-.text-fund p{
+.secondText p{
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
+    margin-right: 360px;
     font-size: 48px;
     line-height: 58px;
-    /* identical to box height */
-
-
     color: #000000;
 }
 
-.fund-content{
+.textContent{
     display: flex;
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
     font-size: 24px;
     line-height: 29px;
-    margin-left: 11%;
-    margin-right: 11%;
+    margin-left: 5%;
+    margin-right: 5%;
     padding-top: 130px;
 
     color: #000000;
 }
 
-.fund-content p{
-    padding-right: 151px;
+.textContent p{
+    width: 668px;
 }
 
-.btn-fund button{
+.textContent p1{
+    margin-left: 200px;
+    width: 668px;
+}
+
+.btn button{
     background: #F52D30;
     border-radius: 14px;
     width: 311px;
@@ -173,17 +184,18 @@
     color: #FFFFFF;
 }
 
-.btn-fund{
+.btn{
     display: flex;
     padding-top: 50px;
 }
 
-#post-vacancy{
-    margin-left: 20%;
+#postVacancy{
+    margin-left: 14%;
 }
 
-#create-resume{
+#createResume{
     margin-left: auto;
-    margin-right: 20%;
+    margin-right: 16%;
 }
+
 
