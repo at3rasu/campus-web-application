@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import { useNavigate } from 'react-router-dom'
 import "./SingUp.css"
-import { registration } from '../../http/userApi'
+//import { registration } from '../../api/userApi'
 
 export const SingUp = () =>{
   const [login, setLogin] = useState('')
@@ -117,7 +117,7 @@ export const SingUp = () =>{
         <div className='reg-btn'>
           <button
             onClick={async () => {
-              const response = await registration(email, pass, login, name, lastName, city, secondPass)
+              //const response = await registration(email, pass, login, name, lastName, city, secondPass)
               navigate('/')
             }}
             type='submit'>Зарегистрироваться</button>
