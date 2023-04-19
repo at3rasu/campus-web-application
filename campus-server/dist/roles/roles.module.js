@@ -14,6 +14,7 @@ const roles_service_1 = require("./roles.service");
 const roles_model_1 = require("./roles.model");
 const users_model_1 = require("../users/users.model");
 const user_roles_1 = require("./user-roles");
+const user_company_roles_1 = require("./user_company_roles");
 let RolesModule = class RolesModule {
 };
 RolesModule = __decorate([
@@ -21,7 +22,7 @@ RolesModule = __decorate([
         providers: [roles_service_1.RolesService],
         controllers: [roles_controller_1.RolesController],
         imports: [
-            sequelize_1.SequelizeModule.forFeature([roles_model_1.Role, users_model_1.User, user_roles_1.UserRoles])
+            sequelize_1.SequelizeModule.forFeature([roles_model_1.Role, users_model_1.User, user_roles_1.UserRoles, user_company_roles_1.UserCompanyRoles])
         ],
         exports: [
             roles_service_1.RolesService

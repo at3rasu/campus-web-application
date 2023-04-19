@@ -21,8 +21,9 @@ let AuthController = class AuthController {
     constructor(authService) {
         this.authService = authService;
     }
-    login(userDto) {
-        return this.authService.login(userDto);
+    login(userDto, resp, request) {
+        const user = this.authService.login(userDto, resp);
+        return user;
     }
     registration(userDto) {
         return this.authService.registration(userDto);
@@ -34,8 +35,10 @@ let AuthController = class AuthController {
 __decorate([
     (0, common_1.Post)('/login'),
     __param(0, (0, common_1.Body)()),
+    __param(1, (0, common_1.Res)({ passthrough: true })),
+    __param(2, (0, common_1.Req)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Object]),
+    __metadata("design:paramtypes", [Object, Object, Object]),
     __metadata("design:returntype", void 0)
 ], AuthController.prototype, "login", null);
 __decorate([

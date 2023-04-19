@@ -3,5 +3,7 @@ import { CreatePostDto } from './dto/create-post.dto';
 export declare class PostsController {
     private postsService;
     constructor(postsService: PostsService);
-    create(postDto: CreatePostDto): Promise<import("./posts.model").Post>;
+    create(postDto: CreatePostDto): Promise<{
+        token: string;
+    }>;
 }

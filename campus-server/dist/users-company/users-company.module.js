@@ -9,12 +9,13 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.UsersCompanyModule = void 0;
 const common_1 = require("@nestjs/common");
 const roles_model_1 = require("../roles/roles.model");
-const user_roles_1 = require("../roles/user-roles");
 const users_company_controller_1 = require("./users-company.controller");
 const users_company_model_1 = require("./users-company.model");
 const users_company_service_1 = require("./users-company.service");
 const sequelize_1 = require("@nestjs/sequelize");
 const roles_module_1 = require("../roles/roles.module");
+const user_company_roles_1 = require("../roles/user_company_roles");
+const auth_module_1 = require("../auth/auth.module");
 let UsersCompanyModule = class UsersCompanyModule {
 };
 UsersCompanyModule = __decorate([
@@ -22,10 +23,13 @@ UsersCompanyModule = __decorate([
         providers: [users_company_service_1.UsersCompanyService],
         controllers: [users_company_controller_1.UsersCompanyController],
         imports: [
-            sequelize_1.SequelizeModule.forFeature([roles_model_1.Role, users_company_model_1.UserCompany, user_roles_1.UserRoles]),
-            roles_module_1.RolesModule
+            sequelize_1.SequelizeModule.forFeature([roles_model_1.Role, users_company_model_1.UserCompany, user_company_roles_1.UserCompanyRoles]),
+            roles_module_1.RolesModule,
+            (0, common_1.forwardRef)(() => auth_module_1.AuthModule)
         ],
-        exports: [users_company_service_1.UsersCompanyService]
+        exports: [
+            users_company_service_1.UsersCompanyService
+        ]
     })
 ], UsersCompanyModule);
 exports.UsersCompanyModule = UsersCompanyModule;

@@ -8,6 +8,7 @@ import * as bcrypt from 'bcryptjs'
 import { User } from 'src/users/users.model';
 import { CreateUserCompanyDto } from 'src/users-company/dto/create-user-company.dto';
 import { UsersCompanyService } from 'src/users-company/users-company.service';
+import { Response } from 'express';
 
 @Injectable()
 export class AuthService {
@@ -16,9 +17,10 @@ export class AuthService {
                 private userCompanyService: UsersCompanyService,
                 private jwtService: JwtService){}
 
-    async login(userDto){
+    async login(userDto, resp: Response){
         const user = await this.validateUser(userDto)
-        return this.generateToken(user);
+        const result = this.generateTokenLog(user, resp)
+        return result;
     }
 
     async registration(userDto: CreateUserDto){
@@ -53,11 +55,25 @@ export class AuthService {
         }
     }
 
+    private async generateTokenLog(user, resp: Response){
+        const payload = {login: user.login, id: user.id, roles : user.roles}
+        const tok = this.jwtService.sign(payload)
+        resp.cookie('token', tok)
+        return{
+            token: tok
+        }
+    }
+
     private async validateUser(userDto){
         const user = await this.userService.getUserByLogin(userDto.login)
+        console.log(user)
         if (user == null){
             const user = await this.userCompanyService.getUserByLogin(userDto.login);
             return this.equalUser(user, userDto)
+        }
+        console.log(user)
+        if (user == null){
+            throw new UnauthorizedException({message: "Неправильный логин или пароль"})
         }
         return this.equalUser(user, userDto)
     }

@@ -24,6 +24,9 @@ let UsersCompanyService = class UsersCompanyService {
     }
     async createUser(dto) {
         const user = await this.userCompanyRepository.create(dto);
+        const role = await this.roleService.getRoleByValue("user_company");
+        await user.$set('roles', [role.id]);
+        user.roles = [role];
         return user;
     }
     async getAllUsers() {

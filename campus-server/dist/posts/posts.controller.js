@@ -16,6 +16,8 @@ exports.PostsController = void 0;
 const common_1 = require("@nestjs/common");
 const posts_service_1 = require("./posts.service");
 const create_post_dto_1 = require("./dto/create-post.dto");
+const roles_guard_1 = require("../auth/roles.guard");
+const roles_auth_decorator_1 = require("../auth/roles-auth.decorator");
 let PostsController = class PostsController {
     constructor(postsService) {
         this.postsService = postsService;
@@ -26,6 +28,8 @@ let PostsController = class PostsController {
 };
 __decorate([
     (0, common_1.Post)(),
+    (0, common_1.UseGuards)(roles_guard_1.RolesGuard),
+    (0, roles_auth_decorator_1.Roles)('admin', 'user_company'),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [create_post_dto_1.CreatePostDto]),

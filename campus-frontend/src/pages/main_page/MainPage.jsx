@@ -3,6 +3,7 @@ import { Header } from "../../components/header/Header"
 import { Footer } from "../../components/footer/Footer"
 import { useNavigate } from "react-router-dom"
 import { useEffect } from "react"
+import { get_users } from "../../api/userApi"
 
 export const MainPage = () => {
     const navigate = useNavigate()

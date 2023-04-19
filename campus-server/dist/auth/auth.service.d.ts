@@ -3,12 +3,13 @@ import { CreateUserDto } from 'src/users/dto/create-user.dto';
 import { UsersService } from 'src/users/users.service';
 import { CreateUserCompanyDto } from 'src/users-company/dto/create-user-company.dto';
 import { UsersCompanyService } from 'src/users-company/users-company.service';
+import { Response } from 'express';
 export declare class AuthService {
     private userService;
     private userCompanyService;
     private jwtService;
     constructor(userService: UsersService, userCompanyService: UsersCompanyService, jwtService: JwtService);
-    login(userDto: any): Promise<{
+    login(userDto: any, resp: Response): Promise<{
         token: string;
     }>;
     registration(userDto: CreateUserDto): Promise<{
@@ -19,6 +20,7 @@ export declare class AuthService {
     }>;
     private validateRegistration;
     private generateToken;
+    private generateTokenLog;
     private validateUser;
     private equalUser;
 }

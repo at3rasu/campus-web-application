@@ -16,19 +16,27 @@ exports.PostsService = void 0;
 const common_1 = require("@nestjs/common");
 const sequelize_1 = require("@nestjs/sequelize");
 const posts_model_1 = require("./posts.model");
+const jwt_1 = require("@nestjs/jwt");
 let PostsService = class PostsService {
-    constructor(postRepository) {
+    constructor(postRepository, jwtService) {
         this.postRepository = postRepository;
+        this.jwtService = jwtService;
     }
     async createPost(postDto) {
         const post = await this.postRepository.create(postDto);
-        return post;
+        return this.generateToken(post);
+    }
+    async generateToken(post) {
+        const payload = { id: post.id, email: post.email, name: post.nameVacancy };
+        return {
+            token: this.jwtService.sign(payload)
+        };
     }
 };
 PostsService = __decorate([
     (0, common_1.Injectable)(),
     __param(0, (0, sequelize_1.InjectModel)(posts_model_1.Post)),
-    __metadata("design:paramtypes", [Object])
+    __metadata("design:paramtypes", [Object, jwt_1.JwtService])
 ], PostsService);
 exports.PostsService = PostsService;
 //# sourceMappingURL=posts.service.js.map

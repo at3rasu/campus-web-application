@@ -7,6 +7,8 @@ import { set_login } from '../../api/userApi'
 export const SingIn = () =>{
   const [login, setLogin] = useState('')
   const [pass, setPass] = useState('')
+  
+  let response = undefined
 
   const navigate = useNavigate()
 
@@ -60,7 +62,7 @@ export const SingIn = () =>{
           <button
             type='submit'
             onClick={async () => {
-              const response = await set_login(login, pass)
+              response = await set_login(login, pass)
               navigate("/")
             }}>Войти</button>
         </div>

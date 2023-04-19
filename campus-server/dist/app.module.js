@@ -20,6 +20,7 @@ const users_company_module_1 = require("./users-company/users-company.module");
 const users_company_model_1 = require("./users-company/users-company.model");
 const posts_module_1 = require("./posts/posts.module");
 const posts_model_1 = require("./posts/posts.model");
+const user_company_roles_1 = require("./roles/user_company_roles");
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
@@ -37,7 +38,7 @@ AppModule = __decorate([
                 username: process.env.POSTGRES_USER,
                 password: process.env.POSTGRESS_PASSWORD,
                 database: process.env.POSTGRES_DB,
-                models: [users_model_1.User, roles_model_1.Role, user_roles_1.UserRoles, users_company_model_1.UserCompany, posts_model_1.Post],
+                models: [users_model_1.User, roles_model_1.Role, user_roles_1.UserRoles, users_company_model_1.UserCompany, posts_model_1.Post, user_company_roles_1.UserCompanyRoles],
                 autoLoadModels: true
             }),
             users_module_1.UsersModule,

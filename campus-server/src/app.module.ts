@@ -11,6 +11,7 @@ import { UsersCompanyModule } from './users-company/users-company.module';
 import { UserCompany } from "./users-company/users-company.model";
 import { PostsModule } from './posts/posts.module';
 import { Post } from "./posts/posts.model";
+import { UserCompanyRoles } from "./roles/user_company_roles";
 
 @Module({
     controllers: [],
@@ -26,7 +27,7 @@ import { Post } from "./posts/posts.model";
         username: process.env.POSTGRES_USER,
         password: process.env.POSTGRESS_PASSWORD,
         database: process.env.POSTGRES_DB,
-        models: [User, Role, UserRoles, UserCompany, Post],
+        models: [User, Role, UserRoles, UserCompany, Post, UserCompanyRoles],
         autoLoadModels: true
       }),
       UsersModule,

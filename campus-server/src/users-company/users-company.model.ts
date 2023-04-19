@@ -1,6 +1,6 @@
 import { Column, DataType, Model, Table, BelongsToMany } from "sequelize-typescript";
 import { Role } from "src/roles/roles.model";
-import { UserRoles } from "src/roles/user-roles";
+import { UserCompanyRoles } from "src/roles/user_company_roles";
 
 interface UserCompanyCreationAttrs{
     email: string;
@@ -23,4 +23,7 @@ export class UserCompany extends Model<UserCompany, UserCompanyCreationAttrs>{
 
     @Column({type: DataType.STRING, allowNull: false})
     companyName: string
+
+    @BelongsToMany(() => Role, () => UserCompanyRoles)
+    roles: Role[]
 }

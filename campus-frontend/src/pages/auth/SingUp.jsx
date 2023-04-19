@@ -13,6 +13,9 @@ export const SingUp = () =>{
   const[email, setEmail] = useState('')
 
   const navigate = useNavigate()
+  
+  let response = undefined
+
 
   const handleSubmit = (e) =>{
     e.preventDefault()
@@ -117,7 +120,7 @@ export const SingUp = () =>{
         <div className='reg-btn'>
           <button
             onClick={async () => {
-              const response = await registration(email, pass, login, name, lastName, city, secondPass)
+              response = await registration(email, pass, login, name, lastName, city, secondPass)
               navigate('/')
             }}
             type='submit'>Зарегистрироваться</button>

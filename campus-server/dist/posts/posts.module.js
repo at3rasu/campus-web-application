@@ -12,15 +12,25 @@ const posts_controller_1 = require("./posts.controller");
 const posts_service_1 = require("./posts.service");
 const sequelize_1 = require("@nestjs/sequelize");
 const posts_model_1 = require("./posts.model");
+const jwt_1 = require("@nestjs/jwt");
 let PostsModule = class PostsModule {
 };
 PostsModule = __decorate([
     (0, common_1.Module)({
         controllers: [posts_controller_1.PostsController],
         providers: [posts_service_1.PostsService],
-        imports: [sequelize_1.SequelizeModule.forFeature([posts_model_1.Post])],
+        imports: [
+            sequelize_1.SequelizeModule.forFeature([posts_model_1.Post]),
+            jwt_1.JwtModule.register({
+                secret: process.env.PRIVATE_KEY || 'SECRET',
+                signOptions: {
+                    expiresIn: '24h'
+                }
+            })
+        ],
         exports: [
-            posts_service_1.PostsService
+            posts_service_1.PostsService,
+            jwt_1.JwtModule
         ]
     })
 ], PostsModule);

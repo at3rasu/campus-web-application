@@ -23,9 +23,10 @@ let AuthService = class AuthService {
         this.userCompanyService = userCompanyService;
         this.jwtService = jwtService;
     }
-    async login(userDto) {
+    async login(userDto, resp) {
         const user = await this.validateUser(userDto);
-        return this.generateToken(user);
+        const result = this.generateTokenLog(user, resp);
+        return result;
     }
     async registration(userDto) {
         const hashPassword = await bcrypt.hash(userDto.password, 5);
@@ -54,11 +55,24 @@ let AuthService = class AuthService {
             token: this.jwtService.sign(payload)
         };
     }
+    async generateTokenLog(user, resp) {
+        const payload = { login: user.login, id: user.id, roles: user.roles };
+        const tok = this.jwtService.sign(payload);
+        resp.cookie('token', tok);
+        return {
+            token: tok
+        };
+    }
     async validateUser(userDto) {
         const user = await this.userService.getUserByLogin(userDto.login);
+        console.log(user);
         if (user == null) {
             const user = await this.userCompanyService.getUserByLogin(userDto.login);
             return this.equalUser(user, userDto);
+        }
+        console.log(user);
+        if (user == null) {
+            throw new exceptions_1.UnauthorizedException({ message: "Неправильный логин или пароль" });
         }
         return this.equalUser(user, userDto);
     }
