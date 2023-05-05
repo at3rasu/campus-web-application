@@ -1,4 +1,4 @@
-export declare class CreatePostDto {
+export class CreateVacancyDto{
     readonly nameVacancy: string;
     readonly companyDescription: string;
     readonly city: string;

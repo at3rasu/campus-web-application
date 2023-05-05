@@ -1,12 +1,12 @@
 import { Column, DataType, Model, Table, BelongsToMany } from "sequelize-typescript";
 
 
-interface PostCreationAttrs{
+interface VacancyCreationAttrs{
     nameVacancy: string;
 }
 
-@Table({tableName: 'posts'})
-export class Post extends Model<Post, PostCreationAttrs>{ 
+@Table({tableName: 'vacancies'})
+export class Vacancy extends Model<Vacancy, VacancyCreationAttrs>{ 
     @Column({type: DataType.INTEGER, unique: true, autoIncrement: true, primaryKey: true})
     id: number
 

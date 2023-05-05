@@ -12,19 +12,19 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.PostsService = void 0;
+exports.VacanciesService = void 0;
 const common_1 = require("@nestjs/common");
 const sequelize_1 = require("@nestjs/sequelize");
-const posts_model_1 = require("./posts.model");
+const vacancies_model_1 = require("./vacancies.model");
 const jwt_1 = require("@nestjs/jwt");
-let PostsService = class PostsService {
-    constructor(postRepository, jwtService) {
-        this.postRepository = postRepository;
+let VacanciesService = class VacanciesService {
+    constructor(vacancyRepository, jwtService) {
+        this.vacancyRepository = vacancyRepository;
         this.jwtService = jwtService;
     }
-    async createPost(postDto) {
-        const post = await this.postRepository.create(postDto);
-        return this.generateToken(post);
+    async createVacancy(vacancyDto) {
+        const vacancy = await this.vacancyRepository.create(vacancyDto);
+        return this.generateToken(vacancy);
     }
     async generateToken(post) {
         const payload = { id: post.id, email: post.email, name: post.nameVacancy };
@@ -33,10 +33,10 @@ let PostsService = class PostsService {
         };
     }
 };
-PostsService = __decorate([
+VacanciesService = __decorate([
     (0, common_1.Injectable)(),
-    __param(0, (0, sequelize_1.InjectModel)(posts_model_1.Post)),
+    __param(0, (0, sequelize_1.InjectModel)(vacancies_model_1.Vacancy)),
     __metadata("design:paramtypes", [Object, jwt_1.JwtService])
-], PostsService);
-exports.PostsService = PostsService;
-//# sourceMappingURL=posts.service.js.map
+], VacanciesService);
+exports.VacanciesService = VacanciesService;
+//# sourceMappingURL=vacancies.service.js.map

@@ -18,9 +18,9 @@ const user_roles_1 = require("./roles/user-roles");
 const auth_module_1 = require("./auth/auth.module");
 const users_company_module_1 = require("./users-company/users-company.module");
 const users_company_model_1 = require("./users-company/users-company.model");
-const posts_module_1 = require("./posts/posts.module");
-const posts_model_1 = require("./posts/posts.model");
 const user_company_roles_1 = require("./roles/user_company_roles");
+const vacancies_model_1 = require("./vacancies/vacancies.model");
+const vacancies_module_1 = require("./vacancies/vacancies.module");
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
@@ -38,14 +38,14 @@ AppModule = __decorate([
                 username: process.env.POSTGRES_USER,
                 password: process.env.POSTGRESS_PASSWORD,
                 database: process.env.POSTGRES_DB,
-                models: [users_model_1.User, roles_model_1.Role, user_roles_1.UserRoles, users_company_model_1.UserCompany, posts_model_1.Post, user_company_roles_1.UserCompanyRoles],
+                models: [users_model_1.User, roles_model_1.Role, user_roles_1.UserRoles, users_company_model_1.UserCompany, vacancies_model_1.Vacancy, user_company_roles_1.UserCompanyRoles],
                 autoLoadModels: true
             }),
             users_module_1.UsersModule,
             roles_module_1.RolesModule,
             auth_module_1.AuthModule,
             users_company_module_1.UsersCompanyModule,
-            posts_module_1.PostsModule
+            vacancies_module_1.VacanciesModule
         ]
     })
 ], AppModule);

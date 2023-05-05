@@ -12,18 +12,18 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.PostsController = void 0;
+exports.VacanciesController = void 0;
 const common_1 = require("@nestjs/common");
-const posts_service_1 = require("./posts.service");
-const create_post_dto_1 = require("./dto/create-post.dto");
+const vacancies_service_1 = require("./vacancies.service");
+const create_vacancy_dto_1 = require("./dto/create-vacancy.dto");
 const roles_guard_1 = require("../auth/roles.guard");
 const roles_auth_decorator_1 = require("../auth/roles-auth.decorator");
-let PostsController = class PostsController {
-    constructor(postsService) {
-        this.postsService = postsService;
+let VacanciesController = class VacanciesController {
+    constructor(vacanciesService) {
+        this.vacanciesService = vacanciesService;
     }
-    create(postDto) {
-        return this.postsService.createPost(postDto);
+    create(vacancyDto) {
+        return this.vacanciesService.createVacancy(vacancyDto);
     }
 };
 __decorate([
@@ -32,12 +32,12 @@ __decorate([
     (0, roles_auth_decorator_1.Roles)('admin', 'user_company'),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [create_post_dto_1.CreatePostDto]),
+    __metadata("design:paramtypes", [create_vacancy_dto_1.CreateVacancyDto]),
     __metadata("design:returntype", void 0)
-], PostsController.prototype, "create", null);
-PostsController = __decorate([
-    (0, common_1.Controller)('posts'),
-    __metadata("design:paramtypes", [posts_service_1.PostsService])
-], PostsController);
-exports.PostsController = PostsController;
-//# sourceMappingURL=posts.controller.js.map
+], VacanciesController.prototype, "create", null);
+VacanciesController = __decorate([
+    (0, common_1.Controller)('vacancies'),
+    __metadata("design:paramtypes", [vacancies_service_1.VacanciesService])
+], VacanciesController);
+exports.VacanciesController = VacanciesController;
+//# sourceMappingURL=vacancies.controller.js.map

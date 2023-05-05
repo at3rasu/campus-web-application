@@ -9,9 +9,9 @@ import { UserRoles } from "./roles/user-roles";
 import { AuthModule } from './auth/auth.module';
 import { UsersCompanyModule } from './users-company/users-company.module';
 import { UserCompany } from "./users-company/users-company.model";
-import { PostsModule } from './posts/posts.module';
-import { Post } from "./posts/posts.model";
 import { UserCompanyRoles } from "./roles/user_company_roles";
+import { Vacancy } from "./vacancies/vacancies.model";
+import { VacanciesModule } from "./vacancies/vacancies.module";
 
 @Module({
     controllers: [],
@@ -27,14 +27,14 @@ import { UserCompanyRoles } from "./roles/user_company_roles";
         username: process.env.POSTGRES_USER,
         password: process.env.POSTGRESS_PASSWORD,
         database: process.env.POSTGRES_DB,
-        models: [User, Role, UserRoles, UserCompany, Post, UserCompanyRoles],
+        models: [User, Role, UserRoles, UserCompany, Vacancy, UserCompanyRoles],
         autoLoadModels: true
       }),
       UsersModule,
       RolesModule,
       AuthModule,
       UsersCompanyModule,
-      PostsModule
+      VacanciesModule
     ]
 })
 

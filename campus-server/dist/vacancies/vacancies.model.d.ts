@@ -1,8 +1,8 @@
 import { Model } from "sequelize-typescript";
-interface PostCreationAttrs {
+interface VacancyCreationAttrs {
     nameVacancy: string;
 }
-export declare class Post extends Model<Post, PostCreationAttrs> {
+export declare class Vacancy extends Model<Vacancy, VacancyCreationAttrs> {
     id: number;
     nameVacancy: string;
     companyDescription: string;

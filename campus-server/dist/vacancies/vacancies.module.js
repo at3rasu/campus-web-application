@@ -6,21 +6,20 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.PostsModule = void 0;
+exports.VacanciesModule = void 0;
 const common_1 = require("@nestjs/common");
-const posts_controller_1 = require("./posts.controller");
-const posts_service_1 = require("./posts.service");
+const vacancies_controller_1 = require("./vacancies.controller");
+const vacancies_service_1 = require("./vacancies.service");
 const sequelize_1 = require("@nestjs/sequelize");
-const posts_model_1 = require("./posts.model");
+const vacancies_model_1 = require("./vacancies.model");
 const jwt_1 = require("@nestjs/jwt");
-let PostsModule = class PostsModule {
+let VacanciesModule = class VacanciesModule {
 };
-PostsModule = __decorate([
+VacanciesModule = __decorate([
     (0, common_1.Module)({
-        controllers: [posts_controller_1.PostsController],
-        providers: [posts_service_1.PostsService],
+        controllers: [vacancies_controller_1.VacanciesController],
         imports: [
-            sequelize_1.SequelizeModule.forFeature([posts_model_1.Post]),
+            sequelize_1.SequelizeModule.forFeature([vacancies_model_1.Vacancy]),
             jwt_1.JwtModule.register({
                 secret: process.env.PRIVATE_KEY || 'SECRET',
                 signOptions: {
@@ -29,10 +28,13 @@ PostsModule = __decorate([
             })
         ],
         exports: [
-            posts_service_1.PostsService,
+            vacancies_service_1.VacanciesService
+        ],
+        providers: [
+            vacancies_service_1.VacanciesService,
             jwt_1.JwtModule
         ]
     })
-], PostsModule);
-exports.PostsModule = PostsModule;
-//# sourceMappingURL=posts.module.js.map
+], VacanciesModule);
+exports.VacanciesModule = VacanciesModule;
+//# sourceMappingURL=vacancies.module.js.map
