@@ -15,6 +15,6 @@ export class VacanciesController {
            @Req() request: Request
         ){
         console.log(request.headers)
-        // return this.vacanciesService.createVacancy(vacancyDto);
+        return this.vacanciesService.createVacancy(vacancyDto, request);
     }
 }

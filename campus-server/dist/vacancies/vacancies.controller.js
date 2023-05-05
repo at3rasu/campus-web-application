@@ -24,6 +24,7 @@ let VacanciesController = class VacanciesController {
     }
     create(vacancyDto, request) {
         console.log(request.headers);
+        return this.vacanciesService.createVacancy(vacancyDto, request);
     }
 };
 __decorate([

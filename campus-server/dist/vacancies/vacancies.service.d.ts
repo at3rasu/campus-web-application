@@ -5,9 +5,8 @@ export declare class VacanciesService {
     private vacancyRepository;
     private jwtService;
     constructor(vacancyRepository: typeof Vacancy, jwtService: JwtService);
-    createVacancy(vacancyDto: CreateVacancyDto): Promise<{
+    createVacancy(vacancyDto: CreateVacancyDto, req: any): Promise<{
         token: string;
     }>;
-    private findUserId;
     private generateToken;
 }

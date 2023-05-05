@@ -6,7 +6,6 @@ import api from "../create-api";
 export default class UserStore{
     IsAuth = false
     user = {}
-   
     constructor(){
         makeAutoObservable(this)
     }
@@ -14,8 +13,6 @@ export default class UserStore{
     setAuth(flag){
         this.IsAuth = true
     }
-
-
 
     setUser(user){
         this.user = user
@@ -26,6 +23,7 @@ export default class UserStore{
             const response = await api.post(`/auth/registration`, {email, password, login, name, surname, city, repeatPass})
             localStorage.setItem('token', response.data.token)
             this.setAuth(true)
+            
             this.setUser(response.data.user)
             return response
         } catch(e) {
@@ -38,6 +36,7 @@ export default class UserStore{
             const response = await api.post(`/auth/login`, {login, password})
             localStorage.setItem('token', response.data.token)
             this.setAuth(true)
+            console.log(this.IsAuth)
             this.setUser(response.data.user)
             return response
         } catch(e) {

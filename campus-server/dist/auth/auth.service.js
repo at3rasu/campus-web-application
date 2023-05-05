@@ -65,12 +65,10 @@ let AuthService = class AuthService {
     }
     async validateUser(userDto) {
         const user = await this.userService.getUserByLogin(userDto.login);
-        console.log(user);
         if (user == null) {
             const user = await this.userCompanyService.getUserByLogin(userDto.login);
             return this.equalUser(user, userDto);
         }
-        console.log(user);
         if (user == null) {
             throw new exceptions_1.UnauthorizedException({ message: "Неправильный логин или пароль" });
         }

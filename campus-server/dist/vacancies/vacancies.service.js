@@ -22,14 +22,17 @@ let VacanciesService = class VacanciesService {
         this.vacancyRepository = vacancyRepository;
         this.jwtService = jwtService;
     }
-    async createVacancy(vacancyDto) {
+    async createVacancy(vacancyDto, req) {
+        const authHeader = req.headers.authorization;
+        const token = authHeader.split(' ')[1];
+        const userCompanyId = this.jwtService.verify(token).id;
+        console.log(userCompanyId);
+        vacancyDto.userCompanyId = userCompanyId;
         const vacancy = await this.vacancyRepository.create(vacancyDto);
         return this.generateToken(vacancy);
     }
-    async findUserId() {
-    }
-    async generateToken(post) {
-        const payload = { id: post.id, email: post.email, name: post.nameVacancy };
+    async generateToken(vacancy) {
+        const payload = { id: vacancy.id, email: vacancy.email, name: vacancy.nameVacancy };
         return {
             token: this.jwtService.sign(payload)
         };

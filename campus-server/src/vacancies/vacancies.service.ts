@@ -11,19 +11,18 @@ export class VacanciesService {
                 // @InjectModel(UserCompany) private userCompanyRepository: typeof UserCompany,
                 private jwtService: JwtService){}
 
-    async createVacancy(vacancyDto: CreateVacancyDto){
+    async createVacancy(vacancyDto: CreateVacancyDto, req){
+        const authHeader = req.headers.authorization
+        const token = authHeader.split(' ')[1]
+        const userCompanyId = this.jwtService.verify(token).id
+        console.log(userCompanyId)
+        vacancyDto.userCompanyId = userCompanyId
         const vacancy = await this.vacancyRepository.create(vacancyDto);
-        // const userCompanyId = this.findUserId()
-        // await vacancy.$set('userCompanyId', userCompanyId)
         return this.generateToken(vacancy);
     }
 
-    private async findUserId(){
-
-    }
-
-    private async generateToken(post: Vacancy){
-        const payload = {id: post.id, email: post.email, name : post.nameVacancy}
+    private async generateToken(vacancy: Vacancy){
+        const payload = {id: vacancy.id, email: vacancy.email, name : vacancy.nameVacancy}
         return{
             token: this.jwtService.sign(payload)
         }

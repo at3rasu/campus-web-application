@@ -3,7 +3,6 @@ import { Column, DataType, Model, Table, BelongsToMany } from "sequelize-typescr
 
 interface VacancyCreationAttrs{
     nameVacancy: string;
-    userCompanyId: number;
 }
 
 @Table({tableName: 'vacancies'})

@@ -3,8 +3,9 @@ import { Link } from "react-router-dom"
 import styles from "./Header.module.css"
 import { useContext} from "react"
 import { Context } from "../.."
+import { observer } from 'mobx-react'
 
-export const Header = () =>{
+export const Header = observer(() =>{
     const navigate = useNavigate()
     const {store} = useContext(Context)
 
@@ -28,13 +29,13 @@ export const Header = () =>{
                         <button>Фрик Даня</button>
                     ):(
                         <>
-                        <div className={styles.singUp_btn}>
-                            <button onClick={() => navigate('/SingIn')}>Регистрация</button>
-                        </div>  
-                        <div className={styles.singIn_btn}>
-                            <button onClick={() => navigate('/SingIn')}>Войти</button>
-                        </div> 
-                    </>
+                            <div className={styles.singUp_btn}>
+                                <button onClick={() => navigate('/SingIn')}>Регистрация</button>
+                            </div>  
+                            <div className={styles.singIn_btn}>
+                                <button onClick={() => navigate('/SingIn')}>Войти</button>
+                            </div> 
+                        </>
                     )}
                 </div>
             </div>
@@ -42,4 +43,4 @@ export const Header = () =>{
             </div>
         </div>
     )
-}
+})

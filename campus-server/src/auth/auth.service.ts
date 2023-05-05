@@ -66,12 +66,10 @@ export class AuthService {
 
     private async validateUser(userDto){
         const user = await this.userService.getUserByLogin(userDto.login)
-        console.log(user)
         if (user == null){
             const user = await this.userCompanyService.getUserByLogin(userDto.login);
             return this.equalUser(user, userDto)
         }
-        console.log(user)
         if (user == null){
             throw new UnauthorizedException({message: "Неправильный логин или пароль"})
         }

@@ -3,5 +3,7 @@ import { CreateVacancyDto } from './dto/create-vacancy.dto';
 export declare class VacanciesController {
     private vacanciesService;
     constructor(vacanciesService: VacanciesService);
-    create(vacancyDto: CreateVacancyDto, request: Request): void;
+    create(vacancyDto: CreateVacancyDto, request: Request): Promise<{
+        token: string;
+    }>;
 }
