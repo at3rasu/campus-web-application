@@ -1,9 +1,12 @@
 import { useNavigate } from "react-router-dom"
 import { Link } from "react-router-dom"
 import styles from "./Header.module.css"
+import { useContext} from "react"
+import { Context } from "../.."
 
 export const Header = () =>{
     const navigate = useNavigate()
+    const {store} = useContext(Context)
 
     return(
         <div className={styles.header}>
@@ -20,12 +23,20 @@ export const Header = () =>{
                 <div className={styles.btn}>
                     <button className="srh-btn"><img src="/img/coolicon.svg" alt="logo"/></button>
                 </div>
-                <div className={styles.singUp_btn}>
-                    <button onClick={() => navigate('/SingIn')}>Регистрация</button>
-                </div>  
-                <div className={styles.singIn_btn}>
-                    <button onClick={() => navigate('/SingIn')}>Войти</button>
-                </div> 
+                <div>
+                    {store.IsAuth ? (
+                        <button>Фрик Даня</button>
+                    ):(
+                        <>
+                        <div className={styles.singUp_btn}>
+                            <button onClick={() => navigate('/SingIn')}>Регистрация</button>
+                        </div>  
+                        <div className={styles.singIn_btn}>
+                            <button onClick={() => navigate('/SingIn')}>Войти</button>
+                        </div> 
+                    </>
+                    )}
+                </div>
             </div>
             <div className={styles.a}>
             </div>

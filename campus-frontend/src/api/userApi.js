@@ -1,5 +1,5 @@
-import api from "./create-api.ts";
-import Store from "./store/store.ts";
+import api from "./create-api";
+import Store from "./store/store";
 
 
 const store = new Store()
