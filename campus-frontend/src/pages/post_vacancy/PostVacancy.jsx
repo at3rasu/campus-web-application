@@ -1,6 +1,6 @@
 import styles from './PostVacancy.module.css'
 
-import { Header } from "../../components/header/Header"
+import { Header } from "../../components/header/Header_2"
 import { Footer } from "../../components/footer/Footer"
 import { ExperienceSelection } from '../../components/experience_selection/ExperienceSelection'
 import { EducationSelection } from '../../components/education_selection/EducationSelection'
@@ -12,122 +12,144 @@ export const PostVacancy = () =>{
     })
 
     const [nameVacancy, setNameVacancy] = useState('')
+    const [nameCompany, setNameCompany] = useState('')
     const [сompanyDescription, setCompanyDescription] = useState('')
-    const [city, setCity] = useState('')
-    const [vacancyDescription, setVacancyDescription] = useState('')
+    const [duties, setDuties] = useState('')
+    const [expectations, setExpectations] = useState('')
+    const [skills, setSkills] = useState('')
+    const [conditions, setConditions] = useState ('')
     const [image, setImage] = useState('')
     const [fullAddress, setFullAddress] = useState('')
     const [number, setNumber] = useState('')
     const [email, setEmail] = useState('')
-    const [keySkills, setKeySkills] = useState('')
 
 
 
     return(
-        <div className="postVacancy">
+        <div className={styles.postVacancy}>
             <Header />
             <div className={styles.container}>
                 <div className={styles.title}>
                     <hr></hr>
-                    <h1>Разместить вакансию</h1>
+                    <h1>Публикация вакансии</h1>
                     <hr></hr>    
                 </div>
                 <hr className={styles.hrData}></hr>
+                <h2 className={styles.briefInfo}>Основная информация о компании</h2>
                 <div className={styles.boxContent}>
                     <div className={styles.inputData}>
-                        <label>Заголовок</label>
+                        <label>Название компании</label>
                         <input
                             type='text'
-                            value={nameVacancy}
-                            onChange={(e) => setNameVacancy(e.target.value)}></input>
-                        <p>Введите название должности</p>
+                            value={nameCompany}
+                            placeholder='Введите название компании'
+                            onChange={(e) => setNameCompany(e.target.value)}></input>
                     </div>
                     <div className={styles.inputData}>
                         <label>Описание компании</label>
                         <input
                             type='text'
                             value={сompanyDescription} 
+                            placeholder='Кратное описание компании'
                             onChange={(e) => setCompanyDescription(e.target.value)}></input>
-                        <p>Описание компании</p>
-                    </div>
-                    <div className={styles.inputData}>
-                        <label>Описание вакансии</label>
-                        <input
-                            type='text'
-                            value={vacancyDescription} 
-                            onChange={(e) => setVacancyDescription(e.target.value)}></input>
-                        <p>Опишите работу на должности:
-                            Какие обязанности нужно выполнять?
-                            Какие требования к стажеру?
-                            Какими навыками необходимо владеть?</p>
                     </div>
                     <div className={styles.inputFile}>
-                        <label>Изображения</label>
-                        <input
-                            type='file'
-                            value={image}
-                            onChange={(e) => setImage(e.target.value)}></input>
-                        <p>Добавьте медиафайлы для полного описания</p>
+                        <label>Логотип компании</label>
+                        <span className={styles.flex}>
+                            <input
+                                type='file'
+                                value={image}
+                                onChange={(e) => setImage(e.target.value)}></input>
+                            <p className={styles.file}>Добавьте изображение в формате PNG</p>
+                        </span>
                     </div>
                 </div>
                 <hr className={styles.hrData}></hr>
+                <h2 className={styles.briefInfo}>Основная информация о вакансии</h2>
                 <div className={styles.boxContent}>
                     <div className={styles.inputData}>
-                        <label>Город</label>
+                        <label>Название вакансии</label>
                         <input
                             type='text'
-                            value={city}
-                            onChange={(e) => setCity(e.target.value)}></input>
-                        <p>Место работы и контактные данные</p>
+                            value={nameVacancy}
+                            placeholder='Введите название вакансии'
+                            onChange={(e) => setNameVacancy(e.target.value)}></input>
+                    </div>
+                    <div className={styles.inputData}>
+                        <label>Обязанности стажера</label>
+                        <input
+                            type='text'
+                            value={duties} 
+                            placeholder='Введите обязанности стажера'
+                            onChange={(e) => setDuties(e.target.value)}></input>
+                    </div>
+                    <div className={styles.inputData}>
+                        <label>Ожидания от стажера</label>
+                        <input
+                            type='text'
+                            value={expectations} 
+                            placeholder='Введите знания, которыми должен обладать стажер'
+                            onChange={(e) => setExpectations(e.target.value)}></input>
+                    </div>
+                    <div className={styles.inputData}>
+                        <label>Дополнительные знания</label>
+                        <input
+                            type='text'
+                            value={skills} 
+                            placeholder='Введите знания, которые будут плюсом к основным'
+                            onChange={(e) => setSkills(e.target.value)}></input>
+                    </div>
+                    <div className={styles.inputData}>
+                        <label>Условия работы</label>
+                        <input
+                            type='text'
+                            value={conditions} 
+                            placeholder='Введите условия работы'
+                            onChange={(e) => setConditions(e.target.value)}></input>
+                    </div>
+                </div>
+                <hr className={styles.hrData}></hr>
+                <h2 className={styles.briefInfo}>Контакты для связи</h2>
+                <div className={styles.boxContent}>
+                    <div className={styles.inputData}>
+                        <label>Номер телефона</label>
+                        <input
+                            type='tel'
+                            value={number}
+                            placeholder="+7 (999) 999-99-99"
+                            onChange={(e) => setNumber(e.target.value)}></input>
+                    </div>
+                    <div className={styles.inputData}>
+                        <label>Адрес Email</label>
+                        <input
+                            type='email'
+                            value={email}
+                            placeholder='ivanov.ivan@gmail.com'
+                            onChange={(e) => setEmail(e.target.value)}></input>
                     </div>
                     <div className={styles.inputData}>
                         <label>Полный адрес</label>
                         <input
-                            type='text'
+                            type='tel'
                             value={fullAddress}
+                            placeholder="Екатеринбург, улица Радищева, 28"
                             onChange={(e) => setFullAddress(e.target.value)}></input>
-                        <p></p>
-                    </div>
-                    <div className={styles.inputData}>
-                        <label>Телефон</label>
-                        <input
-                            type='text'
-                            value={number}
-                            onChange={(e) => setNumber(e.target.value)}></input>
-                        <p></p>
-                    </div>
-                    <div className={styles.inputData}>
-                        <label>Почта</label>
-                        <input
-                            type='text'
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}></input>
-                        <p></p>
                     </div>
                 </div>
                 <hr className={styles.hrData}></hr>
+                <h2 className={styles.briefInfo}>Требования к стажеру</h2>
                 <div className={styles.boxContent}>
                     <div className={styles.inputData}>
                         <label>Образование</label>
                         <EducationSelection />
-                        <p>Требования к стажеру</p>
                     </div>
                     <div className={styles.inputData}>
                         <label>Опыт работы</label>
                         <ExperienceSelection />
-                        <p></p>
-                    </div>
-                    <div className={styles.inputData}>
-                        <label>Ключевые навыки</label>
-                        <input
-                            type='text'
-                            value={keySkills}
-                            onChange={(e) => setKeySkills(e.target.value)}></input>
-                        <p></p>
                     </div>
                     <div className={styles.buttonSubmit}>
                         <button
-                            type='submit'><img src='/img/btn_logo.svg' alt='btn_logo'/> Разместить</button>
+                            type='submit'>Опубликовать вакансию</button>
                     </div>
                 </div>
             </div>

@@ -1,0 +1,63 @@
+@font-face {
+    font-family: 'Giga Sans';
+    src: url(/src/fonts/giga_sans/GigaSans-Medium.ttf);
+}
+
+.container{
+    min-height: calc(100vh - 80px);
+    width: 100%;
+    background: #8269EF;
+}
+
+.content{
+    width: 1680px;
+    height: 100%;
+    margin: 0px auto;
+}
+
+.text{
+    text-align: center;
+    padding-top: 20vh;
+}
+
+.text h1{
+    font-family: Giga Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 78px;
+    line-height: 83px;
+    padding-bottom: 20px;
+
+    color: #FFFFFF;
+}
+
+.text p{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 148%;
+    color: #FFFFFF;
+}
+
+.btn{
+    display: flex;
+    justify-content: center;
+    padding-top: 35px;
+}
+
+.btn button{
+    background: #FFFFFF;
+    border-radius: 22px;
+    width: 320px;
+    height: 60px;  
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 100%;
+    text-align: center;
+    color: #8269EF;
+    opacity: 0.9; 
+    border: none;
+}

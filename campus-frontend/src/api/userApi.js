@@ -1,4 +1,3 @@
-import axios from "axios";
 import api from "./create-api.ts";
 import Store from "./store/store.ts";
 

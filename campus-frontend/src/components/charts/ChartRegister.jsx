@@ -1,4 +1,5 @@
 import { Line } from 'react-chartjs-2'
+import './ChartRegister.css'
 import {
     Chart as ChartJS,
     LineElement,
@@ -16,9 +17,9 @@ ChartJS.register(
 
 export const ChartRegister = () =>{
     const data = {
-        labels: [1, 5, 10, 15, 20, 25, 30],
+        labels: [3, 6, 9, 12, 15, 18, 21, 24, 27, 30],
         datasets: [{
-            data: [0, 5, 54, 10, 26, 76, 39],
+            data: [25, 29, 31, 38, 46, 50, 56, 61, 75, 81],
         }]
     }
     const options = {
@@ -30,7 +31,7 @@ export const ChartRegister = () =>{
 
     return(
         <div className='chart-register'>
-            <Line data={data} options={options}></Line>
+            <Line data={data} options={options} ></Line>
         </div>
     )
 }

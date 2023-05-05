@@ -1,4 +1,3 @@
-import axios from "axios";
 import { IUser } from "../users/IUser";
 import {makeAutoObservable} from "mobx"
 import api from "../create-api.ts";

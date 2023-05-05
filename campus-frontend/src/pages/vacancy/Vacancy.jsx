@@ -18,14 +18,16 @@ export const Vacancy = () =>{
                     <div className={styles.inputSearch}>
                         <input
                             type="search"
-                            placeholder="Поиск..."></input>
-                        <button><img src="/img/search_logo.svg" alt="search_logo"/></button>
+                            placeholder="Введите название вакансии..."></input>
                     </div>
                     <div className={styles.sortVacancy}>
                         <label>Найдено n-кол-во вакансий</label>
                     </div>
                 </div>
-                <Card />
+                <hr className={styles.hr}></hr>
+                <div className={styles.vacancy}>
+                    <Card />
+                </div>
             </div>
             <Footer />
         </div>

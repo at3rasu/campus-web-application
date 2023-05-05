@@ -1,13 +1,14 @@
 import './Statistics.css'
 
-import { MonthSelection } from '../../components/month_selection/MonthSelection'
 import { Header } from '../../components/header/Header'
 import { ChartRegister } from '../../components/charts/ChartRegister'
 import { ChartCity } from '../../components/charts/ChartCity'
 import { Footer } from '../../components/footer/Footer'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 
 export const Statistics = () => {
+    const [student] = useState('336')
+
     useEffect(() => {
         document.title = 'Статистика'
     })
@@ -17,31 +18,23 @@ export const Statistics = () => {
             <Header />
             <h1 className="title-static">Статистика для инвесторов</h1>
             <div className='register-dynamics'>
-                <p>Динамика регистраций за</p>
-                <div className='mouth-select'>
-                    <MonthSelection />
-                </div>
-                <button><img src='/img/unload.svg' alt='unload'/>Выгрузить</button>
+                <p>Динамика регистраций за последний месяц</p>
+                <button>Выгрузить</button>
             </div>
             <div className='chart'>
                 <ChartRegister />
+                <p>Всего зарегистрировано: {student}</p>
             </div>
             <div className='register-dynamics'>
-                <p>Процент регистраций по городам за </p>
-                <div className='mouth-select'>
-                    <MonthSelection />
-                </div>
-                <button><img src='/img/unload.svg' alt='unload'/>Выгрузить</button>
+                <p>Процент регистраций по городам за все время</p>
+                <button>Выгрузить</button>
             </div>
             <div className='chart1'>
                 <ChartCity />    
             </div>    
             <div className='register-dynamics'>
-                <p>Динамика регистраций за</p>
-                <div className='mouth-select'>
-                    <MonthSelection />
-                </div>
-                <button><img src='/img/unload.svg' alt='unload'/>Выгрузить</button>
+                <p>Получатели стипендиальной поддержки</p>
+                <button>Выгрузить</button>
             </div> 
             <Footer />
         </div>

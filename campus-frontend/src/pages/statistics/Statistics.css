@@ -2,7 +2,7 @@
     font-family: 'Inter';
     font-style: normal;
     font-weight: 500;
-    font-size: 50px;
+    font-size: 48px;
     line-height: 61px;
     text-align: center;
     margin-top: 4%;
@@ -22,8 +22,8 @@
     margin-left: 15%;
     font-family: 'Inter';
     font-style: normal;
-    font-weight: 400;
-    font-size: 45px;
+    font-weight: 500;
+    font-size: 42px;
     line-height: 54px;
 
     color: #000000;
@@ -34,17 +34,15 @@
     margin-left: auto;
     background: none;
     border: 2px solid #F52D30;
-    border-radius: 9px;
-    width: 187px;
-    height: 46px;
+    border-radius: 25px;
+    width: 199px;
+    height: 50px;
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
     font-size: 25px;
     line-height: 30px;
-    text-align: right;
-    display: flex;
-    align-items: center;
+    text-align: center;
     cursor: pointer;
 
     color: #F52D30;
@@ -62,9 +60,19 @@
 .chart{
     padding-top: 55px;
     margin-left: 15%;
-    width: 840px;
-    height: 430px; 
+    
 } 
+
+
+.chart p{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 42px;
+
+    color: #000000;
+}
 
 .chart1{
     padding-top: 55px;

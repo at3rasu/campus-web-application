@@ -7,8 +7,11 @@
 
 .container{
     min-height: calc(100vh - 80px);
-    width: 1680px;
-    margin: 0px auto;
+}
+
+@font-face {
+    font-family: 'Giga Sans';
+    src: url(/src/fonts/giga_sans/GigaSans-Medium.ttf);
 }
 
 @media(max-width:1680px){
@@ -18,25 +21,52 @@
 
 }
 
+.firstContainer{
+    background: #F42E30;
+    width: 100%;
+}
 
 .fisrtContent{
-    height: 850px;
+    height: 715px;
+    width: 1650px;
+    margin: 0 auto;
+    background: #F42E30;
+    display: flex;
+}
+
+.secondContainer{
+    max-height: 1000px;
+    min-height: 300px;
+}
+
+.thirdContainer{
+    height: 1000px;
+    background: #8269EF;
+}
+
+.thirdContent{
+    width: 1680px;
+    margin: 0 auto;
 }
 
 .firstText{
-    padding-top: 10%;
+    padding-top: 7%;
 }
 
 .firstText h1{
-    font-family: 'Inter';
+    font-family: 'Giga Sans';
     font-style: normal;
     font-weight: 600;
     font-size: 64px;
     line-height: 77px;
     display: flex;
     align-items: center;
-    width: 1009px;
-    color: #000000;
+
+    color: #FFFFFF;
+}
+
+.firstText img{
+    padding-top: 31px;
 }
 
 .firstText p{
@@ -44,82 +74,25 @@
     font-style: normal;
     font-weight: 400;
     font-size: 24px;
-    line-height: 29px;
-    display: flex;
-    align-items: center;
-    padding-top: 41px;
-    width: 530px;
-
-    color: #000000;
+    line-height: 128%;
+    width: 597px;
+    color: #FFFFFF;
+    margin-top: 66px;
+    margin-left: 152px;
 }
 
 .search{
     display: flex;
-    padding-top: 61px;
+
 }
 
-.search input{
-    width: 546px;
-    height: 57px;
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 24px;
-    line-height: 29px;
-    display: block;
-    /* identical to box height */
+.search img{
+    position: absolute;
 
-    align-items: center;
-
-    color: rgba(0, 0, 0, 0.5);
-    background: #FFFFFF;
-    box-shadow: inset 0px 0px 8px rgba(0, 0, 0, 0.25);
-    border-radius: 6px;
-    border: none;
-}
-
-.search input:focus{
-    outline: none;
-}
-
-.search button{
-    margin-left: 20px;
-    width: 57px;
-    display: block;
-    background: #F52D30;
-    box-shadow: inset 0px 0px 2px rgba(0, 0, 0, 0.25);
-    border-radius: 6px;
-    border: none;
-    cursor: pointer;
-}
-
-.btnView{
-    display: flex;
-    justify-content: center;
-    padding-top: 12%; 
-}
-
-.btnView button{
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 20px;
-    line-height: 24px;
-    display: flex;
-    align-items: center;
-    text-align: center;
-
-    color: #000000;
-}
-
-.secondContent{
-    margin-top: 5%;
 }
 
 .secondText{
+    padding-top: 110px;
     font-family: 'Inter';
     font-style: normal;
     align-items: center;
@@ -127,34 +100,34 @@
 }
 
 .secondText h1{
-    font-weight: 600;
+    font-weight: 800;
     font-size: 104px;
     line-height: 126px;
-    color: #000000;
+    color: #FFFFFF;
 }
 
-.secondText p{
-    font-family: 'Inter';
+.secondText p{  
     font-style: normal;
-    font-weight: 400;
-    margin-right: 360px;
+    font-weight: 600;
     font-size: 48px;
     line-height: 58px;
-    color: #000000;
+    margin-right: 360px;
+    color: #FFFFFF;
 }
 
 .textContent{
+
     display: flex;
     font-family: 'Inter';
     font-style: normal;
-    font-weight: 400;
+    font-weight: 500;
     font-size: 24px;
     line-height: 29px;
     margin-left: 5%;
     margin-right: 5%;
-    padding-top: 130px;
+    padding-top: 170px;
 
-    color: #000000;
+    color: #FFFFFF;
 }
 
 .textContent p{
@@ -167,21 +140,22 @@
 }
 
 .btn button{
-    background: #F52D30;
-    border-radius: 14px;
-    width: 311px;
-    height: 52px;
+    background: #FFFFFF;
+    box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.11);
+    border-radius: 16px;
+    width: 363px;
+    height: 50px;
     font-family: 'Inter';
     font-style: normal;
-    font-weight: 500;
-    font-size: 20px;
+    font-weight: normal;
+    font-size: 21px;
     line-height: 24px;
     align-items: center;
     text-align: center;
     border: none;
     cursor: pointer;
 
-    color: #FFFFFF;
+    color: #8269EF;
 }
 
 .btn{
@@ -199,3 +173,91 @@
 }
 
 
+.img{
+    position: absolute;
+    top: 386px;
+    border-radius: 0 50px;
+}
+
+.svg{
+    background-image: url(/public/img/container.svg);
+    background-repeat: no-repeat;
+    height: 160px;
+    
+}
+
+.svg1{
+    background-image: url(/public/img/container1.svg);
+    background-repeat: no-repeat;
+    height: 130px;
+    margin: 0 auto;
+}
+
+.svg2{
+    background-image: url(/public/img/footer.svg);
+    background-repeat: no-repeat;
+    height: 160px;
+    margin-top: 190px;
+}
+
+.firstSvg{
+    margin-top: 97px;
+    margin-left: 100px;
+}
+
+.vacancy{
+    display: flex;
+}
+
+.secondContent{
+    width: 1680px;
+    margin: 80px auto;
+
+}   
+
+.new hr{
+    background: #C0ECAB;
+    border-radius: 15px;   
+    width: 405px;
+    height: 15px; 
+    border: none;
+    margin-right: 20px;
+}
+
+.featured hr{
+    background: #ECABB3;
+    border-radius: 15px;   
+    width: 405px;
+    height: 15px; 
+    border: none;
+    margin-right: 20px;
+}
+
+.popular hr{
+    background: #EBABEC;
+    border-radius: 15px;   
+    width: 405px;
+    height: 15px; 
+    border: none;
+    margin-right: 20px;
+}
+
+.recent hr{
+    background: #ABECEC;
+    border-radius: 15px;   
+    width: 405px;
+    height: 15px; 
+    border: none;
+}
+
+.vacancy h1{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 36px;
+
+    color: #000000;
+    display: flex;
+    justify-content: center;
+}
