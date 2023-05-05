@@ -3,6 +3,7 @@ import { Column, DataType, Model, Table, BelongsToMany } from "sequelize-typescr
 
 interface VacancyCreationAttrs{
     nameVacancy: string;
+    userCompanyId: number;
 }
 
 @Table({tableName: 'vacancies'})
@@ -33,4 +34,7 @@ export class Vacancy extends Model<Vacancy, VacancyCreationAttrs>{
 
     @Column({type: DataType.STRING, allowNull: false})
     keySkills: string
+
+    @Column({type: DataType.INTEGER})
+    userCompanyId: number
 }

@@ -49,6 +49,10 @@ __decorate([
     (0, sequelize_typescript_1.Column)({ type: sequelize_typescript_1.DataType.STRING, allowNull: false }),
     __metadata("design:type", String)
 ], Vacancy.prototype, "keySkills", void 0);
+__decorate([
+    (0, sequelize_typescript_1.Column)({ type: sequelize_typescript_1.DataType.INTEGER }),
+    __metadata("design:type", Number)
+], Vacancy.prototype, "userCompanyId", void 0);
 Vacancy = __decorate([
     (0, sequelize_typescript_1.Table)({ tableName: 'vacancies' })
 ], Vacancy);

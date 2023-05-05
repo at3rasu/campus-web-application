@@ -41,8 +41,6 @@ export class UsersService {
             await user.$add('role', role.id)
             return dto;
         }
-        console.log(user)
-        console.log(role)
         throw new HttpException('Пользователь или роль не были найдены', HttpStatus.NOT_FOUND)
     }
 }

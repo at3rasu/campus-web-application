@@ -8,5 +8,6 @@ export declare class VacanciesService {
     createVacancy(vacancyDto: CreateVacancyDto): Promise<{
         token: string;
     }>;
+    private findUserId;
     private generateToken;
 }

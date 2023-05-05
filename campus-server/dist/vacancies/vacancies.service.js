@@ -26,6 +26,8 @@ let VacanciesService = class VacanciesService {
         const vacancy = await this.vacancyRepository.create(vacancyDto);
         return this.generateToken(vacancy);
     }
+    async findUserId() {
+    }
     async generateToken(post) {
         const payload = { id: post.id, email: post.email, name: post.nameVacancy };
         return {

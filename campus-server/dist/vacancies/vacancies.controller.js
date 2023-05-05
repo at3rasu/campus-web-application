@@ -22,8 +22,8 @@ let VacanciesController = class VacanciesController {
     constructor(vacanciesService) {
         this.vacanciesService = vacanciesService;
     }
-    create(vacancyDto) {
-        return this.vacanciesService.createVacancy(vacancyDto);
+    create(vacancyDto, request) {
+        console.log(request.headers);
     }
 };
 __decorate([
@@ -31,8 +31,10 @@ __decorate([
     (0, common_1.UseGuards)(roles_guard_1.RolesGuard),
     (0, roles_auth_decorator_1.Roles)('admin', 'user_company'),
     __param(0, (0, common_1.Body)()),
+    __param(1, (0, common_1.Req)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [create_vacancy_dto_1.CreateVacancyDto]),
+    __metadata("design:paramtypes", [create_vacancy_dto_1.CreateVacancyDto,
+        Request]),
     __metadata("design:returntype", void 0)
 ], VacanciesController.prototype, "create", null);
 VacanciesController = __decorate([

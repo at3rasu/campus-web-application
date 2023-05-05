@@ -1,6 +1,6 @@
 import { NestFactory } from "@nestjs/core"
 import { AppModule } from "./app.module"
-// import * as cookieParser from 'cookie-parser'
+import * as cookieParser from 'cookie-parser'
 
 async function start() {
   const PORT = process.env.PORT || 5000
@@ -12,7 +12,7 @@ async function start() {
   //   secret: 'my-secret', // for cookies signature
   // });
   const app = await NestFactory.create(AppModule)
-  // app.use(cookieParser())
+  app.use(cookieParser())
   app.enableCors({
     origin: true,
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',

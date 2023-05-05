@@ -1,1 +1,0 @@
-{"version":3,"file":"auth-router.js","sourceRoot":"","sources":["../../src/routers/auth-router.ts"],"names":[],"mappings":";;AAAA,qCAAiC;AAEjC,MAAM,MAAM,GAAG,IAAA,gBAAM,GAAE,CAAA;AAEvB,MAAM,CAAC,IAAI,CAAC,QAAQ,EAAE,UAAU,GAAG,EAAE,GAAG,EAAE,IAAI;AAE9C,CAAC,CAAC,CAAA;AAEF,MAAM,CAAC,OAAO,GAAG,MAAM,CAAA"}

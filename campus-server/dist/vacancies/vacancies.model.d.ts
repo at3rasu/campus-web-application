@@ -1,6 +1,7 @@
 import { Model } from "sequelize-typescript";
 interface VacancyCreationAttrs {
     nameVacancy: string;
+    userCompanyId: number;
 }
 export declare class Vacancy extends Model<Vacancy, VacancyCreationAttrs> {
     id: number;
@@ -12,5 +13,6 @@ export declare class Vacancy extends Model<Vacancy, VacancyCreationAttrs> {
     telephoneNumber: string;
     email: string;
     keySkills: string;
+    userCompanyId: number;
 }
 export {};

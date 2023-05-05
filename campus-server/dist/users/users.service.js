@@ -49,8 +49,6 @@ let UsersService = class UsersService {
             await user.$add('role', role.id);
             return dto;
         }
-        console.log(user);
-        console.log(role);
         throw new common_2.HttpException('Пользователь или роль не были найдены', common_2.HttpStatus.NOT_FOUND);
     }
 };

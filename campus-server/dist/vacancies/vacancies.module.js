@@ -13,19 +13,20 @@ const vacancies_service_1 = require("./vacancies.service");
 const sequelize_1 = require("@nestjs/sequelize");
 const vacancies_model_1 = require("./vacancies.model");
 const jwt_1 = require("@nestjs/jwt");
+const users_company_model_1 = require("../users-company/users-company.model");
 let VacanciesModule = class VacanciesModule {
 };
 VacanciesModule = __decorate([
     (0, common_1.Module)({
         controllers: [vacancies_controller_1.VacanciesController],
         imports: [
-            sequelize_1.SequelizeModule.forFeature([vacancies_model_1.Vacancy]),
+            sequelize_1.SequelizeModule.forFeature([vacancies_model_1.Vacancy, users_company_model_1.UserCompany]),
             jwt_1.JwtModule.register({
                 secret: process.env.PRIVATE_KEY || 'SECRET',
                 signOptions: {
                     expiresIn: '24h'
                 }
-            })
+            }),
         ],
         exports: [
             vacancies_service_1.VacanciesService

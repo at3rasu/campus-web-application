@@ -7,4 +7,5 @@ export declare class CreateVacancyDto {
     readonly telephoneNumber: string;
     readonly email: string;
     readonly keySkills: string;
+    readonly userCompanyId: number;
 }
