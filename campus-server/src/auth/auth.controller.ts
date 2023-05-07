@@ -11,13 +11,7 @@ export class AuthController {
 
     @Post('/login')
     login(@Body() userDto, @Res({ passthrough: true }) resp: Response, @Req() request: Request){
-        const user = this.authService.login(userDto, resp)
-        return user;
-    }
-
-    @Post('/login_userCompany')
-    loginUserCompany(@Body() userDto, @Res({ passthrough: true }) resp: Response, @Req() request: Request){
-        const user = this.authService.loginUserCompany(userDto, resp)
+        const user = this.authService.login(userDto)
         return user;
     }
 

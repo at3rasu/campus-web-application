@@ -8,9 +8,6 @@ export declare class AuthController {
     login(userDto: any, resp: Response, request: Request): Promise<{
         token: string;
     }>;
-    loginUserCompany(userDto: any, resp: Response, request: Request): Promise<{
-        token: string;
-    }>;
     registration(userDto: CreateUserDto): Promise<{
         token: string;
     }>;

@@ -36,8 +36,6 @@ let VacanciesService = class VacanciesService {
         const vacancy = await this.vacancyRepository.create(Object.assign(Object.assign({}, vacancyDto), { image: fileName }));
         const token = (await this.authService.refreshToken(user.login)).token;
         req.headers.authorization = `Bearer ${token}`;
-        const user2 = await this.userCompanyService.getUserCompanyByReq(req);
-        console.log(user2.vacancies);
         return this.generateToken(vacancy);
     }
     async generateToken(vacancy) {

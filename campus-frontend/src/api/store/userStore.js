@@ -35,6 +35,7 @@ export default class UserStore{
         try{
             const response = await api.post(`/auth/login`, {login, password})
             localStorage.setItem('token', response.data.token)
+            console.log(response.data.token.roles)
             this.setAuth(true)
             this.setUser(response.data.user)
             return response

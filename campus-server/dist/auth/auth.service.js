@@ -23,9 +23,15 @@ let AuthService = class AuthService {
         this.userCompanyService = userCompanyService;
         this.jwtService = jwtService;
     }
-    async login(userDto, resp) {
-        const user = await this.validateUser(userDto);
-        const result = this.generateToken(user);
+    async login(userDto) {
+        const possibleUser = await this.userService.getUserByLogin(userDto.login);
+        if (possibleUser != null) {
+            console.log(possibleUser);
+            const user = await this.equalUser(possibleUser, userDto);
+            return this.generateToken(user);
+        }
+        const userCompany = await this.validateUserCompany(userDto);
+        const result = this.generateTokenUserComp(userCompany);
         return result;
     }
     async loginUserCompany(userDto, resp) {
@@ -76,6 +82,9 @@ let AuthService = class AuthService {
     }
     async validateUserCompany(userDto) {
         const user = await this.userCompanyService.getUserByLogin(userDto.login);
+        if (user == null) {
+            throw new exceptions_1.UnauthorizedException({ message: "Неправильный логин или пароль" });
+        }
         return this.equalUser(user, userDto);
     }
     async equalUser(user, userDto) {
