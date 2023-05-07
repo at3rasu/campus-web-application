@@ -13,7 +13,7 @@ export const PostVacancy = () =>{
 
     const [nameVacancy, setNameVacancy] = useState('')
     const [nameCompany, setNameCompany] = useState('')
-    const [сompanyDescription, setCompanyDescription] = useState('')
+    const [companyDescription, setCompanyDescription] = useState('')
     const [duties, setDuties] = useState('')
     const [expectations, setExpectations] = useState('')
     const [skills, setSkills] = useState('')
@@ -49,7 +49,7 @@ export const PostVacancy = () =>{
                         <label>Описание компании</label>
                         <input
                             type='text'
-                            value={сompanyDescription} 
+                            value={companyDescription} 
                             placeholder='Кратное описание компании'
                             onChange={(e) => setCompanyDescription(e.target.value)}></input>
                     </div>

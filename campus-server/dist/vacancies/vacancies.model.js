@@ -11,6 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Vacancy = void 0;
 const sequelize_typescript_1 = require("sequelize-typescript");
+const users_company_model_1 = require("../users-company/users-company.model");
 let Vacancy = class Vacancy extends sequelize_typescript_1.Model {
 };
 __decorate([
@@ -28,19 +29,19 @@ __decorate([
 __decorate([
     (0, sequelize_typescript_1.Column)({ type: sequelize_typescript_1.DataType.STRING, allowNull: false }),
     __metadata("design:type", String)
-], Vacancy.prototype, "city", void 0);
+], Vacancy.prototype, "duties", void 0);
 __decorate([
     (0, sequelize_typescript_1.Column)({ type: sequelize_typescript_1.DataType.STRING, allowNull: false }),
     __metadata("design:type", String)
-], Vacancy.prototype, "vacancyDescription", void 0);
+], Vacancy.prototype, "expectations", void 0);
 __decorate([
     (0, sequelize_typescript_1.Column)({ type: sequelize_typescript_1.DataType.STRING, allowNull: false }),
     __metadata("design:type", String)
-], Vacancy.prototype, "fullAddress", void 0);
+], Vacancy.prototype, "skills", void 0);
 __decorate([
     (0, sequelize_typescript_1.Column)({ type: sequelize_typescript_1.DataType.STRING, allowNull: false }),
     __metadata("design:type", String)
-], Vacancy.prototype, "telephoneNumber", void 0);
+], Vacancy.prototype, "conditions", void 0);
 __decorate([
     (0, sequelize_typescript_1.Column)({ type: sequelize_typescript_1.DataType.STRING, allowNull: false }),
     __metadata("design:type", String)
@@ -48,11 +49,20 @@ __decorate([
 __decorate([
     (0, sequelize_typescript_1.Column)({ type: sequelize_typescript_1.DataType.STRING, allowNull: false }),
     __metadata("design:type", String)
-], Vacancy.prototype, "keySkills", void 0);
+], Vacancy.prototype, "fullAddress", void 0);
 __decorate([
+    (0, sequelize_typescript_1.Column)({ type: sequelize_typescript_1.DataType.STRING }),
+    __metadata("design:type", String)
+], Vacancy.prototype, "image", void 0);
+__decorate([
+    (0, sequelize_typescript_1.ForeignKey)(() => users_company_model_1.UserCompany),
     (0, sequelize_typescript_1.Column)({ type: sequelize_typescript_1.DataType.INTEGER }),
     __metadata("design:type", Number)
 ], Vacancy.prototype, "userCompanyId", void 0);
+__decorate([
+    (0, sequelize_typescript_1.BelongsTo)(() => users_company_model_1.UserCompany),
+    __metadata("design:type", users_company_model_1.UserCompany)
+], Vacancy.prototype, "author", void 0);
 Vacancy = __decorate([
     (0, sequelize_typescript_1.Table)({ tableName: 'vacancies' })
 ], Vacancy);

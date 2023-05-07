@@ -1,8 +1,11 @@
-import { Column, DataType, Model, Table, BelongsToMany } from "sequelize-typescript";
+import { Column, DataType, Model, Table, BelongsToMany, BelongsTo, ForeignKey } from "sequelize-typescript";
+import { UserCompany } from "src/users-company/users-company.model";
 
 
 interface VacancyCreationAttrs{
     nameVacancy: string;
+    userCompanyId: number;
+    image: string;
 }
 
 @Table({tableName: 'vacancies'})
@@ -17,23 +20,30 @@ export class Vacancy extends Model<Vacancy, VacancyCreationAttrs>{
     companyDescription: string
     
     @Column({type: DataType.STRING, allowNull: false})
-    city: string
+    duties: string
 
     @Column({type: DataType.STRING,  allowNull: false})
-    vacancyDescription: string
+    expectations: string
 
     @Column({type: DataType.STRING, allowNull: false})
-    fullAddress: string
+    skills: string
 
     @Column({type: DataType.STRING, allowNull: false})
-    telephoneNumber: string
+    conditions: string
 
     @Column({type: DataType.STRING, allowNull: false})
     email: string
 
     @Column({type: DataType.STRING, allowNull: false})
-    keySkills: string
+    fullAddress: string
 
+    @Column({type: DataType.STRING})
+    image: string
+
+    @ForeignKey(() => UserCompany)
     @Column({type: DataType.INTEGER})
     userCompanyId: number
+
+    @BelongsTo(() => UserCompany)
+    author: UserCompany
 }

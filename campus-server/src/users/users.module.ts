@@ -7,6 +7,7 @@ import { UsersController } from './users.controller';
 import { User } from './users.model';
 import { UsersService } from './users.service';
 import { AuthModule } from 'src/auth/auth.module';
+import { Vacancy } from 'src/vacancies/vacancies.model';
 
 @Module({
   controllers: [UsersController],

@@ -13,6 +13,7 @@ exports.UserCompany = void 0;
 const sequelize_typescript_1 = require("sequelize-typescript");
 const roles_model_1 = require("../roles/roles.model");
 const user_company_roles_1 = require("../roles/user_company_roles");
+const vacancies_model_1 = require("../vacancies/vacancies.model");
 let UserCompany = class UserCompany extends sequelize_typescript_1.Model {
 };
 __decorate([
@@ -39,6 +40,10 @@ __decorate([
     (0, sequelize_typescript_1.BelongsToMany)(() => roles_model_1.Role, () => user_company_roles_1.UserCompanyRoles),
     __metadata("design:type", Array)
 ], UserCompany.prototype, "roles", void 0);
+__decorate([
+    (0, sequelize_typescript_1.HasMany)(() => vacancies_model_1.Vacancy),
+    __metadata("design:type", Array)
+], UserCompany.prototype, "vacancies", void 0);
 UserCompany = __decorate([
     (0, sequelize_typescript_1.Table)({ tableName: 'users_company' })
 ], UserCompany);

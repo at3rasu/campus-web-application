@@ -1,8 +1,7 @@
 import api from "./create-api";
 import UserStore from "./store/store";
+import store from "..";
 
-
-const store = new UserStore()
 
 export const registration = async (email, password, login, name, surname, city, repeatPass) => {
     return store.registration(email, password, login, name, surname, city, repeatPass)
