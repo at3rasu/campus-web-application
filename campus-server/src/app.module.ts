@@ -12,10 +12,13 @@ import { UserCompany } from "./users-company/users-company.model";
 import { UserCompanyRoles } from "./roles/user_company_roles";
 import { Vacancy } from "./vacancies/vacancies.model";
 import { VacanciesModule } from "./vacancies/vacancies.module";
+import { FilesModule } from './files/files.module';
+import { UploadFilesService } from './upload-files/upload-files.service';
+import { UploadFilesModule } from './upload-files/upload-files.module';
 
 @Module({
     controllers: [],
-    providers: [],
+    providers: [UploadFilesService],
     imports: [
       ConfigModule.forRoot({
         envFilePath: '.development.env'
@@ -34,7 +37,9 @@ import { VacanciesModule } from "./vacancies/vacancies.module";
       RolesModule,
       AuthModule,
       UsersCompanyModule,
-      VacanciesModule
+      VacanciesModule,
+      FilesModule,
+      UploadFilesModule
     ]
 })
 

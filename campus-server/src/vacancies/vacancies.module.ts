@@ -7,6 +7,7 @@ import { JwtModule } from '@nestjs/jwt';
 import { AuthModule } from 'src/auth/auth.module';
 import { UsersCompanyService } from 'src/users-company/users-company.service';
 import { UserCompany } from 'src/users-company/users-company.model';
+import { UploadFilesModule } from 'src/upload-files/upload-files.module';
 
 @Module({
   controllers: [VacanciesController],
@@ -17,7 +18,7 @@ import { UserCompany } from 'src/users-company/users-company.model';
       signOptions: {
         expiresIn: '24h'
       }}),
-    
+    UploadFilesModule
   ],
   exports:[
     VacanciesService

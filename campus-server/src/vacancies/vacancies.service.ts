@@ -8,16 +8,14 @@ import { UserCompany } from 'src/users-company/users-company.model';
 @Injectable()
 export class VacanciesService {
     constructor(@InjectModel(Vacancy) private vacancyRepository: typeof Vacancy,
-                // @InjectModel(UserCompany) private userCompanyRepository: typeof UserCompany,
                 private jwtService: JwtService){}
 
-    async createVacancy(vacancyDto: CreateVacancyDto, req){
+    async createVacancy(vacancyDto: CreateVacancyDto, image, req){
         const authHeader = req.headers.authorization
         const token = authHeader.split(' ')[1]
-        const userCompanyId = this.jwtService.verify(token).id
-        console.log(userCompanyId)
-        vacancyDto.userCompanyId = userCompanyId
-        const vacancy = await this.vacancyRepository.create(vacancyDto);
+        const fileName = "31221"
+        vacancyDto.userCompanyId = this.jwtService.verify(token).id
+        const vacancy = await this.vacancyRepository.create({...vacancyDto, image: fileName});
         return this.generateToken(vacancy);
     }
 
