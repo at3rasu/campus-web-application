@@ -18,24 +18,25 @@ const vacancies_service_1 = require("./vacancies.service");
 const create_vacancy_dto_1 = require("./dto/create-vacancy.dto");
 const roles_guard_1 = require("../auth/roles.guard");
 const roles_auth_decorator_1 = require("../auth/roles-auth.decorator");
+const platform_express_1 = require("@nestjs/platform-express");
 let VacanciesController = class VacanciesController {
     constructor(vacanciesService) {
         this.vacanciesService = vacanciesService;
     }
-    create(vacancyDto, request) {
-        console.log(request.headers);
-        return this.vacanciesService.createVacancy(vacancyDto, request);
+    create(vacancyDto, image, request) {
+        return this.vacanciesService.createVacancy(vacancyDto, image, request);
     }
 };
 __decorate([
     (0, common_1.Post)(),
     (0, common_1.UseGuards)(roles_guard_1.RolesGuard),
     (0, roles_auth_decorator_1.Roles)('admin', 'user_company'),
+    (0, common_1.UseInterceptors)((0, platform_express_1.FileInterceptor)('image')),
     __param(0, (0, common_1.Body)()),
-    __param(1, (0, common_1.Req)()),
+    __param(1, (0, common_1.UploadedFile)()),
+    __param(2, (0, common_1.Req)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [create_vacancy_dto_1.CreateVacancyDto,
-        Request]),
+    __metadata("design:paramtypes", [create_vacancy_dto_1.CreateVacancyDto, Object, Request]),
     __metadata("design:returntype", void 0)
 ], VacanciesController.prototype, "create", null);
 VacanciesController = __decorate([

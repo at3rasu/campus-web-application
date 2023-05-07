@@ -12,17 +12,21 @@ import { UserCompany } from "./users-company/users-company.model";
 import { UserCompanyRoles } from "./roles/user_company_roles";
 import { Vacancy } from "./vacancies/vacancies.model";
 import { VacanciesModule } from "./vacancies/vacancies.module";
-import { FilesModule } from './files/files.module';
-import { UploadFilesService } from './upload-files/upload-files.service';
-import { UploadFilesModule } from './upload-files/upload-files.module';
+import { ServeStaticModule } from "@nestjs/serve-static";
+import * as path from "path";
 
 @Module({
     controllers: [],
-    providers: [UploadFilesService],
+    providers: [],
     imports: [
       ConfigModule.forRoot({
         envFilePath: '.development.env'
       }),
+      
+      ServeStaticModule.forRoot({
+        rootPath: path.resolve(__dirname, 'static'),
+      }),
+
       SequelizeModule.forRoot({
         dialect: 'postgres',
         host: process.env.POSTGRES_HOST,
@@ -37,9 +41,7 @@ import { UploadFilesModule } from './upload-files/upload-files.module';
       RolesModule,
       AuthModule,
       UsersCompanyModule,
-      VacanciesModule,
-      FilesModule,
-      UploadFilesModule
+      VacanciesModule
     ]
 })
 

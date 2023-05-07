@@ -17,18 +17,19 @@ const common_1 = require("@nestjs/common");
 const sequelize_1 = require("@nestjs/sequelize");
 const vacancies_model_1 = require("./vacancies.model");
 const jwt_1 = require("@nestjs/jwt");
+const upload_files_service_1 = require("../upload-files/upload-files.service");
 let VacanciesService = class VacanciesService {
-    constructor(vacancyRepository, jwtService) {
+    constructor(vacancyRepository, jwtService, uploadFilesService) {
         this.vacancyRepository = vacancyRepository;
         this.jwtService = jwtService;
+        this.uploadFilesService = uploadFilesService;
     }
-    async createVacancy(vacancyDto, req) {
+    async createVacancy(vacancyDto, image, req) {
+        const fileName = await this.uploadFilesService.createFile(image);
         const authHeader = req.headers.authorization;
         const token = authHeader.split(' ')[1];
-        const userCompanyId = this.jwtService.verify(token).id;
-        console.log(userCompanyId);
-        vacancyDto.userCompanyId = userCompanyId;
-        const vacancy = await this.vacancyRepository.create(vacancyDto);
+        vacancyDto.userCompanyId = this.jwtService.verify(token).id;
+        const vacancy = await this.vacancyRepository.create(Object.assign(Object.assign({}, vacancyDto), { image: fileName }));
         return this.generateToken(vacancy);
     }
     async generateToken(vacancy) {
@@ -41,7 +42,8 @@ let VacanciesService = class VacanciesService {
 VacanciesService = __decorate([
     (0, common_1.Injectable)(),
     __param(0, (0, sequelize_1.InjectModel)(vacancies_model_1.Vacancy)),
-    __metadata("design:paramtypes", [Object, jwt_1.JwtService])
+    __metadata("design:paramtypes", [Object, jwt_1.JwtService,
+        upload_files_service_1.UploadFilesService])
 ], VacanciesService);
 exports.VacanciesService = VacanciesService;
 //# sourceMappingURL=vacancies.service.js.map

@@ -14,6 +14,7 @@ const sequelize_1 = require("@nestjs/sequelize");
 const vacancies_model_1 = require("./vacancies.model");
 const jwt_1 = require("@nestjs/jwt");
 const users_company_model_1 = require("../users-company/users-company.model");
+const upload_files_module_1 = require("../upload-files/upload-files.module");
 let VacanciesModule = class VacanciesModule {
 };
 VacanciesModule = __decorate([
@@ -27,6 +28,7 @@ VacanciesModule = __decorate([
                     expiresIn: '24h'
                 }
             }),
+            upload_files_module_1.UploadFilesModule
         ],
         exports: [
             vacancies_service_1.VacanciesService
