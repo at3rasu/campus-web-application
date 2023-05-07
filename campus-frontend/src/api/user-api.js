@@ -1,5 +1,4 @@
 import api from "./create-api";
-import UserStore from "./store/store";
 import store from "..";
 
 

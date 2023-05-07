@@ -14,15 +14,18 @@ const uuid = require("uuid");
 let UploadFilesService = class UploadFilesService {
     async createFile(file) {
         try {
-            const fileName = uuid.v4() + '.jpg';
+            const fileName = uuid.v4() + '.png';
             const filePath = path.resolve(__dirname, '..', 'static');
             if (!fs.existsSync(filePath)) {
                 fs.mkdirSync(filePath, { recursive: true });
             }
+            console.log(typeof file);
+            console.log(file);
             fs.writeFileSync(path.join(filePath, fileName), file.buffer);
             return fileName;
         }
         catch (e) {
+            console.log(e);
             throw new common_1.HttpException('Ошибка при записи файла', common_1.HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }

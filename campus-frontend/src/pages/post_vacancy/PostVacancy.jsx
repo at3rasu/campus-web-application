@@ -5,6 +5,7 @@ import { Footer } from "../../components/footer/Footer"
 import { ExperienceSelection } from '../../components/experience_selection/ExperienceSelection'
 import { EducationSelection } from '../../components/education_selection/EducationSelection'
 import { useEffect, useState  } from "react"
+import { createVacancy } from '../../api/vacancy-api'
 
 export const PostVacancy = () =>{
     useEffect(() => {
@@ -149,7 +150,13 @@ export const PostVacancy = () =>{
                     </div>
                     <div className={styles.buttonSubmit}>
                         <button
-                            type='submit'>Опубликовать вакансию</button>
+                            type='submit'
+                            onClick={ async () => {
+                                const response = await createVacancy (nameVacancy, nameCompany, companyDescription, duties,
+                                    expectations, skills, conditions, image, fullAddress, number, email)
+                                }
+                            }
+                        >Опубликовать вакансию</button>
                     </div>
                 </div>
             </div>

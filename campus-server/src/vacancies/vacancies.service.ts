@@ -5,6 +5,7 @@ import { Vacancy } from './vacancies.model';
 import { JwtService } from '@nestjs/jwt';
 import { UserCompany } from 'src/users-company/users-company.model';
 import { UploadFilesService } from 'src/upload-files/upload-files.service';
+import * as uuid from 'uuid'
 
 @Injectable()
 export class VacanciesService {
@@ -13,7 +14,8 @@ export class VacanciesService {
                 private uploadFilesService: UploadFilesService){}
 
     async createVacancy(vacancyDto: CreateVacancyDto, image, req){
-        const fileName = await this.uploadFilesService.createFile(image)
+        // const fileName = await this.uploadFilesService.createFile(image)
+        const fileName = uuid.v4()
         const authHeader = req.headers.authorization
         const token = authHeader.split(' ')[1]
         vacancyDto.userCompanyId = this.jwtService.verify(token).id

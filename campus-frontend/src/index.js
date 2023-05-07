@@ -2,7 +2,7 @@ import React, { createContext } from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import UserStore from './api/store/store';
+import UserStore from './api/store/userStore';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

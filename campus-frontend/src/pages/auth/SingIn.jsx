@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useEffect } from 'react'
 import './SingIn.css'
-import { set_login } from '../../api/userApi'
+import { set_login } from '../../api/user-api'
 
 
 export const SingIn = () =>{
