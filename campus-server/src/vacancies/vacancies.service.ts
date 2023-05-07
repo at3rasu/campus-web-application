@@ -27,4 +27,9 @@ export class VacanciesService {
             token: this.jwtService.sign(payload)
         }
     }
+
+    async getAllVacancies(){
+        const vacancies = await this.vacancyRepository.findAll({include: {all:true}});
+        return vacancies;
+    }
 }

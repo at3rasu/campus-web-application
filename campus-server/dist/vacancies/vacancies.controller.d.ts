@@ -6,4 +6,5 @@ export declare class VacanciesController {
     create(vacancyDto: CreateVacancyDto, image: any, request: Request): Promise<{
         token: string;
     }>;
+    getAllVacancies(): Promise<import("./vacancies.model").Vacancy[]>;
 }

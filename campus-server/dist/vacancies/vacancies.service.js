@@ -38,6 +38,10 @@ let VacanciesService = class VacanciesService {
             token: this.jwtService.sign(payload)
         };
     }
+    async getAllVacancies() {
+        const vacancies = await this.vacancyRepository.findAll({ include: { all: true } });
+        return vacancies;
+    }
 };
 VacanciesService = __decorate([
     (0, common_1.Injectable)(),

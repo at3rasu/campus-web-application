@@ -11,4 +11,5 @@ export declare class VacanciesService {
         token: string;
     }>;
     private generateToken;
+    getAllVacancies(): Promise<Vacancy[]>;
 }

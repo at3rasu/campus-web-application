@@ -26,6 +26,9 @@ let VacanciesController = class VacanciesController {
     create(vacancyDto, image, request) {
         return this.vacanciesService.createVacancy(vacancyDto, image, request);
     }
+    getAllVacancies() {
+        return this.vacanciesService.getAllVacancies();
+    }
 };
 __decorate([
     (0, common_1.Post)(),
@@ -39,6 +42,12 @@ __decorate([
     __metadata("design:paramtypes", [create_vacancy_dto_1.CreateVacancyDto, Object, Request]),
     __metadata("design:returntype", void 0)
 ], VacanciesController.prototype, "create", null);
+__decorate([
+    (0, common_1.Get)('/get_all_vacancies'),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", void 0)
+], VacanciesController.prototype, "getAllVacancies", null);
 VacanciesController = __decorate([
     (0, common_1.Controller)('vacancies'),
     __metadata("design:paramtypes", [vacancies_service_1.VacanciesService])
