@@ -58,7 +58,7 @@ export class AuthService {
     private async generateTokenLog(user, resp: Response){
         const payload = {login: user.login, id: user.id, roles : user.roles}
         const tok = this.jwtService.sign(payload)
-        resp.cookie('token', tok)
+        // resp.cookie('token', tok)
         return{
             token: tok
         }

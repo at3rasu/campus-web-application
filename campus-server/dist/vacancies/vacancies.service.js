@@ -26,7 +26,6 @@ let VacanciesService = class VacanciesService {
         this.uploadFilesService = uploadFilesService;
     }
     async createVacancy(vacancyDto, image, req) {
-        console.log(image);
         const fileName = uuid.v4();
         const authHeader = req.headers.authorization;
         const token = authHeader.split(' ')[1];

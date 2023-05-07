@@ -4,6 +4,7 @@ import styles from "./Header.module.css"
 import { useContext} from "react"
 import { Context } from "../.."
 import { observer } from 'mobx-react'
+import { logout } from "../../api/user-api"
 
 export const Header = observer(() =>{
     const navigate = useNavigate()
@@ -26,7 +27,9 @@ export const Header = observer(() =>{
                 </div>
                 <div>
                     {store.IsAuth ? (
-                        <button>Фрик Даня</button>
+                        <button onClick={async () => {
+                            await logout()
+                          }}>Выйти</button>
                     ):(
                         <>
                             <div className={styles.singUp_btn}>

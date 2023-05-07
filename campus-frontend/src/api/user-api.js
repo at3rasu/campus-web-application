@@ -21,3 +21,8 @@ export const get_users = async() => {
     console.log(response)
     return response
 }
+
+export const logout = async() => {
+    store.logout()
+    console.log(api.request)
+}

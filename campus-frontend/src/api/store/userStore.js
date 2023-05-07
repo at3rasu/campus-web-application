@@ -42,4 +42,19 @@ export default class UserStore{
             console.log(e.response?.data?.message)
         }
     }
+
+    async logout(){
+        try{
+            if (localStorage.getItem('token')){
+                localStorage.removeItem('token')
+                this.setAuth(false)
+                this.setUser(undefined)
+            }
+            else{
+                console.log('Пользователь не авторизован')
+            }
+        } catch(e) {
+            console.log(e.response?.data?.message)
+        }
+    }
 }
