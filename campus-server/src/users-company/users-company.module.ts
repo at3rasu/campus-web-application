@@ -8,6 +8,7 @@ import { RolesModule } from 'src/roles/roles.module';
 import { UserCompanyRoles } from 'src/roles/user_company_roles';
 import { AuthModule } from 'src/auth/auth.module';
 import { Vacancy } from 'src/vacancies/vacancies.model';
+import { JwtModule } from '@nestjs/jwt';
 
 @Module({
   providers: [UsersCompanyService],
@@ -15,6 +16,11 @@ import { Vacancy } from 'src/vacancies/vacancies.model';
   imports: [
     SequelizeModule.forFeature([Role, UserCompany, UserCompanyRoles, Vacancy]),
     RolesModule,
+    JwtModule.register({
+      secret: process.env.PRIVATE_KEY || 'SECRET',
+      signOptions: {
+        expiresIn: '30m'
+      }}),
     forwardRef(() => AuthModule)
   ],
   exports: [

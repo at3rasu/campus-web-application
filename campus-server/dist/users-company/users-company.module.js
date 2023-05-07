@@ -17,6 +17,7 @@ const roles_module_1 = require("../roles/roles.module");
 const user_company_roles_1 = require("../roles/user_company_roles");
 const auth_module_1 = require("../auth/auth.module");
 const vacancies_model_1 = require("../vacancies/vacancies.model");
+const jwt_1 = require("@nestjs/jwt");
 let UsersCompanyModule = class UsersCompanyModule {
 };
 UsersCompanyModule = __decorate([
@@ -26,6 +27,12 @@ UsersCompanyModule = __decorate([
         imports: [
             sequelize_1.SequelizeModule.forFeature([roles_model_1.Role, users_company_model_1.UserCompany, user_company_roles_1.UserCompanyRoles, vacancies_model_1.Vacancy]),
             roles_module_1.RolesModule,
+            jwt_1.JwtModule.register({
+                secret: process.env.PRIVATE_KEY || 'SECRET',
+                signOptions: {
+                    expiresIn: '30m'
+                }
+            }),
             (0, common_1.forwardRef)(() => auth_module_1.AuthModule)
         ],
         exports: [

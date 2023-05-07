@@ -12,6 +12,9 @@ export declare class AuthService {
     login(userDto: any, resp: Response): Promise<{
         token: string;
     }>;
+    loginUserCompany(userDto: any, resp: Response): Promise<{
+        token: string;
+    }>;
     registration(userDto: CreateUserDto): Promise<{
         token: string;
     }>;
@@ -20,7 +23,11 @@ export declare class AuthService {
     }>;
     private validateRegistration;
     private generateToken;
-    private generateTokenLog;
+    private generateTokenUserComp;
     private validateUser;
+    private validateUserCompany;
     private equalUser;
+    refreshToken(login: any): Promise<{
+        token: string;
+    }>;
 }

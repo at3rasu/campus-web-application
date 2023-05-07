@@ -1,7 +1,7 @@
 import { Controller } from '@nestjs/common';
 import { UsersCompanyService } from './users-company.service';
 import { CreateUserCompanyDto } from './dto/create-user-company.dto';
-import { Post, Get, Body } from '@nestjs/common';
+import { Post, Get, Body, Req } from '@nestjs/common';
 
 @Controller('users-company')
 export class UsersCompanyController {
@@ -15,5 +15,10 @@ export class UsersCompanyController {
     @Get()
     getAll(){
         return this.usersCompanyService.getAllUsers();
+    }
+
+    @Get('/get_vacancies')
+    getVacanciesByUser(@Req() request: Request){
+        return this.usersCompanyService.getVacanciesByToken(request)
     }
 }

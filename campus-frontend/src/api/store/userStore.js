@@ -43,6 +43,18 @@ export default class UserStore{
         }
     }
 
+    async set_login_user_company (login, password) {
+        try{
+            const response = await api.post(`/auth/login_userCompany`, {login, password})
+            localStorage.setItem('token', response.data.token)
+            this.setAuth(true)
+            this.setUser(response.data.user)
+            return response
+        } catch(e) {
+            console.log(e.response?.data?.message)
+        }
+    }
+
     async logout(){
         try{
             if (localStorage.getItem('token')){

@@ -5,4 +5,5 @@ export declare class UsersCompanyController {
     constructor(usersCompanyService: UsersCompanyService);
     create(userCompanyDto: CreateUserCompanyDto): Promise<import("./users-company.model").UserCompany>;
     getAll(): Promise<import("./users-company.model").UserCompany[]>;
+    getVacanciesByUser(request: Request): Promise<any>;
 }

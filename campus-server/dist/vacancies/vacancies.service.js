@@ -19,18 +19,25 @@ const vacancies_model_1 = require("./vacancies.model");
 const jwt_1 = require("@nestjs/jwt");
 const upload_files_service_1 = require("../upload-files/upload-files.service");
 const uuid = require("uuid");
+const users_company_service_1 = require("../users-company/users-company.service");
+const auth_service_1 = require("../auth/auth.service");
 let VacanciesService = class VacanciesService {
-    constructor(vacancyRepository, jwtService, uploadFilesService) {
+    constructor(vacancyRepository, jwtService, uploadFilesService, userCompanyService, authService) {
         this.vacancyRepository = vacancyRepository;
         this.jwtService = jwtService;
         this.uploadFilesService = uploadFilesService;
+        this.userCompanyService = userCompanyService;
+        this.authService = authService;
     }
     async createVacancy(vacancyDto, image, req) {
         const fileName = uuid.v4();
-        const authHeader = req.headers.authorization;
-        const token = authHeader.split(' ')[1];
-        vacancyDto.userCompanyId = this.jwtService.verify(token).id;
+        const user = await this.userCompanyService.getUserCompanyByReq(req);
+        vacancyDto.userCompanyId = user.id;
         const vacancy = await this.vacancyRepository.create(Object.assign(Object.assign({}, vacancyDto), { image: fileName }));
+        const token = (await this.authService.refreshToken(user.login)).token;
+        req.headers.authorization = `Bearer ${token}`;
+        const user2 = await this.userCompanyService.getUserCompanyByReq(req);
+        console.log(user2.vacancies);
         return this.generateToken(vacancy);
     }
     async generateToken(vacancy) {
@@ -48,7 +55,9 @@ VacanciesService = __decorate([
     (0, common_1.Injectable)(),
     __param(0, (0, sequelize_1.InjectModel)(vacancies_model_1.Vacancy)),
     __metadata("design:paramtypes", [Object, jwt_1.JwtService,
-        upload_files_service_1.UploadFilesService])
+        upload_files_service_1.UploadFilesService,
+        users_company_service_1.UsersCompanyService,
+        auth_service_1.AuthService])
 ], VacanciesService);
 exports.VacanciesService = VacanciesService;
 //# sourceMappingURL=vacancies.service.js.map

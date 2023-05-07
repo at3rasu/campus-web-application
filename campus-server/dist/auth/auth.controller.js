@@ -25,6 +25,10 @@ let AuthController = class AuthController {
         const user = this.authService.login(userDto, resp);
         return user;
     }
+    loginUserCompany(userDto, resp, request) {
+        const user = this.authService.loginUserCompany(userDto, resp);
+        return user;
+    }
     registration(userDto) {
         return this.authService.registration(userDto);
     }
@@ -41,6 +45,15 @@ __decorate([
     __metadata("design:paramtypes", [Object, Object, Object]),
     __metadata("design:returntype", void 0)
 ], AuthController.prototype, "login", null);
+__decorate([
+    (0, common_1.Post)('/login_userCompany'),
+    __param(0, (0, common_1.Body)()),
+    __param(1, (0, common_1.Res)({ passthrough: true })),
+    __param(2, (0, common_1.Req)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object, Object, Object]),
+    __metadata("design:returntype", void 0)
+], AuthController.prototype, "loginUserCompany", null);
 __decorate([
     (0, common_1.Post)('/registration'),
     __param(0, (0, common_1.Body)()),

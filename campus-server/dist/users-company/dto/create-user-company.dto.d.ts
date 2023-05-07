@@ -4,4 +4,5 @@ export declare class CreateUserCompanyDto {
     readonly login: string;
     readonly companyName: string;
     readonly repeatPass: string;
+    readonly vacancies: string[];
 }

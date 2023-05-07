@@ -1,13 +1,15 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, Req } from '@nestjs/common';
 import { InjectModel } from '@nestjs/sequelize';
 import { RolesService } from 'src/roles/roles.service';
 import { UserCompany } from './users-company.model';
 import { CreateUserCompanyDto } from './dto/create-user-company.dto';
+import { JwtService } from '@nestjs/jwt';
 
 @Injectable()
 export class UsersCompanyService {
     constructor(@InjectModel(UserCompany) private userCompanyRepository: typeof UserCompany,
-                private roleService: RolesService){}
+                private roleService: RolesService,
+                private jwtService: JwtService){}
 
     async createUser(dto: CreateUserCompanyDto){
         const user = await this.userCompanyRepository.create(dto);
@@ -30,5 +32,18 @@ export class UsersCompanyService {
     async getUserByLogin(login: string){
         const user = await this.userCompanyRepository.findOne({ where: {login}, include: {all : true}})
         return user
+    }
+
+    async getVacanciesByToken(req){
+        const authHeader = req.headers.authorization
+        const token = authHeader.split(' ')[1]
+        console.log(this.jwtService.verify(token).vacancies)
+        return this.jwtService.verify(token).vacancies
+    }
+
+    async getUserCompanyByReq(req){
+        const authHeader = req.headers.authorization
+        const token = authHeader.split(' ')[1]
+        return this.jwtService.verify(token)
     }
 }

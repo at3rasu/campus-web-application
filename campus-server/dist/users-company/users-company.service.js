@@ -17,10 +17,12 @@ const common_1 = require("@nestjs/common");
 const sequelize_1 = require("@nestjs/sequelize");
 const roles_service_1 = require("../roles/roles.service");
 const users_company_model_1 = require("./users-company.model");
+const jwt_1 = require("@nestjs/jwt");
 let UsersCompanyService = class UsersCompanyService {
-    constructor(userCompanyRepository, roleService) {
+    constructor(userCompanyRepository, roleService, jwtService) {
         this.userCompanyRepository = userCompanyRepository;
         this.roleService = roleService;
+        this.jwtService = jwtService;
     }
     async createUser(dto) {
         const user = await this.userCompanyRepository.create(dto);
@@ -41,11 +43,23 @@ let UsersCompanyService = class UsersCompanyService {
         const user = await this.userCompanyRepository.findOne({ where: { login }, include: { all: true } });
         return user;
     }
+    async getVacanciesByToken(req) {
+        const authHeader = req.headers.authorization;
+        const token = authHeader.split(' ')[1];
+        console.log(this.jwtService.verify(token).vacancies);
+        return this.jwtService.verify(token).vacancies;
+    }
+    async getUserCompanyByReq(req) {
+        const authHeader = req.headers.authorization;
+        const token = authHeader.split(' ')[1];
+        return this.jwtService.verify(token);
+    }
 };
 UsersCompanyService = __decorate([
     (0, common_1.Injectable)(),
     __param(0, (0, sequelize_1.InjectModel)(users_company_model_1.UserCompany)),
-    __metadata("design:paramtypes", [Object, roles_service_1.RolesService])
+    __metadata("design:paramtypes", [Object, roles_service_1.RolesService,
+        jwt_1.JwtService])
 ], UsersCompanyService);
 exports.UsersCompanyService = UsersCompanyService;
 //# sourceMappingURL=users-company.service.js.map

@@ -25,7 +25,12 @@ let AuthService = class AuthService {
     }
     async login(userDto, resp) {
         const user = await this.validateUser(userDto);
-        const result = this.generateTokenLog(user, resp);
+        const result = this.generateToken(user);
+        return result;
+    }
+    async loginUserCompany(userDto, resp) {
+        const user = await this.validateUserCompany(userDto);
+        const result = this.generateTokenUserComp(user);
         return result;
     }
     async registration(userDto) {
@@ -55,10 +60,9 @@ let AuthService = class AuthService {
             token: this.jwtService.sign(payload)
         };
     }
-    async generateTokenLog(user, resp) {
-        const payload = { login: user.login, id: user.id, roles: user.roles };
+    async generateTokenUserComp(user) {
+        const payload = { login: user.login, id: user.id, roles: user.roles, vacancies: user.vacancies };
         const tok = this.jwtService.sign(payload);
-        resp.cookie('token', tok);
         return {
             token: tok
         };
@@ -66,12 +70,12 @@ let AuthService = class AuthService {
     async validateUser(userDto) {
         const user = await this.userService.getUserByLogin(userDto.login);
         if (user == null) {
-            const user = await this.userCompanyService.getUserByLogin(userDto.login);
-            return this.equalUser(user, userDto);
-        }
-        if (user == null) {
             throw new exceptions_1.UnauthorizedException({ message: "Неправильный логин или пароль" });
         }
+        return this.equalUser(user, userDto);
+    }
+    async validateUserCompany(userDto) {
+        const user = await this.userCompanyService.getUserByLogin(userDto.login);
         return this.equalUser(user, userDto);
     }
     async equalUser(user, userDto) {
@@ -80,6 +84,10 @@ let AuthService = class AuthService {
             return user;
         }
         throw new exceptions_1.UnauthorizedException({ message: "Неправильный логин или пароль" });
+    }
+    async refreshToken(login) {
+        const user = await this.userCompanyService.getUserByLogin(login);
+        return this.generateTokenUserComp({ login: user.login, id: user.id, roles: user.roles, vacancies: user.vacancies });
     }
 };
 AuthService = __decorate([

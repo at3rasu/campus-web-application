@@ -27,6 +27,9 @@ let UsersCompanyController = class UsersCompanyController {
     getAll() {
         return this.usersCompanyService.getAllUsers();
     }
+    getVacanciesByUser(request) {
+        return this.usersCompanyService.getVacanciesByToken(request);
+    }
 };
 __decorate([
     (0, common_2.Post)(),
@@ -41,6 +44,13 @@ __decorate([
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", void 0)
 ], UsersCompanyController.prototype, "getAll", null);
+__decorate([
+    (0, common_2.Get)('/get_vacancies'),
+    __param(0, (0, common_2.Req)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Request]),
+    __metadata("design:returntype", void 0)
+], UsersCompanyController.prototype, "getVacanciesByUser", null);
 UsersCompanyController = __decorate([
     (0, common_1.Controller)('users-company'),
     __metadata("design:paramtypes", [users_company_service_1.UsersCompanyService])

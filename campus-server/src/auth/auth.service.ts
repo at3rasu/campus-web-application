@@ -19,7 +19,13 @@ export class AuthService {
 
     async login(userDto, resp: Response){
         const user = await this.validateUser(userDto)
-        const result = this.generateTokenLog(user, resp)
+        const result = this.generateToken(user)
+        return result;
+    }
+
+    async loginUserCompany(userDto, resp: Response){
+        const user = await this.validateUserCompany(userDto)
+        const result = this.generateTokenUserComp(user)
         return result;
     }
 
@@ -55,10 +61,9 @@ export class AuthService {
         }
     }
 
-    private async generateTokenLog(user, resp: Response){
-        const payload = {login: user.login, id: user.id, roles : user.roles}
+    private async generateTokenUserComp(user){
+        const payload = {login: user.login, id: user.id, roles : user.roles, vacancies: user.vacancies}
         const tok = this.jwtService.sign(payload)
-        // resp.cookie('token', tok)
         return{
             token: tok
         }
@@ -67,12 +72,13 @@ export class AuthService {
     private async validateUser(userDto){
         const user = await this.userService.getUserByLogin(userDto.login)
         if (user == null){
-            const user = await this.userCompanyService.getUserByLogin(userDto.login);
-            return this.equalUser(user, userDto)
-        }
-        if (user == null){
             throw new UnauthorizedException({message: "Неправильный логин или пароль"})
         }
+        return this.equalUser(user, userDto)
+    }
+
+    private async validateUserCompany(userDto){
+        const user = await this.userCompanyService.getUserByLogin(userDto.login);
         return this.equalUser(user, userDto)
     }
 
@@ -82,5 +88,10 @@ export class AuthService {
             return user
         }
         throw new UnauthorizedException({message: "Неправильный логин или пароль"})
+    }
+
+    async refreshToken(login){
+        const user = await this.userCompanyService.getUserByLogin(login)
+        return this.generateTokenUserComp({login: user.login, id: user.id, roles : user.roles, vacancies: user.vacancies})
     }
 }
