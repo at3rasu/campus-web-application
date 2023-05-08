@@ -9,7 +9,6 @@ export const SingIn = () =>{
   const [login, setLogin] = useState('')
   const [pass, setPass] = useState('')
   
-  
   let response = undefined
 
   const navigate = useNavigate()

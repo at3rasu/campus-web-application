@@ -1,12 +1,20 @@
-import { useNavigate } from "react-router-dom"
 import { Link } from "react-router-dom"
 import styles from "./Header_2.module.css"
+import { useContext} from "react"
+import { Context } from "../.."
+import { observer } from 'mobx-react'
+import { AuthBtn } from "../button/AuthBtn"
+import { AccountBtn } from "../button/AccountBtn"
+import { AuthError } from "../alert/AuthError"
 
-export const Header = () =>{
-    const navigate = useNavigate()
+export const Header = observer(() =>{
+    const {store} = useContext(Context)
+    const button = 'Разместить вакансию'
+    const router = '/SingUpCompany'
+    const account = '/AccountCompany'
 
     return(
-        <header className={styles.header}>
+        <div className={styles.header}>
             <div className={styles.container}>
                 <div className={styles.logo}>
                     <Link to='/Employers'><img src='/img/Group.svg' alt='logo_header'/></Link> 
@@ -15,20 +23,25 @@ export const Header = () =>{
                 <div className={styles.link}>
                     <Link to='/AboutUs' className={styles.fistLink}>О нас</Link>
                     <Link to='/Vacancy'>Вакансии</Link>
-                    <Link to='/PostVacancy'>Разместить вакансию</Link>
+                    {store.IsAuth ? (
+                        <Link to='/PostVacancy'>Разместить вакансию</Link>
+                    ):(
+                        <AuthError button={button}/>
+                    )}
                 </div>
                 <div className={styles.btn}>
                     <button className="srh-btn"><img src="/img/coolicon.svg" alt="logo"/></button>
                 </div>
-                <div className={styles.singUp_btn}>
-                    <button onClick={() => navigate('/SingIn')}>Регистрация</button>
-                </div>  
-                <div className={styles.singIn_btn}>
-                    <button onClick={() => navigate('/SingIn')}>Войти</button>
-                </div> 
+                <div>
+                    {store.IsAuth ? (
+                        <AccountBtn account={account}/>
+                    ):(
+                        <AuthBtn router={router}/>
+                    )}
+                </div>
             </div>
             <div className={styles.a}>
             </div>
-        </header>
+        </div>
     )
-}
+})

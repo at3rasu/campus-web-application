@@ -1,13 +1,17 @@
-import { useNavigate } from "react-router-dom"
 import { Link } from "react-router-dom"
 import styles from "./Header.module.css"
 import { useContext} from "react"
 import { Context } from "../.."
 import { observer } from 'mobx-react'
+import { AuthBtn } from "../button/AuthBtn"
+import { AccountBtn } from "../button/AccountBtn"
+import { AuthError } from "../alert/AuthError"
 
 export const Header = observer(() =>{
-    const navigate = useNavigate()
     const {store} = useContext(Context)
+    const button = 'Создать резюме'
+    const router = '/SingUp'
+    const account = '/PersonalAccount'
 
     return(
         <div className={styles.header}>
@@ -19,23 +23,20 @@ export const Header = observer(() =>{
                 <div className={styles.link}>
                     <Link to='/AboutUs' className={styles.fistLink}>О нас</Link>
                     <Link to='/Vacancy'>Вакансии</Link>
-                    <Link to='/CreateResume'>Создать резюме</Link>
+                    {store.IsAuth ? (
+                        <Link to='/CreateResume'>Создать резюме</Link>
+                    ):(
+                        <AuthError button={button}/>
+                    )}
                 </div>
                 <div className={styles.btn}>
                     <button className="srh-btn"><img src="/img/coolicon.svg" alt="logo"/></button>
                 </div>
                 <div>
                     {store.IsAuth ? (
-                        <button>Фрик Даня</button>
+                        <AccountBtn account={account}/>
                     ):(
-                        <>
-                            <div className={styles.singUp_btn}>
-                                <button onClick={() => navigate('/SingIn')}>Регистрация</button>
-                            </div>  
-                            <div className={styles.singIn_btn}>
-                                <button onClick={() => navigate('/SingIn')}>Войти</button>
-                            </div> 
-                        </>
+                        <AuthBtn router={router}/>
                     )}
                 </div>
             </div>
