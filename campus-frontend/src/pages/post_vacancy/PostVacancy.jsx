@@ -6,8 +6,6 @@ import { ExperienceSelection } from '../../components/experience_selection/Exper
 import { EducationSelection } from '../../components/education_selection/EducationSelection'
 import { useEffect, useState  } from "react"
 import { createVacancy } from '../../api/vacancy-api'
-import api from '../../api/create-api'
-import axios from 'axios'
 import { toast } from 'react-toastify'
 
 export const PostVacancy = () =>{

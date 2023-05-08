@@ -1,9 +1,10 @@
-//import { IUser } from "../users/IUser";
 import {makeAutoObservable} from "mobx"
 import api from "../api/create-api"
 
 
 export default class VacancyStore{
+    vacancies = []
+
     constructor(){
         makeAutoObservable(this)
     }
@@ -12,7 +13,7 @@ export default class VacancyStore{
     async createVacancy (nameVacancy, nameCompany, companyDescription, duties,
         expectations, skills, conditions, image, fullAddress, number, email) {
         try{
-            console.log(image)
+            //console.log(image)
             const formData = new FormData()
             formData.append('image', image)
             const response = await api( 
@@ -23,19 +24,17 @@ export default class VacancyStore{
                     Authorization: `Bearer your token`
                 },
                 
-                data: {
-                    nameVacancy : nameVacancy,
-                    nameCompany : nameCompany, 
-                    companyDescription : companyDescription,
-                    duties : duties,
-                    expectations : expectations, 
-                    skills : skills, 
-                    conditions : conditions, 
-                    fullAddress : fullAddress, 
-                    number : number, 
-                    email : email,
-                    image : formData
-                }
+                nameVacancy : nameVacancy,
+                nameCompany : nameCompany, 
+                companyDescription : companyDescription,
+                duties : duties,
+                expectations : expectations, 
+                skills : skills, 
+                conditions : conditions, 
+                fullAddress : fullAddress, 
+                number : number, 
+                email : email
+                
                 
             }).then(r => r)
 
@@ -61,6 +60,7 @@ export default class VacancyStore{
     async getAllVacancies(){
         try{
             const response = await api.get("/vacancies/get_all_vacancies")
+            this.vacancies = response.data
             console.log(response)
             return response
         }catch(e){

@@ -3,20 +3,22 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import UserStore from './stores/UserStore';
+import VacancyStore from './stores/VacancyStore';
 
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const store = new UserStore()
+export const vacancyStore = new VacancyStore()
 
 export const Context = createContext({
-  store, 
+  store, vacancyStore
 })
 
 root.render(
   <React.StrictMode>
     <Context.Provider value={{
-      store
+      store, vacancyStore
     }}>
       <App />
     </Context.Provider>
@@ -25,3 +27,4 @@ root.render(
 
 reportWebVitals();
 export default store
+
