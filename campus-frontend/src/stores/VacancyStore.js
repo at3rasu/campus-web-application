@@ -67,4 +67,12 @@ export default class VacancyStore{
             console.log(e.response?.data?.message)
         }
     }
+
+    getVacancyById(id) {
+        return this.vacancies.find((vacancy) => vacancy.id === id)
+    }
+
+    selectVacancyById(id) {
+        this.selectedVacancy = this.getVacancyById(id)
+    }
 }

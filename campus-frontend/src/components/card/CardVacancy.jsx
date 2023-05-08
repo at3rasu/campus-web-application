@@ -1,25 +1,19 @@
 import styles from './Card.module.css'
-import { Link } from 'react-router-dom'
-import { observer } from 'mobx-react'
-import { useContext, useEffect} from "react"
-import { Context } from "../.."
+import { Link } from "react-router-dom";
 
-export const CardVacancy = observer(() =>{
-    const {vacancyStore} = useContext(Context)
-    useEffect(() => {
-        vacancyStore.getAllVacancies();
-      }, );
-    
+export const CardVacancy = ({vacancy}) =>{
     return(
         <div className={styles.card}>
-                {vacancyStore.vacancies.map((vacancy) => (
-                    <div key={vacancy.id}>
-                    <h2>{vacancy.nameVacancy}</h2>
-                    <p>{vacancy.nameCompany}</p>
-                    <p>{vacancy.duties}</p>
-                    {/* Другие данные о вакансии */}
-                    </div>
-                ))}
+            <div className={styles.title}>
+                <h2>{vacancy.nameVacancy}</h2>
+            </div>
+            <div className={styles.content}>
+                <p>{vacancy.companyDescription}</p>
+                <p>Навыки: {vacancy.expectations}</p>
+            </div>
+            <div className={styles.link}>
+                <Link to={`/vacancies/${vacancy.id}`}>Подробнее...</Link>
+            </div>
         </div>
     )
-})
+}
