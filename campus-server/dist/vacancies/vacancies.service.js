@@ -18,7 +18,6 @@ const sequelize_1 = require("@nestjs/sequelize");
 const vacancies_model_1 = require("./vacancies.model");
 const jwt_1 = require("@nestjs/jwt");
 const upload_files_service_1 = require("../upload-files/upload-files.service");
-const uuid = require("uuid");
 const users_company_service_1 = require("../users-company/users-company.service");
 const auth_service_1 = require("../auth/auth.service");
 let VacanciesService = class VacanciesService {
@@ -30,7 +29,8 @@ let VacanciesService = class VacanciesService {
         this.authService = authService;
     }
     async createVacancy(vacancyDto, image, req) {
-        const fileName = uuid.v4();
+        console.log(image);
+        const fileName = await this.uploadFilesService.createFile(image);
         const user = await this.userCompanyService.getUserCompanyByReq(req);
         vacancyDto.userCompanyId = user.id;
         const vacancy = await this.vacancyRepository.create(Object.assign(Object.assign({}, vacancyDto), { image: fileName }));

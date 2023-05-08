@@ -18,8 +18,9 @@ export class VacanciesService {
                 private authService: AuthService){}
 
     async createVacancy(vacancyDto: CreateVacancyDto, image, req){
-        // const fileName = await this.uploadFilesService.createFile(image)
-        const fileName = uuid.v4()
+        console.log(image)
+        const fileName = await this.uploadFilesService.createFile(image)
+        // const fileName = uuid.v4()
         const user = await this.userCompanyService.getUserCompanyByReq(req)
         vacancyDto.userCompanyId = user.id
         const vacancy = await this.vacancyRepository.create({...vacancyDto, image: fileName});

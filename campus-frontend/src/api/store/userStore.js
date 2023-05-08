@@ -70,4 +70,14 @@ export default class UserStore{
             console.log(e.response?.data?.message)
         }
     }
+
+    async getVacanciesByUser(){
+        try{
+            const response = await api.get(`/users-company/get_vacancies`)
+            console.log(response)
+            return response
+        } catch(e) {
+            console.log(e.response?.data?.message)
+        }
+    }
 }

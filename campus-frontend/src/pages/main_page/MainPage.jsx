@@ -3,6 +3,8 @@ import { Header } from "../../components/header/Header"
 import { Footer } from "../../components/footer/Footer"
 import { useNavigate } from "react-router-dom"
 import { useEffect } from "react"
+import { getAllVacancies } from '../../api/vacancy-api'
+import { getVacanciesByUser } from '../../api/user-api'
 
 export const MainPage = () => {
     const navigate = useNavigate()
@@ -35,6 +37,10 @@ export const MainPage = () => {
                 </div>
                 <div className={styles.secondContainer}>
                     <div className={styles.secondContent}>
+                        <button onClick={
+                            async () => {
+                                const response = await getVacanciesByUser()
+                            }}>DSADFSLMDSFDSMDFSK</button>
                         <div className={styles.vacancy}>
                             <div className={styles.new}>
                                 <h1>Новые</h1>

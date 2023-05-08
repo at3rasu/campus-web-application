@@ -34,7 +34,7 @@ export class UsersCompanyService {
         return user
     }
 
-    async getVacanciesByToken(req){
+    async getVacanciesByUser(req){
         const authHeader = req.headers.authorization
         const token = authHeader.split(' ')[1]
         console.log(this.jwtService.verify(token).vacancies)

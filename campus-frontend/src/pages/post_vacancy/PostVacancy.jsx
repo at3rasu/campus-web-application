@@ -6,8 +6,17 @@ import { ExperienceSelection } from '../../components/experience_selection/Exper
 import { EducationSelection } from '../../components/education_selection/EducationSelection'
 import { useEffect, useState  } from "react"
 import { createVacancy } from '../../api/vacancy-api'
+import api from '../../api/create-api'
+import axios from 'axios'
 
 export const PostVacancy = () =>{
+
+    const onChange = (file) => {
+        const { files } = file.target;
+        if (files && files.length !== 0) {
+            setImage(files[0]);
+        }
+    }
     useEffect(() => {
         document.title = 'Опубликовать вакансию'
     })
@@ -19,11 +28,10 @@ export const PostVacancy = () =>{
     const [expectations, setExpectations] = useState('')
     const [skills, setSkills] = useState('')
     const [conditions, setConditions] = useState ('')
-    const [image, setImage] = useState('')
     const [fullAddress, setFullAddress] = useState('')
     const [number, setNumber] = useState('')
     const [email, setEmail] = useState('')
-
+    const [image, setImage] = useState();
 
 
     return(
@@ -59,8 +67,7 @@ export const PostVacancy = () =>{
                         <span className={styles.flex}>
                             <input
                                 type='file'
-                                value={image}
-                                onChange={(e) => setImage(e.target.value)}></input>
+                                onChange={onChange}></input>
                             <p className={styles.file}>Добавьте изображение в формате PNG</p>
                         </span>
                     </div>
@@ -151,7 +158,8 @@ export const PostVacancy = () =>{
                     <div className={styles.buttonSubmit}>
                         <button
                             type='submit'
-                            onClick={ async () => {
+                            onClick={ 
+                                async () => {
                                 const response = await createVacancy (nameVacancy, nameCompany, companyDescription, duties,
                                     expectations, skills, conditions, image, fullAddress, number, email)
                                 }

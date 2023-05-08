@@ -19,6 +19,6 @@ export class UsersCompanyController {
 
     @Get('/get_vacancies')
     getVacanciesByUser(@Req() request: Request){
-        return this.usersCompanyService.getVacanciesByToken(request)
+        return this.usersCompanyService.getVacanciesByUser(request)
     }
 }

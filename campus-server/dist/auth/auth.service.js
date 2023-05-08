@@ -26,7 +26,6 @@ let AuthService = class AuthService {
     async login(userDto) {
         const possibleUser = await this.userService.getUserByLogin(userDto.login);
         if (possibleUser != null) {
-            console.log(possibleUser);
             const user = await this.equalUser(possibleUser, userDto);
             return this.generateToken(user);
         }
