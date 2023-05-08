@@ -3,7 +3,6 @@ import styles from "./Header.module.css"
 import { useContext} from "react"
 import { Context } from "../.."
 import { observer } from 'mobx-react'
-import { logout } from "../../api/user-api"
 import { AuthBtn } from "../button/AuthBtn"
 import { AccountBtn } from "../button/AccountBtn"
 import { AuthError } from "../alert/AuthError"
