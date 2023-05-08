@@ -1,7 +1,7 @@
 import styles from './Card.module.css'
 import { Link } from 'react-router-dom'
 
-export const Card = () =>{
+export const CardVacancy = () =>{
     return(
         <div className={styles.card}>
             <div className={styles.title}>

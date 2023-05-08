@@ -85,55 +85,7 @@
     border-radius: 0  20px;
 }
 
-.singIn_btn{
-    position: relative;
-    margin-right: auto;
-    padding-top: 30px;
-    z-index: 5; 
-    right: 120px;
-}
 
-.singIn_btn button{
-    background: #8269EF;
-    border-radius: 56px;
-    border: none;
-    width: 124px;
-    height: 45px;
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 22px;
-    cursor: pointer;
-    /* identical to box height */
-
-
-    color: #FFFFFF;
-}
-
-.singUp_btn{
-    padding-top: 30px;
-    margin-left: 22px;
-}
-
-.singUp_btn button{
-    background: #EFEFEF;
-    border-radius: 56px;
-    width: 275px;
-    height: 45px;
-    border: none;
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 22px;
-    padding-right: 100px;
-    cursor: pointer;
-    /* identical to box height */
-
-
-    color: #000000;
-}
 
 .btn button{
     background: #EFEFEF;

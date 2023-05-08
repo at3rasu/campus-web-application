@@ -1,5 +1,5 @@
 import api from "./create-api";
-import VacancyStore from "./store/vacancyStore";
+import VacancyStore from "../stores/VacancyStore";
 
 
 

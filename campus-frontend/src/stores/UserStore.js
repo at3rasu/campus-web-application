@@ -1,16 +1,15 @@
-//import { IUser } from "../users/IUser";
 import {makeAutoObservable} from "mobx"
-import api from "../create-api";
+import api from "../api/create-api"
 
 
 export default class UserStore{
     IsAuth = false
-    user = {}
+    user = null
     constructor(){
         makeAutoObservable(this)
     }
 
-    setAuth(flag){
+    setAuth(){
         this.IsAuth = true
     }
 

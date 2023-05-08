@@ -28,7 +28,7 @@ let UsersCompanyController = class UsersCompanyController {
         return this.usersCompanyService.getAllUsers();
     }
     getVacanciesByUser(request) {
-        return this.usersCompanyService.getVacanciesByToken(request);
+        return this.usersCompanyService.getVacanciesByUser(request);
     }
 };
 __decorate([

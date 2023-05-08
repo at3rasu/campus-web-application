@@ -8,6 +8,7 @@ import { useEffect, useState  } from "react"
 import { createVacancy } from '../../api/vacancy-api'
 import api from '../../api/create-api'
 import axios from 'axios'
+import { toast } from 'react-toastify'
 
 export const PostVacancy = () =>{
 
@@ -33,11 +34,45 @@ export const PostVacancy = () =>{
     const [email, setEmail] = useState('')
     const [image, setImage] = useState();
 
+    const handleSubmit = (e) => {
+        e.preventDefault();
+    
+        // Проверка заполнения всех полей
+        if (!number || !email || !skills) {
+            toast.error('Пожалуйста, заполните все поля!', {
+                position: "top-center",
+                autoClose: 5000,
+                hideProgressBar: true,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+            });
+          return
+        }
+        setEmail('')
 
+        if(number|| email || skills) {
+        toast.success('Вы успешно опубликовали вакансию!', {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "colored",
+            });
+        return
+        }
+      }
+
+    
     return(
         <div className={styles.postVacancy}>
             <Header />
-            <div className={styles.container}>
+            <form className={styles.container} onSubmit={handleSubmit}>
                 <div className={styles.title}>
                     <hr></hr>
                     <h1>Публикация вакансии</h1>
@@ -167,7 +202,7 @@ export const PostVacancy = () =>{
                         >Опубликовать вакансию</button>
                     </div>
                 </div>
-            </div>
+            </form>
             <Footer />
         </div>
     )

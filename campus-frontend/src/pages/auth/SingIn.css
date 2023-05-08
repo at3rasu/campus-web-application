@@ -23,6 +23,7 @@
 }
 
 .sing-up{
+    margin-top: 60px;
     display: grid;
 }
 
@@ -31,22 +32,14 @@
 }
 
 .sing-up h1{
+    margin-top: 30px;
     font-style: normal;
     font-weight: 700;
     font-size: 45px;
     line-height: 54px;
     text-align: center;
-    color: #000000
-}
-
-.login{
-    padding-left: 56px;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 22px;
-
-    color: rgba(0, 0, 0, 0.65)
+    color: #000000;
+    margin-bottom: 65px;
 }
 
 .input-data{

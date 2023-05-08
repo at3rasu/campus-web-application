@@ -1,6 +1,6 @@
 //import { IUser } from "../users/IUser";
 import {makeAutoObservable} from "mobx"
-import api from "../create-api";
+import api from "../api/create-api"
 
 
 export default class VacancyStore{

@@ -2,7 +2,8 @@ import React, { createContext } from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import UserStore from './api/store/userStore';
+import UserStore from './stores/UserStore';
+
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -23,5 +24,4 @@ root.render(
 );
 
 reportWebVitals();
-
-export default store;
+export default store

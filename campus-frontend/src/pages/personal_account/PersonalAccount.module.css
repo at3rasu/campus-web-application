@@ -1,0 +1,33 @@
+.container{
+    min-height: calc(100vh - 80px);
+    width: 1680px;
+    margin: 0px auto;
+}
+
+.title{
+    display: flex;
+    justify-content: center;
+    padding-top: 103px;
+    align-items: center;
+}
+
+.title hr{
+    border: 1px solid rgba(245, 45, 48, 0.2);
+    width: 100px;
+    height: 0;
+}
+
+.title h1{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 36px;
+    text-align: center;
+    padding-left: 10px;
+    padding-right: 10px;
+
+    color: #F52D30;
+}
+
+

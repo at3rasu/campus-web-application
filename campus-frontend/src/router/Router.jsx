@@ -11,6 +11,8 @@ import { Vacancy } from "../pages/vacancy/Vacancy";
 import { PostVacancy } from "../pages/post_vacancy/PostVacancy";
 import { ListVacancy } from "../pages/list_vacancy/ListVacancy";
 import { Employers } from "../pages/employers/Employers";
+import { PersonalAccount } from "../pages/personal_account/PersonalAccount";
+import { AccountCompany } from "../pages/personal_account/AccountCompany";
 
 export const Router = () =>{
     return(
@@ -29,6 +31,8 @@ export const Router = () =>{
                     <Route path="/PostVacancy" element={<PostVacancy />}/>
                     <Route path="/ListVacancy" element={<ListVacancy />}/>
                     <Route path="/Employers" element={<Employers />}/>
+                    <Route path="/PersonalAccount" element={<PersonalAccount />}/>
+                    <Route path="/AccountCompany" element={<AccountCompany />}/>
                 </Routes>
             </BrowserRouter>
         </div>

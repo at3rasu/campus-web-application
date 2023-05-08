@@ -3,7 +3,7 @@ import styles from  './Vacancy.module.css'
 
 import { Header } from "../../components/header/Header"
 import { Footer } from "../../components/footer/Footer"
-import { Card } from "../../components/card/Card"
+import { CardVacancy } from "../../components/card/CardVacancy"
 
 export const Vacancy = () =>{
     useEffect(() => {
@@ -26,7 +26,7 @@ export const Vacancy = () =>{
                 </div>
                 <hr className={styles.hr}></hr>
                 <div className={styles.vacancy}>
-                    <Card />
+                    <CardVacancy />
                 </div>
             </div>
             <Footer />
