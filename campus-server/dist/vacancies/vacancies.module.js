@@ -15,7 +15,6 @@ const vacancies_model_1 = require("./vacancies.model");
 const jwt_1 = require("@nestjs/jwt");
 const auth_module_1 = require("../auth/auth.module");
 const users_company_model_1 = require("../users-company/users-company.model");
-const upload_files_module_1 = require("../upload-files/upload-files.module");
 const users_company_module_1 = require("../users-company/users-company.module");
 let VacanciesModule = class VacanciesModule {
 };
@@ -30,7 +29,6 @@ VacanciesModule = __decorate([
                     expiresIn: '30m'
                 }
             }),
-            upload_files_module_1.UploadFilesModule,
             users_company_module_1.UsersCompanyModule,
             auth_module_1.AuthModule
         ],

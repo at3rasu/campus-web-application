@@ -18,18 +18,12 @@ const vacancies_service_1 = require("./vacancies.service");
 const create_vacancy_dto_1 = require("./dto/create-vacancy.dto");
 const roles_guard_1 = require("../auth/roles.guard");
 const roles_auth_decorator_1 = require("../auth/roles-auth.decorator");
-const platform_express_1 = require("@nestjs/platform-express");
 let VacanciesController = class VacanciesController {
     constructor(vacanciesService) {
         this.vacanciesService = vacanciesService;
     }
     create(vacancyDto, request) {
         return this.vacanciesService.createVacancy(vacancyDto, request);
-    }
-    check_file(image) {
-        console.log('method check');
-        console.log(image);
-        return image;
     }
     getAllVacancies() {
         return this.vacanciesService.getAllVacancies();
@@ -46,14 +40,6 @@ __decorate([
         Request]),
     __metadata("design:returntype", void 0)
 ], VacanciesController.prototype, "create", null);
-__decorate([
-    (0, common_1.Post)('/check'),
-    (0, common_1.UseInterceptors)((0, platform_express_1.FileInterceptor)('image')),
-    __param(0, (0, common_1.UploadedFile)()),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Object]),
-    __metadata("design:returntype", void 0)
-], VacanciesController.prototype, "check_file", null);
 __decorate([
     (0, common_1.Get)('/get_all_vacancies'),
     __metadata("design:type", Function),

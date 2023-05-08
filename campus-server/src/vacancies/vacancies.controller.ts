@@ -24,15 +24,15 @@ export class VacanciesController {
         return this.vacanciesService.createVacancy(vacancyDto, request);
     }
 
-    @Post('/check')
-    @UseInterceptors(FileInterceptor('image'))
-    check_file(
-        @UploadedFile() image
-        ){
-        console.log('method check')
-        console.log(image)
-        return image;
-    }
+    // @Post('/check')
+    // @UseInterceptors(FileInterceptor('image'))
+    // check_file(
+    //     @UploadedFile() image
+    //     ){
+    //     console.log('method check')
+    //     console.log(image)
+    //     return image;
+    // }
 
     @Get('/get_all_vacancies')
     getAllVacancies(){

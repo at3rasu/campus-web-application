@@ -16,7 +16,7 @@ export default class VacancyStore{
             //console.log(image)
             // const formData = new FormData()
             // formData.append('image', image)
-            const response = await api( "/vacancies",
+            const response = await api.post( "/vacancies",
             {
                 nameVacancy,
                 nameCompany, 
