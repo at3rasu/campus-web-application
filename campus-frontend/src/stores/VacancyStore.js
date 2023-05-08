@@ -1,9 +1,11 @@
 //import { IUser } from "../users/IUser";
 import {makeAutoObservable} from "mobx"
 import api from "../api/create-api"
+import { Vacancy } from "../pages/vacancy/Vacancy"
 
 
 export default class VacancyStore{
+    vacancies = []
     constructor(){
         makeAutoObservable(this)
     }
@@ -61,7 +63,7 @@ export default class VacancyStore{
     async getAllVacancies(){
         try{
             const response = await api.get("/vacancies/get_all_vacancies")
-            console.log(response)
+            this.vacancies = response.data
             return response
         }catch(e){
             console.log(e.response?.data?.message)
