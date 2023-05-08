@@ -9,7 +9,7 @@ import { Statistics } from "../pages/statistics/Statistics";
 import { CreateResume } from "../pages/resume/CreateResume";
 import { Vacancy } from "../pages/vacancy/Vacancy";
 import { PostVacancy } from "../pages/post_vacancy/PostVacancy";
-import { ListVacancy } from "../pages/list_vacancy/ListVacancy";
+import { VacancyDetails } from "../pages/vacancy_details/VacancyDetails";
 import { Employers } from "../pages/employers/Employers";
 import { PersonalAccount } from "../pages/personal_account/PersonalAccount";
 import { AccountCompany } from "../pages/personal_account/AccountCompany";
@@ -29,7 +29,7 @@ export const Router = () =>{
                     <Route path="/CreateResume" element={<CreateResume />}/>
                     <Route path="/Vacancy" element={<Vacancy />}/>
                     <Route path="/PostVacancy" element={<PostVacancy />}/>
-                    <Route path="/ListVacancy" element={<ListVacancy />}/>
+                    <Route path="/vacancies/:id " element={<VacancyDetails />}/>
                     <Route path="/Employers" element={<Employers />}/>
                     <Route path="/PersonalAccount" element={<PersonalAccount />}/>
                     <Route path="/AccountCompany" element={<AccountCompany />}/>
