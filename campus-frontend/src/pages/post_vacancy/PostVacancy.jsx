@@ -194,7 +194,7 @@ export const PostVacancy = () =>{
                             onClick={ 
                                 async () => {
                                 const response = await createVacancy (nameVacancy, nameCompany, companyDescription, duties,
-                                    expectations, skills, conditions, image, fullAddress, number, email)
+                                    expectations, skills, conditions, fullAddress, number, email)
                                 }
                             }
                         >Опубликовать вакансию</button>

@@ -9,18 +9,6 @@ import { randomUUID } from 'crypto';
 import Path = require('path');
 
 
-const storage = {
-    storage : diskStorage({
-        destination: 'src/uploads/files',
-        filename: (req, file, cb) =>{
-            const filename: string = 'myfile-' + randomUUID();
-            const extension: string = Path.parse(file.originalname).ext;
-            cb(null, `${filename}${extension}`)
-        }
-    })
-}
-
-
 @Controller('vacancies')
 export class VacanciesController {
     constructor(private vacanciesService: VacanciesService) {}
@@ -28,17 +16,18 @@ export class VacanciesController {
     @Post()
     @UseGuards(RolesGuard)
     @Roles('admin', 'user_company')
-    @UseInterceptors(FileInterceptor('image'))
+    // @UseInterceptors(FileInterceptor('image'))
     create(@Body() vacancyDto: CreateVacancyDto,
-           @UploadedFile() image,
+        //    @UploadedFile() image,
            @Req() request: Request
         ){
-        return this.vacanciesService.createVacancy(vacancyDto, image, request);
+        return this.vacanciesService.createVacancy(vacancyDto, request);
     }
 
     @Post('/check')
     @UseInterceptors(FileInterceptor('image'))
-    check_file(@UploadedFile() image
+    check_file(
+        @UploadedFile() image
         ){
         console.log('method check')
         console.log(image)

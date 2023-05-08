@@ -1,14 +1,21 @@
-import { useEffect } from "react"
+import { useEffect, useContext } from "react"
 import styles from  './Vacancy.module.css'
 
 import { Header } from "../../components/header/Header"
 import { Footer } from "../../components/footer/Footer"
 import { CardVacancy } from "../../components/card/CardVacancy"
+import { Context } from "../.."
+import { observer } from 'mobx-react'
 
-export const Vacancy = () =>{
+export const Vacancy = observer(() =>{
     useEffect(() => {
         document.title = 'Вакансии'
     })
+
+    const {vacancyStore} = useContext(Context)
+    useEffect(() => {
+        vacancyStore.getAllVacancies()
+    }, [vacancyStore])
     
     return(
         <div className="vacancy">
@@ -26,10 +33,12 @@ export const Vacancy = () =>{
                 </div>
                 <hr className={styles.hr}></hr>
                 <div className={styles.vacancy}>
-                    <CardVacancy />
+                    {vacancyStore.vacancies.map((vacancy) => (
+                        <CardVacancy key={vacancy.id} vacancy={vacancy} />
+                    ))}
                 </div>
             </div>
             <Footer />
         </div>
     )
-}
+})

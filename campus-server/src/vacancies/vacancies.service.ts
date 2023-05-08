@@ -17,13 +17,17 @@ export class VacanciesService {
                 private userCompanyService: UsersCompanyService,
                 private authService: AuthService){}
 
-    async createVacancy(vacancyDto: CreateVacancyDto, image, req){
-        console.log(image)
-        const fileName = await this.uploadFilesService.createFile(image)
-        // const fileName = uuid.v4()
+    async createVacancy(vacancyDto: CreateVacancyDto, 
+        // image,
+        req){
+        // console.log(image)
+        // const fileName = await this.uploadFilesService.createFile(image)
+        const fileName = uuid.v4()
         const user = await this.userCompanyService.getUserCompanyByReq(req)
         vacancyDto.userCompanyId = user.id
-        const vacancy = await this.vacancyRepository.create({...vacancyDto, image: fileName});
+        const vacancy = await this.vacancyRepository.create({...vacancyDto
+            // , image: fileName
+        });
         const token = (await this.authService.refreshToken(user.login)).token
         req.headers.authorization = `Bearer ${token}`
         return this.generateToken(vacancy);

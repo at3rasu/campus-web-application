@@ -11,31 +11,24 @@ export default class VacancyStore{
 
 
     async createVacancy (nameVacancy, nameCompany, companyDescription, duties,
-        expectations, skills, conditions, image, fullAddress, number, email) {
+        expectations, skills, conditions, fullAddress, number, email) {
         try{
             //console.log(image)
-            const formData = new FormData()
-            formData.append('image', image)
-            const response = await api( 
+            // const formData = new FormData()
+            // formData.append('image', image)
+            const response = await api( "/vacancies",
             {
-                url:"/vacancies",
-                method:"post",
-                headers:{
-                    Authorization: `Bearer your token`
-                },
-                
-                nameVacancy : nameVacancy,
-                nameCompany : nameCompany, 
-                companyDescription : companyDescription,
-                duties : duties,
-                expectations : expectations, 
-                skills : skills, 
-                conditions : conditions, 
-                fullAddress : fullAddress, 
-                number : number, 
-                email : email
-                
-                
+                nameVacancy,
+                nameCompany, 
+                companyDescription,
+                duties,
+                expectations, 
+                skills, 
+                conditions, 
+                fullAddress, 
+                number, 
+                email,
+                // image 
             }).then(r => r)
 
             // const response = await api.post(`/vacancies/check`, formData)
@@ -66,5 +59,9 @@ export default class VacancyStore{
         }catch(e){
             console.log(e.response?.data?.message)
         }
+    }
+
+    getVacancyById(id) {
+        return this.vacancies.find((vacancy) => vacancy.id === id);
     }
 }
