@@ -25,11 +25,11 @@ export const VacancyDetails = observer(() =>{
                 <div className={styles.cardCompany}>
                     <div className={styles.vacancy}>
                         <h3>{vacancy.nameVacancy}</h3>
-                        <p>{vacancy.companyDescription}</p>
+                        <h3>{vacancy.companyDescription}</h3>
                         <p>{vacancy.skills}</p>
+                        <button>Подать заявку</button>
                     </div>
                     <div className={styles.company}>
-
                     </div>
                 </div>
                 <div className={styles.content}>

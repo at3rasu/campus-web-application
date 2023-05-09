@@ -71,7 +71,7 @@ export const SingUpCompany = () =>{
                     <button
                         onClick={async () => {
                             response = await registrationUserCompany(email, pass, login, secondPass, companyName)
-                            navigate('/')
+                            navigate('/SingInCompany')
                           }}
                         type='submit'>Зарегистрироваться</button>
                 </div> 

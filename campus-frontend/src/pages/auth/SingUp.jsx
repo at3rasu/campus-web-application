@@ -83,7 +83,7 @@ export const SingUp = () =>{
           <button
             onClick={async () => {
               const response = await registration(email, pass, login, name, lastName, city, secondPass)
-              navigate('/')
+              navigate('/SingIn')
             }}
             type='submit'>Зарегистрироваться</button>
         </div> 

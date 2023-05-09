@@ -10,7 +10,7 @@ export const AuthBtn = (props) =>{
                 <button onClick={() => navigate(props.router)}>Регистрация</button>
                     </div>  
             <div className={styles.singIn_btn}>
-                <button onClick={() => navigate('/SingIn')}>Войти</button>
+                <button onClick={() => navigate(props.auth)}>Войти</button>
             </div> 
         </div>
     )

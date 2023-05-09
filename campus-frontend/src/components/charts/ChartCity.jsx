@@ -29,10 +29,11 @@ export const ChartCity = () =>{
         pointRadius: 5,
         backgroundColor: [
             "#F52D30",
-            "#EF6B6D",
-            "#B1191B",
-            "#E98E8F",
-            "#D81316"
+            "#82A2CD",
+            "#BF68A6",
+            "#78B27C",
+            "#F3B200",
+            "#8269EF"
         ]
 
     }
@@ -56,7 +57,7 @@ export const ChartCity = () =>{
 
     return(
         <div className='chart-city'>
-            <table>
+            <table class="table">
                 <thead>
                 <tr>
                     {createTableData()[0].map((header) => (

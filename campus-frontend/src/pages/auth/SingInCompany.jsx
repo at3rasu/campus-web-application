@@ -2,10 +2,10 @@ import React, {useState} from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useEffect } from 'react'
 import './SingIn.css'
-import { set_login } from '../../api/user-api'
+import { set_login_user_company } from '../../api/user-api'
 
 
-export const SingIn = () =>{
+export const SingInCompany = () =>{
   const [login, setLogin] = useState('')
   const [pass, setPass] = useState('')
   
@@ -53,13 +53,13 @@ export const SingIn = () =>{
           <button
             type='submit'
             onClick={async () => {
-              response = await set_login(login, pass)
-              navigate("/")
+              response = await set_login_user_company(login, pass)
+              navigate("/Employers")
             }}>Войти</button>
         </div>
         <div className='next'>
           <button
-            onClick={() => navigate('/SingUp')}>Или зарегистрироваться</button>
+            onClick={() => navigate('/SingUpCompany')}>Или зарегистрироваться</button>
         </div>
       </form>
     </div>

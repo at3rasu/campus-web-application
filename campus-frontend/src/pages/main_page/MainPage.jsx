@@ -3,8 +3,6 @@ import { Header } from "../../components/header/Header"
 import { Footer } from "../../components/footer/Footer"
 import { useNavigate } from "react-router-dom"
 import { useEffect } from "react"
-import { getAllVacancies } from '../../api/vacancy-api'
-import { getVacanciesByUser } from '../../api/user-api'
 
 export const MainPage = () => {
     const navigate = useNavigate()
