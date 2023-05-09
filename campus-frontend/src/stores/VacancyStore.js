@@ -1,49 +1,10 @@
-import {makeAutoObservable} from "mobx"
+import {makeAutoObservable, runInAction } from "mobx"
 import api from "../api/create-api"
 import { Vacancy } from "../pages/vacancy/Vacancy"
-class CreateVacancyDto{
-    nameVacancy
-
-    companyDescription 
-    
-    duties
-
-    expectations
-
-    skills
-
-    conditions
-
-    email
-
-    fullAddress
-
-    constructor(
-        nameVacancy,
-        nameCompany, 
-        companyDescription,
-        duties,
-        expectations, 
-        skills, 
-        conditions, 
-        fullAddress, 
-        number, 
-        email){
-            this.nameVacancy = nameVacancy
-            this.nameCompany = nameCompany
-            this.companyDescription = companyDescription
-            this.duties = duties
-            this.expectations = expectations
-            this.skills = skills
-            this.conditions = conditions
-            this.fullAddress = fullAddress
-            this.number = number
-            this.email = email
-        }
-}
 
 export default class VacancyStore{
     vacancies = []
+    
     constructor(){
         makeAutoObservable(this)
     }
@@ -122,6 +83,11 @@ export default class VacancyStore{
         try{
             const response = await api.get("/vacancies/get_all_vacancies")
             this.vacancies = response.data
+            runInAction(() => {
+                this.vacancies = response.data
+                console.log(response)
+            })
+            console.log(response)
             return response
         }catch(e){
             console.log(e.response?.data?.message)

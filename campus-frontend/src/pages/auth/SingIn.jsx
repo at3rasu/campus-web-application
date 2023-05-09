@@ -27,7 +27,7 @@ export const SingIn = () =>{
       <form onSubmit={handleSubmit} className='box-auth'>
         <div className='sing-up'>
           <img src='/img/Union.svg' alt='campus_logo'/>
-          <h1>Войти в аккаунт</h1>
+          <h1>Вход в аккаунт</h1>
         </div>
         <div className='input-data'>
           <input
