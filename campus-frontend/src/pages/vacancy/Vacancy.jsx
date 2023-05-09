@@ -28,13 +28,13 @@ export const Vacancy = observer(() =>{
                             placeholder="Введите название вакансии..."></input>
                     </div>
                     <div className={styles.sortVacancy}>
-                        <label>Найдено n-кол-во вакансий</label>
+                        <label>Найдено {vacancyStore.vacancyCount} вакансий</label>
                     </div>
                 </div>
                 <hr className={styles.hr}></hr>
                 <div className={styles.vacancy}>
                     {vacancyStore.vacancies.map((vacancy) => (
-                        <CardVacancy key={vacancy.id} vacancy={vacancy} />
+                        <CardVacancy key={vacancy.id} vacancy={vacancy}/>
                     ))}
                 </div>
             </div>

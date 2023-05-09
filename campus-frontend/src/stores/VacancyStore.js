@@ -4,6 +4,7 @@ import api from "../api/create-api"
 
 export default class VacancyStore{
     vacancies = []
+    vacancyCount = 0
 
     constructor(){
         makeAutoObservable(this)
@@ -62,6 +63,7 @@ export default class VacancyStore{
             const response = await api.get("/vacancies/get_all_vacancies")
             runInAction(() => {
                 this.vacancies = response.data
+                this.vacancyCount = response.data.length
                 console.log(response)
             })
             console.log(response)
