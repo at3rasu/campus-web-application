@@ -5,6 +5,7 @@ import { ChartRegister } from '../../components/charts/ChartRegister'
 import { ChartCity } from '../../components/charts/ChartCity'
 import { Footer } from '../../components/footer/Footer'
 import { useEffect, useState } from 'react'
+import { Table } from '../../components/charts/Table'
 
 export const Statistics = () => {
     const [student] = useState('336')
@@ -35,6 +36,9 @@ export const Statistics = () => {
             <div className='register-dynamics'>
                 <p>Получатели стипендиальной поддержки</p>
                 <button>Выгрузить</button>
+            </div> 
+            <div className='chart2'>
+                <Table />    
             </div> 
             <Footer />
         </div>

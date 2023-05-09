@@ -11,7 +11,7 @@ export const set_login = async (login, password) => {
 }
 
 export const set_login_user_company = async (login, password) => {
-    const response = store.set_login(login, password)
+    const response = store.set_login_user_company(login, password)
     return response
 }
 
