@@ -16,22 +16,23 @@ export class VacanciesController {
     @Post()
     @UseGuards(RolesGuard)
     @Roles('admin', 'user_company')
-    // @UseInterceptors(FileInterceptor('image'))
+    @UseInterceptors(FileInterceptor('image'))
     create(@Body() vacancyDto: CreateVacancyDto,
-        //    @UploadedFile() image,
+           @UploadedFile() image,
            @Req() request: Request
         ){
-        return this.vacanciesService.createVacancy(vacancyDto, request);
+        console.log(image)
+        return this.vacanciesService.createVacancy(vacancyDto, image, request);
     }
 
-    // @Post('/check')
+    // @Post('/add_image')
     // @UseInterceptors(FileInterceptor('image'))
     // check_file(
     //     @UploadedFile() image
     //     ){
     //     console.log('method check')
     //     console.log(image)
-    //     return image;
+    //     return this.vacanciesService.addImage(image);
     // }
 
     @Get('/get_all_vacancies')

@@ -13,25 +13,38 @@ import { AuthService } from 'src/auth/auth.service';
 export class VacanciesService {
     constructor(@InjectModel(Vacancy) private vacancyRepository: typeof Vacancy,
                 private jwtService: JwtService,
-                // private uploadFilesService: UploadFilesService,
+                private uploadFilesService: UploadFilesService,
                 private userCompanyService: UsersCompanyService,
                 private authService: AuthService){}
+    
+    private lastVacancyId
 
     async createVacancy(vacancyDto: CreateVacancyDto, 
-        // image,
+        image,
         req){
-        // console.log(image)
-        // const fileName = await this.uploadFilesService.createFile(image)
-        const fileName = uuid.v4()
+        console.log(image)
+        const fileName = await this.uploadFilesService.createFile(image)
+        // const fileName = uuid.v4()
         const user = await this.userCompanyService.getUserCompanyByReq(req)
         vacancyDto.userCompanyId = user.id
-        const vacancy = await this.vacancyRepository.create({...vacancyDto
-            // , image: fileName
+        const vacancy = await this.vacancyRepository.create({...vacancyDto,
+            image: fileName
         });
+        this.lastVacancyId = vacancy.id
         const token = (await this.authService.refreshToken(user.login)).token
         req.headers.authorization = `Bearer ${token}`
         return this.generateToken(vacancy);
     }
+
+    // async addImage(image){
+    //     const fileName = await this.uploadFilesService.createFile(image)
+    //     if (!this.lastVacancyId){
+    //         this.lastVacancyId = this.vacancyRepository.length
+    //     }
+    //     const vacancy = await this.vacancyRepository.findByPk(this.lastVacancyId)
+    //     vacancy.image = fileName
+    //     return this.generateToken(vacancy);
+    // }
 
     private async generateToken(vacancy: Vacancy){
         const payload = {id: vacancy.id, email: vacancy.email, name : vacancy.nameVacancy}

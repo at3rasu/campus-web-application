@@ -24,6 +24,7 @@ export const VacancyDetails = observer(() =>{
             <div>
                 <p>{vacancy.companyDescription}</p>
                 <p>Навыки: {vacancy.expectations}</p>
+                <p>{vacancy.image}</p>
             </div>
         </div>
     )

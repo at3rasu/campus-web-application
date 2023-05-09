@@ -19,7 +19,7 @@ import { UsersCompanyModule } from 'src/users-company/users-company.module';
       signOptions: {
         expiresIn: '30m'
       }}),
-    // UploadFilesModule,
+    UploadFilesModule,
     UsersCompanyModule,
     AuthModule
   ],
