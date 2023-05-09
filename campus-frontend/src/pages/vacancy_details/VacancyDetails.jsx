@@ -24,37 +24,40 @@ export const VacancyDetails = observer(() =>{
             <div className={styles.container}>
                 <div className={styles.cardCompany}>
                     <div className={styles.vacancy}>
-                        <h3>{vacancy.nameVacancy}</h3>
-                        <h3>{vacancy.companyDescription}</h3>
+                        <h2>{vacancy.nameVacancy}</h2>
+                        <h4>{vacancy.companyDescription}</h4>
+
                         <p>{vacancy.skills}</p>
                         <button>Подать заявку</button>
                     </div>
                     <div className={styles.company}>
+
                     </div>
                 </div>
                 <div className={styles.content}>
                     <div className={styles.duties}>
-                        <h1>Чем предстоит заниматься?</h1>
+                        <h3>Чем предстоит заниматься?</h3>
                         <p>{vacancy.duties}</p>
                     </div>
                     <div className={styles.expectations}>
-                        <h1>Что мы ожидаем от будущего кандидата?</h1>
+                        <h3>Что мы ожидаем от будущего кандидата?</h3>
                         <p>{vacancy.expectations}</p>
                     </div>
                     <div className={styles.skills}>
-                        <h1>Приветствуются:</h1>
+                        <h3>Приветствуются:</h3>
                         <p>{vacancy.skills}</p>
                     </div>
                     <div className={styles.conditions}>
-                        <h1>Условия работы:</h1>
+                        <h3>Условия работы:</h3>
+
                         <p>{vacancy.conditions}</p>
                     </div>
                 </div>
                 <div className={styles.secondContent}>
                     <h1>Связь с работодателем</h1>
-                    <p>Почта: {vacancy.email}</p>
-                    <p>Номер телефона: {vacancy.number}</p>
-                    <p>Адрес: {vacancy.fullAddress}</p>
+                    <h3>Почта: <span>{vacancy.email}</span></h3>
+                    <h3>Номер телефона: <span>{vacancy.number}</span></h3>
+                    <h3>Адрес: {vacancy.fullAddress}</h3>
                 </div>
             </div>
             <Footer />

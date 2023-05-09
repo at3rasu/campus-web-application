@@ -33,6 +33,7 @@ export const Router = () =>{
                     <Route path="/Employers" element={<Employers />}/>
                     <Route path="/PersonalAccount" element={<PersonalAccount />}/>
                     <Route path="/AccountCompany" element={<AccountCompany />}/>
+                    <Route path="/vacancies/:id " element={VacancyDetails }/>
                 </Routes>
             </BrowserRouter>
         </div>

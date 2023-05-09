@@ -24,8 +24,13 @@ export default class UserStore{
 
     async registration (email, password, login, name, surname, city, repeatPass) {
         try{
+            if (localStorage.getItem('token')){
+                console.log(localStorage.getItem('token'))
+                this.logout()
+                console.log(localStorage.getItem('token'))
+            }
             const response = await api.post(`/auth/registration`, {email, password, login, name, surname, city, repeatPass})
-            localStorage.setItem('token', response.data.token)
+            // localStorage.setItem('token', response.data.token)
             this.setAuth(true)     
             this.setUser(response.data.user)
             return response
@@ -36,9 +41,11 @@ export default class UserStore{
 
     async set_login (login, password) {
         try{
+            if (localStorage.getItem('token')){
+                this.logout()
+            }
             const response = await api.post(`/auth/login`, {login, password})
             localStorage.setItem('token', response.data.token)
-            console.log(response.data.token.roles)
             this.setAuth(true)
             this.setUser(response.data.user)
             return response

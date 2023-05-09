@@ -9,6 +9,7 @@ import { UsersCompanyService } from 'src/users-company/users-company.service';
 import { UserCompany } from 'src/users-company/users-company.model';
 import { UploadFilesModule } from 'src/upload-files/upload-files.module';
 import { UsersCompanyModule } from 'src/users-company/users-company.module';
+import { FilesModule } from 'src/files/files.module';
 
 @Module({
   controllers: [VacanciesController],
@@ -19,7 +20,8 @@ import { UsersCompanyModule } from 'src/users-company/users-company.module';
       signOptions: {
         expiresIn: '30m'
       }}),
-    UploadFilesModule,
+    // UploadFilesModule,
+    // FilesModule,
     UsersCompanyModule,
     AuthModule
   ],

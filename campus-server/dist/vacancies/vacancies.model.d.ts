@@ -15,6 +15,7 @@ export declare class Vacancy extends Model<Vacancy, VacancyCreationAttrs> {
     conditions: string;
     email: string;
     fullAddress: string;
+    number: string;
     image: string;
     userCompanyId: number;
     author: UserCompany;

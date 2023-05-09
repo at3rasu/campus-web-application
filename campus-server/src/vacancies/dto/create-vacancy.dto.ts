@@ -17,6 +17,8 @@ export class CreateVacancyDto{
 
     readonly fullAddress: string
 
+    readonly number: string
+
     readonly image: string
 
     userCompanyId: number

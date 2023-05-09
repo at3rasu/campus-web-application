@@ -24,7 +24,7 @@ export const Header = observer(() =>{
                 <div className={styles.link}>
                     <Link to='/AboutUs' className={styles.fistLink}>О нас</Link>
                     <Link to='/Vacancy'>Вакансии</Link>
-                    {store.IsAuthCompany ? (
+                    {store.IsAuth ? (
                         <Link to='/PostVacancy'>Разместить вакансию</Link>
                     ):(
                         <AuthError button={button}/>
@@ -34,6 +34,7 @@ export const Header = observer(() =>{
                     <button className="srh-btn"><img src="/img/coolicon.svg" alt="logo"/></button>
                 </div>
                 <div>
+
                     {store.IsAuthCompany ? (
                         <AccountBtn account={account} />
                     ):(

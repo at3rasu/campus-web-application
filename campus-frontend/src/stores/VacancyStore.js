@@ -1,10 +1,10 @@
 import {makeAutoObservable, runInAction } from "mobx"
 import api from "../api/create-api"
-
+import { Vacancy } from "../pages/vacancy/Vacancy"
 
 export default class VacancyStore{
     vacancies = []
-    vacancyCount = 0
+    vacancyCount = 0 
 
     constructor(){
         makeAutoObservable(this)
@@ -14,42 +14,30 @@ export default class VacancyStore{
     async createVacancy (nameVacancy, nameCompany, companyDescription, duties,
         expectations, skills, conditions, image, fullAddress, number, email) {
         try{
-            //console.log(image)
             const formData = new FormData()
+            formData.append('nameVacancy', nameVacancy)
+            formData.append('nameCompany', nameCompany)
+            formData.append('companyDescription', companyDescription)
+            formData.append('duties', duties)
+            formData.append('expectations', expectations)
+            formData.append('skills', skills)
+            formData.append('conditions', conditions)
             formData.append('image', image)
-            const response = await api( 
+            formData.append('fullAddress', fullAddress)
+            formData.append('number', number)
+            formData.append('email', email)
+
+            const response = await api(
             {
                 url:"/vacancies",
                 method:"post",
                 headers:{
                     Authorization: `Bearer your token`
                 },
-                
-                nameVacancy : nameVacancy,
-                nameCompany : nameCompany, 
-                companyDescription : companyDescription,
-                duties : duties,
-                expectations : expectations, 
-                skills : skills, 
-                conditions : conditions, 
-                fullAddress : fullAddress, 
-                number : number, 
-                email : email
-                
-                
-            }).then(r => r)
+                data: formData
+            })
 
-            // const response = await api.post(`/vacancies/check`, formData)
-            // console.log(response)
-            // const response = await api.post('/vacancies/check', {image: formData});
-            // const response = await api({
-            //     url:"/vacancies/check",
-            //     method:"post",
-            //     headers:{
-            //         Authorization: `Bearer your token`
-            //     },
-            //     data:formData
-            // }).then(r => r);
+            console.log(response.data)
 
             return response
         } catch(e) {
@@ -61,6 +49,8 @@ export default class VacancyStore{
     async getAllVacancies(){
         try{
             const response = await api.get("/vacancies/get_all_vacancies")
+            console.log(response)
+            this.vacancies = response.data
             runInAction(() => {
                 this.vacancies = response.data
                 this.vacancyCount = response.data.length
@@ -75,5 +65,9 @@ export default class VacancyStore{
 
     getVacancyById(id) {
         return this.vacancies.find((vacancy) => vacancy.id === parseInt(id))
+    }
+
+    selectVacancyById(id) {
+        this.selectedVacancy = this.getVacancyById(id)
     }
 }

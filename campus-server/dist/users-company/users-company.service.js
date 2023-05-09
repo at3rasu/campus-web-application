@@ -44,10 +44,15 @@ let UsersCompanyService = class UsersCompanyService {
         return user;
     }
     async getVacanciesByUser(req) {
-        const authHeader = req.headers.authorization;
-        const token = authHeader.split(' ')[1];
-        console.log(this.jwtService.verify(token).vacancies);
-        return this.jwtService.verify(token).vacancies;
+        try {
+            const authHeader = req.headers.authorization;
+            const token = authHeader.split(' ')[1];
+            console.log(this.jwtService.verify(token).vacancies);
+            return this.jwtService.verify(token).vacancies;
+        }
+        catch (e) {
+            console.log(e);
+        }
     }
     async getUserCompanyByReq(req) {
         const authHeader = req.headers.authorization;

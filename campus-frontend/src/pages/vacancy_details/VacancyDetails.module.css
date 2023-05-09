@@ -13,12 +13,12 @@
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.25);
     border-radius: 5px;
     width: 971px;
-    height: 350px;
+    height: 300px;
 }
 
 .vacancy button{
     width: 250px;
-    height: 50px;
+    height: 40px;
     font-family: 'Inter';
     font-style: normal;
     font-weight: 500;
@@ -30,21 +30,25 @@
     border: none;
     text-decoration: none; /* убирать подчёркивание у ссылок */
     user-select: none; /* убирать выделение текста */
-    background: #191919;
+    background: #F52D30;
     border-radius: 16px;
     outline: none;
+    margin: 20px 30px;
 }
 
-.vacancy h3{
+.vacancy h2{
+
     font-family: 'Inter';
     font-style: normal;
     font-weight: 600;
     font-size: 25px;
     line-height: 30px;
     color: #000000;
+    margin: 30px;
 }
 
-.vacancy p:first-child{
+.vacancy p{
+
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
@@ -52,23 +56,10 @@
     line-height: 18px;
     display: flex;
     align-items: center;
-
     color: #000000;
+    margin: 5px 30px;
 }
-
-.vacancy p{
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 13px;
-    line-height: 16px;
-    /* identical to box height */
-
-    display: flex;
-    align-items: center;
-
-    color: #000000;
-}
+/* 
 
 .company{
     width: 405px;
@@ -78,7 +69,8 @@
     background: #FFFFFF;
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.25);
     border-radius: 5px;
-}
+} */
+
 
 .content h1{
     font-style: normal;
@@ -99,4 +91,135 @@
 
     color: #000000;
 }
+.vacancy h4{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 18px;
+    display: flex;
+    align-items: center;
+    margin: 0 30px;
+    color: #000000;
+    padding-bottom: 50px;
+}
 
+.duties h3{
+    margin: 40px 0px;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 30px;
+    color: #000000;
+}
+
+.duties p{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+    display: flex;
+    align-items: center;
+    color: #000000;
+    margin-left: 20px;
+}
+
+.expectations h3{
+    margin: 40px 0px;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 30px;
+    color: #000000;
+}
+
+.expectations p{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+    display: flex;
+    align-items: center;
+    color: #000000;
+    margin-left: 20px;
+}
+.conditions h3{
+    margin: 40px 0px;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 30px;
+    color: #000000;
+}
+
+.conditions p{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+    display: flex;
+    align-items: center;
+    color: #000000;
+    margin-left: 20px;
+}
+.skills h3{
+    margin: 40px 0px;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 30px;
+    color: #000000;
+}
+
+.skills p{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+    display: flex;
+    align-items: center;
+    color: #000000;
+    margin-left: 20px;
+}
+.secondContent{
+    margin: 50px 0;
+    width: 971px;
+}
+.secondContent h3{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 30px;
+    margin: 15px 0;
+    color: #000000;
+    margin-left: 20px;
+}
+
+.secondContent h1{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 25px;
+    line-height: 30px;
+    color: #000000;
+    margin-bottom: 35px;
+}
+
+.secondContent span{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+    color: #0664D3CC;;
+    text-decoration: underline;
+    padding-left: 7px;
+}
+.content{
+    width: 971px;
+}

@@ -8,6 +8,7 @@ export declare class CreateVacancyDto {
     readonly conditions: string;
     readonly email: string;
     readonly fullAddress: string;
+    readonly number: string;
     readonly image: string;
     userCompanyId: number;
     readonly author: UserCompany;
