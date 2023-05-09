@@ -36,7 +36,9 @@ export const PostVacancy = () =>{
         e.preventDefault();
     
         // Проверка заполнения всех полей
-        if (!number || !email || !skills) {
+        if (!number || !email || !skills || !nameCompany|| !nameVacancy
+            || !companyDescription || !duties || !expectations || !conditions
+            || !fullAddress) {
             toast.error('Пожалуйста, заполните все поля!', {
                 position: "top-center",
                 autoClose: 5000,
@@ -50,8 +52,19 @@ export const PostVacancy = () =>{
           return
         }
         setEmail('')
+        setNameCompany('')
+        setNameVacancy('')
+        setCompanyDescription('')
+        setDuties('')
+        setExpectations('')
+        setSkills('')
+        setConditions('')
+        setFullAddress('')
+        setNumber('')
 
-        if(number|| email || skills) {
+        if(number || email || skills || nameCompany|| nameVacancy
+            || companyDescription || duties || expectations || conditions
+            || fullAddress) {
         toast.success('Вы успешно опубликовали вакансию!', {
             position: "top-center",
             autoClose: 5000,
