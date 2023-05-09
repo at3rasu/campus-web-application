@@ -12,6 +12,7 @@ export const Header = observer(() =>{
     const button = 'Создать резюме'
     const router = '/SingUp'
     const account = '/PersonalAccount'
+    const auth = '/SingIn'
 
     return(
         <div className={styles.header}>
@@ -36,7 +37,7 @@ export const Header = observer(() =>{
                     {store.IsAuth ? (
                         <AccountBtn account={account}/>
                     ):(
-                        <AuthBtn router={router}/>
+                        <AuthBtn router={router} auth={auth}/>
                     )}
                 </div>
             </div>

@@ -1,7 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { MainPage } from "../pages/main_page/MainPage";
 import { SingIn } from "../pages/auth/SingIn";
-import { RoleSelection } from "../pages/auth/RoleSelection";
 import { SingUp } from "../pages/auth/SingUp";
 import { SingUpCompany } from "../pages/auth/SingUpCompany";
 import { AboutUs } from "../pages/about_us/AboutUs";
@@ -13,6 +12,7 @@ import { VacancyDetails } from "../pages/vacancy_details/VacancyDetails";
 import { Employers } from "../pages/employers/Employers";
 import { PersonalAccount } from "../pages/personal_account/PersonalAccount";
 import { AccountCompany } from "../pages/personal_account/AccountCompany";
+import { SingInCompany } from "../pages/auth/SingInCompany";
 
 export const Router = () =>{
     return(
@@ -21,7 +21,7 @@ export const Router = () =>{
                 <Routes>
                     <Route path="/" element={<MainPage />}/>
                     <Route path="/SingIn" element={<SingIn />}/>
-                    <Route path="/RoleSelection" element={<RoleSelection />}/>
+                    <Route path="/SingInCompany" element={<SingInCompany />}/>
                     <Route path="/SingUp" element={<SingUp />}/>
                     <Route path="/SingUpCompany" element={<SingUpCompany />}/>
                     <Route path="/AboutUs" element={<AboutUs />}/>

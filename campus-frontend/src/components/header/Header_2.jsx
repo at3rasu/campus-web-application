@@ -12,6 +12,7 @@ export const Header = observer(() =>{
     const button = 'Разместить вакансию'
     const router = '/SingUpCompany'
     const account = '/AccountCompany'
+    const auth = '/SingInCompany'
 
     return(
         <div className={styles.header}>
@@ -33,10 +34,15 @@ export const Header = observer(() =>{
                     <button className="srh-btn"><img src="/img/coolicon.svg" alt="logo"/></button>
                 </div>
                 <div>
+<<<<<<< HEAD
                     {store.IsAuth ? (
                         <AccountBtn account={account}/>
+=======
+                    {store.IsAuthCompany ? (
+                        <AccountBtn account={account} />
+>>>>>>> 9ebccc5ed1c17dd61359d0aa3ee6659d6e7405c5
                     ):(
-                        <AuthBtn router={router}/>
+                        <AuthBtn router={router} auth={auth}/>
                     )}
                 </div>
             </div>
