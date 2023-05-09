@@ -37,10 +37,6 @@ export const MainPage = () => {
                 </div>
                 <div className={styles.secondContainer}>
                     <div className={styles.secondContent}>
-                        <button onClick={
-                            async () => {
-                                const response = await getVacanciesByUser()
-                            }}>DSADFSLMDSFDSMDFSK</button>
                         <div className={styles.vacancy}>
                             <div className={styles.new}>
                                 <h1>Новые</h1>

@@ -1,4 +1,4 @@
-import {makeAutoObservable} from "mobx"
+import {makeAutoObservable, runInAction } from "mobx"
 import api from "../api/create-api"
 
 
@@ -60,7 +60,10 @@ export default class VacancyStore{
     async getAllVacancies(){
         try{
             const response = await api.get("/vacancies/get_all_vacancies")
-            this.vacancies = response.data
+            runInAction(() => {
+                this.vacancies = response.data
+                console.log(response)
+            })
             console.log(response)
             return response
         }catch(e){
@@ -69,10 +72,6 @@ export default class VacancyStore{
     }
 
     getVacancyById(id) {
-        return this.vacancies.find((vacancy) => vacancy.id === id)
-    }
-
-    selectVacancyById(id) {
-        this.selectedVacancy = this.getVacancyById(id)
+        return this.vacancies.find((vacancy) => vacancy.id === parseInt(id))
     }
 }

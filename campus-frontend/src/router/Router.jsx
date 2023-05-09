@@ -29,7 +29,7 @@ export const Router = () =>{
                     <Route path="/CreateResume" element={<CreateResume />}/>
                     <Route path="/Vacancy" element={<Vacancy />}/>
                     <Route path="/PostVacancy" element={<PostVacancy />}/>
-                    <Route path="/vacancies/:id " element={<VacancyDetails />}/>
+                    <Route path="/vacancies/:id" element={<VacancyDetails />}/>
                     <Route path="/Employers" element={<Employers />}/>
                     <Route path="/PersonalAccount" element={<PersonalAccount />}/>
                     <Route path="/AccountCompany" element={<AccountCompany />}/>

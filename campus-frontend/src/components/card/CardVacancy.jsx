@@ -12,7 +12,7 @@ export const CardVacancy = ({vacancy}) =>{
                 <p>Навыки: {vacancy.expectations}</p>
             </div>
             <div className={styles.link}>
-                <Link to={`/vacancies/${vacancy.id}`}>Подробнее...</Link>
+                <Link to={`/vacancies/${vacancy.id.toString()}`}>Подробнее...</Link>
             </div>
         </div>
     )
