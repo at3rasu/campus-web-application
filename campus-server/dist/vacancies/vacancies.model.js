@@ -51,6 +51,10 @@ __decorate([
     __metadata("design:type", String)
 ], Vacancy.prototype, "fullAddress", void 0);
 __decorate([
+    (0, sequelize_typescript_1.Column)({ type: sequelize_typescript_1.DataType.STRING, allowNull: false }),
+    __metadata("design:type", String)
+], Vacancy.prototype, "number", void 0);
+__decorate([
     (0, sequelize_typescript_1.Column)({ type: sequelize_typescript_1.DataType.STRING }),
     __metadata("design:type", String)
 ], Vacancy.prototype, "image", void 0);

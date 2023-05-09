@@ -34,13 +34,9 @@ export const Header = observer(() =>{
                     <button className="srh-btn"><img src="/img/coolicon.svg" alt="logo"/></button>
                 </div>
                 <div>
-<<<<<<< HEAD
-                    {store.IsAuth ? (
-                        <AccountBtn account={account}/>
-=======
+
                     {store.IsAuthCompany ? (
                         <AccountBtn account={account} />
->>>>>>> 9ebccc5ed1c17dd61359d0aa3ee6659d6e7405c5
                     ):(
                         <AuthBtn router={router} auth={auth}/>
                     )}

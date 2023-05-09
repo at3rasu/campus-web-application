@@ -14,13 +14,11 @@
     border-radius: 5px;
     width: 971px;
     height: 300px;
-    height: 350px;
 }
 
 .vacancy button{
     width: 250px;
     height: 40px;
-    height: 50px;
     font-family: 'Inter';
     font-style: normal;
     font-weight: 500;
@@ -39,12 +37,7 @@
 }
 
 .vacancy h2{
-    background: #191919;
-    border-radius: 16px;
-    outline: none;
-}
 
-.vacancy h3{
     font-family: 'Inter';
     font-style: normal;
     font-weight: 600;
@@ -55,9 +48,7 @@
 }
 
 .vacancy p{
-}
 
-.vacancy p:first-child{
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
@@ -69,23 +60,6 @@
     margin: 5px 30px;
 }
 /* 
-=======
-
-    color: #000000;
-}
-
-.vacancy p{
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 13px;
-    line-height: 16px;
-    /* identical to box height */
-
-    /* display: flex;
-    align-items: center;
-    color: #000000;
-} */
 
 .company{
     width: 405px;
@@ -95,6 +69,8 @@
     background: #FFFFFF;
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.25);
     border-radius: 5px;
+} */
+
 
 .content h1{
     font-style: normal;
@@ -115,7 +91,6 @@
 
     color: #000000;
 }
-
 .vacancy h4{
     font-family: 'Inter';
     font-style: normal;

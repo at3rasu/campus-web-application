@@ -37,6 +37,9 @@ export class Vacancy extends Model<Vacancy, VacancyCreationAttrs>{
     @Column({type: DataType.STRING, allowNull: false})
     fullAddress: string
 
+    @Column({type: DataType.STRING, allowNull: false})
+    number: string
+
     @Column({type: DataType.STRING})
     image: string
 
