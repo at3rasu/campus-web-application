@@ -15,7 +15,7 @@ export default class UserStore{
     }
 
     setAuthCompany(){
-        this.IsAuth = true
+        this.IsAuthCompany = true
     }
 
     setUser(user){

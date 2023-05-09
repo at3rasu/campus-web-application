@@ -4,7 +4,8 @@ import { Vacancy } from "../pages/vacancy/Vacancy"
 
 export default class VacancyStore{
     vacancies = []
-    
+    vacancyCount = 0 
+
     constructor(){
         makeAutoObservable(this)
     }
@@ -26,22 +27,6 @@ export default class VacancyStore{
             formData.append('number', number)
             formData.append('email', email)
 
-
-            // const imageData = new FormData()
-            // imageData.append('image', image)
-
-            // const vacancy = new CreateVacancyDto(
-            //     nameVacancy,
-            //     nameCompany, 
-            //     companyDescription,
-            //     duties,
-            //     expectations, 
-            //     skills, 
-            //     conditions, 
-            //     fullAddress, 
-            //     number, 
-            //     email,
-            // )
             const response = await api(
             {
                 url:"/vacancies",
@@ -54,24 +39,6 @@ export default class VacancyStore{
 
             console.log(response.data)
 
-            // const imageResponse = await api.post({
-            //     url:"/vacancies/add_image",
-            //     method:"post",
-            //     headers:{
-            //         Authorization: `Bearer your token`
-            //     },
-            //     data:imageData
-            // })
-            // const response = await api.post('/vacancies/check', {image: formData});
-            // const response = await api({
-            //     url:"/vacancies/check",
-            //     method:"post",
-            //     headers:{
-            //         Authorization: `Bearer your token`
-            //     },
-            //     data:formData
-            // }).then(r => r);
-
             return response
         } catch(e) {
             console.log(e.response?.data?.message)
@@ -82,9 +49,11 @@ export default class VacancyStore{
     async getAllVacancies(){
         try{
             const response = await api.get("/vacancies/get_all_vacancies")
+            console.log(response)
             this.vacancies = response.data
             runInAction(() => {
                 this.vacancies = response.data
+                this.vacancyCount = response.data.length
                 console.log(response)
             })
             console.log(response)
