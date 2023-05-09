@@ -21,10 +21,6 @@ export const MainPage = () => {
                     <div className={styles.fisrtContent}>
                         <div className={styles.firstText}>
                             <h1>Попробуй себя на</h1>
-                            <button onClick={async () => {
-              const response = await getAllVacancies()
-              navigate('/')
-            }}>Маму</button>
                             <img src='/img/text.svg' alt='text'/>
                             <p>Попробуйте сервис для поиска стажировок в области.
                                 Стажировка в ведущих компаниях региона станет идеальным

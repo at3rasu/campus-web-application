@@ -67,7 +67,9 @@ export class AuthService {
     }
 
     private async generateTokenUserComp(user){
-        const payload = {login: user.login, id: user.id, roles : user.roles, vacancies: user.vacancies}
+        const payload = {login: user.login, id: user.id, roles : user.roles,
+            //  vacancies: user.vacancies
+        }
         const tok = this.jwtService.sign(payload)
         return{
             token: tok
