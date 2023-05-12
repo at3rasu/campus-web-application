@@ -1,7 +1,6 @@
 import styles from './PersonalAccount.module.css'
 import { Header } from '../../components/header/Header'
 import { Footer } from '../../components/footer/Footer'
-import { Button } from '../../components/button/Button'
 
 export const PersonalAccount = () =>{
     
@@ -16,7 +15,6 @@ export const PersonalAccount = () =>{
                         <hr></hr>    
                     </div>
                     <h3>Место для личных данных и их редактирования</h3>
-                    <Button />
                 </div>
             <Footer/>
         </div>

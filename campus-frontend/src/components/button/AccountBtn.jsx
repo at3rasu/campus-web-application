@@ -1,14 +1,21 @@
-import { useNavigate } from 'react-router-dom'
-import styles from './AccountBtn.module.css'
+import './AccountBtn.css'
+import { DropDownItem } from '../dropDown_menu/DropDownItem'
+import { useState } from 'react'
 
 export const AccountBtn = (props) =>{
-    const navigate = useNavigate()
+    const [open, setOpen] = useState(false)
+    const onClick = () => {setOpen(!open)} 
 
     return(
         <>
-            <div className={styles.btn}>
-                <button onClick={() => navigate(props.account)}>Личный кабинет</button>
-            </div>  
+            <div className='button-menu'>
+                <button 
+                    onClick={() => {setOpen(!open)}}
+                    ><img src='/img/user_icon.svg' alt=''/> Мой профиль</button>
+            </div> 
+            <div className={`dropdown-menu ${open? 'active' : 'inactive'}`}>
+                <DropDownItem onClick={onClick}/>
+            </div>
         </>
     )
 }

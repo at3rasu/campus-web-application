@@ -58,11 +58,12 @@
 
 .input-dt input{
     font-style: normal;
-    font-weight: 500;
+    font-weight: 400;
     font-size: 17px;
     line-height: 120%;
     padding-left: 24px;
     color: #8269EF;
+    opacity: 0.9;
     background: #E0DBFA;
     border-radius: 16px;
     width: 100%;
