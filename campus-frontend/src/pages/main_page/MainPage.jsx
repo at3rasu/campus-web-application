@@ -2,10 +2,13 @@ import styles from './MainPage.module.css'
 import { Header } from "../../components/header/Header"
 import { Footer } from "../../components/footer/Footer"
 import { useNavigate } from "react-router-dom"
-import { useEffect } from "react"
+import { useContext, useEffect } from "react"
+import { Context } from '../..'
+import { notify } from '../../utils/Consts'
 
 export const MainPage = () => {
     const navigate = useNavigate()
+    const {store} = useContext(Context)
 
     useEffect(() => {
         document.title = 'Главная страница'
@@ -74,14 +77,25 @@ export const MainPage = () => {
                                 программ поддержки студенчества Свердловской области. Создавай свою лучшую
                                 студенческую жизнь вместе с нами.</p1>
                         </div>
-                        <div className={styles.btn}>
-                            <button
+                        {store.IsAuth ?(
+                            <div className={styles.btn}>
+                                <button
                                 id={styles.postVacancy}
                                 onClick={() => navigate('/PostVacancy')}>Опубликовать вакансию</button>
-                            <button 
-                                id={styles.createResume}
-                                onClick={() => navigate('/CreateResume')}>Создать резюме</button>
-                        </div>
+                                <button 
+                                    id={styles.createResume}
+                                    onClick={() => navigate('/CreateResume')}>Создать резюме</button>
+                            </div>
+                        ):(
+                            <div className={styles.btn}>
+                                <button
+                                    id={styles.postVacancy}
+                                    onClick={notify}>Опубликовать вакансию</button>
+                                <button 
+                                    id={styles.createResume}
+                                    onClick={notify}>Создать резюме</button>
+                            </div>
+                        )}
                     </div>
                     <div className={styles.svg2}></div>
                 </div>

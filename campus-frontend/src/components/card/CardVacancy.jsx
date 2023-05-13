@@ -7,14 +7,17 @@ export const CardVacancy = ({vacancy}) =>{
         <div className={styles.card}>
 
             <div className={styles.title}>
-                <h2>{vacancy.nameVacancy}</h2>
+                <Link to={`/vacancies/${vacancy.id.toString()}`}>{vacancy.nameVacancy}</Link>
+                
             </div>
             <div className={styles.content}>
+                <p>{vacancy.nameCompany}</p>
                 <p>{vacancy.companyDescription}</p>
                 <p>Навыки: {vacancy.expectations}</p>
+                <p>{vacancy.fullAddress}</p>
             </div>
             <div className={styles.link}>
-                <Link to={`/vacancies/${vacancy.id.toString()}`}>Подробнее...</Link>
+                <button>Подать заявку</button>
             </div>
         </div>
     )

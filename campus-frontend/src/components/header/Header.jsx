@@ -15,17 +15,11 @@ export const Header = observer(() =>{
     const auth = '/SingIn'
 
     return(
-        <div className={styles.header}>
+        <div className={styles.header}  key={store.headerKey}>
             <div className={styles.container}>
                 <div className={styles.logo}>
-                    {store.IsAuth ? (
-                        <Link to='/' style={{marginLeft:"250px"}}><img src='/img/Group.svg' alt='logo_header' /></Link>
-                    ):(
-                        <>
-                            <Link to='/'><img src='/img/Group.svg' alt='logo_header'/></Link> 
-                            <Link to ='/Employers' className={styles.bTn}>Работодателям</Link>
-                        </>
-                    )}
+                    <Link to='/'><img src='/img/Group.svg' alt='logo_header'/></Link> 
+                    <Link to ='/Employers' className={styles.bTn}>Работодателям</Link>
                 </div>
                 <div className={styles.link}>
                     <Link to='/AboutUs' className={styles.fistLink}>О нас</Link>

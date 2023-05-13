@@ -1,8 +1,16 @@
 import { Link } from 'react-router-dom'
 import styles from './DropDownItem.module.css'
-import { logout } from '../../api/user-api'
+import { useContext } from 'react'
+import { Context } from '../..'
+import { observer } from 'mobx-react'
 
-export const DropDownItem = (props) =>{
+export const DropDownItem = observer((props) =>{
+    const {store} = useContext(Context)
+    const handleLogout = () => {
+        store.logout()
+         // Вызов экшена логаута
+    }
+
     return(
         <div className={styles.component}>
             <ul>
@@ -22,10 +30,10 @@ export const DropDownItem = (props) =>{
                     <Link to='/PersonalAccount'>Настройки</Link>
                 </li>
                 <div className={styles.link}>
-                    <button onClick={async () => {await logout()}}
+                    <button onClick={handleLogout}
                         >Выйти</button>
                 </div>   
             </ul>
         </div>
     )
-}
+})

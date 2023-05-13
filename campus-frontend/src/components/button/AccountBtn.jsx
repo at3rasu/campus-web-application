@@ -1,8 +1,9 @@
 import './AccountBtn.css'
 import { DropDownItem } from '../dropDown_menu/DropDownItem'
 import { useState } from 'react'
+import { observer } from 'mobx-react'
 
-export const AccountBtn = (props) =>{
+export const AccountBtn = observer((props) =>{
     const [open, setOpen] = useState(false)
     const onClick = () => {setOpen(!open)} 
 
@@ -18,4 +19,4 @@ export const AccountBtn = (props) =>{
             </div>
         </>
     )
-}
+})
