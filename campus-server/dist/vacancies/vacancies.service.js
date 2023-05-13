@@ -31,7 +31,7 @@ let VacanciesService = class VacanciesService {
         const user = await this.userCompanyService.getUserCompanyByReq(req);
         vacancyDto.userCompanyId = user.id;
         const vacancy = await this.vacancyRepository.create(Object.assign({}, vacancyDto));
-        const token = (await this.authService.refreshToken(user.login)).token;
+        const token = (await this.authService.refreshTokenByUser(user.login)).token;
         req.headers.authorization = `Bearer ${token}`;
         return this.generateToken(vacancy);
     }
