@@ -9,7 +9,7 @@ export declare class VacanciesService {
     private userCompanyService;
     private authService;
     constructor(vacancyRepository: typeof Vacancy, jwtService: JwtService, userCompanyService: UsersCompanyService, authService: AuthService);
-    createVacancy(vacancyDto: CreateVacancyDto, image: any, req: any): Promise<{
+    createVacancy(vacancyDto: CreateVacancyDto, req: any): Promise<{
         token: string;
     }>;
     private generateToken;

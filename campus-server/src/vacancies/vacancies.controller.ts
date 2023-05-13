@@ -21,8 +21,7 @@ export class VacanciesController {
            @UploadedFile() image,
            @Req() request: Request
         ){
-        console.log(image)
-        return this.vacanciesService.createVacancy(vacancyDto, image, request);
+        return this.vacanciesService.createVacancy(vacancyDto, request);
     }
 
     // @Post('/add_image')

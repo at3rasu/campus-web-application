@@ -44,19 +44,19 @@ export class UsersCompanyService {
 
     async getVacanciesByUser(req){
         try{
-            const authHeader = req.headers.authorization
-            const token = authHeader.split(' ')[1]
-            console.log(this.jwtService.verify(token).vacancies)
-            return this.jwtService.verify(token).vacancies
+            const user = await this.getUserCompanyByRequest(req)
+            return user.vacancies
         }catch(e){
             console.log(e)
         }
         
     }
 
-    async getUserCompanyByReq(req){
+    async getUserCompanyByRequest(req){
         const authHeader = req.headers.authorization
         const token = authHeader.split(' ')[1]
-        return this.jwtService.verify(token)
+        console.log(this.jwtService.verify(token).login)
+        const user = await this.getUserByLogin(this.jwtService.verify(token).login)
+        return user
     }
 }

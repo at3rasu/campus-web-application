@@ -26,13 +26,10 @@ let VacanciesService = class VacanciesService {
         this.userCompanyService = userCompanyService;
         this.authService = authService;
     }
-    async createVacancy(vacancyDto, image, req) {
-        console.log(image);
-        const user = await this.userCompanyService.getUserCompanyByReq(req);
+    async createVacancy(vacancyDto, req) {
+        const user = await this.userCompanyService.getUserCompanyByRequest(req);
         vacancyDto.userCompanyId = user.id;
         const vacancy = await this.vacancyRepository.create(Object.assign({}, vacancyDto));
-        const token = (await this.authService.refreshTokenByUser(user.login)).token;
-        req.headers.authorization = `Bearer ${token}`;
         return this.generateToken(vacancy);
     }
     async generateToken(vacancy) {
