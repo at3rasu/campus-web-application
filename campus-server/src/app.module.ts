@@ -16,6 +16,7 @@ import { ServeStaticModule } from "@nestjs/serve-static";
 import { FilesModule } from "./files/files.module";
 import * as path from "path";
 import { Image } from "./upload-files/images.model";
+import { ResumeModule } from './resume/resume.module';
 
 
 @Module({
@@ -52,7 +53,8 @@ import { Image } from "./upload-files/images.model";
       AuthModule,
       UsersCompanyModule,
       VacanciesModule,
-      FilesModule
+      FilesModule,
+      ResumeModule
     ]
 })
 

@@ -6,11 +6,13 @@ import { User } from './users.model';
 import { AddRoleDto } from './dto/add-role.dto';
 import { HttpException, HttpStatus} from "@nestjs/common";
 import { CreateRoleDto } from 'src/roles/dto/create-role.dto';
+import { JwtService } from '@nestjs/jwt';
 
 @Injectable()
 export class UsersService {
     constructor(@InjectModel(User) private userRepository: typeof User,
-                private roleService: RolesService){}
+                private roleService: RolesService,
+                private jwtService: JwtService){}
 
     async createUser(dto: CreateUserDto){
         const user = await this.userRepository.create(dto);
@@ -47,5 +49,11 @@ export class UsersService {
             return dto;
         }
         throw new HttpException('Пользователь или роль не были найдены', HttpStatus.NOT_FOUND)
+    }
+
+    async getUserCompanyByReq(req){
+        const authHeader = req.headers.authorization
+        const token = authHeader.split(' ')[1]
+        return this.jwtService.verify(token)
     }
 }
