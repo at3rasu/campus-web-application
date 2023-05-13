@@ -3,7 +3,7 @@ import { UserCompany } from "src/users-company/users-company.model"
 export class CreateVacancyDto{
     readonly nameVacancy: string
 
-    readonly companyName: string
+    readonly nameCompany: string
 
     readonly companyDescription: string
     
