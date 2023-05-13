@@ -70,7 +70,6 @@ let UsersService = class UsersService {
     async getUserByRequest(req) {
         const authHeader = req.headers.authorization;
         const token = authHeader.split(' ')[1];
-        console.log(this.jwtService.verify(token).login);
         const user = await this.getUserByLogin(this.jwtService.verify(token).login);
         return user;
     }

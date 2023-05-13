@@ -36,6 +36,7 @@ export const Vacancy = observer(() =>{
                     {vacancyStore.vacancies.map((vacancy) => (
                         <CardVacancy key={vacancy.id} vacancy={vacancy}/>
                     ))}
+                    
                 </div>
             </div>
             <Footer />

@@ -13,6 +13,7 @@ import { Employers } from "../pages/employers/Employers";
 import { PersonalAccount } from "../pages/personal_account/PersonalAccount";
 import { AccountCompany } from "../pages/personal_account/AccountCompany";
 import { SingInCompany } from "../pages/auth/SingInCompany";
+import { UserResume } from "../pages/user_resume/UserResume";
 
 export const Router = () =>{
     return(
@@ -33,6 +34,7 @@ export const Router = () =>{
                     <Route path="/Employers" element={<Employers />}/>
                     <Route path="/PersonalAccount" element={<PersonalAccount />}/>
                     <Route path="/AccountCompany" element={<AccountCompany />}/>
+                    <Route path="/UserResume" element={<UserResume />}/>
                 </Routes>
             </BrowserRouter>
         </div>

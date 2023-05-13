@@ -8,6 +8,7 @@ export default class UserStore{
     user = null
     constructor(){
         makeAutoObservable(this)
+        this.checkLocalStorage()
     }
 
     setAuth(){
@@ -22,16 +23,24 @@ export default class UserStore{
         this.user = user
     }
 
+    checkLocalStorage() {
+        const token = localStorage.getItem("token");
+        if (token) {
+          // Если токен существует в localStorage, пользователь авторизован
+          this.setAuth(true);
+        }
+    }
+
     async registration (email, password, login, name, surname, city, repeatPass) {
         try{
             if (localStorage.getItem('token')){
                 console.log(localStorage.getItem('token'))
                 this.logout()
-                console.log(localStorage.getItem('token'))
             }
             const response = await api.post(`/auth/registration`, {email, password, login, name, surname, city, repeatPass})
             this.setAuth(true)     
             this.setUser(response.data.user)
+            localStorage.setItem("token", response.data.token)
             return response
         } catch(e) {
             console.log(e.response?.data?.message)
@@ -85,16 +94,6 @@ export default class UserStore{
     async getVacanciesByUser(){
         try{
             const response = await api.get(`/users-company/get_vacancies`)
-            console.log(response)
-            return response
-        } catch(e) {
-            console.log(e.response?.data?.message)
-        }
-    }
-
-    async getResumeByUser(){
-        try{
-            const response = await api.get(`/users/get_resume`)
             console.log(response)
             return response
         } catch(e) {

@@ -18,13 +18,11 @@ const sequelize_1 = require("@nestjs/sequelize");
 const vacancies_model_1 = require("./vacancies.model");
 const jwt_1 = require("@nestjs/jwt");
 const users_company_service_1 = require("../users-company/users-company.service");
-const auth_service_1 = require("../auth/auth.service");
 let VacanciesService = class VacanciesService {
-    constructor(vacancyRepository, jwtService, userCompanyService, authService) {
+    constructor(vacancyRepository, jwtService, userCompanyService) {
         this.vacancyRepository = vacancyRepository;
         this.jwtService = jwtService;
         this.userCompanyService = userCompanyService;
-        this.authService = authService;
     }
     async createVacancy(vacancyDto, req) {
         const user = await this.userCompanyService.getUserCompanyByRequest(req);
@@ -42,13 +40,15 @@ let VacanciesService = class VacanciesService {
         const vacancies = await this.vacancyRepository.findAll({ include: { all: true } });
         return vacancies;
     }
+    async removeVacancyById(id) {
+        return await this.vacancyRepository.destroy({ where: { id: id } });
+    }
 };
 VacanciesService = __decorate([
     (0, common_1.Injectable)(),
     __param(0, (0, sequelize_1.InjectModel)(vacancies_model_1.Vacancy)),
     __metadata("design:paramtypes", [Object, jwt_1.JwtService,
-        users_company_service_1.UsersCompanyService,
-        auth_service_1.AuthService])
+        users_company_service_1.UsersCompanyService])
 ], VacanciesService);
 exports.VacanciesService = VacanciesService;
 //# sourceMappingURL=vacancies.service.js.map

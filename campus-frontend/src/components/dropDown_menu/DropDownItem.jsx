@@ -24,7 +24,7 @@ export const DropDownItem = observer((props) =>{
                     <Link to='/'>Избранные вакансии</Link>
                 </li>
                 <li className={styles.link}>
-                    <Link to='/PersonalAccount'>Мои резюме</Link>
+                    <Link to='/UserResume'>Мои резюме</Link>
                 </li>
                 <li className={styles.link}>
                     <Link to='/'>Мои отклики</Link>

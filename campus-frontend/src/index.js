@@ -15,7 +15,7 @@ export const vacancyStore = new VacancyStore()
 export const resumeStore = new ResumeStore()
 
 export const Context = createContext({
-  store, vacancyStore
+  store, vacancyStore, resumeStore
 })
 
 root.render(

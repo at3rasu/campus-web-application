@@ -34,7 +34,3 @@ export const logout = async() => {
 export const getVacanciesByUser = async() => {
     return store.getVacanciesByUser()
 }
-
-export const getResumeByUser = async() => {
-    return store.getResumeByUser()
-}

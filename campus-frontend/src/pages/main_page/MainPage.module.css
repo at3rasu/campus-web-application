@@ -134,7 +134,7 @@
     width: 668px;
 }
 
-.textContent p1{
+.textContent p:last-child{
     margin-left: 200px;
     width: 668px;
 }

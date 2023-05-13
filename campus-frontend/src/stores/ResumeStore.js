@@ -57,4 +57,17 @@ export default class ResumeStore{
     getResumeById(id) {
         return this.vacancies.find((vacancy) => vacancy.id === parseInt(id))
     }
+
+    async getResumeByUser(){
+        try{
+            const response = await api.get(`/users/get_resume`)
+            runInAction(() => {
+                this.resume = response.data
+            })
+            console.log(response)
+            return response
+        } catch(e) {
+            console.log(e.response?.data?.message)
+        }
+    }
 }
