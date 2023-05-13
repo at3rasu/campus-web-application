@@ -20,7 +20,7 @@ export class UsersCompanyController {
     }
 
     @Get('/get_vacancies')
-    @Roles('admin', 'user-company')
+    @Roles('admin', 'user_company')
     @UseGuards(RolesGuard)
     getVacanciesByUser(@Req() request: Request){
         return this.usersCompanyService.getVacanciesByUser(request)

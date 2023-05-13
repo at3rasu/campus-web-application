@@ -5,6 +5,7 @@ import { useContext, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 import { Context } from "../.."
 import { notify } from "../../utils/Consts"
+import { getVacanciesByUser } from "../../api/user-api"
 
 export const Employers = () =>{
     useEffect(() => {
@@ -18,6 +19,11 @@ export const Employers = () =>{
         <div className='employers'>
             <Header />
             <div className={styles.container}>
+            <button onClick={
+                    async() =>{
+                        const response = await getVacanciesByUser();
+                    }
+                }>dLFSMDF:LDMFDSKMFLKDFMLKDSFM</button>
                 <div className={styles.content}>
                     <div className={styles.text}>
                         <h1>Разместите</h1>  

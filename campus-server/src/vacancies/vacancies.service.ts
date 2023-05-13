@@ -31,7 +31,7 @@ export class VacanciesService {
         const vacancy = await this.vacancyRepository.create({...vacancyDto,
             // image: fileName
         });
-        const token = (await this.authService.refreshToken(user.login)).token
+        const token = (await this.authService.refreshTokenByUser(user.login)).token
         req.headers.authorization = `Bearer ${token}`
         return this.generateToken(vacancy);
     }
