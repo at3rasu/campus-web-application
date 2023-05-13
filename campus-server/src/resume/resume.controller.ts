@@ -21,4 +21,9 @@ export class ResumeController {
         return this.resumeService.createResume(resumeDto, request);
     }
 
+
+    @Get('/get_all_resume')
+    getAllVacancies(){
+        return this.resumeService.getAllResume();
+    }
 }

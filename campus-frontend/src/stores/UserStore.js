@@ -30,7 +30,6 @@ export default class UserStore{
                 console.log(localStorage.getItem('token'))
             }
             const response = await api.post(`/auth/registration`, {email, password, login, name, surname, city, repeatPass})
-            // localStorage.setItem('token', response.data.token)
             this.setAuth(true)     
             this.setUser(response.data.user)
             return response
@@ -86,6 +85,16 @@ export default class UserStore{
     async getVacanciesByUser(){
         try{
             const response = await api.get(`/users-company/get_vacancies`)
+            console.log(response)
+            return response
+        } catch(e) {
+            console.log(e.response?.data?.message)
+        }
+    }
+
+    async getResumeByUser(){
+        try{
+            const response = await api.get(`/users/get_resume`)
             console.log(response)
             return response
         } catch(e) {

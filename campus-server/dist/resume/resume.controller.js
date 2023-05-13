@@ -26,6 +26,9 @@ let ResumeController = class ResumeController {
     create(resumeDto, request) {
         return this.resumeService.createResume(resumeDto, request);
     }
+    getAllVacancies() {
+        return this.resumeService.getAllResume();
+    }
 };
 __decorate([
     (0, common_1.Post)(),
@@ -39,6 +42,12 @@ __decorate([
         Request]),
     __metadata("design:returntype", void 0)
 ], ResumeController.prototype, "create", null);
+__decorate([
+    (0, common_1.Get)('/get_all_resume'),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", void 0)
+], ResumeController.prototype, "getAllVacancies", null);
 ResumeController = __decorate([
     (0, common_1.Controller)('resume'),
     __metadata("design:paramtypes", [resume_service_1.ResumeService])

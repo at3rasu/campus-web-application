@@ -6,4 +6,5 @@ export declare class ResumeController {
     create(resumeDto: CreateResumeDto, request: Request): Promise<{
         token: string;
     }>;
+    getAllVacancies(): Promise<import("./resume.model").Resume[]>;
 }

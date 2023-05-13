@@ -17,6 +17,8 @@ const common_1 = require("@nestjs/common");
 const users_company_service_1 = require("./users-company.service");
 const create_user_company_dto_1 = require("./dto/create-user-company.dto");
 const common_2 = require("@nestjs/common");
+const roles_guard_1 = require("../auth/roles.guard");
+const roles_auth_decorator_1 = require("../auth/roles-auth.decorator");
 let UsersCompanyController = class UsersCompanyController {
     constructor(usersCompanyService) {
         this.usersCompanyService = usersCompanyService;
@@ -46,6 +48,8 @@ __decorate([
 ], UsersCompanyController.prototype, "getAll", null);
 __decorate([
     (0, common_2.Get)('/get_vacancies'),
+    (0, roles_auth_decorator_1.Roles)('admin', 'user-company'),
+    (0, common_2.UseGuards)(roles_guard_1.RolesGuard),
     __param(0, (0, common_2.Req)()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Request]),

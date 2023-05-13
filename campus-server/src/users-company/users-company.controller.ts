@@ -1,7 +1,9 @@
 import { Controller } from '@nestjs/common';
 import { UsersCompanyService } from './users-company.service';
 import { CreateUserCompanyDto } from './dto/create-user-company.dto';
-import { Post, Get, Body, Req } from '@nestjs/common';
+import { Post, Get, Body, Req, UseGuards } from '@nestjs/common';
+import { RolesGuard } from 'src/auth/roles.guard';
+import { Roles } from 'src/auth/roles-auth.decorator';
 
 @Controller('users-company')
 export class UsersCompanyController {
@@ -18,6 +20,8 @@ export class UsersCompanyController {
     }
 
     @Get('/get_vacancies')
+    @Roles('admin', 'user-company')
+    @UseGuards(RolesGuard)
     getVacanciesByUser(@Req() request: Request){
         return this.usersCompanyService.getVacanciesByUser(request)
     }

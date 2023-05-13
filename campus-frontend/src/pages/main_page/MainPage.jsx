@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom"
 import { useContext, useEffect } from "react"
 import { Context } from '../..'
 import { notify } from '../../utils/Consts'
+import { getResumeByUser } from '../../api/user-api'
 
 export const MainPage = () => {
     const navigate = useNavigate()
@@ -18,10 +19,14 @@ export const MainPage = () => {
         <div className="MainPage">
             <Header />
             <div className={styles.container}>
+                <button onClick={
+                    async() =>{
+                        const response = await getResumeByUser();
+                    }
+                }>dLFSMDF:LDMFDSKMFLKDFMLKDSFM</button>
                 <div className={styles.firstContainer}>
                     <div className={styles.fisrtContent}>
                         <div className={styles.firstText}>
-                            <img src='http://localhost:7000/4f6be46a-691c-4cf1-9ae5-936051a9b1e8.png' alt="Uploaded" />
                             <h1>Попробуй себя на</h1>
                             <img src='/img/text.svg' alt='text'/>
                             <p>Попробуйте сервис для поиска стажировок в области.
