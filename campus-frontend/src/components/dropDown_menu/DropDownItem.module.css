@@ -1,0 +1,71 @@
+.component{
+    width: 375px;
+    height: 230px;
+    background: #FFFFFF;
+    box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.11);
+    border-radius: 19px;
+    position: absolute;
+    left: -130px;
+    top: -50px;
+}
+
+.component ul li{
+    list-style: none;
+}
+
+.name{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+    padding: 16px;
+    color: #000000;
+    display: flex;
+}
+
+.name button{
+    margin-left: auto;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.link a{
+    text-decoration: none;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 128%;
+    /* identical to box height, or 23px */
+
+    color: #000000;
+    padding: 10px 16px;
+    display: block;
+}
+
+.link:hover{
+    background: rgba(130, 105, 239, 0.18);
+}
+
+.link:last-child:hover{
+    background: rgba(130, 105, 239, 0.18);
+    border-radius: 0 0 19px 19px;
+}
+
+.link button{
+    border: none;
+    background: none;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 128%;
+    /* identical to box height, or 23px */
+
+    cursor: pointer;
+    color: #F52D30;
+    padding: 10px 16px;
+}
+

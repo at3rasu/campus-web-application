@@ -9,7 +9,7 @@ export const AboutUs = () =>{
     })
 
     return(
-        <div className="AboutUs">
+        <div className={styles.page}>
             <Header />
             <div className={styles.container}>
                 <div className={styles.title}>

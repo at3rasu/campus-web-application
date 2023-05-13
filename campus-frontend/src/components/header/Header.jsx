@@ -18,8 +18,14 @@ export const Header = observer(() =>{
         <div className={styles.header}>
             <div className={styles.container}>
                 <div className={styles.logo}>
-                    <Link to='/'><img src='/img/Group.svg' alt='logo_header'/></Link> 
-                    <Link to ='/Employers' className={styles.bTn}>Работодателям</Link>
+                    {store.IsAuth ? (
+                        <Link to='/' style={{marginLeft:"250px"}}><img src='/img/Group.svg' alt='logo_header' /></Link>
+                    ):(
+                        <>
+                            <Link to='/'><img src='/img/Group.svg' alt='logo_header'/></Link> 
+                            <Link to ='/Employers' className={styles.bTn}>Работодателям</Link>
+                        </>
+                    )}
                 </div>
                 <div className={styles.link}>
                     <Link to='/AboutUs' className={styles.fistLink}>О нас</Link>
