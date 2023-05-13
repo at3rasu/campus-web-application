@@ -23,6 +23,7 @@ export class UsersCompanyService {
         console.log(role)
         await user.$set('roles', [role.id])
         user.roles = [role]
+        console.log(user.roles)
         return user;
     }
 

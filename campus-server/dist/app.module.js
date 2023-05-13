@@ -21,7 +21,11 @@ const users_company_model_1 = require("./users-company/users-company.model");
 const user_company_roles_1 = require("./roles/user_company_roles");
 const vacancies_model_1 = require("./vacancies/vacancies.model");
 const vacancies_module_1 = require("./vacancies/vacancies.module");
+const serve_static_1 = require("@nestjs/serve-static");
 const files_module_1 = require("./files/files.module");
+const path = require("path");
+const resume_module_1 = require("./resume/resume.module");
+const resume_model_1 = require("./resume/resume.model");
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
@@ -32,6 +36,9 @@ AppModule = __decorate([
             config_1.ConfigModule.forRoot({
                 envFilePath: '.development.env'
             }),
+            serve_static_1.ServeStaticModule.forRoot({
+                rootPath: path.join(__dirname, 'uploads'),
+            }),
             sequelize_1.SequelizeModule.forRoot({
                 dialect: 'postgres',
                 host: process.env.POSTGRES_HOST,
@@ -39,7 +46,15 @@ AppModule = __decorate([
                 username: process.env.POSTGRES_USER,
                 password: process.env.POSTGRESS_PASSWORD,
                 database: process.env.POSTGRES_DB,
-                models: [users_model_1.User, roles_model_1.Role, user_roles_1.UserRoles, users_company_model_1.UserCompany, vacancies_model_1.Vacancy, user_company_roles_1.UserCompanyRoles],
+                models: [
+                    users_model_1.User,
+                    roles_model_1.Role,
+                    user_roles_1.UserRoles,
+                    users_company_model_1.UserCompany,
+                    vacancies_model_1.Vacancy,
+                    user_company_roles_1.UserCompanyRoles,
+                    resume_model_1.Resume
+                ],
                 autoLoadModels: true
             }),
             users_module_1.UsersModule,
@@ -47,7 +62,8 @@ AppModule = __decorate([
             auth_module_1.AuthModule,
             users_company_module_1.UsersCompanyModule,
             vacancies_module_1.VacanciesModule,
-            files_module_1.FilesModule
+            files_module_1.FilesModule,
+            resume_module_1.ResumeModule
         ]
     })
 ], AppModule);

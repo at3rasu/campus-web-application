@@ -22,11 +22,13 @@ export declare class AuthService {
     }>;
     private validateRegistration;
     private generateToken;
-    private generateTokenUserComp;
     private validateUser;
     private validateUserCompany;
     private equalUser;
     refreshToken(login: any): Promise<{
+        token: string;
+    }>;
+    refreshTokenByUser(login: any): Promise<{
         token: string;
     }>;
 }

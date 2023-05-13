@@ -15,6 +15,9 @@ import { VacanciesModule } from "./vacancies/vacancies.module";
 import { ServeStaticModule } from "@nestjs/serve-static";
 import { FilesModule } from "./files/files.module";
 import * as path from "path";
+import { Image } from "./upload-files/images.model";
+import { ResumeModule } from './resume/resume.module';
+import { Resume } from "./resume/resume.model";
 
 
 @Module({
@@ -25,9 +28,9 @@ import * as path from "path";
         envFilePath: '.development.env'
       }),
       
-      // ServeStaticModule.forRoot({
-      //   rootPath: path.join(__dirname, 'static'), // Путь к папке с загруженными файлами
-      // }),
+      ServeStaticModule.forRoot({
+        rootPath: path.join(__dirname, 'uploads'), // Путь к папке с загруженными файлами
+      }),
 
       SequelizeModule.forRoot({
         dialect: 'postgres',
@@ -36,7 +39,15 @@ import * as path from "path";
         username: process.env.POSTGRES_USER,
         password: process.env.POSTGRESS_PASSWORD,
         database: process.env.POSTGRES_DB,
-        models: [User, Role, UserRoles, UserCompany, Vacancy, UserCompanyRoles],
+        models: [
+          User,
+          Role, 
+          UserRoles,
+          UserCompany, 
+          Vacancy, 
+          UserCompanyRoles,
+          Resume
+        ],
         autoLoadModels: true
       }),
       UsersModule,
@@ -44,7 +55,8 @@ import * as path from "path";
       AuthModule,
       UsersCompanyModule,
       VacanciesModule,
-      FilesModule
+      FilesModule,
+      ResumeModule
     ]
 })
 

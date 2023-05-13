@@ -12,7 +12,7 @@ import { FileType, FilesService } from 'src/files/files.service';
 export class VacanciesService {
     constructor(@InjectModel(Vacancy) private vacancyRepository: typeof Vacancy,
                 private jwtService: JwtService,
-                // private uploadFilesService: UploadFilesService,
+                private uploadFilesService: UploadFilesService,
                 private userCompanyService: UsersCompanyService,
                 // private filesService: FilesService,
                 private authService: AuthService){}

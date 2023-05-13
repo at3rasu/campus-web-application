@@ -6,42 +6,40 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.VacanciesModule = void 0;
+exports.ResumeModule = void 0;
 const common_1 = require("@nestjs/common");
-const vacancies_controller_1 = require("./vacancies.controller");
-const vacancies_service_1 = require("./vacancies.service");
-const sequelize_1 = require("@nestjs/sequelize");
-const vacancies_model_1 = require("./vacancies.model");
+const resume_service_1 = require("./resume.service");
+const resume_controller_1 = require("./resume.controller");
 const jwt_1 = require("@nestjs/jwt");
+const sequelize_1 = require("@nestjs/sequelize");
+const users_model_1 = require("../users/users.model");
 const auth_module_1 = require("../auth/auth.module");
-const users_company_model_1 = require("../users-company/users-company.model");
-const upload_files_module_1 = require("../upload-files/upload-files.module");
-const users_company_module_1 = require("../users-company/users-company.module");
-let VacanciesModule = class VacanciesModule {
+const resume_model_1 = require("./resume.model");
+const users_module_1 = require("../users/users.module");
+let ResumeModule = class ResumeModule {
 };
-VacanciesModule = __decorate([
+ResumeModule = __decorate([
     (0, common_1.Module)({
-        controllers: [vacancies_controller_1.VacanciesController],
+        controllers: [resume_controller_1.ResumeController],
         imports: [
-            sequelize_1.SequelizeModule.forFeature([vacancies_model_1.Vacancy, users_company_model_1.UserCompany]),
+            sequelize_1.SequelizeModule.forFeature([resume_model_1.Resume, users_model_1.User]),
             jwt_1.JwtModule.register({
                 secret: process.env.PRIVATE_KEY || 'SECRET',
                 signOptions: {
                     expiresIn: '30m'
                 }
             }),
-            upload_files_module_1.UploadFilesModule,
-            users_company_module_1.UsersCompanyModule,
+            users_module_1.UsersModule,
             auth_module_1.AuthModule
         ],
         exports: [
-            vacancies_service_1.VacanciesService
+            resume_service_1.ResumeService
         ],
         providers: [
-            vacancies_service_1.VacanciesService,
+            resume_service_1.ResumeService,
             jwt_1.JwtModule
         ]
     })
-], VacanciesModule);
-exports.VacanciesModule = VacanciesModule;
-//# sourceMappingURL=vacancies.module.js.map
+], ResumeModule);
+exports.ResumeModule = ResumeModule;
+//# sourceMappingURL=resume.module.js.map
