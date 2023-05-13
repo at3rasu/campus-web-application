@@ -19,11 +19,6 @@ export const Employers = () =>{
         <div className='employers'>
             <Header />
             <div className={styles.container}>
-            <button onClick={
-                    async() =>{
-                        const response = await getVacanciesByUser();
-                    }
-                }>dLFSMDF:LDMFDSKMFLKDFMLKDSFM</button>
                 <div className={styles.content}>
                     <div className={styles.text}>
                         <h1>Разместите</h1>  

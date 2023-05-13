@@ -15,7 +15,8 @@ export class VacanciesService {
                 // private uploadFilesService: UploadFilesService,
                 private userCompanyService: UsersCompanyService,
                 // private filesService: FilesService,
-                private authService: AuthService){}
+                // private authService: AuthService
+                ){}
 
     async createVacancy(vacancyDto: CreateVacancyDto, 
         // image,
@@ -42,5 +43,9 @@ export class VacanciesService {
     async getAllVacancies(){
         const vacancies = await this.vacancyRepository.findAll({include: {all:true}});
         return vacancies;
+    }
+
+    async removeVacancyById(id){
+        return await this.vacancyRepository.destroy({ where: { id: id } });
     }
 }
