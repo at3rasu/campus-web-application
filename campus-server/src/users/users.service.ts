@@ -58,7 +58,6 @@ export class UsersService {
         }catch(e){
             console.log(e)
         }
-        
     }
 
     async getUserByRequest(req){
