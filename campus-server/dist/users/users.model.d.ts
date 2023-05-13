@@ -1,4 +1,5 @@
 import { Model } from "sequelize-typescript";
+import { Resume } from "src/resume/resume.model";
 import { Role } from "src/roles/roles.model";
 interface UserCreationAttrs {
     email: string;
@@ -13,5 +14,6 @@ export declare class User extends Model<User, UserCreationAttrs> {
     surname: string;
     city: string;
     roles: Role[];
+    resume: Resume[];
 }
 export {};

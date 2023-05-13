@@ -17,6 +17,7 @@ import { FilesModule } from "./files/files.module";
 import * as path from "path";
 import { Image } from "./upload-files/images.model";
 import { ResumeModule } from './resume/resume.module';
+import { Resume } from "./resume/resume.model";
 
 
 @Module({
@@ -44,7 +45,8 @@ import { ResumeModule } from './resume/resume.module';
           UserRoles,
           UserCompany, 
           Vacancy, 
-          UserCompanyRoles
+          UserCompanyRoles,
+          Resume
         ],
         autoLoadModels: true
       }),

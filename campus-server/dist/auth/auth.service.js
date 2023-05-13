@@ -25,7 +25,7 @@ let AuthService = class AuthService {
     }
     async login(userDto) {
         const user = await this.validateUser(userDto);
-        return this.generateToken({ login: user.login, id: user.id, roles: user.roles });
+        return this.generateToken({ login: user.login, id: user.id, roles: user.roles, resume: user.resume });
     }
     async loginUserCompany(userDto) {
         const user = await this.validateUserCompany(userDto);
@@ -35,7 +35,7 @@ let AuthService = class AuthService {
     async registration(userDto) {
         const hashPassword = await bcrypt.hash(userDto.password, 5);
         const user = await this.userService.createUser(Object.assign(Object.assign({}, userDto), { password: hashPassword }));
-        return this.generateToken(user);
+        return this.generateToken({ login: user.login, id: user.id, roles: user.roles, resume: user.resume });
     }
     async registrationUserCompany(userDto) {
         const hashPassword = await bcrypt.hash(userDto.password, 5);
@@ -82,6 +82,10 @@ let AuthService = class AuthService {
     async refreshToken(login) {
         const user = await this.userCompanyService.getUserByLogin(login);
         return this.generateToken({ login: user.login, id: user.id, roles: user.roles, vacancies: user.vacancies });
+    }
+    async refreshTokenByUser(login) {
+        const user = await this.userService.getUserByLogin(login);
+        return this.generateToken({ login: user.login, id: user.id, roles: user.roles, resume: user.resume });
     }
 };
 AuthService = __decorate([

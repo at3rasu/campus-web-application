@@ -3,52 +3,45 @@ import { UserCompany } from "src/users-company/users-company.model";
 import { User } from "src/users/users.model";
 
 
-interface VacancyCreationAttrs{
-    
+interface ResumeCreationAttrs{
+    name: string;
+    userId: number;
+    image: string;
 }
 
-@Table({tableName: 'vacancies'})
-export class Vacancy extends Model<Vacancy, VacancyCreationAttrs>{ 
+@Table({tableName: 'resume'})
+export class Resume extends Model<Resume, ResumeCreationAttrs>{ 
     @Column({type: DataType.INTEGER, unique: true, autoIncrement: true, primaryKey: true})
     id: number
 
     @Column({type: DataType.STRING, allowNull: false})
-    nameVacancy: string
-
-    @Column({type: DataType.STRING, allowNull: false})
-    nameCompany: string
-
-    @Column({type: DataType.STRING, allowNull: false})
-    companyDescription: string
-    
-    @Column({type: DataType.STRING, allowNull: false})
-    duties: string
-
-    @Column({type: DataType.STRING,  allowNull: false})
-    expectations: string
-
-    @Column({type: DataType.STRING, allowNull: false})
-    skills: string
-
-    @Column({type: DataType.STRING, allowNull: false})
-    conditions: string
-
-    @Column({type: DataType.STRING, allowNull: false})
-    email: string
-
-    @Column({type: DataType.STRING, allowNull: false})
-    fullAddress: string
+    name: string
 
     @Column({type: DataType.STRING, allowNull: false})
     number: string
 
+    @Column({type: DataType.STRING, allowNull: false})
+    city: string
+    
+    @Column({type: DataType.STRING, allowNull: false})
+    aboutYou: string
+
+    @Column({type: DataType.STRING,  allowNull: false})
+    vacancy: string
+
+    @Column({type: DataType.STRING, allowNull: false})
+    workExamples: string
+
+    @Column({type: DataType.STRING, allowNull: false})
+    educational: string
+
     @Column({type: DataType.STRING})
     image: string
 
-    @ForeignKey(() => UserCompany)
+    @ForeignKey(() => User)
     @Column({type: DataType.INTEGER})
     userId: number
 
-    @BelongsTo(() => UserCompany)
+    @BelongsTo(() => User)
     author: User
 }

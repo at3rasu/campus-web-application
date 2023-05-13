@@ -19,10 +19,12 @@ const roles_service_1 = require("../roles/roles.service");
 const users_model_1 = require("./users.model");
 const common_2 = require("@nestjs/common");
 const create_role_dto_1 = require("../roles/dto/create-role.dto");
+const jwt_1 = require("@nestjs/jwt");
 let UsersService = class UsersService {
-    constructor(userRepository, roleService) {
+    constructor(userRepository, roleService, jwtService) {
         this.userRepository = userRepository;
         this.roleService = roleService;
+        this.jwtService = jwtService;
     }
     async createUser(dto) {
         const user = await this.userRepository.create(dto);
@@ -56,11 +58,27 @@ let UsersService = class UsersService {
         }
         throw new common_2.HttpException('Пользователь или роль не были найдены', common_2.HttpStatus.NOT_FOUND);
     }
+    async getResumeByUser(req) {
+        try {
+            const authHeader = req.headers.authorization;
+            const token = authHeader.split(' ')[1];
+            return this.jwtService.verify(token).resume;
+        }
+        catch (e) {
+            console.log(e);
+        }
+    }
+    async getUserCompanyByReq(req) {
+        const authHeader = req.headers.authorization;
+        const token = authHeader.split(' ')[1];
+        return this.jwtService.verify(token);
+    }
 };
 UsersService = __decorate([
     (0, common_1.Injectable)(),
     __param(0, (0, sequelize_1.InjectModel)(users_model_1.User)),
-    __metadata("design:paramtypes", [Object, roles_service_1.RolesService])
+    __metadata("design:paramtypes", [Object, roles_service_1.RolesService,
+        jwt_1.JwtService])
 ], UsersService);
 exports.UsersService = UsersService;
 //# sourceMappingURL=users.service.js.map

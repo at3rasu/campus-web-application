@@ -51,6 +51,17 @@ export class UsersService {
         throw new HttpException('Пользователь или роль не были найдены', HttpStatus.NOT_FOUND)
     }
 
+    async getResumeByUser(req){
+        try{
+            const authHeader = req.headers.authorization
+            const token = authHeader.split(' ')[1]
+            return this.jwtService.verify(token).resume
+        }catch(e){
+            console.log(e)
+        }
+        
+    }
+
     async getUserCompanyByReq(req){
         const authHeader = req.headers.authorization
         const token = authHeader.split(' ')[1]

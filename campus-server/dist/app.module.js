@@ -24,6 +24,8 @@ const vacancies_module_1 = require("./vacancies/vacancies.module");
 const serve_static_1 = require("@nestjs/serve-static");
 const files_module_1 = require("./files/files.module");
 const path = require("path");
+const resume_module_1 = require("./resume/resume.module");
+const resume_model_1 = require("./resume/resume.model");
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
@@ -50,7 +52,8 @@ AppModule = __decorate([
                     user_roles_1.UserRoles,
                     users_company_model_1.UserCompany,
                     vacancies_model_1.Vacancy,
-                    user_company_roles_1.UserCompanyRoles
+                    user_company_roles_1.UserCompanyRoles,
+                    resume_model_1.Resume
                 ],
                 autoLoadModels: true
             }),
@@ -59,7 +62,8 @@ AppModule = __decorate([
             auth_module_1.AuthModule,
             users_company_module_1.UsersCompanyModule,
             vacancies_module_1.VacanciesModule,
-            files_module_1.FilesModule
+            files_module_1.FilesModule,
+            resume_module_1.ResumeModule
         ]
     })
 ], AppModule);

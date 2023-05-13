@@ -13,12 +13,12 @@ export class ResumeController {
 
     @Post()
     @UseGuards(RolesGuard)
-    @Roles('admin', 'user_company')
+    @Roles('admin', 'user')
     @UseInterceptors(FileInterceptor('image'))
-    create(@Body() vacancyDto: CreateResumeDto,
+    create(@Body() resumeDto: CreateResumeDto,
            @Req() request: Request
         ){
-        return this..createVacancy(vacancyDto, image, request);
+        return this.resumeService.createResume(resumeDto, request);
     }
 
 }

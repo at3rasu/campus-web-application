@@ -28,4 +28,7 @@ export declare class AuthService {
     refreshToken(login: any): Promise<{
         token: string;
     }>;
+    refreshTokenByUser(login: any): Promise<{
+        token: string;
+    }>;
 }

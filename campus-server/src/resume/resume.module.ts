@@ -5,6 +5,8 @@ import { JwtModule } from '@nestjs/jwt';
 import { SequelizeModule } from '@nestjs/sequelize';
 import { User } from 'src/users/users.model';
 import { AuthModule } from 'src/auth/auth.module';
+import { Resume } from './resume.model';
+import { UsersModule } from 'src/users/users.module';
 
 @Module({
     controllers: [ResumeController],
@@ -15,6 +17,7 @@ import { AuthModule } from 'src/auth/auth.module';
         signOptions: {
           expiresIn: '30m'
         }}),
+      UsersModule,
       AuthModule
     ],
     exports:[
