@@ -22,16 +22,20 @@
     margin-left: 25px;
 }
 
-.title h2{
+.title a{
     font-style: normal;
     font-weight: 600;
     font-size: 25px;
     line-height: 30px;
     text-decoration: none;
 
-    color: #F52D30;
+    color: #8269EF;
     margin-top: 20px;
     margin-left: 25px;
+}
+
+.title a:hover{
+    color: #F42E30;
 }
 
 .firstText{
@@ -60,22 +64,27 @@
     color: #000000;
 }
 
-.link a{
-    text-decoration: none;
+.link button{
+    width: 180px;
+    height: 30px;
+    font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
-    font-size: 12px;
-    line-height: 15px;
-    /* identical to box height */
-
-    text-decoration-line: underline;
-
-    color: rgba(6, 100, 211, 0.8);
+    font-size: 18px;
+    line-height: 100%;
+    cursor: pointer;
+    text-align: center;
+    color: #FFFFFF;/* цвет текста */
+    border: none;
+    text-decoration: none; /* убирать подчёркивание у ссылок */
+    user-select: none; /* убирать выделение текста */
+    background: #352F2F;
+    border-radius: 12px;
+    outline: none;
 }
 
 .link{
-    float: right;
-    margin-right: 20px;
+    margin-left: 25px;
     margin-top: 25px;
 }
 

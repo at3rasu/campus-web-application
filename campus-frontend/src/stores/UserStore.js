@@ -73,6 +73,7 @@ export default class UserStore{
                 this.setAuth(false)
                 this.setAuthCompany(false)
                 this.setUser(undefined)
+                window.location.reload()
             }
             else{
                 console.log('Пользователь не авторизован')

@@ -24,14 +24,12 @@ export const VacancyDetails = observer(() =>{
             <div className={styles.container}>
                 <div className={styles.cardCompany}>
                     <div className={styles.vacancy}>
-                        <h2>{vacancy.nameVacancy}</h2>
-                        <h4>{vacancy.companyDescription}</h4>
-
-                        <p>{vacancy.skills}</p>
+                        <h1>{vacancy.nameVacancy}</h1>
+                        <p>{vacancy.companyDescription}</p>
                         <button>Подать заявку</button>
                     </div>
                     <div className={styles.company}>
-
+                        <p>Место для картинки</p>
                     </div>
                 </div>
                 <div className={styles.content}>

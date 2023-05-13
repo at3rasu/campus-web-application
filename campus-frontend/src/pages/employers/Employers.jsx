@@ -1,14 +1,17 @@
 import { Header } from "../../components/header/Header_2"
 import { Footer } from "../../components/footer/Footer"
 import styles from './Employers.module.css'
-import { useEffect } from "react"
+import { useContext, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
+import { Context } from "../.."
+import { notify } from "../../utils/Consts"
 
 export const Employers = () =>{
     useEffect(() => {
         document.title = 'Главная страница'
     })
 
+    const {store} = useContext(Context)
     const navigate = useNavigate()
 
     return(
@@ -22,10 +25,18 @@ export const Employers = () =>{
                         <p>Тысячи студентов и стажеров со всей области в поисках своего начинания.</p>
                         <p>Они готовы пойти к вам, чтобы создавать общее будущее. </p>
                     </div>
-                    <div className={styles.btn}>
-                        <button
-                            onClick={() => navigate('/PostVacancy')}>Опубликовать вакансию</button>
-                    </div>
+                    {store.IsAuthCompany ?(
+                        <div className={styles.btn}>
+                            <button
+                                onClick={() => navigate('/PostVacancy')}>Опубликовать вакансию</button>
+                        </div>
+                    ):(
+                        <div className={styles.btn}>
+                            <button
+                                onClick={notify}>Опубликовать вакансию</button>
+                        </div>
+                    )}
+                    
                 </div>
             </div>
             <Footer />

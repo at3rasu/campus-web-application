@@ -7,7 +7,6 @@ export const SingUp = () =>{
   const [login, setLogin] = useState('')
   const [pass, setPass] = useState('')
   const [name, setName] = useState('')
-  const [city, setCity] = useState('')
   const [lastName, setLastName] = useState('')
   const [secondPass, setSecondPass] = useState('')
   const[email, setEmail] = useState('')
@@ -38,13 +37,6 @@ export const SingUp = () =>{
             value={lastName} onChange={(e) => setLastName(e.target.value)}
             type='text'
             placeholder="Введите вашу фамилию">
-          </input>
-        </div>
-        <div className='input-dt'>
-          <input
-            value={city} onChange={(e) => setCity(e.target.value)}
-            type='text'
-            placeholder="Введите ваш город">
           </input>
         </div>
         <div className='input-dt'>
@@ -82,7 +74,7 @@ export const SingUp = () =>{
         <div className='reg-btn'>
           <button
             onClick={async () => {
-              const response = await registration(email, pass, login, name, lastName, city, secondPass)
+              const response = await registration(email, pass, login, name, lastName, secondPass)
               navigate('/SingIn')
             }}
             type='submit'>Зарегистрироваться</button>

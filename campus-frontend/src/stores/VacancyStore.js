@@ -1,6 +1,5 @@
 import {makeAutoObservable, runInAction } from "mobx"
 import api from "../api/create-api"
-import { Vacancy } from "../pages/vacancy/Vacancy"
 
 export default class VacancyStore{
     vacancies = []

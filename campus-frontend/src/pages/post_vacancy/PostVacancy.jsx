@@ -48,7 +48,7 @@ export const PostVacancy = () =>{
                 draggable: true,
                 progress: undefined,
                 theme: "colored",
-            });
+            })
           return
         }
         setEmail('')
