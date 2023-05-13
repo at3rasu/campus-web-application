@@ -6,6 +6,7 @@ import { ExperienceSelection } from '../../components/experience_selection/Exper
 import { EducationSelection } from '../../components/education_selection/EducationSelection'
 import { useEffect, useState } from 'react'
 import { toast } from 'react-toastify'
+import { createResume } from '../../api/resume-api'
 
 export const CreateResume = () =>{
     useEffect(() => {
@@ -148,7 +149,11 @@ export const CreateResume = () =>{
                     </div>            
                     <div className={styles.buttonSubmit}>
                         <button
-                            type='submit'>Опубликовать резюме</button>
+                            type='submit' onClick={
+                                async () => {
+                                    const response = await createResume (name, number, city, aboutYou, vacancy, workExamples, educational)
+                                    }
+                            }>Опубликовать резюме</button>
                     </div>
                 </div>
             </form>

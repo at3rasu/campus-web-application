@@ -62,6 +62,7 @@ let UsersService = class UsersService {
         try {
             const authHeader = req.headers.authorization;
             const token = authHeader.split(' ')[1];
+            console.log(this.jwtService.verify(token).resume);
             return this.jwtService.verify(token).resume;
         }
         catch (e) {

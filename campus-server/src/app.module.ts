@@ -28,9 +28,9 @@ import { Resume } from "./resume/resume.model";
         envFilePath: '.development.env'
       }),
       
-      ServeStaticModule.forRoot({
-        rootPath: path.join(__dirname, 'uploads'), // Путь к папке с загруженными файлами
-      }),
+      // ServeStaticModule.forRoot({
+      //   rootPath: path.join(__dirname, 'uploads'), // Путь к папке с загруженными файлами
+      // }),
 
       SequelizeModule.forRoot({
         dialect: 'postgres',
@@ -55,7 +55,7 @@ import { Resume } from "./resume/resume.model";
       AuthModule,
       UsersCompanyModule,
       VacanciesModule,
-      FilesModule,
+      // FilesModule,
       ResumeModule
     ]
 })

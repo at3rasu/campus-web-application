@@ -32,6 +32,9 @@ let UsersController = class UsersController {
     addRole(dto) {
         return this.usersService.addRole(dto);
     }
+    getResumeByUser(request) {
+        return this.usersService.getResumeByUser(request);
+    }
 };
 __decorate([
     (0, common_1.Post)(),
@@ -57,6 +60,15 @@ __decorate([
     __metadata("design:paramtypes", [add_role_dto_1.AddRoleDto]),
     __metadata("design:returntype", void 0)
 ], UsersController.prototype, "addRole", null);
+__decorate([
+    (0, common_1.Get)('/get_resume'),
+    (0, roles_auth_decorator_1.Roles)('admin', 'user'),
+    (0, common_1.UseGuards)(roles_guard_1.RolesGuard),
+    __param(0, (0, common_1.Req)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Request]),
+    __metadata("design:returntype", void 0)
+], UsersController.prototype, "getResumeByUser", null);
 UsersController = __decorate([
     (0, common_1.Controller)('users'),
     __metadata("design:paramtypes", [users_service_1.UsersService])

@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom"
 import { useContext, useEffect } from "react"
 import { Context } from '../..'
 import { notify } from '../../utils/Consts'
+import { getResumeByUser } from '../../api/user-api'
 
 export const MainPage = () => {
     const navigate = useNavigate()
@@ -18,6 +19,11 @@ export const MainPage = () => {
         <div className="MainPage">
             <Header />
             <div className={styles.container}>
+                <button onClick={
+                    async() =>{
+                        const response = await getResumeByUser();
+                    }
+                }>dLFSMDF:LDMFDSKMFLKDFMLKDSFM</button>
                 <div className={styles.firstContainer}>
                     <div className={styles.fisrtContent}>
                         <div className={styles.firstText}>

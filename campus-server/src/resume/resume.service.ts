@@ -7,7 +7,7 @@ import { Resume } from './resume.model';
 
 @Injectable()
 export class ResumeService {
-    constructor(@InjectModel(Resume) private vacancyRepository: typeof Resume,
+    constructor(@InjectModel(Resume) private resumeRepository: typeof Resume,
                 private jwtService: JwtService,
                 private userService: UsersService,
                 // private uploadFilesService: UploadFilesService,
@@ -18,12 +18,17 @@ export class ResumeService {
         const user = await this.userService.getUserCompanyByReq(req)
         console.log(user)
         resumeDto.userId = user.id
-        const vacancy = await this.vacancyRepository.create({...resumeDto,
+        const vacancy = await this.resumeRepository.create({...resumeDto,
             // image: fileName
         });
         const token = (await this.authService.refreshTokenByUser(user.login)).token
         req.headers.authorization = `Bearer ${token}`
         return this.generateToken(vacancy);
+    }
+
+    async getAllResume(){
+        const allResume = await this.resumeRepository.findAll({include: {all: true}})
+        return allResume
     }
 
     private async generateToken(resume: Resume){

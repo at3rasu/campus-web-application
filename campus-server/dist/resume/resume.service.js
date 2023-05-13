@@ -20,8 +20,8 @@ const auth_service_1 = require("../auth/auth.service");
 const users_service_1 = require("../users/users.service");
 const resume_model_1 = require("./resume.model");
 let ResumeService = class ResumeService {
-    constructor(vacancyRepository, jwtService, userService, authService) {
-        this.vacancyRepository = vacancyRepository;
+    constructor(resumeRepository, jwtService, userService, authService) {
+        this.resumeRepository = resumeRepository;
         this.jwtService = jwtService;
         this.userService = userService;
         this.authService = authService;
@@ -30,10 +30,14 @@ let ResumeService = class ResumeService {
         const user = await this.userService.getUserCompanyByReq(req);
         console.log(user);
         resumeDto.userId = user.id;
-        const vacancy = await this.vacancyRepository.create(Object.assign({}, resumeDto));
+        const vacancy = await this.resumeRepository.create(Object.assign({}, resumeDto));
         const token = (await this.authService.refreshTokenByUser(user.login)).token;
         req.headers.authorization = `Bearer ${token}`;
         return this.generateToken(vacancy);
+    }
+    async getAllResume() {
+        const allResume = await this.resumeRepository.findAll({ include: { all: true } });
+        return allResume;
     }
     async generateToken(resume) {
         const payload = { id: resume.id, name: resume.name };

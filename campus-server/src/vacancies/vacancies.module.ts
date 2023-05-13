@@ -20,7 +20,7 @@ import { FilesModule } from 'src/files/files.module';
       signOptions: {
         expiresIn: '30m'
       }}),
-    UploadFilesModule,
+    // UploadFilesModule,
     // FilesModule,
     UsersCompanyModule,
     AuthModule
