@@ -25,11 +25,11 @@ let AuthService = class AuthService {
     }
     async login(userDto) {
         const user = await this.validateUser(userDto);
-        return this.generateToken(user);
+        return this.generateToken({ login: user.login, id: user.id, roles: user.roles });
     }
     async loginUserCompany(userDto) {
         const user = await this.validateUserCompany(userDto);
-        const result = this.generateTokenUserComp(user);
+        const result = this.generateToken({ login: user.login, id: user.id, roles: user.roles, vacancies: user.vacancies });
         return result;
     }
     async registration(userDto) {
@@ -39,8 +39,8 @@ let AuthService = class AuthService {
     }
     async registrationUserCompany(userDto) {
         const hashPassword = await bcrypt.hash(userDto.password, 5);
-        const userCompany = await this.userCompanyService.createUser(Object.assign(Object.assign({}, userDto), { password: hashPassword }));
-        return this.generateToken(userCompany);
+        const user = await this.userCompanyService.createUser(Object.assign(Object.assign({}, userDto), { password: hashPassword }));
+        return this.generateToken({ login: user.login, id: user.id, roles: user.roles, vacancies: user.vacancies });
     }
     async validateRegistration(user) {
         if (await this.userService.getUserByEmail(user.email)) {
@@ -53,17 +53,9 @@ let AuthService = class AuthService {
             throw new exceptions_1.HttpException('Пароли не совпадают', enums_1.HttpStatus.BAD_REQUEST);
         }
     }
-    async generateToken(user) {
-        const payload = { login: user.login, id: user.id, roles: user.roles };
+    async generateToken(payload) {
         return {
             token: this.jwtService.sign(payload)
-        };
-    }
-    async generateTokenUserComp(user) {
-        const payload = { login: user.login, id: user.id, roles: user.roles, vacancies: user.vacancies };
-        const tok = this.jwtService.sign(payload);
-        return {
-            token: tok
         };
     }
     async validateUser(userDto) {
@@ -89,7 +81,7 @@ let AuthService = class AuthService {
     }
     async refreshToken(login) {
         const user = await this.userCompanyService.getUserByLogin(login);
-        return this.generateTokenUserComp({ login: user.login, id: user.id, roles: user.roles, vacancies: user.vacancies });
+        return this.generateToken({ login: user.login, id: user.id, roles: user.roles, vacancies: user.vacancies });
     }
 };
 AuthService = __decorate([

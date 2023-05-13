@@ -1,6 +1,7 @@
 import { UserCompany } from "src/users-company/users-company.model";
 export declare class CreateVacancyDto {
     readonly nameVacancy: string;
+    readonly nameCompany: string;
     readonly companyDescription: string;
     readonly duties: string;
     readonly expectations: string;

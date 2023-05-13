@@ -17,6 +17,9 @@ export class Vacancy extends Model<Vacancy, VacancyCreationAttrs>{
     nameVacancy: string
 
     @Column({type: DataType.STRING, allowNull: false})
+    nameCompany: string
+
+    @Column({type: DataType.STRING, allowNull: false})
     companyDescription: string
     
     @Column({type: DataType.STRING, allowNull: false})

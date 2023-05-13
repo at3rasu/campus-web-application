@@ -17,12 +17,14 @@ const common_1 = require("@nestjs/common");
 const sequelize_1 = require("@nestjs/sequelize");
 const vacancies_model_1 = require("./vacancies.model");
 const jwt_1 = require("@nestjs/jwt");
+const upload_files_service_1 = require("../upload-files/upload-files.service");
 const users_company_service_1 = require("../users-company/users-company.service");
 const auth_service_1 = require("../auth/auth.service");
 let VacanciesService = class VacanciesService {
-    constructor(vacancyRepository, jwtService, userCompanyService, authService) {
+    constructor(vacancyRepository, jwtService, uploadFilesService, userCompanyService, authService) {
         this.vacancyRepository = vacancyRepository;
         this.jwtService = jwtService;
+        this.uploadFilesService = uploadFilesService;
         this.userCompanyService = userCompanyService;
         this.authService = authService;
     }
@@ -50,6 +52,7 @@ VacanciesService = __decorate([
     (0, common_1.Injectable)(),
     __param(0, (0, sequelize_1.InjectModel)(vacancies_model_1.Vacancy)),
     __metadata("design:paramtypes", [Object, jwt_1.JwtService,
+        upload_files_service_1.UploadFilesService,
         users_company_service_1.UsersCompanyService,
         auth_service_1.AuthService])
 ], VacanciesService);
