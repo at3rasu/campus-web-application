@@ -1,1 +1,1 @@
-{"version":3,"file":"create-vacancy.dto.js","sourceRoot":"","sources":["../../../src/vacancies/dto/create-vacancy.dto.ts"],"names":[],"mappings":";;;AAEA,MAAa,gBAAgB;CAwB5B;AAxBD,4CAwBC"}
+{"version":3,"file":"create-vacancy.dto.js","sourceRoot":"","sources":["../../../src/vacancies/dto/create-vacancy.dto.ts"],"names":[],"mappings":";;;AAEA,MAAa,gBAAgB;CA0B5B;AA1BD,4CA0BC"}

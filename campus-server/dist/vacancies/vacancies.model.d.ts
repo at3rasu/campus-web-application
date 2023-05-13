@@ -8,6 +8,7 @@ interface VacancyCreationAttrs {
 export declare class Vacancy extends Model<Vacancy, VacancyCreationAttrs> {
     id: number;
     nameVacancy: string;
+    nameCompany: string;
     companyDescription: string;
     duties: string;
     expectations: string;
