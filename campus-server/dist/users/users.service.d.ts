@@ -13,6 +13,6 @@ export declare class UsersService {
     getUserByEmail(email: string): Promise<User>;
     getUserByLogin(login: string): Promise<User>;
     addRole(dto: AddRoleDto): Promise<AddRoleDto>;
-    getResumeByUser(req: any): Promise<any>;
-    getUserCompanyByReq(req: any): Promise<any>;
+    getResumeByUser(req: any): Promise<import("../resume/resume.model").Resume[]>;
+    getUserByRequest(req: any): Promise<User>;
 }

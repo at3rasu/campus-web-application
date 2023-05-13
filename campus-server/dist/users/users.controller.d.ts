@@ -7,5 +7,5 @@ export declare class UsersController {
     create(userDto: CreateUserDto): Promise<import("./users.model").User>;
     getAll(): Promise<import("./users.model").User[]>;
     addRole(dto: AddRoleDto): Promise<AddRoleDto>;
-    getResumeByUser(request: Request): Promise<any>;
+    getResumeByUser(request: Request): Promise<import("../resume/resume.model").Resume[]>;
 }

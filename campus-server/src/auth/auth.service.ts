@@ -19,12 +19,12 @@ export class AuthService {
 
     async login(userDto){
         const user = await this.validateUser(userDto)
-        return this.generateToken({login: user.login, id: user.id, roles : user.roles, resume: user.resume})
+        return this.generateToken({login: user.login, id: user.id, roles : user.roles})
     }
 
     async loginUserCompany(userDto){
         const user = await this.validateUserCompany(userDto)
-        const result = this.generateToken({login: user.login, id: user.id, roles : user.roles, vacancies: user.vacancies})
+        const result = this.generateToken({login: user.login, id: user.id, roles : user.roles})
         return result;
     }
 
@@ -32,13 +32,13 @@ export class AuthService {
         //this.validateRegistration(userDto)
         const hashPassword = await bcrypt.hash(userDto.password, 5)
         const user = await this.userService.createUser({...userDto, password: hashPassword})
-        return this.generateToken({login: user.login, id: user.id, roles : user.roles, resume: user.resume});
+        return this.generateToken({login: user.login, id: user.id, roles : user.roles});
     }
 
     async registrationUserCompany(userDto: CreateUserCompanyDto){
         const hashPassword = await bcrypt.hash(userDto.password, 5)
         const user = await this.userCompanyService.createUser({...userDto, password: hashPassword})
-        return this.generateToken({login: user.login, id: user.id, roles : user.roles, vacancies: user.vacancies});
+        return this.generateToken({login: user.login, id: user.id, roles : user.roles});
     }
 
     private async validateRegistration(user){
@@ -84,13 +84,13 @@ export class AuthService {
         throw new UnauthorizedException({message: "Неправильный логин или пароль"})
     }
 
-    async refreshToken(login){
-        const user = await this.userCompanyService.getUserByLogin(login)
-        return this.generateToken({login: user.login, id: user.id, roles : user.roles, vacancies: user.vacancies})
-    }
+    // async refreshToken(login){
+    //     const user = await this.userCompanyService.getUserByLogin(login)
+    //     return this.generateToken({login: user.login, id: user.id, roles : user.roles})
+    // }
 
-    async refreshTokenByUser(login){
-        const user = await this.userService.getUserByLogin(login)
-        return this.generateToken({login: user.login, id: user.id, roles : user.roles, resume: user.resume})
-    }
+    // async refreshTokenByUser(login){
+    //     const user = await this.userService.getUserByLogin(login)
+    //     return this.generateToken({login: user.login, id: user.id, roles : user.roles})
+    // }
 }

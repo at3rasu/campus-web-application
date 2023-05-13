@@ -15,14 +15,12 @@ export class ResumeService {
                 private authService: AuthService){}
 
     async createResume(resumeDto, req){
-        const user = await this.userService.getUserCompanyByReq(req)
+        const user = await this.userService.getUserByRequest(req)
         console.log(user)
         resumeDto.userId = user.id
         const vacancy = await this.resumeRepository.create({...resumeDto,
             // image: fileName
         });
-        const token = (await this.authService.refreshTokenByUser(user.login)).token
-        req.headers.authorization = `Bearer ${token}`
         return this.generateToken(vacancy);
     }
 

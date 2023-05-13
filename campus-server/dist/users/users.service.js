@@ -60,19 +60,19 @@ let UsersService = class UsersService {
     }
     async getResumeByUser(req) {
         try {
-            const authHeader = req.headers.authorization;
-            const token = authHeader.split(' ')[1];
-            console.log(this.jwtService.verify(token).resume);
-            return this.jwtService.verify(token).resume;
+            const user = await this.getUserByRequest(req);
+            return user.resume;
         }
         catch (e) {
             console.log(e);
         }
     }
-    async getUserCompanyByReq(req) {
+    async getUserByRequest(req) {
         const authHeader = req.headers.authorization;
         const token = authHeader.split(' ')[1];
-        return this.jwtService.verify(token);
+        console.log(this.jwtService.verify(token).login);
+        const user = await this.getUserByLogin(this.jwtService.verify(token).login);
+        return user;
     }
 };
 UsersService = __decorate([
