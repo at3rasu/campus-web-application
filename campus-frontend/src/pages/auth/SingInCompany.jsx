@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useEffect } from 'react'
 import './SingIn.css'
-import { set_login_user_company } from '../../api/user-api'
+import { set_login, set_login_user_company } from '../../api/user-api'
 
 
 export const SingInCompany = () =>{
@@ -53,7 +53,7 @@ export const SingInCompany = () =>{
           <button
             type='submit'
             onClick={async () => {
-              response = await set_login_user_company(login, pass)
+              response = await set_login(login, pass)
               navigate("/Employers")
             }}>Войти</button>
         </div>

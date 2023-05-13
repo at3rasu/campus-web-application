@@ -18,17 +18,11 @@ export class AuthService {
                 private jwtService: JwtService){}
 
     async login(userDto){
-        const possibleUser = await this.userService.getUserByLogin(userDto.login)
-        if (possibleUser != null){
-            const user = await this.equalUser(possibleUser, userDto)
-            return this.generateToken(user)
-        }
-        const userCompany = await this.validateUserCompany(userDto)
-        const result = this.generateTokenUserComp(userCompany)
-        return result;
+        const user = await this.validateUser(userDto)
+        return this.generateToken(user)
     }
 
-    async loginUserCompany(userDto, resp: Response){
+    async loginUserCompany(userDto){
         const user = await this.validateUserCompany(userDto)
         const result = this.generateTokenUserComp(user)
         return result;
@@ -67,9 +61,7 @@ export class AuthService {
     }
 
     private async generateTokenUserComp(user){
-        const payload = {login: user.login, id: user.id, roles : user.roles,
-            //  vacancies: user.vacancies
-        }
+        const payload = {login: user.login, id: user.id, roles : user.roles, vacancies: user.vacancies}
         const tok = this.jwtService.sign(payload)
         return{
             token: tok

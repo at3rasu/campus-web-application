@@ -5,6 +5,7 @@ import { CreateUserDto } from './dto/create-user.dto';
 import { User } from './users.model';
 import { AddRoleDto } from './dto/add-role.dto';
 import { HttpException, HttpStatus} from "@nestjs/common";
+import { CreateRoleDto } from 'src/roles/dto/create-role.dto';
 
 @Injectable()
 export class UsersService {
@@ -13,7 +14,11 @@ export class UsersService {
 
     async createUser(dto: CreateUserDto){
         const user = await this.userRepository.create(dto);
-        const role = await this.roleService.getRoleByValue("user")
+        let role = await this.roleService.getRoleByValue("user")
+        if (role == null){
+            const response = await this.roleService.createRoles(new CreateRoleDto("user", "Роль пользователя"))
+        }
+        role = await this.roleService.getRoleByValue("user")
         await user.$set('roles', [role.id])
         user.roles = [role]
         return user;

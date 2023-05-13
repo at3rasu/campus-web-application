@@ -15,6 +15,12 @@ export class AuthController {
         return user;
     }
 
+    @Post('/login_userCompany')
+    login_userCompany(@Body() userDto, @Res({ passthrough: true }) resp: Response, @Req() request: Request){
+        const user = this.authService.loginUserCompany(userDto)
+        return user;
+    }
+
     @Post('/registration')
     registration(@Body() userDto: CreateUserDto){
         return this.authService.registration(userDto);

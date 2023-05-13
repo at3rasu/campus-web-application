@@ -3,7 +3,6 @@ import { CreateUserDto } from 'src/users/dto/create-user.dto';
 import { UsersService } from 'src/users/users.service';
 import { CreateUserCompanyDto } from 'src/users-company/dto/create-user-company.dto';
 import { UsersCompanyService } from 'src/users-company/users-company.service';
-import { Response } from 'express';
 export declare class AuthService {
     private userService;
     private userCompanyService;
@@ -12,7 +11,7 @@ export declare class AuthService {
     login(userDto: any): Promise<{
         token: string;
     }>;
-    loginUserCompany(userDto: any, resp: Response): Promise<{
+    loginUserCompany(userDto: any): Promise<{
         token: string;
     }>;
     registration(userDto: CreateUserDto): Promise<{

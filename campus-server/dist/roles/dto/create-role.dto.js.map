@@ -1,1 +1,1 @@
-{"version":3,"file":"create-role.dto.js","sourceRoot":"","sources":["../../../src/roles/dto/create-role.dto.ts"],"names":[],"mappings":";;;AAAA,MAAa,aAAa;CAGzB;AAHD,sCAGC"}
+{"version":3,"file":"create-role.dto.js","sourceRoot":"","sources":["../../../src/roles/dto/create-role.dto.ts"],"names":[],"mappings":";;;AAAA,MAAa,aAAa;IAItB,YAAY,KAAK,EAAE,WAAW;QAC1B,IAAI,CAAC,KAAK,GAAG,KAAK,CAAA;QAClB,IAAI,CAAC,WAAW,GAAG,WAAW,CAAA;IAClC,CAAC;CACJ;AARD,sCAQC"}
