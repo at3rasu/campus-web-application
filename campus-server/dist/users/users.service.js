@@ -18,6 +18,7 @@ const sequelize_1 = require("@nestjs/sequelize");
 const roles_service_1 = require("../roles/roles.service");
 const users_model_1 = require("./users.model");
 const common_2 = require("@nestjs/common");
+const create_role_dto_1 = require("../roles/dto/create-role.dto");
 let UsersService = class UsersService {
     constructor(userRepository, roleService) {
         this.userRepository = userRepository;
@@ -25,7 +26,11 @@ let UsersService = class UsersService {
     }
     async createUser(dto) {
         const user = await this.userRepository.create(dto);
-        const role = await this.roleService.getRoleByValue("user");
+        let role = await this.roleService.getRoleByValue("user");
+        if (role == null) {
+            const response = await this.roleService.createRoles(new create_role_dto_1.CreateRoleDto("user", "Роль пользователя"));
+        }
+        role = await this.roleService.getRoleByValue("user");
         await user.$set('roles', [role.id]);
         user.roles = [role];
         return user;

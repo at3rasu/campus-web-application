@@ -53,7 +53,7 @@ export const SingInCompany = () =>{
           <button
             type='submit'
             onClick={async () => {
-              response = await set_login(login, pass)
+              response = await set_login_user_company(login, pass)
               navigate("/Employers")
             }}>Войти</button>
         </div>

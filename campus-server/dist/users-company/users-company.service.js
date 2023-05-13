@@ -29,9 +29,7 @@ let UsersCompanyService = class UsersCompanyService {
         const user = await this.userCompanyRepository.create(dto);
         let role = await this.roleService.getRoleByValue("user_company");
         if (role == null) {
-            console.log("is null");
             const response = await this.roleService.createRoles(new create_role_dto_1.CreateRoleDto("user_company", "Роль пользователя с компании"));
-            console.log(response);
         }
         role = await this.roleService.getRoleByValue("user_company");
         console.log(role);

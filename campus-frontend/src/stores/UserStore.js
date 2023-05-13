@@ -3,7 +3,7 @@ import api from "../api/create-api"
 
 
 export default class UserStore{
-    IsAuth = true
+    IsAuth = false
     IsAuthCompany = false
     user = null
     constructor(){
