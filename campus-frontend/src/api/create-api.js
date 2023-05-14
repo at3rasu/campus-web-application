@@ -1,4 +1,5 @@
 import axios from "axios";
+import UserStore from "../stores/UserStore";
 
 const api = axios.create({
     withCredentials: true,
@@ -6,7 +7,11 @@ const api = axios.create({
 })
 
 api.interceptors.request.use((config) => {
-    config.headers.Authorization = `Bearer ${localStorage.getItem('token')}`
+    if (UserStore.IsAuth) {
+        config.headers.Authorization = `Bearer ${UserStore.userToken}`;
+    } else if (UserStore.IsAuthCompany) {
+        config.headers.Authorization = `Bearer ${UserStore.companyToken}`;
+    }
     return config
 })
 
