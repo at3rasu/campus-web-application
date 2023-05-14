@@ -16,7 +16,8 @@ export const set_login_user_company = async (login, password) => {
 }
 
 export const registrationUserCompany = async (email, password, login, secondPass, companyName) => {
-    return store.registration_userCompany(email, password, login, secondPass, companyName)
+    const response = await api.post(`/auth/registration_userCompany`, {email, password, login, secondPass, companyName})
+    return response
 }
 
 export const get_users = async() => {
