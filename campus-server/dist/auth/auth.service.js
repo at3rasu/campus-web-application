@@ -13,10 +13,10 @@ exports.AuthService = void 0;
 const common_1 = require("@nestjs/common");
 const enums_1 = require("@nestjs/common/enums");
 const exceptions_1 = require("@nestjs/common/exceptions");
-const dist_1 = require("@nestjs/jwt/dist");
 const users_service_1 = require("../users/users.service");
 const bcrypt = require("bcryptjs");
 const users_company_service_1 = require("../users-company/users-company.service");
+const jwt_1 = require("@nestjs/jwt");
 let AuthService = class AuthService {
     constructor(userService, userCompanyService, jwtService) {
         this.userService = userService;
@@ -84,7 +84,7 @@ AuthService = __decorate([
     (0, common_1.Injectable)(),
     __metadata("design:paramtypes", [users_service_1.UsersService,
         users_company_service_1.UsersCompanyService,
-        dist_1.JwtService])
+        jwt_1.JwtService])
 ], AuthService);
 exports.AuthService = AuthService;
 //# sourceMappingURL=auth.service.js.map

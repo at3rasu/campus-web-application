@@ -1,7 +1,6 @@
-import { Controller, Post, Body, Get, UseGuards, Req } from '@nestjs/common';
+import { Controller, Post, Body, Get, UseGuards, Req, Param, Put } from '@nestjs/common';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UsersService } from './users.service';
-import { JwtAuthGuard } from 'src/auth/jwt-auth.guard';
 import { RolesGuard } from 'src/auth/roles.guard';
 import { Roles } from 'src/auth/roles-auth.decorator';
 import { AddRoleDto } from './dto/add-role.dto';
@@ -36,4 +35,11 @@ export class UsersController {
     getResumeByUser(@Req() request: Request){
         return this.usersService.getResumeByUser(request);
     }
+
+    @Put('/update/:id')
+    @Roles('admin', 'user')
+    @UseGuards(RolesGuard)
+    updateUser(@Param('id') id: string, @Body() updateUserDto) {
+    return this.usersService.updateUser(id, updateUserDto);
+  }
 }

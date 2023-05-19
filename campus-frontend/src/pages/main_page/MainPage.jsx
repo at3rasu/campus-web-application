@@ -19,11 +19,6 @@ export const MainPage = () => {
         <div className="MainPage">
             <Header />
             <div className={styles.container}>
-                <button onClick={
-                    async() =>{
-                        const response = await getResumeByUser();
-                    }
-                }>dLFSMDF:LDMFDSKMFLKDFMLKDSFM</button>
                 <div className={styles.firstContainer}>
                     <div className={styles.fisrtContent}>
                         <div className={styles.firstText}>

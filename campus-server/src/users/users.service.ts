@@ -66,4 +66,9 @@ export class UsersService {
         const user = await this.getUserByLogin(this.jwtService.verify(token).login)
         return user
     }
+
+    async updateUser(id, updateuserDto){
+        const user = await this.userRepository.update(updateuserDto, {where: {id}, returning: true,})
+        return user
+    }
 }
