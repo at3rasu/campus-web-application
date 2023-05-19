@@ -39,7 +39,7 @@ export class UsersController {
     @Put('/update/:id')
     @Roles('admin', 'user')
     @UseGuards(RolesGuard)
-    updateUser(@Param('id') id: string, @Body() updateUserDto) {
+    updateUser(@Param('id') id, @Body() updateUserDto) {
     return this.usersService.updateUser(id, updateUserDto);
   }
 }

@@ -35,7 +35,7 @@ export default class UserStore{
         try{
             if (localStorage.getItem('token')){
                 console.log(localStorage.getItem('token'))
-                this.logout()
+                localStorage.removeItem('token')
             }
             const response = await api.post(`/auth/registration`, {email, password, login, name, surname, city, repeatPass})
             this.setAuth(true)     
@@ -50,7 +50,7 @@ export default class UserStore{
     async set_login (login, password) {
         try{
             if (localStorage.getItem('token')){
-                this.logout()
+                localStorage.removeItem('token')
             }
             const response = await api.post(`/auth/login`, {login, password})
             localStorage.setItem('token', response.data.token)

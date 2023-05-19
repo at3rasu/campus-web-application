@@ -2,7 +2,7 @@ import axios from "axios";
 
 const api = axios.create({
     withCredentials: true,
-    baseURL: 'http://localhost:7000'
+    baseURL: process.env.REACT_APP_API_URL
 })
 
 api.interceptors.request.use((config) => {
