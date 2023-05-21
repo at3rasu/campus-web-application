@@ -7,4 +7,6 @@ export declare class VacanciesController {
         token: string;
     }>;
     getAllVacancies(): Promise<import("./vacancies.model").Vacancy[]>;
+    updateVacancy(id: any, updateVacancyDto: any): Promise<[affectedCount: number, affectedRows: import("./vacancies.model").Vacancy[]]>;
+    deleteVacancy(id: any): Promise<number>;
 }

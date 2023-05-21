@@ -13,4 +13,6 @@ export declare class ResumeService {
     }>;
     getAllResume(): Promise<Resume[]>;
     private generateToken;
+    deleteResume(id: any): Promise<number>;
+    updateResume(id: any, updateResumeDto: any): Promise<[affectedCount: number, affectedRows: Resume[]]>;
 }

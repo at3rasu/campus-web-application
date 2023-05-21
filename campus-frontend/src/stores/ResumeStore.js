@@ -23,7 +23,7 @@ export default class ResumeStore{
 
             const response = await api(
             {
-                url:"/resume",
+                url:"/resume/insert",
                 method:"post",
                 headers:{
                     Authorization: `Bearer your token`

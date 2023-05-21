@@ -34,7 +34,7 @@ let UsersCompanyController = class UsersCompanyController {
     }
 };
 __decorate([
-    (0, common_2.Post)(),
+    (0, common_2.Post)('/insert'),
     __param(0, (0, common_2.Body)()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [create_user_company_dto_1.CreateUserCompanyDto]),

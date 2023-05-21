@@ -31,7 +31,7 @@ let VacanciesService = class VacanciesService {
         return this.generateToken(vacancy);
     }
     async generateToken(vacancy) {
-        const payload = { id: vacancy.id, email: vacancy.email, name: vacancy.nameVacancy, image: vacancy.image };
+        const payload = { id: vacancy.id, email: vacancy.email, name: vacancy.nameVacancy, author: vacancy.author };
         return {
             token: this.jwtService.sign(payload)
         };
@@ -40,8 +40,12 @@ let VacanciesService = class VacanciesService {
         const vacancies = await this.vacancyRepository.findAll({ include: { all: true } });
         return vacancies;
     }
-    async removeVacancyById(id) {
+    async deleteVacancy(id) {
         return await this.vacancyRepository.destroy({ where: { id: id } });
+    }
+    async updateVacancy(id, updateVacancyDto) {
+        const vacancy = await this.vacancyRepository.update(updateVacancyDto, { where: { id }, returning: true });
+        return vacancy;
     }
 };
 VacanciesService = __decorate([

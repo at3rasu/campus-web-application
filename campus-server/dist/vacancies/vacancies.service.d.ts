@@ -12,5 +12,6 @@ export declare class VacanciesService {
     }>;
     private generateToken;
     getAllVacancies(): Promise<Vacancy[]>;
-    removeVacancyById(id: any): Promise<number>;
+    deleteVacancy(id: any): Promise<number>;
+    updateVacancy(id: any, updateVacancyDto: any): Promise<[affectedCount: number, affectedRows: Vacancy[]]>;
 }

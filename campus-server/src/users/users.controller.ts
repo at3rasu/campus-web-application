@@ -10,7 +10,7 @@ export class UsersController {
 
     constructor(private usersService: UsersService) {}
 
-    @Post()
+    @Post('/insert')
     create(@Body() userDto: CreateUserDto){
         return this.usersService.createUser(userDto);
     }

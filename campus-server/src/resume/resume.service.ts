@@ -35,4 +35,13 @@ export class ResumeService {
             token: this.jwtService.sign(payload)
         }
     }
+
+    async deleteResume(id){
+        return await this.resumeRepository.destroy({ where: { id: id } });
+    }
+
+    async updateResume(id, updateResumeDto){
+        const resume = await this.resumeRepository.update(updateResumeDto, {where: {id}, returning: true})
+        return resume
+    }
 }

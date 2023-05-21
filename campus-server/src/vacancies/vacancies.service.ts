@@ -34,7 +34,7 @@ export class VacanciesService {
     }
 
     private async generateToken(vacancy: Vacancy){
-        const payload = {id: vacancy.id, email: vacancy.email, name : vacancy.nameVacancy, image: vacancy.image}
+        const payload = {id: vacancy.id, email: vacancy.email, name : vacancy.nameVacancy, author: vacancy.author}
         return{
             token: this.jwtService.sign(payload)
         }
@@ -45,7 +45,13 @@ export class VacanciesService {
         return vacancies;
     }
 
-    async removeVacancyById(id){
+    async deleteVacancy(id){
+        
         return await this.vacancyRepository.destroy({ where: { id: id } });
+    }
+
+    async updateVacancy(id, updateVacancyDto){
+        const vacancy = await this.vacancyRepository.update(updateVacancyDto, {where: {id}, returning: true})
+        return vacancy
     }
 }

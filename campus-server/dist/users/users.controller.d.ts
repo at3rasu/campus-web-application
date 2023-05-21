@@ -8,5 +8,5 @@ export declare class UsersController {
     getAll(): Promise<import("./users.model").User[]>;
     addRole(dto: AddRoleDto): Promise<AddRoleDto>;
     getResumeByUser(request: Request): Promise<import("../resume/resume.model").Resume[]>;
-    updateUser(id: string, updateUserDto: any): Promise<[affectedCount: number, affectedRows: import("./users.model").User[]]>;
+    updateUser(id: any, updateUserDto: any): Promise<[affectedCount: number, affectedRows: import("./users.model").User[]]>;
 }

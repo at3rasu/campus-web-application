@@ -9,7 +9,7 @@ import { Roles } from 'src/auth/roles-auth.decorator';
 export class UsersCompanyController {
     constructor(private usersCompanyService: UsersCompanyService) {}
 
-    @Post()
+    @Post('/insert')
     create(@Body() userCompanyDto: CreateUserCompanyDto){
         return this.usersCompanyService.createUser(userCompanyDto);
     }

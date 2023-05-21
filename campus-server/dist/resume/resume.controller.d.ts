@@ -7,4 +7,6 @@ export declare class ResumeController {
         token: string;
     }>;
     getAllVacancies(): Promise<import("./resume.model").Resume[]>;
+    updateResume(id: any, updateResumeDto: any): Promise<[affectedCount: number, affectedRows: import("./resume.model").Resume[]]>;
+    deleteResume(id: any): Promise<number>;
 }

@@ -28,7 +28,7 @@ export default class VacancyStore{
 
             const response = await api(
             {
-                url:"/vacancies",
+                url:"/vacancies/insert",
                 method:"post",
                 headers:{
                     Authorization: `Bearer your token`

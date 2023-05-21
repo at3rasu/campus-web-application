@@ -29,9 +29,15 @@ let ResumeController = class ResumeController {
     getAllVacancies() {
         return this.resumeService.getAllResume();
     }
+    updateResume(id, updateResumeDto) {
+        return this.resumeService.updateResume(id, updateResumeDto);
+    }
+    deleteResume(id) {
+        return this.resumeService.deleteResume(id);
+    }
 };
 __decorate([
-    (0, common_1.Post)(),
+    (0, common_1.Post)('/insert'),
     (0, common_1.UseGuards)(roles_guard_1.RolesGuard),
     (0, roles_auth_decorator_1.Roles)('admin', 'user'),
     (0, common_1.UseInterceptors)((0, platform_express_1.FileInterceptor)('image')),
@@ -48,6 +54,25 @@ __decorate([
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", void 0)
 ], ResumeController.prototype, "getAllVacancies", null);
+__decorate([
+    (0, common_1.Put)('/update/:id'),
+    (0, roles_auth_decorator_1.Roles)('admin', 'user'),
+    (0, common_1.UseGuards)(roles_guard_1.RolesGuard),
+    __param(0, (0, common_1.Param)('id')),
+    __param(1, (0, common_1.Body)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object, Object]),
+    __metadata("design:returntype", void 0)
+], ResumeController.prototype, "updateResume", null);
+__decorate([
+    (0, common_1.Post)('/delete/:id'),
+    (0, roles_auth_decorator_1.Roles)('admin', 'user'),
+    (0, common_1.UseGuards)(roles_guard_1.RolesGuard),
+    __param(0, (0, common_1.Param)('id')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", void 0)
+], ResumeController.prototype, "deleteResume", null);
 ResumeController = __decorate([
     (0, common_1.Controller)('resume'),
     __metadata("design:paramtypes", [resume_service_1.ResumeService])

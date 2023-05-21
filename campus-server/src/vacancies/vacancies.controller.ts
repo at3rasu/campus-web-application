@@ -1,11 +1,9 @@
-import { Controller, Post, Body, UseGuards, Req, UploadedFile, UseInterceptors, Get, Res } from '@nestjs/common';
+import { Put, Param, Controller, Post, Body, UseGuards, Req, UploadedFile, UseInterceptors, Get, Res } from '@nestjs/common';
 import { VacanciesService as VacanciesService } from './vacancies.service';
 import { CreateVacancyDto } from './dto/create-vacancy.dto';
 import { RolesGuard } from 'src/auth/roles.guard';
 import { Roles } from 'src/auth/roles-auth.decorator';
 import { FileInterceptor } from '@nestjs/platform-express';
-import { diskStorage } from "multer";
-import { randomUUID } from 'crypto';
 import Path = require('path');
 
 
@@ -13,7 +11,7 @@ import Path = require('path');
 export class VacanciesController {
     constructor(private vacanciesService: VacanciesService) {}
 
-    @Post()
+    @Post('/insert')
     @UseGuards(RolesGuard)
     @Roles('admin', 'user_company')
     @UseInterceptors(FileInterceptor('image'))
@@ -24,18 +22,22 @@ export class VacanciesController {
         return this.vacanciesService.createVacancy(vacancyDto, request);
     }
 
-    // @Post('/add_image')
-    // @UseInterceptors(FileInterceptor('image'))
-    // check_file(
-    //     @UploadedFile() image
-    //     ){
-    //     console.log('method check')
-    //     console.log(image)
-    //     return this.vacanciesService.addImage(image);
-    // }
-
     @Get('/get_all_vacancies')
     getAllVacancies(){
         return this.vacanciesService.getAllVacancies();
+    }
+
+    @Put('/update/:id')
+    @Roles('admin', 'user_company')
+    @UseGuards(RolesGuard)
+    updateVacancy(@Param('id') id, @Body() updateVacancyDto) {
+        return this.vacanciesService.updateVacancy(id, updateVacancyDto);
+    }
+
+    @Post('/delete/:id')
+    @Roles('admin', 'user_company')
+    @UseGuards(RolesGuard)
+    deleteVacancy(@Param('id') id){
+        return this.vacanciesService.deleteVacancy(id)
     }
 }

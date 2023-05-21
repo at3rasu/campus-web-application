@@ -29,9 +29,15 @@ let VacanciesController = class VacanciesController {
     getAllVacancies() {
         return this.vacanciesService.getAllVacancies();
     }
+    updateVacancy(id, updateVacancyDto) {
+        return this.vacanciesService.updateVacancy(id, updateVacancyDto);
+    }
+    deleteVacancy(id) {
+        return this.vacanciesService.deleteVacancy(id);
+    }
 };
 __decorate([
-    (0, common_1.Post)(),
+    (0, common_1.Post)('/insert'),
     (0, common_1.UseGuards)(roles_guard_1.RolesGuard),
     (0, roles_auth_decorator_1.Roles)('admin', 'user_company'),
     (0, common_1.UseInterceptors)((0, platform_express_1.FileInterceptor)('image')),
@@ -48,6 +54,25 @@ __decorate([
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", void 0)
 ], VacanciesController.prototype, "getAllVacancies", null);
+__decorate([
+    (0, common_1.Put)('/update/:id'),
+    (0, roles_auth_decorator_1.Roles)('admin', 'user_company'),
+    (0, common_1.UseGuards)(roles_guard_1.RolesGuard),
+    __param(0, (0, common_1.Param)('id')),
+    __param(1, (0, common_1.Body)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object, Object]),
+    __metadata("design:returntype", void 0)
+], VacanciesController.prototype, "updateVacancy", null);
+__decorate([
+    (0, common_1.Post)('/delete/:id'),
+    (0, roles_auth_decorator_1.Roles)('admin', 'user_company'),
+    (0, common_1.UseGuards)(roles_guard_1.RolesGuard),
+    __param(0, (0, common_1.Param)('id')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", void 0)
+], VacanciesController.prototype, "deleteVacancy", null);
 VacanciesController = __decorate([
     (0, common_1.Controller)('vacancies'),
     __metadata("design:paramtypes", [vacancies_service_1.VacanciesService])
