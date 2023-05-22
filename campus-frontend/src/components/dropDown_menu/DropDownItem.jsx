@@ -8,7 +8,6 @@ export const DropDownItem = observer((props) =>{
     const {store} = useContext(Context)
     const handleLogout = () => {
         store.logout()
-         // Вызов экшена логаута
     }
 
     return(

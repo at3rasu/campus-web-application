@@ -74,7 +74,7 @@ export default class UserStore{
         }
     }
 
-    async logout(){
+    logout = async () =>{
         try{
             if (localStorage.getItem('token')){
                 localStorage.removeItem('token')
@@ -91,7 +91,7 @@ export default class UserStore{
         }
     }
 
-    async getVacanciesByUser(){
+    getVacanciesByUser = async () => {
         try{
             const response = await api.get(`/users-company/get_vacancies`)
             console.log(response)

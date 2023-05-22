@@ -1,5 +1,4 @@
 .footer{
-    
     background: #ECECEC;
     width: 100%;
     height: 340px;
@@ -9,11 +8,19 @@
     width: 1396px;
     margin: 0 auto;
     padding-top: 40px;
+    display: flex;
+    gap: 150px;
+}
+
+.content{
+    display: flex;
+    gap: 100px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
 }
 
 .logo h3{
-    width: 437px;
-    padding-top: 25px;
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
@@ -23,10 +30,83 @@
     color: #352F2F;
 }
 
-.link{
-    padding-top: 34px;
+
+.logo{
+    width: 425px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    height: 10px;
 }
 
-.link img{
-    padding-right: 46px;
+.link{
+    display: flex;
+    gap: 50px;
+}
+.nav{
+    line-height: 130%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    letter-spacing: 0.2px;
+    font-feature-settings: 'pnum' on, 'lnum' on;
+    color: #222222;
+    font-size: 20px;
+}
+
+.file{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    line-height: 130%;
+    /* identical to box height, or 26px */
+
+    letter-spacing: 0.2px;
+    text-decoration-line: underline;
+    font-feature-settings: 'pnum' on, 'lnum' on;
+    /* Dark grey */
+
+    color: #222222;
+    font-size: 20px;
+}
+
+
+
+@media (max-width:768px){
+    .container{
+        width: 500px;
+        flex-direction: column;
+        gap: 250px;
+        margin-left: 25px;
+    }
+
+    .footer{
+        height: 700px;
+    }
+
+    .content{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    .logo h3{
+        font-size: 16px;
+        width: 340px;
+    }
+
+    .content{
+        gap: 30px;
+    }
+
+    .file p:last-child{
+        width: 300px;
+    }
+
+    .file{
+        font-size: 16px;
+    }
+
+    .nav{
+        font-size: 16px;
+    }
 }

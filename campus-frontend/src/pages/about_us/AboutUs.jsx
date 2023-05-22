@@ -19,15 +19,15 @@ export const AboutUs = () =>{
                 <div className={styles.number}>
                     <div className={styles.enum}>
                         <p>01</p>
-                        <p1>Поддержка высшего образования Свердловской области</p1>
+                        <p>Поддержка высшего образования Свердловской области</p>
                     </div>
                     <div className={styles.enum}>
                         <p>02</p>
-                        <p1>Поддержка студентов Свердловской области</p1>
+                        <p>Поддержка студентов Свердловской области</p>
                     </div>
                     <div className={styles.enum}>
                         <p>03</p>
-                        <p1>Стипендиальные и скидочные программы</p1>
+                        <p>Стипендиальные и скидочные программы</p>
                     </div>
                 </div>
                 <div className={styles.content}>

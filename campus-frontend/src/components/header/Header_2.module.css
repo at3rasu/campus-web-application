@@ -38,7 +38,9 @@
     border-radius: 33px;
     width: 194px;
     height: 46px;
-    text-align: center;
+    align-items: center;
+    display: flex;
+    justify-content: center;
     font-family: 'Inter';
     font-style: normal;
     font-weight: 600;
@@ -46,7 +48,6 @@
     line-height: 25px;
     color: #8269EF;
     margin: 35px;
-    padding: 10px;
 }
 
 .logo a:not(:first-child):hover{
@@ -55,7 +56,6 @@
 
 .link{
     padding-top: 35px;
-    padding-left: 10px;
     display: flex;
 }
 
@@ -69,10 +69,11 @@
     margin-right: 20px;
     /* identical to box height */
     height: 45px;
-
+    display: flex;
+    align-items: center;
     background: #EFEFEF;
     border-radius: 1000px;
-    padding: 13px 25px;
+    padding: 0 25px;
 
     color: #333333;
 }

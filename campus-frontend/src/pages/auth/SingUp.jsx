@@ -1,6 +1,6 @@
-import React, {useState} from 'react'
+import {useState} from 'react'
 import { useNavigate } from 'react-router-dom'
-import "./SingUp.css"
+import styles from "./SingUp.module.css"
 import { registration } from '../../api/user-api'
 
 export const SingUp = () =>{
@@ -19,59 +19,59 @@ export const SingUp = () =>{
   }
 
   return(
-    <div className='register'>
-      <form onSubmit={handleSubmit} className='box-reg'>
-        <div className='reg-up'>
+    <div className={styles.singUp}>
+      <form onSubmit={handleSubmit} className={styles.box}>
+        <div className={styles.title}>
           <img src='/img/Union.svg' alt='campus_logo'/>
           <h1>Регистрация</h1>
         </div>
-        <div className='input-dt'>
+        <div className={styles.inputData}>
           <input
             value={name} onChange={(e) => setName(e.target.value)} 
             type='text'
             placeholder="Введите ваше имя">          
           </input>
         </div>
-        <div className='input-dt'>
+        <div className={styles.inputData}>
           <input
             value={lastName} onChange={(e) => setLastName(e.target.value)}
             type='text'
             placeholder="Введите вашу фамилию">
           </input>
         </div>
-        <div className='input-dt'>
+        <div className={styles.inputData}>
           <input
             value={login} onChange={(e) => setLogin(e.target.value)}
             type='text'
             placeholder="Придумайте логин">
           </input>
         </div>
-        <div className='input-dt'>
+        <div className={styles.inputData}>
           <input
             value={email} onChange={(e) => setEmail(e.target.value)} 
             type='email'
             placeholder="Введите вашу почту">
           </input>
         </div>
-        <div className='input-dt'>
+        <div className={styles.inputData}>
           <input
             value={pass} onChange={(e) => setPass(e.target.value)} 
             type='password'
             placeholder="Придумайте пароль">
           </input>
         </div>
-        <div className='input-dt'>
+        <div className={styles.inputData}>
           <input
             value={secondPass} onChange={(e) => setSecondPass(e.target.value)} 
             type='password'
             placeholder="Повторите пароль">
           </input>
         </div>
-        <div className='accept'>
+        <div className={styles.checkBox}>
           <input type={'checkbox'}></input>
           <p>Я согласен с политикой конфиденциальности</p>
         </div>
-        <div className='reg-btn'>
+        <div className={styles.btn}>
           <button
             onClick={async () => {
               const response = await registration(email, pass, login, name, lastName, secondPass)
@@ -79,7 +79,7 @@ export const SingUp = () =>{
             }}
             type='submit'>Зарегистрироваться</button>
         </div> 
-        <div className='login-btn'>
+        <div className={styles.next}>
           <button onClick={() => navigate('/SingIn')}>Уже есть аккаунт</button>
         </div>  
       </form>

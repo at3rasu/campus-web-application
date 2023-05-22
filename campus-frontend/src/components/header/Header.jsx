@@ -17,17 +17,29 @@ export const Header = observer(() =>{
     return(
         <div className={styles.header}  key={store.headerKey}>
             <div className={styles.container}>
-                <div className={styles.logo}>
-                    <Link to='/'><img src='/img/Group.svg' alt='logo_header'/></Link> 
-                    <Link to ='/Employers' className={styles.bTn}>Работодателям</Link>
-                </div>
+                {store.IsAuth ? (
+                    <div className={styles.logo}>
+                        <Link to='/' style={{marginLeft:"250px"}}><img src='/img/Group.svg' alt='logo_header'/></Link> 
+                    </div>
+                ):(
+                    <div className={styles.logo}>
+                        <Link to='/'><img src='/img/Group.svg' alt='logo_header'/></Link> 
+                        <Link to ='/Employers' className={styles.bTn}>Работодателям</Link>
+                    </div>
+                )}
                 <div className={styles.link}>
-                    <Link to='/AboutUs' className={styles.fistLink}>О нас</Link>
-                    <Link to='/Vacancy'>Вакансии</Link>
                     {store.IsAuth ? (
-                        <Link to='/CreateResume'>Создать резюме</Link>
+                        <>  
+                            <Link to='/UserResume' className={styles.fistLink}>Мои резюме</Link>
+                            <Link to='/CreateResume'>Создать резюме</Link>
+                            <Link to='/Vacancy'>Вакансии</Link>
+                        </>                 
                     ):(
-                        <AuthError button={button}/>
+                        <>
+                            <Link to='/AboutUs' className={styles.fistLink}>О нас</Link>
+                            <AuthError button={button}/>
+                            <Link to='/Vacancy'>Вакансии</Link>
+                        </>
                     )}
                 </div>
                 <div className={styles.btn}>
