@@ -5,7 +5,7 @@ import styles from './SingIn.module.css'
 import { Formik } from 'formik';
 import * as Yup from 'yup'
 import { Context } from '../..'
-import { FormAuth } from '../../components/Auth/FormAuth';
+import { FormAuth } from '../../components/auth/FormAuth';
 
 
 export const SingIn = () =>{

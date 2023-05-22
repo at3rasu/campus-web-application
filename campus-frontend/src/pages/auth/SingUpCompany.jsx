@@ -5,7 +5,7 @@ import { Formik } from 'formik';
 import * as Yup from 'yup'
 import styles from './SingUp.module.css'
 import { Context } from '../..'
-import { FormRegisterCompany } from '../../components/Auth/FormRegisterCompany';
+import { FormRegisterCompany } from '../../components/auth/FormRegisterCompany';
 
 export const SingUpCompany = () =>{
     const navigate = useNavigate()

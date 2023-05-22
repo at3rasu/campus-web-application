@@ -4,7 +4,7 @@ import styles from "./SingUp.module.css"
 import { Formik } from 'formik';
 import * as Yup from 'yup'
 import { Context } from '../..'
-import { FormRegister } from '../../components/Auth/FormRegister';
+import { FormRegister } from '../../components/auth/FormRegister';
 
 export const SingUp = () =>{
   const navigate = useNavigate()
