@@ -6,15 +6,15 @@ export declare class AuthController {
     private authService;
     constructor(authService: AuthService);
     login(userDto: any, resp: Response, request: Request): Promise<{
-        token: string;
+        userToken: string;
     }>;
     login_userCompany(userDto: any, resp: Response, request: Request): Promise<{
-        token: string;
+        companyToken: string;
     }>;
     registration(userDto: CreateUserDto): Promise<{
-        token: string;
+        userToken: string;
     }>;
     registrationUserCompany(userDto: CreateUserCompanyDto): Promise<{
-        token: string;
+        companyToken: string;
     }>;
 }

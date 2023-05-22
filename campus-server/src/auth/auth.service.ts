@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { HttpStatus } from '@nestjs/common/enums';
 import { HttpException, UnauthorizedException } from '@nestjs/common/exceptions';
+import { JwtService } from '@nestjs/jwt/dist';
 import { CreateUserDto } from 'src/users/dto/create-user.dto';
 import { UsersService } from 'src/users/users.service';
 import * as bcrypt from 'bcryptjs'
@@ -8,7 +9,6 @@ import { User } from 'src/users/users.model';
 import { CreateUserCompanyDto } from 'src/users-company/dto/create-user-company.dto';
 import { UsersCompanyService } from 'src/users-company/users-company.service';
 import { Response } from 'express';
-import { JwtService } from '@nestjs/jwt';
 
 @Injectable()
 export class AuthService {
@@ -19,12 +19,12 @@ export class AuthService {
 
     async login(userDto){
         const user = await this.validateUser(userDto)
-        return this.generateToken({login: user.login, id: user.id, roles : user.roles})
+        return this.generateUserToken({login: user.login, id: user.id, roles : user.roles})
     }
 
     async loginUserCompany(userDto){
         const user = await this.validateUserCompany(userDto)
-        const result = this.generateToken({login: user.login, id: user.id, roles : user.roles})
+        const result = this.generateCompanyToken({login: user.login, id: user.id, roles : user.roles})
         return result;
     }
 
@@ -32,13 +32,13 @@ export class AuthService {
         //this.validateRegistration(userDto)
         const hashPassword = await bcrypt.hash(userDto.password, 5)
         const user = await this.userService.createUser({...userDto, password: hashPassword})
-        return this.generateToken({login: user.login, id: user.id, roles : user.roles});
+        return this.generateUserToken({login: user.login, id: user.id, roles : user.roles});
     }
 
     async registrationUserCompany(userDto: CreateUserCompanyDto){
         const hashPassword = await bcrypt.hash(userDto.password, 5)
         const user = await this.userCompanyService.createUser({...userDto, password: hashPassword})
-        return this.generateToken({login: user.login, id: user.id, roles : user.roles});
+        return this.generateCompanyToken({login: user.login, id: user.id, roles : user.roles});
     }
 
     private async validateRegistration(user){
@@ -53,10 +53,17 @@ export class AuthService {
         }
     }
 
-    private async generateToken(payload){
+    private async generateUserToken(payload){
         // const payload = {login: user.login, id: user.id, roles : user.roles}
         return{
-            token: this.jwtService.sign(payload)
+            userToken: this.jwtService.sign(payload)
+        }
+    }
+
+    private async generateCompanyToken(payload){
+        // const payload = {login: user.login, id: user.id, roles : user.roles}
+        return{
+            companyToken: this.jwtService.sign(payload)
         }
     }
 
@@ -93,4 +100,6 @@ export class AuthService {
     //     const user = await this.userService.getUserByLogin(login)
     //     return this.generateToken({login: user.login, id: user.id, roles : user.roles})
     // }
+
+
 }

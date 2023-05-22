@@ -13,10 +13,10 @@ exports.AuthService = void 0;
 const common_1 = require("@nestjs/common");
 const enums_1 = require("@nestjs/common/enums");
 const exceptions_1 = require("@nestjs/common/exceptions");
+const dist_1 = require("@nestjs/jwt/dist");
 const users_service_1 = require("../users/users.service");
 const bcrypt = require("bcryptjs");
 const users_company_service_1 = require("../users-company/users-company.service");
-const jwt_1 = require("@nestjs/jwt");
 let AuthService = class AuthService {
     constructor(userService, userCompanyService, jwtService) {
         this.userService = userService;
@@ -25,22 +25,22 @@ let AuthService = class AuthService {
     }
     async login(userDto) {
         const user = await this.validateUser(userDto);
-        return this.generateToken({ login: user.login, id: user.id, roles: user.roles });
+        return this.generateUserToken({ login: user.login, id: user.id, roles: user.roles });
     }
     async loginUserCompany(userDto) {
         const user = await this.validateUserCompany(userDto);
-        const result = this.generateToken({ login: user.login, id: user.id, roles: user.roles });
+        const result = this.generateCompanyToken({ login: user.login, id: user.id, roles: user.roles });
         return result;
     }
     async registration(userDto) {
         const hashPassword = await bcrypt.hash(userDto.password, 5);
         const user = await this.userService.createUser(Object.assign(Object.assign({}, userDto), { password: hashPassword }));
-        return this.generateToken({ login: user.login, id: user.id, roles: user.roles });
+        return this.generateUserToken({ login: user.login, id: user.id, roles: user.roles });
     }
     async registrationUserCompany(userDto) {
         const hashPassword = await bcrypt.hash(userDto.password, 5);
         const user = await this.userCompanyService.createUser(Object.assign(Object.assign({}, userDto), { password: hashPassword }));
-        return this.generateToken({ login: user.login, id: user.id, roles: user.roles });
+        return this.generateCompanyToken({ login: user.login, id: user.id, roles: user.roles });
     }
     async validateRegistration(user) {
         if (await this.userService.getUserByEmail(user.email)) {
@@ -53,9 +53,14 @@ let AuthService = class AuthService {
             throw new exceptions_1.HttpException('Пароли не совпадают', enums_1.HttpStatus.BAD_REQUEST);
         }
     }
-    async generateToken(payload) {
+    async generateUserToken(payload) {
         return {
-            token: this.jwtService.sign(payload)
+            userToken: this.jwtService.sign(payload)
+        };
+    }
+    async generateCompanyToken(payload) {
+        return {
+            companyToken: this.jwtService.sign(payload)
         };
     }
     async validateUser(userDto) {
@@ -84,7 +89,7 @@ AuthService = __decorate([
     (0, common_1.Injectable)(),
     __metadata("design:paramtypes", [users_service_1.UsersService,
         users_company_service_1.UsersCompanyService,
-        jwt_1.JwtService])
+        dist_1.JwtService])
 ], AuthService);
 exports.AuthService = AuthService;
 //# sourceMappingURL=auth.service.js.map
