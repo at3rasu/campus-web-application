@@ -5,7 +5,6 @@ import { useNavigate } from "react-router-dom"
 import { useContext, useEffect } from "react"
 import { Context } from '../..'
 import { notify } from '../../utils/Consts'
-import { getResumeByUser } from '../../api/user-api'
 
 export const MainPage = () => {
     const navigate = useNavigate()
@@ -16,7 +15,7 @@ export const MainPage = () => {
     })
 
     return(
-        <div className="MainPage">
+        <div className={styles.page}>
             <Header />
             <div className={styles.container}>
                 <div className={styles.firstContainer}>
@@ -67,33 +66,45 @@ export const MainPage = () => {
                             <h1>Фонд «Кампус»</h1>
                             <p>Объединяя сердца</p>
                         </div>
-                        <div className={styles.textContent}>
-                            <p>Свердловская область — идеальное место для
-                                получения высшего образования, а Екатеринбург –
-                                настоящая студенческая столица России. В нашем
-                                регионе учатся больше 117 тысяч студентов. У нас есть
-                                все, чтобы запустить новый региональный проект.</p>
-                            <p>Наша задача создать комфортные условия для учащихся, путём внедрения
-                                программ поддержки студенчества Свердловской области. Создавай свою лучшую
-                                студенческую жизнь вместе с нами.</p>
-                        </div>
                         {store.IsAuth ?(
-                            <div className={styles.btn}>
-                                <button
-                                id={styles.postVacancy}
-                                onClick={() => navigate('/PostVacancy')}>Опубликовать вакансию</button>
-                                <button 
-                                    id={styles.createResume}
-                                    onClick={() => navigate('/CreateResume')}>Создать резюме</button>
+                            <div className={styles.textContent}>
+                                <div className={styles.block}>
+                                    <p>Свердловская область — идеальное место для
+                                        получения высшего образования, а Екатеринбург –
+                                        настоящая студенческая столица России. В нашем
+                                        регионе учатся больше 117 тысяч студентов. У нас есть
+                                        все, чтобы запустить новый региональный проект.</p>
+                                    <button
+                                        onClick={() => navigate('/PostVacancy')}>Опубликовать вакансию</button>
+                                </div>
+                                <div className={styles.block1}>
+                                    <p>Наша задача создать комфортные условия для учащихся, путём внедрения
+                                        программ поддержки студенчества Свердловской области. Создавай свою лучшую
+                                        студенческую жизнь вместе с нами.</p>
+                                    <button 
+                                        onClick={() => navigate('/CreateResume')}>Создать резюме</button>
+                                </div>
                             </div>
                         ):(
-                            <div className={styles.btn}>
-                                <button
-                                    id={styles.postVacancy}
-                                    onClick={notify}>Опубликовать вакансию</button>
-                                <button 
-                                    id={styles.createResume}
-                                    onClick={notify}>Создать резюме</button>
+                            <div className={styles.textContent}>
+                                <div className={styles.block}>
+                                    <p>Свердловская область — идеальное место для
+                                        получения высшего образования, а Екатеринбург –
+                                        настоящая студенческая столица России. В нашем
+                                        регионе учатся больше 117 тысяч студентов. У нас есть
+                                        все, чтобы запустить новый региональный проект.</p>
+                                    <button
+                                        id={styles.postVacancy}
+                                        onClick={notify}>Опубликовать вакансию</button>
+                                </div>
+                                <div className={styles.block1}>
+                                    <p>Наша задача создать комфортные условия для учащихся, путём внедрения
+                                        программ поддержки студенчества Свердловской области. Создавай свою лучшую
+                                        студенческую жизнь вместе с нами.</p>
+                                    <button 
+                                        id={styles.createResume}
+                                        onClick={notify}>Создать резюме</button>
+                                </div>
                             </div>
                         )}
                     </div>

@@ -14,7 +14,7 @@ export const PersonalAccount = () =>{
                         <h1>Профиль</h1>
                         <hr></hr>    
                     </div>
-                    <h3>Место для личных данных и их редактирования</h3>
+                    <h1>Личные данные</h1>
                 </div>
             <Footer/>
         </div>

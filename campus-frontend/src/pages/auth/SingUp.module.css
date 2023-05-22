@@ -1,0 +1,184 @@
+.singUp{
+    display: grid;
+    justify-items: center;
+    box-sizing: border-box;
+    align-items: center;
+    height: 100vh;
+}
+
+.box{
+    font-family: 'Inter', sans-serif;
+    width: 661px;
+    height: 880px;
+    background: #FFFFFF;
+    box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.11);
+    border-radius: 64px;
+    display: flex;
+    flex-direction: column;
+}
+
+.boxCompany{
+    font-family: 'Inter', sans-serif;
+    width: 661px;
+    height: 802px;
+    background: #FFFFFF;
+    box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.11);
+    border-radius: 64px;
+    display: flex;
+    flex-direction: column;
+}
+
+.title img{
+    margin-left: 39%;
+    margin-top: 20px;
+}
+
+.title h1{
+    margin-top: 30px;
+    font-weight: 700;
+    font-size: 45px;
+    line-height: 54px;
+    text-align: center;
+    color: #000000;
+    margin-bottom: 30px;
+}
+
+.inputData{
+    padding-top: 20px;
+    padding: 0 13%;
+    padding-bottom: 10px;
+}
+
+.inputData input{
+    font-family: "Inter";
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 120%;
+    padding-left: 24px;
+    color: #8269EF;
+    opacity: 0.9;
+    background: #E0DBFA;
+    border-radius: 16px;
+    width: 100%;
+    height: 50px;
+    border: none;
+    outline: none;
+}
+
+.inputData input::-webkit-input-placeholder {
+    color: #8269EF;
+}
+
+.checkBox{
+    margin-top: 20px;   
+    height: 24.49px;
+    display: flex;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    text-align: center;
+    padding-left: 20%;
+    color: #8269EF;
+}
+
+.checkBox p{
+    padding-left: 24px;
+}
+
+.btn{
+    padding: 0 13%;
+    padding-top: 20px;
+}
+
+.btn button{
+    font-family: 'Inter', sans-serif;
+    width: 100%;
+    height: 50px;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 100%;
+    color: #FFFFFF;
+    border: none;
+    cursor: pointer;
+    text-decoration: none; 
+    user-select: none; 
+    background: #191919;
+    border-radius: 16px;
+    outline: none;
+}
+
+.next button{
+    font-family: 'Inter', sans-serif;
+    margin-top: 15px;
+    background: none;
+    border: none;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 17px;
+    cursor: pointer;
+}
+
+.next{
+    display: flex;
+    justify-content: center;
+}
+
+@media (max-width:768px){
+    .box-reg{
+        width: 370px;
+        height: 900px;
+        border-radius: 26px;
+        margin: 0 10px;
+        overflow: hidden;
+        background: none;
+        box-shadow: none;
+    }
+
+    .reg-up{
+        margin-top: 10px;
+        display: grid;
+    }
+    
+    .reg-up img{
+        margin-left: 37%;
+        width: 90px;
+    }
+
+    .reg-up h1{
+        margin-top: 15px;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 35px;
+        margin-bottom: 15px;
+    }
+
+    .input-dt{
+        display: flex;
+        padding: 0 7%;
+        padding-bottom: 10px;
+    }
+    
+    .accept{
+        margin-left: -44px;
+    }
+
+    .accept input{
+        padding-top: 35px;
+        padding-right: 1px;
+    }
+
+    .accept p{
+        font-size: 17px;
+        margin-left: -50px;
+        
+    }
+
+    .button button{
+        font-size: 16px;
+    }
+
+    .button{
+        padding: 0 8%;
+        padding-top: 32px;
+    }
+}

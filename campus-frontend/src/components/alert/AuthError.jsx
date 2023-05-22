@@ -1,6 +1,5 @@
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import styles from './AuthError.module.css'
 
 export const AuthError = (props) =>{
   const notify = () => toast.error("Доступно только для авторизированных пользователей", {
@@ -16,7 +15,23 @@ export const AuthError = (props) =>{
 
     return(
     <div>
-      <button onClick={notify} className={styles.btn}>{props.button}</button>
+      <button 
+        onClick={notify} 
+        className="auth-error"
+        style={
+          {fontFamily:"Inter", 
+           fontWeight:"400",
+           fontSize:"18px",
+           border:"none",
+           height:"45px",
+           cursor:"pointer",
+           background:"#EFEFEF",
+           borderRadius:"1000px",
+           color:"#333333",
+           padding:"13px 25px"}
+        }
+        >{props.button}
+      </button>
     </div>
     )
 }

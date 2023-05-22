@@ -5,7 +5,6 @@ import { useContext, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 import { Context } from "../.."
 import { notify } from "../../utils/Consts"
-import { getVacanciesByUser } from "../../api/user-api"
 
 export const Employers = () =>{
     useEffect(() => {
@@ -16,7 +15,7 @@ export const Employers = () =>{
     const navigate = useNavigate()
 
     return(
-        <div className='employers'>
+        <div className={styles.page}>
             <Header />
             <div className={styles.container}>
                 <div className={styles.content}>

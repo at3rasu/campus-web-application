@@ -2,6 +2,8 @@
     min-height: calc(100vh - 80px);
     width: 1396px;
     margin: 100px auto;
+    font-family: 'Inter';
+    font-style: normal;
 }
 
 .cardCompany{
@@ -28,29 +30,23 @@
 .vacancy button{
     width: 250px;
     height: 40px;
-    font-family: 'Inter';
-    font-style: normal;
     font-weight: 500;
     font-size: 20px;
     line-height: 100%;
     cursor: pointer;
     text-align: center;
-    color: #FFFFFF;/* цвет текста */
+    color: #FFFFFF;
     border: none;
-    text-decoration: none; /* убирать подчёркивание у ссылок */
-    user-select: none; /* убирать выделение текста */
+    text-decoration: none; 
+    user-select: none; 
     background: #F52D30;
     border-radius: 16px;
     outline: none;
     margin-top: 65px;
     margin-left: 25px;
-
 }
 
 .vacancy h1{
-
-    font-family: 'Inter';
-    font-style: normal;
     font-weight: 500;
     font-size: 30px;
     line-height: 30px;
@@ -60,14 +56,11 @@
 
 .vacancy p{
     height: 70px;
-    font-family: 'Inter';
-    font-style: normal;
     font-weight: 400;
     font-size: 18px;
     line-height: 18px;
     display: flex;
     align-items: center;
-
     color: #000000;
     margin: 5px 30px;
     width: 618px;
@@ -76,27 +69,22 @@
 
 
 .content h1{
-    font-style: normal;
     font-weight: 500;
     font-size: 25px;
     line-height: 30px;
-
     color: #000000;
 }
 
 .content p{
-    font-style: normal;
     font-weight: 500;
     font-size: 20px;
     line-height: 24px;
     display: flex;
     align-items: center;
-
     color: #000000;
 }
+
 .vacancy h4{
-    font-family: 'Inter';
-    font-style: normal;
     font-weight: 400;
     font-size: 15px;
     line-height: 18px;
@@ -109,7 +97,6 @@
 
 .duties h3{
     margin: 40px 0px;
-    font-style: normal;
     font-weight: 600;
     font-size: 24px;
     line-height: 30px;
@@ -117,8 +104,6 @@
 }
 
 .duties p{
-    font-family: 'Inter';
-    font-style: normal;
     font-weight: 500;
     font-size: 20px;
     line-height: 24px;
@@ -138,8 +123,6 @@
 }
 
 .expectations p{
-    font-family: 'Inter';
-    font-style: normal;
     font-weight: 500;
     font-size: 20px;
     line-height: 24px;
@@ -148,9 +131,9 @@
     color: #000000;
     margin-left: 20px;
 }
+
 .conditions h3{
     margin: 40px 0px;
-    font-style: normal;
     font-weight: 600;
     font-size: 24px;
     line-height: 30px;
@@ -158,8 +141,6 @@
 }
 
 .conditions p{
-    font-family: 'Inter';
-    font-style: normal;
     font-weight: 500;
     font-size: 20px;
     line-height: 24px;
@@ -170,7 +151,6 @@
 }
 .skills h3{
     margin: 40px 0px;
-    font-style: normal;
     font-weight: 600;
     font-size: 24px;
     line-height: 30px;
@@ -178,8 +158,6 @@
 }
 
 .skills p{
-    font-family: 'Inter';
-    font-style: normal;
     font-weight: 500;
     font-size: 20px;
     line-height: 24px;
@@ -188,13 +166,13 @@
     color: #000000;
     margin-left: 20px;
 }
+
 .secondContent{
     margin: 50px 0;
     width: 971px;
 }
+
 .secondContent h3{
-    font-family: 'Inter';
-    font-style: normal;
     font-weight: 600;
     font-size: 20px;
     line-height: 30px;
@@ -204,8 +182,6 @@
 }
 
 .secondContent h1{
-    font-family: 'Inter';
-    font-style: normal;
     font-weight: 600;
     font-size: 25px;
     line-height: 30px;
@@ -214,8 +190,6 @@
 }
 
 .secondContent span{
-    font-family: 'Inter';
-    font-style: normal;
     font-weight: 500;
     font-size: 20px;
     line-height: 24px;
@@ -223,6 +197,7 @@
     text-decoration: underline;
     padding-left: 7px;
 }
+
 .content{
     width: 971px;
 }

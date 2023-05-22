@@ -17,10 +17,16 @@ export const Header = observer(() =>{
     return(
         <div className={styles.header}>
             <div className={styles.container}>
-                <div className={styles.logo}>
-                    <Link to='/Employers'><img src='/img/Group.svg' alt='logo_header'/></Link> 
-                    <Link to ='/' className={styles.bTn}>Стажерам</Link>
-                </div>
+                {store.IsAuthCompany ? (
+                    <div className={styles.logo}>
+                        <Link to='/Employers' style={{marginLeft:"250px"}}><img src='/img/Group.svg' alt='logo_header'/></Link> 
+                    </div>
+                ):(
+                    <div className={styles.logo}>
+                        <Link to='/Employers'><img src='/img/Group.svg' alt='logo_header'/></Link> 
+                        <Link to ='/' className={styles.bTn}>Стажерам</Link>
+                    </div>
+                )}
                 <div className={styles.link}>
                     <Link to='/AboutUs' className={styles.fistLink}>О нас</Link>
                     <Link to='/Vacancy'>Вакансии</Link>

@@ -1,8 +1,8 @@
 import React, {useState} from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useEffect } from 'react'
-import './SingIn.css'
-import { set_login, set_login_user_company } from '../../api/user-api'
+import styles from './SingIn.module.css'
+import { set_login_user_company } from '../../api/user-api'
 
 
 export const SingInCompany = () =>{
@@ -23,20 +23,20 @@ export const SingInCompany = () =>{
   }
 
   return(
-    <div className='auth'>
-      <form onSubmit={handleSubmit} className='box-auth'>
-        <div className='sing-up'>
+    <div className={styles.box}>
+      <form onSubmit={handleSubmit} className={styles.container}>
+        <div className={styles.title}>
           <img src='/img/Union.svg' alt='campus_logo'/>
           <h1>Вход в аккаунт</h1>
         </div>
-        <div className='input-data'>
+        <div className={styles.inputData}>
           <input
             value={login} onChange={(e) => setLogin(e.target.value)}
             type='text'
             placeholder="Логин">
           </input>
         </div>
-        <div className='input-data'>
+        <div className={styles.inputData}>
           <input
             value={pass} onChange={(e) => setPass(e.target.value)} 
             type='password'
@@ -45,11 +45,11 @@ export const SingInCompany = () =>{
             minLength={8}>
           </input>
         </div>
-        <div className='remember-me'>
+        <div className={styles.checkBox}>
           <input type={'checkbox'}></input>
           <label for="remebmer">Запомнить меня</label>
         </div>
-        <div className='auth-btn'>
+        <div className={styles.btn}>
           <button
             type='submit'
             onClick={async () => {
@@ -57,7 +57,7 @@ export const SingInCompany = () =>{
               navigate("/Employers")
             }}>Войти</button>
         </div>
-        <div className='next'>
+        <div className={styles.next}>
           <button
             onClick={() => navigate('/SingUpCompany')}>Или зарегистрироваться</button>
         </div>

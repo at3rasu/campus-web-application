@@ -2,8 +2,8 @@ import styles from './PostVacancy.module.css'
 
 import { Header } from "../../components/header/Header_2"
 import { Footer } from "../../components/footer/Footer"
-import { ExperienceSelection } from '../../components/experience_selection/ExperienceSelection'
-import { EducationSelection } from '../../components/education_selection/EducationSelection'
+// import { ExperienceSelection } from '../../components/experience_selection/ExperienceSelection'
+// import { EducationSelection } from '../../components/education_selection/EducationSelection'
 import { useEffect, useState  } from "react"
 import { createVacancy } from '../../api/vacancy-api'
 import { toast } from 'react-toastify'
@@ -34,8 +34,6 @@ export const PostVacancy = () =>{
 
     const handleSubmit = (e) => {
         e.preventDefault();
-    
-        // Проверка заполнения всех полей
         if (!number || !email || !skills || !nameCompany|| !nameVacancy
             || !companyDescription || !duties || !expectations || !conditions
             || !fullAddress) {
@@ -77,7 +75,7 @@ export const PostVacancy = () =>{
             });
         return
         }
-      }
+    }
 
     
     return(
@@ -190,17 +188,17 @@ export const PostVacancy = () =>{
                             onChange={(e) => setFullAddress(e.target.value)}></input>
                     </div>
                 </div>
-                <hr className={styles.hrData}></hr>
-                <h2 className={styles.briefInfo}>Требования к стажеру</h2>
+                {/* <hr className={styles.hrData}></hr>
+                <h2 className={styles.briefInfo}>Требования к стажеру</h2> */}
                 <div className={styles.boxContent}>
-                    <div className={styles.inputData}>
+                    {/* <div className={styles.inputData}>
                         <label>Образование</label>
                         <EducationSelection />
                     </div>
                     <div className={styles.inputData}>
                         <label>Опыт работы</label>
                         <ExperienceSelection />
-                    </div>
+                    </div> */}
                     <div className={styles.buttonSubmit}>
                         <button
                             type='submit'

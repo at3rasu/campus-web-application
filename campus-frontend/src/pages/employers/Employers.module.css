@@ -62,3 +62,36 @@
     border: none;
     cursor: pointer;
 }
+
+@media (max-width:760px){
+    .content{
+        width: 100%;
+    }
+
+    .page{
+        overflow: hidden;
+    }
+    
+    .text h1:first-child{
+        font-size: 38px;
+        line-height: 30px;
+        padding-bottom: 1px;
+    }
+
+    .text h1{
+        font-size: 28px;
+        padding-bottom: 1px;
+    }
+
+    .btn button{
+        border-radius: 20px;
+        width: 290px;
+        height: 50px;  
+        font-size: 18px;
+    }
+
+    .text p{
+        font-size: 18px;
+        padding-bottom: 1px;
+    }
+}   

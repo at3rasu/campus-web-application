@@ -1,15 +1,8 @@
-* {
-    margin: 0;
-    padding: 0;
-}
-
 .header{
     background: linear-gradient(to right, #F42E30 50%, #FFFFFF 50%);
 }
 
 .container{
-
-    display: flex;
     background: #FFFFFF;;
     width: 1899px;
     margin: 0 auto;
@@ -38,7 +31,9 @@
     border-radius: 33px;
     width: 194px;
     height: 46px;
-    text-align: center;
+    align-items: center;
+    display: flex;
+    justify-content: center;
     font-family: 'Inter';
     font-style: normal;
     font-weight: 600;
@@ -46,7 +41,7 @@
     line-height: 25px;
     color: #F52D30;
     margin: 35px;
-    padding: 10px;
+    padding: 1px;
 }
 
 .logo a:not(:first-child):hover{
@@ -55,8 +50,9 @@
 
 .link{
     padding-top: 35px;
-    padding-left: 10px;
+    
     display: flex;
+    gap: 20px;
 }
 
 .link a{
@@ -66,14 +62,13 @@
     font-weight: 400;
     font-size: 18px;
     line-height: 22px;
-    margin-right: 20px;
-    /* identical to box height */
     height: 45px;
-
     background: #EFEFEF;
     border-radius: 1000px;
-    padding: 13px 25px;
-
+    padding: 0 25px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
     color: #333333;
 }
 
