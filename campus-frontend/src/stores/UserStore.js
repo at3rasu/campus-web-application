@@ -53,7 +53,7 @@ export default class UserStore{
             if (localStorage.getItem('userToken')){
                 localStorage.removeItem('userToken')
             }
-            const response = await api.post(`/auth/registration`, {email, password, login, name, surname, city, repeatPass})
+            const response = await api.post(`/auth/registration`, {email, password, login, name, surname, repeatPass})
             this.setAuth(true)   
             this.setUser(response.data.user)
             localStorage.setItem("userToken", response.data.userToken)
@@ -108,7 +108,7 @@ export default class UserStore{
         }
     }
 
-    logout = async () =>{
+    async logout (){
         try{
             if (localStorage.getItem('userToken')){
                 localStorage.removeItem('userToken')
@@ -123,16 +123,6 @@ export default class UserStore{
             this.setAuthCompany(false)
             this.setUser(undefined)
             window.location.reload()
-        } catch(e) {
-            console.log(e.response?.data?.message)
-        }
-    }
-
-    getVacanciesByUser = async () => {
-        try{
-            const response = await api.get(`/users-company/get_vacancies`)
-            console.log(response)
-            return response
         } catch(e) {
             console.log(e.response?.data?.message)
         }

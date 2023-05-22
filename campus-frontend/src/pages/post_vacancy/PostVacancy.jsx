@@ -76,8 +76,6 @@ export const PostVacancy = () =>{
         return
         }
     }
-
-    
     return(
         <div className={styles.postVacancy}>
             <Header />

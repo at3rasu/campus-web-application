@@ -10,3 +10,4 @@ export const notify = () => toast.error("Доступно только для а
     progress: undefined,
     theme: "colored",
 })
+

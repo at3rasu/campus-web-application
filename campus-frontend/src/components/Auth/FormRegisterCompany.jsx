@@ -1,0 +1,67 @@
+import styles from '../../pages/auth/SingUp.module.css';
+import { Form, Field, ErrorMessage, useFormikContext } from 'formik';
+import { useNavigate } from 'react-router-dom';
+
+export const FormRegisterCompany = () => {
+    const { errors, touched } = useFormikContext()
+    const navigate = useNavigate()
+
+    return (
+        <Form className={styles.boxCompany}>
+            <div className={styles.title}>
+                    <img src='/img/Union.svg' alt='campus_logo'/>
+                    <h1>Регистрация</h1>
+            </div>
+            <div className={`${styles.inputData} ${errors.companyName && touched.companyName ? styles.inputError : ''}`}>
+                <Field
+                    type='text'
+                    name='companyName'
+                    placeholder='Введите название компании'
+                />
+            </div>
+            <ErrorMessage name='companyName' component='div' className={styles.error} />
+            <div className={`${styles.inputData} ${errors.login && touched.login ? styles.inputError : ''}`}>
+                <Field
+                    type='text'
+                    name='login'
+                    placeholder='Придумайте логин'
+                />
+            </div>
+            <ErrorMessage name='login' component='div' className={styles.error} />
+            <div className={`${styles.inputData} ${errors.email && touched.email ? styles.inputError : ''}`}>
+                <Field
+                    type='text'
+                    name='email'
+                    placeholder='Введите вашу почту'
+                />
+            </div>
+            <ErrorMessage name='email' component='div' className={styles.error} />
+            <div className={`${styles.inputData} ${errors.password && touched.password ? styles.inputError : ''}`}>
+                <Field
+                    type='password'
+                    name='password'
+                    placeholder='Придумайте пароль'
+                />
+            </div>
+            <ErrorMessage name='password' component='div' className={styles.error} />
+            <div className={`${styles.inputData} ${errors.secondPass && touched.secondPass ? styles.inputError : ''}`}>
+                <Field
+                    type='password'
+                    name='secondPass'
+                    placeholder='Повторите пароль'
+                />
+                </div>
+            <ErrorMessage name='secondPass' component='div' className={styles.error} />
+            <div className={styles.checkBox}>
+                <input type={'checkbox'}></input>
+                <p>Я согласен с политикой конфиденциальности</p>
+            </div>
+            <div className={styles.btn}>
+                <button type='submit'>Зарегистрироваться</button>
+            </div> 
+            <div className={styles.next}>
+                <button onClick={() => navigate('/SingInCompany')}>Уже есть аккаунт</button>
+            </div> 
+        </Form>
+    )
+}
