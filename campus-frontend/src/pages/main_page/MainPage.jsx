@@ -20,16 +20,6 @@ export const MainPage = () => {
         <div className={styles.page}>
             <Header />
             <div className={styles.container}>
-            <button
-                            type='submit'
-                            onClick={ 
-                                async () => 
-                                {
-                                    const response = await api.get(`/users/get_user`)
-                                    console.log(response)
-                                }
-                            }
-                        >Опубликовать вакансию</button>
                 <div className={styles.firstContainer}>
                     <div className={styles.fisrtContent}>
                         <div className={styles.firstText}>
