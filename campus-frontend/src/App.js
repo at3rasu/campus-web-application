@@ -1,13 +1,14 @@
+import { BrowserRouter } from "react-router-dom";
 import { Alert } from "./components/alert/Alert";
 import { Router } from "./router/Router";
 
 function App() {
   return (
-    <div className="App">
+    <BrowserRouter>
       <Router />
       <Alert />
-    </div>
-  );
+    </BrowserRouter>
+  )
 }
 
 export default App;

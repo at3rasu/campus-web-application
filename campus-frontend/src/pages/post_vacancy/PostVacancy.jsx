@@ -4,12 +4,11 @@ import { Header } from "../../components/header/Header_2"
 import { Footer } from "../../components/footer/Footer"
 // import { ExperienceSelection } from '../../components/experience_selection/ExperienceSelection'
 // import { EducationSelection } from '../../components/education_selection/EducationSelection'
-import { useEffect, useState  } from "react"
+import { useEffect, useRef, useState  } from "react"
 import { createVacancy } from '../../api/vacancy-api'
 import { toast } from 'react-toastify'
 
 export const PostVacancy = () =>{
-
     const onChange = (file) => {
         const { files } = file.target;
         if (files && files.length !== 0) {
@@ -78,6 +77,7 @@ export const PostVacancy = () =>{
     }
 
     
+    
     return(
         <div className={styles.postVacancy}>
             <Header />
@@ -129,35 +129,39 @@ export const PostVacancy = () =>{
                     </div>
                     <div className={styles.inputData}>
                         <label>Обязанности стажера</label>
-                        <input
+                        <textarea
                             type='text'
                             value={duties} 
-                            placeholder='Введите обязанности стажера'
-                            onChange={(e) => setDuties(e.target.value)}></input>
+                            placeholder='Введите обязанности стажера, для разделения текста воспользуйтесь символом новой строки(Enter)'
+                            style={{ resize: "none" }}
+                            onChange={(e) => setDuties(e.target.value)}></textarea>
                     </div>
                     <div className={styles.inputData}>
                         <label>Ожидания от стажера</label>
-                        <input
+                        <textarea
                             type='text'
-                            value={expectations} 
-                            placeholder='Введите знания, которыми должен обладать стажер'
-                            onChange={(e) => setExpectations(e.target.value)}></input>
+                            value={expectations}
+                            style={{ resize: "none" }} 
+                            placeholder='Введите знания, которыми должен обладать стажер, для разделения текста воспользуйтесь символом новой строки(Enter)'
+                            onChange={(e) => setExpectations(e.target.value)}></textarea>
                     </div>
                     <div className={styles.inputData}>
                         <label>Дополнительные знания</label>
-                        <input
+                        <textarea
                             type='text'
                             value={skills} 
-                            placeholder='Введите знания, которые будут плюсом к основным'
-                            onChange={(e) => setSkills(e.target.value)}></input>
+                            style={{ resize: "none" }}
+                            placeholder='Введите знания, которые будут плюсом к основным, для разделения текста воспользуйтесь символом новой строки(Enter)'
+                            onChange={(e) => setSkills(e.target.value)}></textarea>
                     </div>
                     <div className={styles.inputData}>
                         <label>Условия работы</label>
-                        <input
+                        <textarea
                             type='text'
                             value={conditions} 
-                            placeholder='Введите условия работы'
-                            onChange={(e) => setConditions(e.target.value)}></input>
+                            style={{ resize: "none" }}
+                            placeholder='Введите условия работы, для разделения текста воспользуйтесь символом новой строки(Enter)'
+                            onChange={(e) => setConditions(e.target.value)}></textarea>
                     </div>
                 </div>
                 <hr className={styles.hrData}></hr>

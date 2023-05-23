@@ -32,7 +32,7 @@ export default class UserStore{
     setCompanyToken(token) {
         this.companyToken = token
     }
-
+      
     checkLocalStorage() {
         const userToken = localStorage.getItem("userToken")
         const companyToken = localStorage.getItem("companyToken")
@@ -107,7 +107,7 @@ export default class UserStore{
         }
     }
 
-    logout = async () =>{
+    async logout (){
         try{
             if (localStorage.getItem('userToken')){
                 localStorage.removeItem('userToken')
@@ -122,16 +122,6 @@ export default class UserStore{
             this.setAuthCompany(false)
             this.setUser(undefined)
             window.location.reload()
-        } catch(e) {
-            console.log(e.response?.data?.message)
-        }
-    }
-
-    getVacanciesByUser = async () => {
-        try{
-            const response = await api.get(`/users-company/get_vacancies`)
-            console.log(response)
-            return response
         } catch(e) {
             console.log(e.response?.data?.message)
         }

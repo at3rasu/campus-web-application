@@ -44,6 +44,10 @@ export default class VacancyStore{
         }
     }
 
+    getIndexedList(data) {
+        const lines = data.split('\n')
+        return lines.map((line) => line.trim())
+    }
 
     async getAllVacancies(){
         try{
@@ -68,5 +72,15 @@ export default class VacancyStore{
 
     selectVacancyById(id) {
         this.selectedVacancy = this.getVacancyById(id)
+    }
+
+    getVacanciesByUser = async () => {
+        try{
+            const response = await api.get(`/users-company/get_vacancies`)
+            console.log(response)
+            return response
+        } catch(e) {
+            console.log(e.response?.data?.message)
+        }
     }
 }

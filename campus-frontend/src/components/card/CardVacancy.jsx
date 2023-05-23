@@ -13,7 +13,6 @@ export const CardVacancy = ({vacancy}) =>{
             <div className={styles.content}>
                 <p>{vacancy.nameCompany}</p>
                 <p>{vacancy.companyDescription}</p>
-                <p>Навыки: {vacancy.expectations}</p>
                 <p>{vacancy.fullAddress}</p>
             </div>
             <div className={styles.link}>

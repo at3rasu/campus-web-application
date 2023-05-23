@@ -92,6 +92,20 @@
     outline: none;
 }
 
+.inputData textarea{
+    font-family: 'Inter';
+    width: 98%;
+    height: 48px;
+    background-color: #fafafa;
+    border:0;
+    box-shadow:0 0 4px rgba(0,0,0,0.3);
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 30px;
+    padding: 10px;
+    outline: none;
+}
+
 .buttonSubmit{
     margin-top: 100px;
     display: flex;

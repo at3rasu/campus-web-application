@@ -27,6 +27,19 @@
     margin-left: 50px;
 }
 
+.company h1{
+    font-style: normal;
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 30px;
+    color: #000000;
+    padding: 0 30px;
+}
+
+.company p{
+    padding: 20px 30px;
+}
+
 .vacancy button{
     width: 250px;
     height: 40px;
@@ -66,103 +79,18 @@
     width: 618px;
 }
 
-
-
-.content h1{
-    font-weight: 500;
-    font-size: 25px;
+.content h3{
+    margin: 40px 0px;
+    font-weight: 600;
+    font-size: 24px;
     line-height: 30px;
     color: #000000;
 }
 
-.content p{
-    font-weight: 500;
-    font-size: 20px;
-    line-height: 24px;
-    display: flex;
-    align-items: center;
-    color: #000000;
-}
-
-.vacancy h4{
+.content li{
     font-weight: 400;
-    font-size: 15px;
-    line-height: 18px;
-    display: flex;
-    align-items: center;
-    margin: 0 30px;
-    color: #000000;
-    padding-bottom: 50px;
-}
-
-.duties h3{
-    margin: 40px 0px;
-    font-weight: 600;
-    font-size: 24px;
-    line-height: 30px;
-    color: #000000;
-}
-
-.duties p{
-    font-weight: 500;
-    font-size: 20px;
+    font-size: 18px;
     line-height: 24px;
-    display: flex;
-    align-items: center;
-    color: #000000;
-    margin-left: 20px;
-}
-
-.expectations h3{
-    margin: 40px 0px;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 24px;
-    line-height: 30px;
-    color: #000000;
-}
-
-.expectations p{
-    font-weight: 500;
-    font-size: 20px;
-    line-height: 24px;
-    display: flex;
-    align-items: center;
-    color: #000000;
-    margin-left: 20px;
-}
-
-.conditions h3{
-    margin: 40px 0px;
-    font-weight: 600;
-    font-size: 24px;
-    line-height: 30px;
-    color: #000000;
-}
-
-.conditions p{
-    font-weight: 500;
-    font-size: 20px;
-    line-height: 24px;
-    display: flex;
-    align-items: center;
-    color: #000000;
-    margin-left: 20px;
-}
-.skills h3{
-    margin: 40px 0px;
-    font-weight: 600;
-    font-size: 24px;
-    line-height: 30px;
-    color: #000000;
-}
-
-.skills p{
-    font-weight: 500;
-    font-size: 20px;
-    line-height: 24px;
-    display: flex;
-    align-items: center;
     color: #000000;
     margin-left: 20px;
 }

@@ -1,21 +1,15 @@
-import React, {useState} from 'react'
+import {useContext} from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useEffect } from 'react'
+import { Formik } from 'formik';
+import * as Yup from 'yup'
 import styles from './SingUp.module.css'
-import { registrationUserCompany } from '../../api/user-api'
-export const SingUpCompany = () =>{
-    const [login, setLogin] = useState('')
-    const [pass, setPass] = useState('')
-    const [companyName, setCompanyName] = useState('')
-    const [secondPass, setSecondPass] = useState('')
-    const[email, setEmail] = useState('')
+import { Context } from '../..'
+import { FormRegisterCompany } from '../../components/auth/FormRegisterCompany';
 
+export const SingUpCompany = () =>{
     const navigate = useNavigate()
-    let response = undefined
-    const handleSubmit = (e) =>{
-        e.preventDefault()
-        console.log(login)
-    }
+    const {store} = useContext(Context)
 
     useEffect(() => {
         document.title = 'Регистрация'
@@ -23,62 +17,46 @@ export const SingUpCompany = () =>{
 
     return(
         <div className={styles.singUp}>
-            <form onSubmit={handleSubmit} className={styles.boxCompany}>
-                <div className={styles.title}>
-                    <img src='/img/Union.svg' alt='campus_logo'/>
-                    <h1>Регистрация</h1>
-                </div>
-                <div className={styles.inputData}>
-                    <input
-                        value={companyName} onChange={(e) => setCompanyName(e.target.value)} 
-                        type='text'
-                        placeholder="Введите название компании">          
-                    </input>
-                </div>
-                <div className={styles.inputData}>
-                    <input
-                        value={login} onChange={(e) => setLogin(e.target.value)} 
-                        type='text'
-                        placeholder="Придумайте логин">          
-                    </input>
-                </div>
-                <div className={styles.inputData}>
-                    <input
-                        value={email} onChange={(e) => setEmail(e.target.value)} 
-                        type='email'
-                        placeholder="Введите вашу почту">          
-                    </input>
-                </div>
-                <div className={styles.inputData}>
-                    <input
-                        value={pass} onChange={(e) => setPass(e.target.value)} 
-                        type='password'
-                        placeholder="Придумайте пароль">          
-                    </input>
-                </div>
-                <div className={styles.inputData}>
-                    <input
-                        value={secondPass} onChange={(e) => setSecondPass(e.target.value)} 
-                        type='password'
-                        placeholder="Повторите пароль">          
-                    </input>
-                </div>
-                <div className={styles.checkBox}>
-                    <input type={'checkbox'}></input>
-                    <p>Я согласен с политикой конфиденциальности</p>
-                </div>
-                <div className={styles.btn}>
-                    <button
-                        onClick={async () => {
-                            response = await registrationUserCompany(email, pass, login, secondPass, companyName)
-                            navigate('/SingInCompany')
-                          }}
-                        type='submit'>Зарегистрироваться</button>
-                </div> 
-                <div className={styles.next}>
-                    <button onClick={() => navigate('/SingIn')}>Уже есть аккаунт</button>
-                </div> 
-            </form>
+            <Formik
+            initialValues={{
+                email: '',
+                password: '',
+                login: '',
+                secondPass: '',
+                companyName: ''
+            }}
+            validationSchema={Yup.object({
+                login: Yup.string()
+                    .required('Данное поле ввода обязательное'),
+                password: Yup.string()
+                    .required('Данное поле ввода обязательное')
+                    .min(8, 'Пароль должен содержать минимум 8 символов'),
+                email: Yup.string()
+                    .email("Введите корректный адрес электронной почты")
+                    .required("Введите адрес электронной почты"),
+                secondPass: Yup.string()
+                    .oneOf([Yup.ref("password"), null], "Пароли должны совпадать"),
+                companyName: Yup.string()
+                    .required('Данное поле ввода обязательное'),    
+            })}
+            onSubmit={async (values, { setSubmitting }) => {
+                try {
+                    const isAuthenticated = await store.registration_userCompany(
+                        values.email, 
+                        values.password,
+                        values.login, 
+                        values.secondPass,
+                        values.companyName)
+                    if (isAuthenticated) {
+                        navigate('/SingInCompany')
+                    }
+                } catch (error) {
+                    console.log(error);
+                }
+                    setSubmitting(false);
+                }}>
+                <FormRegisterCompany />
+            </Formik>
         </div>
     )
 }
