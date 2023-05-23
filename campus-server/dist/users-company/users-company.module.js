@@ -18,6 +18,7 @@ const user_company_roles_1 = require("../roles/user_company_roles");
 const auth_module_1 = require("../auth/auth.module");
 const vacancies_model_1 = require("../vacancies/vacancies.model");
 const jwt_1 = require("@nestjs/jwt");
+const users_module_1 = require("../users/users.module");
 let UsersCompanyModule = class UsersCompanyModule {
 };
 UsersCompanyModule = __decorate([
@@ -33,7 +34,8 @@ UsersCompanyModule = __decorate([
                     expiresIn: '30m'
                 }
             }),
-            (0, common_1.forwardRef)(() => auth_module_1.AuthModule)
+            (0, common_1.forwardRef)(() => auth_module_1.AuthModule),
+            (0, common_1.forwardRef)(() => users_module_1.UsersModule)
         ],
         exports: [
             users_company_service_1.UsersCompanyService

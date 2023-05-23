@@ -12,7 +12,6 @@ export declare class User extends Model<User, UserCreationAttrs> {
     login: string;
     name: string;
     surname: string;
-    city: string;
     roles: Role[];
     resume: Resume[];
 }

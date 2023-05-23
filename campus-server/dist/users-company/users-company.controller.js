@@ -19,9 +19,11 @@ const create_user_company_dto_1 = require("./dto/create-user-company.dto");
 const common_2 = require("@nestjs/common");
 const roles_guard_1 = require("../auth/roles.guard");
 const roles_auth_decorator_1 = require("../auth/roles-auth.decorator");
+const users_service_1 = require("../users/users.service");
 let UsersCompanyController = class UsersCompanyController {
-    constructor(usersCompanyService) {
+    constructor(usersCompanyService, usersService) {
         this.usersCompanyService = usersCompanyService;
+        this.usersService = usersService;
     }
     create(userCompanyDto) {
         return this.usersCompanyService.createUser(userCompanyDto);
@@ -31,6 +33,9 @@ let UsersCompanyController = class UsersCompanyController {
     }
     getVacanciesByUser(request) {
         return this.usersCompanyService.getVacanciesByUser(request);
+    }
+    getuserByToken(token) {
+        return this.usersCompanyService.getUserByToken(token.split(' ')[1]);
     }
 };
 __decorate([
@@ -55,9 +60,19 @@ __decorate([
     __metadata("design:paramtypes", [Request]),
     __metadata("design:returntype", void 0)
 ], UsersCompanyController.prototype, "getVacanciesByUser", null);
+__decorate([
+    (0, common_2.Get)('/get_user'),
+    (0, roles_auth_decorator_1.Roles)('admin', 'user'),
+    (0, common_2.UseGuards)(roles_guard_1.RolesGuard),
+    __param(0, (0, common_2.Headers)('authorization')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", void 0)
+], UsersCompanyController.prototype, "getuserByToken", null);
 UsersCompanyController = __decorate([
     (0, common_1.Controller)('users-company'),
-    __metadata("design:paramtypes", [users_company_service_1.UsersCompanyService])
+    __metadata("design:paramtypes", [users_company_service_1.UsersCompanyService,
+        users_service_1.UsersService])
 ], UsersCompanyController);
 exports.UsersCompanyController = UsersCompanyController;
 //# sourceMappingURL=users-company.controller.js.map

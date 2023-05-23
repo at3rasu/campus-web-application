@@ -9,6 +9,7 @@ import { UserCompanyRoles } from 'src/roles/user_company_roles';
 import { AuthModule } from 'src/auth/auth.module';
 import { Vacancy } from 'src/vacancies/vacancies.model';
 import { JwtModule } from '@nestjs/jwt';
+import { UsersModule } from 'src/users/users.module';
 
 @Module({
   providers: [UsersCompanyService],
@@ -21,7 +22,8 @@ import { JwtModule } from '@nestjs/jwt';
       signOptions: {
         expiresIn: '30m'
       }}),
-    forwardRef(() => AuthModule)
+    forwardRef(() => AuthModule),
+    forwardRef(() => UsersModule)
   ],
   exports: [
     UsersCompanyService

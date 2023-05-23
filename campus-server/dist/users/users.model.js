@@ -41,10 +41,6 @@ __decorate([
     __metadata("design:type", String)
 ], User.prototype, "surname", void 0);
 __decorate([
-    (0, sequelize_typescript_1.Column)({ type: sequelize_typescript_1.DataType.STRING, allowNull: false }),
-    __metadata("design:type", String)
-], User.prototype, "city", void 0);
-__decorate([
     (0, sequelize_typescript_1.BelongsToMany)(() => roles_model_1.Role, () => user_roles_1.UserRoles),
     __metadata("design:type", Array)
 ], User.prototype, "roles", void 0);

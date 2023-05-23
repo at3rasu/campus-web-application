@@ -66,6 +66,10 @@ let UsersCompanyService = class UsersCompanyService {
         const user = await this.getUserByLogin(this.jwtService.verify(token).login);
         return user;
     }
+    async getUserByToken(token) {
+        const user = await this.getUserByLogin(this.jwtService.verify(token).login);
+        return user;
+    }
 };
 UsersCompanyService = __decorate([
     (0, common_1.Injectable)(),

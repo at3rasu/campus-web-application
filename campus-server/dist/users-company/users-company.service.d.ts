@@ -13,4 +13,5 @@ export declare class UsersCompanyService {
     getUserByLogin(login: string): Promise<UserCompany>;
     getVacanciesByUser(req: any): Promise<import("../vacancies/vacancies.model").Vacancy[]>;
     getUserCompanyByRequest(req: any): Promise<UserCompany>;
+    getUserByToken(token: any): Promise<UserCompany>;
 }

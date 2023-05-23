@@ -59,4 +59,9 @@ export class UsersCompanyService {
         const user = await this.getUserByLogin(this.jwtService.verify(token).login)
         return user
     }
+    
+    async getUserByToken(token){
+        const user = await this.getUserByLogin(this.jwtService.verify(token).login)
+        return user
+    }
 }

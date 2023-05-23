@@ -77,6 +77,10 @@ let UsersService = class UsersService {
         const user = await this.userRepository.update(updateuserDto, { where: { id }, returning: true, });
         return user;
     }
+    async getuserByToken(token) {
+        const user = await this.getUserByLogin(this.jwtService.verify(token).login);
+        return user;
+    }
 };
 UsersService = __decorate([
     (0, common_1.Injectable)(),

@@ -5,7 +5,7 @@ import api from "../api/create-api"
 export default class UserStore{
     IsAuth = false
     IsAuthCompany = false
-    user = null
+    user
     userToken = null // Токен пользователя
     companyToken = null
     constructor(){
@@ -21,8 +21,8 @@ export default class UserStore{
         this.IsAuthCompany = true
     }
 
-    setUser(user){
-        this.user = user
+    async setUser(user){
+        this.user = await user
     }
 
     setUserToken(token) {
@@ -54,8 +54,7 @@ export default class UserStore{
                 localStorage.removeItem('userToken')
             }
             const response = await api.post(`/auth/registration`, {email, password, login, name, surname, city, repeatPass})
-            this.setAuth(true)   
-            this.setUser(response.data.user)
+            this.setAuth(true)  
             localStorage.setItem("userToken", response.data.userToken)
             return response
         } catch(e) {
@@ -70,7 +69,6 @@ export default class UserStore{
             }
             const response = await api.post(`/auth/registration_userCompany`, {email, password, login, secondPass, companyName})
             this.setAuth(true)
-            this.setUser(response.data.user)
             localStorage.setItem("companyToken", response.data.companyToken)
             return response
         } catch(e) {
@@ -84,11 +82,11 @@ export default class UserStore{
                 localStorage.removeItem('userToken')
             }
             const response = await api.post(`/auth/login`, {login, password})
-            console.log(response.data)
             localStorage.setItem('userToken', response.data.userToken)
             this.setAuth(true)
             this.setUserToken(response.data.userToken)  
-            this.setUser(response.data.user)
+            const user_response = await api.get('/users/get_user')
+            this.user = user_response.data
             return response
         } catch(e) {
             console.log(e.response?.data?.message)
@@ -100,8 +98,9 @@ export default class UserStore{
             const response = await api.post(`/auth/login_userCompany`, {login, password})
             localStorage.setItem('companyToken', response.data.companyToken)
             this.setAuthCompany(true)
-            this.setUser(response.data.user)
             this.setCompanyToken(response.data.companyToken)
+            const user_response = await api.get('/users-company/get_user')
+            this.user = user_response.data
             return response
         } catch(e) {
             console.log(e.response?.data?.message)

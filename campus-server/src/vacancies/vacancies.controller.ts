@@ -27,6 +27,7 @@ export class VacanciesController {
         return this.vacanciesService.getAllVacancies();
     }
 
+
     @Put('/update/:id')
     @Roles('admin', 'user_company')
     @UseGuards(RolesGuard)

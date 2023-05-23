@@ -5,10 +5,8 @@ import { JwtService } from '@nestjs/jwt/dist';
 import { CreateUserDto } from 'src/users/dto/create-user.dto';
 import { UsersService } from 'src/users/users.service';
 import * as bcrypt from 'bcryptjs'
-import { User } from 'src/users/users.model';
 import { CreateUserCompanyDto } from 'src/users-company/dto/create-user-company.dto';
 import { UsersCompanyService } from 'src/users-company/users-company.service';
-import { Response } from 'express';
 
 @Injectable()
 export class AuthService {
@@ -100,6 +98,4 @@ export class AuthService {
     //     const user = await this.userService.getUserByLogin(login)
     //     return this.generateToken({login: user.login, id: user.id, roles : user.roles})
     // }
-
-
 }

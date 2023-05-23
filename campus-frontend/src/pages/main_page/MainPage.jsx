@@ -5,10 +5,12 @@ import { useNavigate } from "react-router-dom"
 import { useContext, useEffect } from "react"
 import { Context } from '../..'
 import { notify } from '../../utils/Consts'
+import api from '../../api/create-api'
 
 export const MainPage = () => {
     const navigate = useNavigate()
     const {store} = useContext(Context)
+    const token = localStorage.getItem('userToken')
 
     useEffect(() => {
         document.title = 'Главная страница'
@@ -18,6 +20,16 @@ export const MainPage = () => {
         <div className={styles.page}>
             <Header />
             <div className={styles.container}>
+            <button
+                            type='submit'
+                            onClick={ 
+                                async () => 
+                                {
+                                    const response = await api.get(`/users/get_user`)
+                                    console.log(response)
+                                }
+                            }
+                        >Опубликовать вакансию</button>
                 <div className={styles.firstContainer}>
                     <div className={styles.fisrtContent}>
                         <div className={styles.firstText}>

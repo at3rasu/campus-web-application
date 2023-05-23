@@ -28,9 +28,6 @@ export class User extends Model<User, UserCreationAttrs>{
     @Column({type: DataType.STRING, allowNull: false})
     surname: string
 
-    @Column({type: DataType.STRING, allowNull: false})
-    city: string
-
     @BelongsToMany(() => Role, () => UserRoles)
     roles: Role[]
 

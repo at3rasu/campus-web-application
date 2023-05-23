@@ -38,6 +38,9 @@ let UsersController = class UsersController {
     updateUser(id, updateUserDto) {
         return this.usersService.updateUser(id, updateUserDto);
     }
+    getuserByToken(token) {
+        return this.usersService.getuserByToken(token.split(' ')[1]);
+    }
 };
 __decorate([
     (0, common_1.Post)('/insert'),
@@ -82,6 +85,15 @@ __decorate([
     __metadata("design:paramtypes", [Object, Object]),
     __metadata("design:returntype", void 0)
 ], UsersController.prototype, "updateUser", null);
+__decorate([
+    (0, common_1.Get)('/get_user'),
+    (0, roles_auth_decorator_1.Roles)('admin', 'user'),
+    (0, common_1.UseGuards)(roles_guard_1.RolesGuard),
+    __param(0, (0, common_1.Headers)('authorization')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", void 0)
+], UsersController.prototype, "getuserByToken", null);
 UsersController = __decorate([
     (0, common_1.Controller)('users'),
     __metadata("design:paramtypes", [users_service_1.UsersService])

@@ -16,4 +16,5 @@ export declare class UsersService {
     getResumeByUser(req: any): Promise<import("../resume/resume.model").Resume[]>;
     getUserByRequest(req: any): Promise<User>;
     updateUser(id: any, updateuserDto: any): Promise<[affectedCount: number, affectedRows: User[]]>;
+    getuserByToken(token: any): Promise<User>;
 }

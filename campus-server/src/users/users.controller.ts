@@ -1,4 +1,4 @@
-import { Controller, Post, Body, Get, UseGuards, Req, Param, Put } from '@nestjs/common';
+import { Controller, Post, Body, Get, UseGuards, Req, Param, Put, Headers } from '@nestjs/common';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UsersService } from './users.service';
 import { RolesGuard } from 'src/auth/roles.guard';
@@ -40,6 +40,13 @@ export class UsersController {
     @Roles('admin', 'user')
     @UseGuards(RolesGuard)
     updateUser(@Param('id') id, @Body() updateUserDto) {
-    return this.usersService.updateUser(id, updateUserDto);
-  }
+        return this.usersService.updateUser(id, updateUserDto);
+    }
+
+    @Get('/get_user')
+    @Roles('admin', 'user')
+    @UseGuards(RolesGuard)
+    getuserByToken(@Headers('authorization') token){
+        return this.usersService.getuserByToken(token.split(' ')[1]);
+    }
 }
