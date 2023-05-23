@@ -44,6 +44,10 @@ export default class VacancyStore{
         }
     }
 
+    getIndexedList(data) {
+        const lines = data.split('\n')
+        return lines.map((line) => line.trim())
+    }
 
     async getAllVacancies(){
         try{

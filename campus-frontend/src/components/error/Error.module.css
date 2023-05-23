@@ -1,0 +1,54 @@
+.error{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: center;
+    gap: 50px;
+    text-align: center;
+}
+
+.link button{
+    width: 300px;
+    height: 50px;
+    margin: 0 auto;
+    border: none;
+    outline: none;
+    color: #FFFFFF;
+    opacity: 0.9;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 100%;
+    font-family: 'Inter';
+    background: #8269EF;
+    border-radius: 30px;
+    cursor: pointer;
+}
+
+.link button:hover{
+    background: #684FD3;
+}
+
+.error p{
+    font-size: 20px;
+    font-weight: 400;
+    font-family: 'Inter';
+    width: 50vw;
+    margin: 0 auto;
+}
+
+.error h1{
+    font-size: 45px;
+    font-weight: 600;
+    font-family: 'Giga Sans';
+}
+
+@media (max-width: 480px){
+    .error p{
+        font-size: 15px;
+        font-weight: 400;
+        font-family: 'Inter';
+        width: 90vw;
+        margin: 0 auto;
+    }
+}

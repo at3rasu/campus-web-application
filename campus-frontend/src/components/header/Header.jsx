@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import styles from "./Header.module.css"
 import { useContext} from "react"
 import { Context } from "../.."
@@ -9,10 +9,15 @@ import { AuthError } from "../alert/AuthError"
 
 export const Header = observer(() =>{
     const {store} = useContext(Context)
+    const navigate = useNavigate ()
     const button = 'Создать резюме'
     const router = '/SingUp'
-    const account = '/PersonalAccount'
+    // const account = '/PersonalAccount'
     const auth = '/SingIn'
+    const handleLogout = () => {
+        navigate('/')
+        store.logout()
+    }
 
     return(
         <div className={styles.header}  key={store.headerKey}>
@@ -47,7 +52,7 @@ export const Header = observer(() =>{
                 </div>
                 <div>
                     {store.IsAuth ? (
-                        <AccountBtn account={account}/>
+                        <AccountBtn handleLogout={handleLogout}/>
                     ):(
                         <AuthBtn router={router} auth={auth}/>
                     )}

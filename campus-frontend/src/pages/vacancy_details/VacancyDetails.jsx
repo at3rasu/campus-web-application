@@ -18,6 +18,7 @@ export const VacancyDetails = observer(() =>{
     if (!vacancy) {
         return <div>Loading...</div>
     }
+
     return(
         <div className="ListVac">
             <Header />
@@ -30,25 +31,34 @@ export const VacancyDetails = observer(() =>{
                     </div>
                     <div className={styles.company}>
                         <p>Место для картинки</p>
+                        <h1 >{vacancy.nameCompany}</h1>
+                        <p>{vacancy.fullAddress}</p>
                     </div>
                 </div>
                 <div className={styles.content}>
                     <div className={styles.duties}>
                         <h3>Чем предстоит заниматься?</h3>
-                        <p>{vacancy.duties}</p>
+                        {vacancyStore.getIndexedList(vacancy.duties).map((line) => (
+                            <li>{line}</li>
+                        ))}
                     </div>
                     <div className={styles.expectations}>
                         <h3>Что мы ожидаем от будущего кандидата?</h3>
-                        <p>{vacancy.expectations}</p>
+                        {vacancyStore.getIndexedList(vacancy.expectations).map((line) => (
+                            <li>{line}</li>
+                        ))}
                     </div>
                     <div className={styles.skills}>
                         <h3>Приветствуются:</h3>
-                        <p>{vacancy.skills}</p>
+                        {vacancyStore.getIndexedList(vacancy.skills).map((line) => (
+                            <li>{line}</li>
+                        ))}
                     </div>
                     <div className={styles.conditions}>
                         <h3>Условия работы:</h3>
-
-                        <p>{vacancy.conditions}</p>
+                        {vacancyStore.getIndexedList(vacancy.conditions).map((line) => (
+                            <li>{line}</li>
+                        ))}
                     </div>
                 </div>
                 <div className={styles.secondContent}>

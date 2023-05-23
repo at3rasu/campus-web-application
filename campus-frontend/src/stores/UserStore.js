@@ -6,7 +6,7 @@ export default class UserStore{
     IsAuth = false
     IsAuthCompany = false
     user = null
-    userToken = null // Токен пользователя
+    userToken = null 
     companyToken = null
     constructor(){
         makeAutoObservable(this)
@@ -32,7 +32,7 @@ export default class UserStore{
     setCompanyToken(token) {
         this.companyToken = token
     }
-
+      
     checkLocalStorage() {
         const userToken = localStorage.getItem("userToken")
         const companyToken = localStorage.getItem("companyToken")
