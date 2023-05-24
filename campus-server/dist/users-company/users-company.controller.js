@@ -62,7 +62,7 @@ __decorate([
 ], UsersCompanyController.prototype, "getVacanciesByUser", null);
 __decorate([
     (0, common_2.Get)('/get_user'),
-    (0, roles_auth_decorator_1.Roles)('admin', 'user'),
+    (0, roles_auth_decorator_1.Roles)('admin', 'user_company'),
     (0, common_2.UseGuards)(roles_guard_1.RolesGuard),
     __param(0, (0, common_2.Headers)('authorization')),
     __metadata("design:type", Function),

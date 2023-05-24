@@ -100,6 +100,7 @@ export default class UserStore{
             this.setAuthCompany(true)
             this.setCompanyToken(response.data.companyToken)
             const user_response = await api.get('/users-company/get_user')
+            console.log(user_response)
             this.user = user_response.data
             return response
         } catch(e) {

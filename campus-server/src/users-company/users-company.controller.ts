@@ -29,7 +29,7 @@ export class UsersCompanyController {
     }
 
     @Get('/get_user')
-    @Roles('admin', 'user')
+    @Roles('admin', 'user_company')
     @UseGuards(RolesGuard)
     getuserByToken(@Headers('authorization') token){
         return this.usersCompanyService.getUserByToken(token.split(' ')[1]);

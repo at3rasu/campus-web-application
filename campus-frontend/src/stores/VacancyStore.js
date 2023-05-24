@@ -25,7 +25,7 @@ export default class VacancyStore{
             formData.append('fullAddress', fullAddress)
             formData.append('number', number)
             formData.append('email', email)
-
+        
             const response = await api(
             {
                 url:"/vacancies/insert",

@@ -13,6 +13,7 @@
     "bootstrap": "^5.2.3",
     "chart.js": "^4.2.1",
     "chartjs-plugin-datalabels": "^2.2.0",
+    "formik": "^2.2.9",
     "js-cookie": "^3.0.1",
     "jsonwebtoken": "^9.0.0",
     "mobx": "^6.9.0",
@@ -26,7 +27,8 @@
     "react-scripts": "5.0.1",
     "react-tabs": "^6.0.1",
     "react-toastify": "^9.1.2",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "yup": "^1.1.1"
   },
   "scripts": {
     "start": "react-scripts start",
