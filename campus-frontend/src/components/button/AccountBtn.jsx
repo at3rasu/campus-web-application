@@ -3,7 +3,7 @@ import { DropDownItem } from '../dropDown_menu/DropDownItem'
 import { useState } from 'react'
 import { observer } from 'mobx-react'
 
-export const AccountBtn = observer(({handleLogout}) =>{
+export const AccountBtn = observer(({handleLogout, name, surname}) =>{
     const [open, setOpen] = useState(false)
     const onClick = () => {setOpen(!open)} 
 

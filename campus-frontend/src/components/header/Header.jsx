@@ -52,7 +52,7 @@ export const Header = observer(() =>{
                 </div>
                 <div>
                     {store.IsAuth ? (
-                        <AccountBtn handleLogout={handleLogout}/>
+                        <AccountBtn handleLogout={handleLogout} />
                     ):(
                         <AuthBtn router={router} auth={auth}/>
                     )}

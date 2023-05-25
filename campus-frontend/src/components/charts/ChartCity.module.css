@@ -1,0 +1,12 @@
+.box{
+    width: 500px;
+    height: 350px;
+    background: #FFFFFF;
+    border-radius: 12px;
+}
+
+.chart{
+    margin: 0 auto;
+    width: 61%;
+    padding: 20px;
+}

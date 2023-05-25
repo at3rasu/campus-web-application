@@ -1,13 +1,30 @@
 import { Link } from 'react-router-dom'
 import styles from './DropDownItem.module.css'
 import { observer } from 'mobx-react'
+import { useContext } from 'react'
+import { Context } from '../..'
 
 export const DropDownItem = observer(({handleLogout, onClick}) =>{
+    const {store} = useContext(Context)
+
     return(
         <div className={styles.component}>
             <ul>
                 <li className={styles.name}>
-                    <p>Артур Иманкулов</p>
+                    <>
+                        {store.user && store.user.name && store.user.surname ? (
+                            <p>{store.user.surname} {store.user.name}</p>
+                        ) : (
+                            <></>
+                        )} 
+                    </>     
+                    <>
+                        {store.user && store.user.companyName  ? (
+                            <p>{store.user.companyName}</p>
+                        ) : (
+                            <></>
+                        )} 
+                    </>           
                     <button
                         onClick={onClick}><img src='/img/menu.svg' alt=''/></button>
                 </li>

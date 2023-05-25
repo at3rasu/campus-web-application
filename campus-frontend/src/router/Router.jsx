@@ -40,7 +40,7 @@ export const Router = () =>{
             <Route path="/SingUpCompany" element={<SingUpCompany />}/>
             <Route path="/AboutUs" element={<AboutUs />}/>
             <Route path="/Statistics" element={<Statistics />}/>
-            <Route path="*" element={<Error404 />}/>
+            <Route path="/*" element={<Error404 />}/>
         </Routes>
     )
 }

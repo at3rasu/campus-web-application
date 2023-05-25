@@ -5,7 +5,7 @@ import api from "../api/create-api"
 export default class UserStore{
     IsAuth = false
     IsAuthCompany = false
-    user
+    user 
     userToken = null // Токен пользователя
     companyToken = null
     constructor(){
@@ -21,7 +21,7 @@ export default class UserStore{
         this.IsAuthCompany = true
     }
 
-    async setUser(user){
+    async setUser(user) {
         this.user = await user
     }
 
@@ -40,11 +40,13 @@ export default class UserStore{
         if (userToken) {
             this.setAuth(true)
             this.setUserToken(userToken)
+            this.loadUser()
         }
 
         if (companyToken) {
             this.setAuthCompany(true)
             this.setCompanyToken(companyToken)
+            this.loadUserCompany()
         }
     }
 
@@ -76,6 +78,24 @@ export default class UserStore{
         }
     }
 
+    async loadUser() {
+        try {
+            const user_response = await api.get('/users/get_user')
+            this.user = user_response.data
+        } catch (error) {
+            console.log('Error loading user:', error)
+        }
+    }
+
+    async loadUserCompany() {
+        try {
+            const user_response = await api.get('/users-company/get_user')
+            this.user = user_response.data
+        } catch (error) {
+            console.log('Error loading user:', error)
+        }
+    }
+
     async set_login (login, password) {
         try{
             if (localStorage.getItem('userToken')){
@@ -85,8 +105,7 @@ export default class UserStore{
             localStorage.setItem('userToken', response.data.userToken)
             this.setAuth(true)
             this.setUserToken(response.data.userToken)  
-            const user_response = await api.get('/users/get_user')
-            this.user = user_response.data
+            await this.loadUser()
             return response
         } catch(e) {
             console.log(e.response?.data?.message)
@@ -99,9 +118,7 @@ export default class UserStore{
             localStorage.setItem('companyToken', response.data.companyToken)
             this.setAuthCompany(true)
             this.setCompanyToken(response.data.companyToken)
-            const user_response = await api.get('/users-company/get_user')
-            console.log(user_response)
-            this.user = user_response.data
+            await this.loadUserCompany()
             return response
         } catch(e) {
             console.log(e.response?.data?.message)

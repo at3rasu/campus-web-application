@@ -1,46 +1,24 @@
-import './Statistics.css'
-
-import { Header } from '../../components/header/Header'
+import styles from './Statistics.module.css'
 import { ChartRegister } from '../../components/charts/ChartRegister'
 import { ChartCity } from '../../components/charts/ChartCity'
-import { Footer } from '../../components/footer/Footer'
 import { useEffect, useState } from 'react'
 import { Table } from '../../components/charts/Table'
 
 export const Statistics = () => {
-    const [student] = useState('336')
-
     useEffect(() => {
-        document.title = 'Статистика'
+        document.title = 'Инфопанели'
     })
 
     return(
-        <div className="Statistics">
-            <Header />
-            <h1 className="title-static">Статистика для инвесторов</h1>
-            <div className='register-dynamics'>
-                <p>Динамика регистраций за последний месяц</p>
-                <button>Выгрузить</button>
+        <div className={styles.page}>
+            <header className={styles.header}>
+                <h1>Инфопанели</h1>
+            </header>
+            <div className={styles.chart}>
+               <ChartRegister /> 
+               <ChartCity /> 
+               <ChartRegister /> 
             </div>
-            <div className='chart'>
-                <ChartRegister />
-                <p>Всего зарегистрировано: {student}</p>
-            </div>
-            <div className='register-dynamics'>
-                <p>Процент регистраций по городам за все время</p>
-                <button>Выгрузить</button>
-            </div>
-            <div className='chart1'>
-                <ChartCity />    
-            </div>    
-            <div className='register-dynamics'>
-                <p>Получатели стипендиальной поддержки</p>
-                <button>Выгрузить</button>
-            </div> 
-            <div className='chart2'>
-                <Table />    
-            </div> 
-            <Footer />
         </div>
     )
 }
