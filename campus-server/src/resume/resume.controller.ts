@@ -35,7 +35,7 @@ export class ResumeController {
         return this.resumeService.updateResume(id, updateResumeDto);
     }
 
-    // api.put('/resume/update/${id}')
+    // api.post('/resume/update/${id}')
     @Post('/delete/:id')
     @Roles('admin', 'user')
     @UseGuards(RolesGuard)
