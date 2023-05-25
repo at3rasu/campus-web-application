@@ -14,9 +14,9 @@ export const Header = observer(() =>{
     const router = '/SingUp'
     // const account = '/PersonalAccount'
     const auth = '/SingIn'
-    const handleLogout = () => {
-        navigate('/')
-        store.logout()
+    const handleLogout = async() => {
+        navigate('/')  
+        await store.logout()  
     }
 
     return(

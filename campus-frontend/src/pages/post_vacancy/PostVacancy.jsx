@@ -4,7 +4,7 @@ import { Header } from "../../components/header/Header_2"
 import { Footer } from "../../components/footer/Footer"
 // import { ExperienceSelection } from '../../components/experience_selection/ExperienceSelection'
 // import { EducationSelection } from '../../components/education_selection/EducationSelection'
-import { useEffect, useRef, useState  } from "react"
+import { useEffect, useState  } from "react"
 import { createVacancy } from '../../api/vacancy-api'
 import { toast } from 'react-toastify'
 
