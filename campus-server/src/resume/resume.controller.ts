@@ -27,6 +27,7 @@ export class ResumeController {
         return this.resumeService.getAllResume();
     }
 
+    // api.put('/resume/update/${id}')
     @Put('/update/:id')
     @Roles('admin', 'user')
     @UseGuards(RolesGuard)
@@ -34,6 +35,7 @@ export class ResumeController {
         return this.resumeService.updateResume(id, updateResumeDto);
     }
 
+    // api.put('/resume/update/${id}')
     @Post('/delete/:id')
     @Roles('admin', 'user')
     @UseGuards(RolesGuard)

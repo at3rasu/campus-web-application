@@ -27,7 +27,7 @@ export class VacanciesController {
         return this.vacanciesService.getAllVacancies();
     }
 
-
+    // api.put('/vacancies/update/${id}')
     @Put('/update/:id')
     @Roles('admin', 'user_company')
     @UseGuards(RolesGuard)
@@ -35,6 +35,7 @@ export class VacanciesController {
         return this.vacanciesService.updateVacancy(id, updateVacancyDto);
     }
 
+    // api.put('/vacancies/delete/${id}')
     @Post('/delete/:id')
     @Roles('admin', 'user_company')
     @UseGuards(RolesGuard)
