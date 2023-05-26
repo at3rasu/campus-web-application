@@ -5,12 +5,10 @@ import { useNavigate } from "react-router-dom"
 import { useContext, useEffect } from "react"
 import { Context } from '../..'
 import { notify } from '../../utils/Consts'
-import api from '../../api/create-api'
 
 export const MainPage = () => {
     const navigate = useNavigate()
     const {store} = useContext(Context)
-    const token = localStorage.getItem('userToken')
 
     useEffect(() => {
         document.title = 'Главная страница'
