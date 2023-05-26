@@ -2,24 +2,32 @@ import styles from '../../pages/auth/SingUp.module.css';
 import { Form, Field, ErrorMessage, useFormikContext } from 'formik';
 import { useNavigate } from 'react-router-dom';
 
-export const FormRegisterCompany = () => {
+export const FormRegister = () => {
     const { errors, touched } = useFormikContext()
     const navigate = useNavigate()
 
     return (
-        <Form className={styles.boxCompany}>
+        <Form className={styles.box}>
             <div className={styles.title}>
                     <img src='/img/Union.svg' alt='campus_logo'/>
                     <h1>Регистрация</h1>
             </div>
-            <div className={`${styles.inputData} ${errors.companyName && touched.companyName ? styles.inputError : ''}`}>
+            <div className={`${styles.inputData} ${errors.name && touched.name ? styles.inputError : ''}`}>
                 <Field
                     type='text'
-                    name='companyName'
-                    placeholder='Введите название компании'
+                    name='name'
+                    placeholder='Введите ваше имя'
                 />
             </div>
-            <ErrorMessage name='companyName' component='div' className={styles.error} />
+            <ErrorMessage name='name' component='div' className={styles.error} />
+            <div className={`${styles.inputData} ${errors.surname && touched.surname ? styles.inputError : ''}`}>
+                <Field
+                    type='text'
+                    name='surname'
+                    placeholder='Введите вашу фамилию'
+                />
+            </div>
+            <ErrorMessage name='surname' component='div' className={styles.error} />
             <div className={`${styles.inputData} ${errors.login && touched.login ? styles.inputError : ''}`}>
                 <Field
                     type='text'
@@ -44,14 +52,14 @@ export const FormRegisterCompany = () => {
                 />
             </div>
             <ErrorMessage name='password' component='div' className={styles.error} />
-            <div className={`${styles.inputData} ${errors.secondPass && touched.secondPass ? styles.inputError : ''}`}>
+            <div className={`${styles.inputData} ${errors.repeatPass && touched.repeatPass ? styles.inputError : ''}`}>
                 <Field
                     type='password'
-                    name='secondPass'
+                    name='repeatPass'
                     placeholder='Повторите пароль'
                 />
                 </div>
-            <ErrorMessage name='secondPass' component='div' className={styles.error} />
+            <ErrorMessage name='repeatPass' component='div' className={styles.error} />
             <div className={styles.checkBox}>
                 <input type={'checkbox'}></input>
                 <p>Я согласен с политикой конфиденциальности</p>
@@ -60,7 +68,7 @@ export const FormRegisterCompany = () => {
                 <button type='submit'>Зарегистрироваться</button>
             </div> 
             <div className={styles.next}>
-                <button onClick={() => navigate('/SingInCompany')}>Уже есть аккаунт</button>
+                <button onClick={() => navigate('/SingIn')}>Уже есть аккаунт</button>
             </div> 
         </Form>
     )

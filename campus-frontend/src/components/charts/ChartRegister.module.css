@@ -1,0 +1,31 @@
+.box{
+    width: 500px;
+    height: 350px;
+    background: #FFFFFF;
+    border-radius: 12px;
+}
+
+.chart{
+    width: 100%;
+    padding: 10px 22px 15px 22px;
+}
+
+.box h1{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 13px;
+    color: #000000;
+    padding: 20px 22px;
+}
+
+.box p{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 128%;
+    color: #000000;
+    padding: 0 10px 0 22px;
+}

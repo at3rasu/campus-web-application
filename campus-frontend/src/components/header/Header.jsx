@@ -14,9 +14,9 @@ export const Header = observer(() =>{
     const router = '/SingUp'
     // const account = '/PersonalAccount'
     const auth = '/SingIn'
-    const handleLogout = () => {
-        navigate('/')
-        store.logout()
+    const handleLogout = async() => {
+        navigate('/')  
+        await store.logout()  
     }
 
     return(
@@ -52,7 +52,7 @@ export const Header = observer(() =>{
                 </div>
                 <div>
                     {store.IsAuth ? (
-                        <AccountBtn handleLogout={handleLogout}/>
+                        <AccountBtn handleLogout={handleLogout} />
                     ):(
                         <AuthBtn router={router} auth={auth}/>
                     )}

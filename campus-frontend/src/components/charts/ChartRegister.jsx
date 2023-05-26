@@ -1,5 +1,5 @@
 import { Line } from 'react-chartjs-2'
-import './ChartRegister.css'
+import styles from './ChartRegister.module.css'
 import {
     Chart as ChartJS,
     LineElement,
@@ -17,21 +17,34 @@ ChartJS.register(
 
 export const ChartRegister = () =>{
     const data = {
-        labels: [3, 6, 9, 12, 15, 18, 21, 24, 27, 30],
+        labels: ["Сен.", "Окт.", "Ноя.", "Дек.", "Янв.", "Фев."],
         datasets: [{
-            data: [25, 29, 31, 38, 46, 50, 56, 61, 75, 81],
+            data: [ 24, 38, 45, 56, 61, 81, 91], 
+            fill: true, // Закрасить область под линией данных
+            backgroundColor: 'rgba(245, 45, 48, 0.21)'
         }]
     }
     const options = {
-        borderColor: 'red',
-        pointBorderColor: 'red',
-        pointRadius: 5,
-        pointBackgroundColor: 'white',
+        borderColor: '#F27E80',
+        pointBorderColor: '#F27E80',
+        pointRadius: 4,
+        pointBackgroundColor: '#F27E80',
+        scales: {
+            y: {
+                ticks: {
+                    stepSize: 25
+                } 
+            }
+        }
     }
 
     return(
-        <div className='chart-register'>
-            <Line data={data} options={options} ></Line>
+        <div className={styles.box}>
+            <h1>Динамика регистраций</h1>
+            <div className={styles.chart}>
+                <Line data={data} options={options} ></Line>    
+            </div> 
+            <p>Всего: 336</p>
         </div>
     )
 }

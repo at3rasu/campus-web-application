@@ -259,10 +259,6 @@
         margin-left: 150px;
     }
 
-    .firstSvg{
-        margin-left: 0;  
-    }
-
     .firstText img{
         padding-top: 2px;
         width: 560px;
@@ -368,12 +364,13 @@
     }
 
     .firstSvg img{
-        width: 375px;
+        width: 370px;
+        margin-left: 10px;
     }
 
     .firstSvg{
         display: flex;
-        margin: 0 10px;
+        margin: 0;
         
     }
 
