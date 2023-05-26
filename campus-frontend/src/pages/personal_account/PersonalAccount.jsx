@@ -17,14 +17,29 @@ export const PersonalAccount = observer(() =>{
                         <h1>Профиль</h1>
                         <hr></hr>    
                     </div>
+
+                    <div> 
                     <h1>Личные данные</h1>
-                    <>
-                        {store.user && store.user.login && store.user.surname ? (
-                            <p>{store.user.login} {store.user.name}</p>
-                        ) : (
-                            <>Loading...</>
-                        )} 
-                    </> 
+
+                    {store.user && store.user.login ? (
+                        <div>
+                            <div className={styles.login}>
+                                <p>Логин: {store.user.login}</p>
+                            </div>
+
+                            <div className={styles.name}>
+                                <p>Фамилия и Имя: {store.user.surname} {store.user.name}</p>
+                            </div>
+                            
+                            <div className={styles.email}>
+                                <p>Почта: {store.user.email}</p>
+                            </div>
+                        </div>
+
+                    ) : (
+                        <p>Loading...</p>
+                    )}
+                    </div>
                 </div>
             <Footer/>
         </div>

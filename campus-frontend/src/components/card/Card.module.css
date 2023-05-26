@@ -20,6 +20,15 @@
 .content{
     margin-top: 12px;
     margin-left: 25px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    color: #000000;
 }
 
 .title a{
@@ -36,32 +45,6 @@
 
 .title a:hover{
     color: #F42E30;
-}
-
-.firstText{
-    font-style: normal;
-    font-weight: 500;
-    font-size: 15px;
-    line-height: 18px;
-    display: flex;
-    align-items: center;
-    margin-bottom: 15px;
-
-    color: #000000;
-}
-
-.secondText{
-    margin-top: 5px;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 13px;
-    line-height: 16px;
-    /* identical to box height */
-
-    display: flex;
-    align-items: center;
-
-    color: #000000;
 }
 
 .link button{
@@ -85,7 +68,36 @@
 
 .link{
     margin-left: 25px;
-    margin-top: 25px;
+    margin-top: 22px;
 }
 
+@media(max-width:480px){
+    .card{
+        width: 90vw;
+        height: 235px;
+        margin-left: 15px;
+        margin-bottom: 30px;
+    }
+    
+    .content{
+        margin-left: 15px;
+        font-size: 13px;
+    }
+    
+    .title a{
+        font-size: 20px;
+        margin-top: 10px;
+        margin-left: 15px;
+    }
+    
+    
+    .link button{
+        font-size: 15px;
+    }
+    
+    .link{
+        margin-left: 15px;
+        margin-top: 15px;
+    }
+}
 

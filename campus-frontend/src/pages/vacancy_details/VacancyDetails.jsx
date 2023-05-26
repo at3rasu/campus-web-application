@@ -20,7 +20,7 @@ export const VacancyDetails = observer(() =>{
     }
 
     return(
-        <div className="ListVac">
+        <div className={styles.page}>
             <Header />
             <div className={styles.container}>
                 <div className={styles.cardCompany}>
