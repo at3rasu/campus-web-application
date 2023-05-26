@@ -52,14 +52,11 @@ export default class VacancyStore{
     async getAllVacancies(){
         try{
             const response = await api.get("/vacancies/get_all_vacancies")
-            console.log(response)
             this.vacancies = response.data
             runInAction(() => {
                 this.vacancies = response.data
                 this.vacancyCount = response.data.length
-                console.log(response)
             })
-            console.log(response)
             return response
         }catch(e){
             console.log(e.response?.data?.message)
