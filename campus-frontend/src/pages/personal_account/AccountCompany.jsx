@@ -1,10 +1,12 @@
 import styles from './AccountCompany.module.css'
 import { Header } from '../../components/header/Header_2'
 import { Footer } from '../../components/footer/Footer'
+import { useContext } from 'react'
+import { Context } from '../..'
 
 export const AccountCompany = () =>{
     
-
+    const {store} = useContext(Context)
     return(
         <div className={styles.page}>
             <Header/>
@@ -14,7 +16,30 @@ export const AccountCompany = () =>{
                         <h1>Профиль</h1>
                         <hr></hr>    
                     </div>
-                </div>
+
+                    <div> 
+                        <h1>Личные данные</h1>
+
+                        {store.user && store.user.companyName ? (
+                            <div>
+                                <div className={styles.login}>
+                                    <p>Логин: {store.user.login}</p>
+                                </div>
+
+                                <div className={styles.companyName}>
+                                    <p>Название компании: {store.user.companyName}</p>
+                                </div>
+                                
+                                <div className={styles.email}>
+                                    <p>Почта: {store.user.email}</p>
+                                </div>
+                            </div>
+
+                        ) : (
+                            <p>Loading...</p>
+                        )}
+                        </div>
+                    </div>  
             <Footer/>
         </div>
     )
