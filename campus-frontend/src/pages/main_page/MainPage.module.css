@@ -16,7 +16,7 @@
 }
 
 .fisrtContent{
-    height: 715px;
+    height: 745px;
     max-width: 1650px;
     width: 90%;
     margin: 0 auto;
@@ -214,7 +214,7 @@
 
 .img{
     position: absolute;
-    top: 386px;
+    top: 416px;
     border-radius: 0 50px;
     pointer-events: none;
 }

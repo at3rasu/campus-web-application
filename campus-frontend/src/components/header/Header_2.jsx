@@ -33,12 +33,18 @@ export const Header = observer(() =>{
                     </div>
                 )}
                 <div className={styles.link}>
-                    <Link to='/AboutUs' className={styles.fistLink}>О нас</Link>
-                    <Link to='/Vacancy'>Вакансии</Link>
                     {store.IsAuthCompany ? (
-                        <Link to='/PostVacancy'>Разместить вакансию</Link>
+                        <>
+                            <Link to='/PostVacancy'>Разместить вакансию</Link>
+                            <Link to='/VacancyCompany'>Мои вакансии</Link>
+                            <Link to='/Employers'>Помощь</Link>
+                        </>
                     ):(
-                        <AuthError button={button}/>
+                        <>
+                            <AuthError button={button}/>
+                            <Link to='/Employers'>Партнерам</Link>
+                            <Link to='/Employers'>Помощь</Link>
+                        </>    
                     )}
                 </div>
                 <div className={styles.btn}>

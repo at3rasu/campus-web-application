@@ -57,6 +57,7 @@
 .link{
     padding-top: 35px;
     display: flex;
+    gap: 20px;
 }
 
 .link a{
@@ -66,7 +67,7 @@
     font-weight: 400;
     font-size: 18px;
     line-height: 22px;
-    margin-right: 20px;
+
     /* identical to box height */
     height: 45px;
     display: flex;
@@ -74,7 +75,6 @@
     background: #EFEFEF;
     border-radius: 1000px;
     padding: 0 25px;
-
     color: #333333;
 }
 
@@ -99,6 +99,6 @@
 
 .btn{
     padding-top: 30px;
-    padding-left: 324px;
+    padding-left: 307px;
 }
 

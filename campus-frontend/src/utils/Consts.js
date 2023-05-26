@@ -31,3 +31,4 @@ export const PrivateRouteUser = () =>{
         store.IsAuth ? <Outlet /> : <Error403 route={route}/>
     )
 }
+

@@ -12,9 +12,10 @@
     font-weight: 400;
     font-size: 16px;
     line-height: 19px;
-    color: rgba(255, 71, 71, 0.34);
+    
     border: none;
     padding: 20px 13px;
+    outline: none;
 }
 
 .search{

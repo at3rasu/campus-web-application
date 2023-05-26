@@ -35,15 +35,15 @@ export const Header = observer(() =>{
                 <div className={styles.link}>
                     {store.IsAuth ? (
                         <>  
-                            <Link to='/UserResume' className={styles.fistLink}>Мои резюме</Link>
                             <Link to='/CreateResume'>Создать резюме</Link>
                             <Link to='/Vacancy'>Вакансии</Link>
+                            <Link to='/UserResume' className={styles.fistLink}>Мои резюме</Link>
                         </>                 
                     ):(
                         <>
-                            <Link to='/AboutUs' className={styles.fistLink}>О нас</Link>
                             <AuthError button={button}/>
                             <Link to='/Vacancy'>Вакансии</Link>
+                            <Link to='/' className={styles.fistLink}>Помощь</Link>
                         </>
                     )}
                 </div>
