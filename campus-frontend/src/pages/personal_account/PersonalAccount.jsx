@@ -1,10 +1,11 @@
 import styles from './PersonalAccount.module.css'
 import { Header } from '../../components/header/Header'
 import { Footer } from '../../components/footer/Footer'
-import { Context } from '../..'
 import { useContext } from 'react'
+import { Context } from '../..'
+import { observer } from 'mobx-react'
 
-export const PersonalAccount = () =>{
+export const PersonalAccount = observer(() =>{
     const {store} = useContext(Context)
 
     return(
@@ -20,7 +21,7 @@ export const PersonalAccount = () =>{
                     <div> 
                     <h1>Личные данные</h1>
 
-                    {store.user && store.user.name && store.user.surname ? (
+                    {store.user && store.user.login ? (
                         <div>
                             <div className={styles.login}>
                                 <p>Логин: {store.user.login}</p>
@@ -43,5 +44,5 @@ export const PersonalAccount = () =>{
             <Footer/>
         </div>
     )
-}
+})
 

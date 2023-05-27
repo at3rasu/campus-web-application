@@ -140,23 +140,40 @@
         max-width: 340px;
     }
 
+    .page{
+        overflow: hidden;
+    }
+
+    .hrData{
+        width: 100%;
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+
+    .title{
+        padding-top: 53px;
+    }
+
     .title h1{
-        font-size: 28px;
+        font-size: 23px;
         white-space: nowrap;
     }
 
     .briefInfo{
-        font-size: 20px;
+        font-size: 19px;
     }
         
     .inputData label{
-        font-size: 20px;
+        font-size: 17px;
+    }
+
+    .inputData{
+        margin-top: 20px;
     }
     
     .inputData input{
         width: 96%;
-        height: 30px;
-        font-size: 18px;
+        font-size: 16px;
     }
     
     .buttonSubmit{
@@ -164,8 +181,8 @@
     }
     
     .buttonSubmit button{
-        width: 320px;
-        font-size: 18px;
+        width: 96%;
+        font-size: 16px;
     }
 }
 

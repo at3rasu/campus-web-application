@@ -12,9 +12,10 @@
     font-weight: 400;
     font-size: 16px;
     line-height: 19px;
-    color: rgba(255, 71, 71, 0.34);
+    
     border: none;
     padding: 20px 13px;
+    outline: none;
 }
 
 .search{
@@ -48,4 +49,55 @@
 .vacancy{
     width: 1396px;
     margin: 0 auto;
+}
+
+@media(max-width:480px){
+    .page{
+        overflow: hidden;
+    }
+    
+    .container{
+        min-height: calc(100vh - 80px);
+    }
+    
+    .inputSearch input{
+        background: #ECECEC;
+        border-radius: 20px;
+        width: 90vw;
+        height: 36px;
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 19px;
+        
+        border: none;
+        padding: 20px 13px;
+        outline: none;
+    }
+    .inputSearch{
+        margin-left: 10px;
+    }
+    
+    .search{
+        width: 380px;
+        margin-top: 45px;
+    }
+    
+    .sortVacancy{
+        margin-top: 30px;
+        font-size: 18px;
+        margin-left: 10px;
+    }
+    
+    .hr{
+        margin-top: 14px;
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        margin-bottom: 50px;
+    }
+    
+    .vacancy{
+        width: 380px;
+        margin: 0 auto;
+    }
 }

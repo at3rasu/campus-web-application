@@ -16,7 +16,7 @@
 }
 
 .fisrtContent{
-    height: 715px;
+    height: 745px;
     max-width: 1650px;
     width: 90%;
     margin: 0 auto;
@@ -214,7 +214,7 @@
 
 .img{
     position: absolute;
-    top: 386px;
+    top: 416px;
     border-radius: 0 50px;
     pointer-events: none;
 }
@@ -381,7 +381,7 @@
     }
 
     .firstText p{
-        font-size: 19px;
+        font-size: 18px;
         width: 340px;
         margin-top: 30px;
         margin-left: 15px;
@@ -393,7 +393,7 @@
     }
 
     .thirdContainer{
-        height: 837px;
+        height: 800px;
     }
 
     .secondText{
@@ -416,7 +416,7 @@
     .textContent{ 
         display: flex;
         flex-direction: column;
-        font-size: 20px;
+        font-size: 18px;
         line-height: 25px;
         padding-top: 42px;
         gap: 60px;

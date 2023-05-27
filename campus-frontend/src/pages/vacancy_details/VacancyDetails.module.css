@@ -129,3 +129,94 @@
 .content{
     width: 971px;
 }
+
+@media(max-width:480px){
+    .container{
+        width: 480px;
+        margin: 30px 0;
+    }
+
+    .vacancy button{
+        width: 90vw;
+        height: 30px;
+        font-size: 15px;
+        margin: 15px 20px;
+    }
+
+    .cardCompany{
+        flex-direction: column;
+    }
+    .vacancy{
+        box-shadow: none;
+        width: 100vw;
+        height: 230px;
+    }
+    
+    .company{
+        box-shadow: none;
+        width: 100vw;
+        margin-left: 0;
+        height: 130px;
+    }
+
+    .company h1{
+        font-size: 25px;
+        padding: 0 20px;
+    }
+    
+    .company p{
+        padding: 20px;
+    }
+
+    .vacancy h1{
+        font-size: 25px;
+        margin: 20px;
+    }
+    
+    .vacancy p{
+        height: 100px;
+        font-size: 14px;
+        margin: 5px 20px;
+        width: 380px;
+    }
+    
+    .content h3{
+        margin: 20px 0px;
+        font-weight: 600;
+        font-size: 18px;
+        margin-left: 10px;
+    }
+    
+    .content li{
+        font-size: 14px;
+        width: 360px;
+    }
+    
+    .secondContent{
+        margin: 20px 0;
+        width: 100vw;
+    }
+    
+    .secondContent h3{
+        font-size: 15px;
+        margin-left: 20px;
+    }
+    
+    .secondContent h1{
+        font-size: 18px;
+        margin-bottom: 5px;
+        margin-left: 10px;
+    }
+    
+    .secondContent span{
+        font-size: 14px;
+    }
+    
+    .content{
+        width: 100vw;
+    }
+
+    .page{
+        overflow: hidden;
+    }
+}

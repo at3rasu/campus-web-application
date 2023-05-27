@@ -142,5 +142,39 @@
 .btn{
     padding-top: 30px;
     padding-left: 370px;
+    
 }
+
+.modileHeader{  
+    height: 85px;
+}
+
+.modileBtn{
+    background-image: url(/public/img/btnBack.svg);
+    background-repeat: no-repeat;
+    height: 100px;
+    width: 100px;
+}
+
+.modileBtn button{
+    background: none;
+    border: none;
+    outline: none;
+    padding: 30px 20px;
+}
+
+.modileContainer{
+    padding-top: 24px;
+    display: flex;
+    gap: 12%;
+}
+
+.b{
+    background-color: #F52D30;
+    height: 10px;
+    margin-top: -38px;
+}
+
+
+
 

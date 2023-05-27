@@ -8,42 +8,42 @@ import { observer } from 'mobx-react'
 
 
 export const Vacancy = observer(() =>{
-    const filterVacancies = (searchText, vacancies) => {
-        if (!searchText) {
-            return vacancies;
-        }
-        return vacancies.filter(({ nameVacancy }) =>
-            nameVacancy.toLowerCase().includes(searchText.toLowerCase())
-        );
-    }
 
     useEffect(() => {
         document.title = 'Вакансии'
     })
 
     const {vacancyStore} = useContext(Context)
+
     useEffect(() => {
         vacancyStore.getAllVacancies()
     }, [vacancyStore])
 
-    const data = vacancyStore.vacancies;
-    const [searchTerm, setSearchTerm] = useState('');
-    const [vacanciesList, setVacanciesList] = useState(data);
-
-
     useEffect(() => {
         const Debounce = setTimeout(() => {
-        const filteredVacancies = filterVacancies(searchTerm, data);
-        setVacanciesList(filteredVacancies);
-        }, 300);
+        const filteredVacancies = filterVacancies(searchTerm, data)
+        setVacanciesList(filteredVacancies)
+        }, 300)
 
-        return () => clearTimeout(Debounce);
-    }, [searchTerm]);
+        return () => clearTimeout(Debounce)
+    })
 
+    const data = vacancyStore.vacancies
+    const [searchTerm, setSearchTerm] = useState('')
+    const [vacanciesList, setVacanciesList] = useState(data)
+
+    const filterVacancies = (searchText, vacancies) => {
+        if (!searchText) {
+            return vacancies
+        }
+        return vacancies.filter(({ nameVacancy }) =>
+            nameVacancy.toLowerCase().includes(searchText.toLowerCase())
+        )
+    }
     
     return(
 
-        <div className="vacancy">
+        <div className={styles.page}>
             <Header />
             <div className={styles.container}>
                 <div className={styles.search}>
@@ -51,10 +51,11 @@ export const Vacancy = observer(() =>{
                         <input
                             onChange={(e) => setSearchTerm(e.target.value)}
                             type="search"
-                            placeholder="Введите название вакансии..."></input>
+                            placeholder="Поиск...">    
+                        </input>
                     </div>
                     <div className={styles.sortVacancy}>
-                        <label>Найдено {data.length} вакансий</label>
+                        <label>Найдено {vacanciesList.length} вакансий</label>
                     </div>
                 </div>
                 <hr className={styles.hr}></hr>

@@ -174,3 +174,60 @@
     color: #352F2F
 }
 
+@media(max-width:480px){
+    .container{
+        margin: 0 auto;
+        max-width: 340px;
+    }
+
+    .page{
+        overflow: hidden;
+    }
+
+    .hrData{
+        width: 100%;
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+
+    .title{
+        padding-top: 53px;
+    }
+
+    .title h1{
+        font-size: 23px;
+        white-space: nowrap;
+    }
+
+    .briefInfo{
+        font-size: 19px;
+    }
+        
+    .inputData label{
+        font-size: 17px;
+    }
+
+    .inputData{
+        margin-top: 20px;
+    }
+    
+    .inputData input{
+        width: 96%;
+        font-size: 16px;
+    }
+
+    .inputData textarea{
+        width: 96%;
+        font-size: 16px;
+    }
+    
+    .buttonSubmit{
+        margin-top: 50px;
+    }
+    
+    .buttonSubmit button{
+        width: 96%;
+        font-size: 16px;
+    }
+}
+

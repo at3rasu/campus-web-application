@@ -71,9 +71,12 @@ export default class VacancyStore{
         this.selectedVacancy = this.getVacancyById(id)
     }
 
-    getVacanciesByUser = async () => {
+    async getVacanciesByUser() {
         try{
             const response = await api.get(`/users-company/get_vacancies`)
+            runInAction(() => {
+                this.vacancies = response.data
+            })
             console.log(response)
             return response
         } catch(e) {
