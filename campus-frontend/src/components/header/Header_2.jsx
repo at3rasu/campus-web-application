@@ -6,7 +6,8 @@ import { observer } from 'mobx-react'
 import { AuthBtn } from "../button/AuthBtn"
 import { AccountBtn } from "../button/AccountBtn"
 import { AuthError } from "../alert/AuthError"
-import { DropDownMenu } from "../dropDown_menu/DropDownMenu"
+import { DropDownMenu, DropDownMenuCompany } from "../dropDown_menu/DropDownMenu"
+import { notify } from "../../utils/Consts"
 
 export const Header = observer(() =>{
     const {store} = useContext(Context)
@@ -37,8 +38,12 @@ export const Header = observer(() =>{
 
     const [open, setOpen] = useState(false)
     const link = <Link to='/'><img src='/img/vec.svg' alt=''/> Стажерам</Link>
-    const link1 = <Link to='/'>Разместить вакансию</Link>
-    const link2 = <Link to='/'>Партнерам</Link>
+    const link1 = <>{store.IsAuth ?(
+                <Link to='/PostVacancy'>Разместить вакансию</Link>
+            ):(
+                <button onClick={notify}>Разместить вакансию</button>
+            )}</>
+    const link2 = <Link to='/Employers'>Партнерам</Link>
 
     return(
         <>
@@ -55,7 +60,7 @@ export const Header = observer(() =>{
                         </div>                
                     </div>
                     <div className={`dropdown-menu ${open? 'active' : 'inactive'}`}>
-                        <DropDownMenu
+                        <DropDownMenuCompany
                             handleLogout={handleLogout} 
                             auth={auth}
                             link={link}
