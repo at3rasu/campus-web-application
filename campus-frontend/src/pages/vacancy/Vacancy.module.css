@@ -52,6 +52,10 @@
 }
 
 @media(max-width:480px){
+    .page{
+        overflow: hidden;
+    }
+    
     .container{
         min-height: calc(100vh - 80px);
     }
@@ -93,7 +97,7 @@
     }
     
     .vacancy{
-        width: 100vw;
+        width: 380px;
         margin: 0 auto;
     }
 }

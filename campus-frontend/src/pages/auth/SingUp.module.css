@@ -9,18 +9,6 @@
 .box{
     font-family: 'Inter', sans-serif;
     width: 661px;
-    height: 880px;
-    background: #FFFFFF;
-    box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.11);
-    border-radius: 64px;
-    display: flex;
-    flex-direction: column;
-}
-
-.boxCompany{
-    font-family: 'Inter', sans-serif;
-    width: 661px;
-    height: 832px;
     background: #FFFFFF;
     box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.11);
     border-radius: 64px;
@@ -110,7 +98,7 @@
 
 .next button{
     font-family: 'Inter', sans-serif;
-    margin-top: 15px;
+    margin: 15px 0;
     background: none;
     border: none;
     font-weight: 400;
@@ -135,8 +123,8 @@
 }
 
 
-@media (max-width:768px){
-    .box-reg{
+@media (max-width:480px){
+    .box{
         width: 370px;
         height: 900px;
         border-radius: 26px;
@@ -146,17 +134,17 @@
         box-shadow: none;
     }
 
-    .reg-up{
+    .title{
         margin-top: 10px;
         display: grid;
     }
     
-    .reg-up img{
+    .title img{
         margin-left: 37%;
         width: 90px;
     }
 
-    .reg-up h1{
+    .title h1{
         margin-top: 15px;
         font-style: normal;
         font-weight: 700;
@@ -164,33 +152,46 @@
         margin-bottom: 15px;
     }
 
-    .input-dt{
+    .inputData{
         display: flex;
-        padding: 0 7%;
+        padding: 0 5%;
         padding-bottom: 10px;
     }
+
+    .inputData input{
+        font-size: 15px;
+    }
     
-    .accept{
+    .checkBox{
         margin-left: -44px;
     }
 
-    .accept input{
+    .checkBox input{
         padding-top: 35px;
         padding-right: 1px;
     }
 
-    .accept p{
-        font-size: 17px;
-        margin-left: -50px;
+    .checkBox p{
+        font-size: 16px;
+        margin-left: -55px;
         
     }
 
-    .button button{
+    .btn button{
         font-size: 16px;
     }
 
-    .button{
-        padding: 0 8%;
+    .btn{
+        padding: 0 5%;
         padding-top: 32px;
+    }
+
+    .next button{
+        font-size: 16px;
+    }
+
+    .error{
+        margin-left: 5%;
+        font-size: 14px;
     }
 }

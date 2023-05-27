@@ -7,6 +7,7 @@ import { AuthBtn } from "../button/AuthBtn"
 import { AccountBtn } from "../button/AccountBtn"
 import { AuthError } from "../alert/AuthError"
 import { DropDownMenu } from "../dropDown_menu/DropDownMenu"
+import { notify } from "../../utils/Consts"
 
 export const Header = observer(() =>{
     const {store} = useContext(Context)
@@ -35,6 +36,13 @@ export const Header = observer(() =>{
     }, [])
 
     const [open, setOpen] = useState(false)
+    const link = <Link to='/Employers'><img src='/img/emp.svg' alt=''/> Работодателям</Link>
+    const link1 = <>{store.IsAuth ?(
+                        <Link to='/CreateResume'>Создать резюме</Link>
+                    ):(
+                        <button onClick={notify}>Создать резюме</button>
+                    )}</>
+    const link2 = <Link to='/Vacancy'>Вакансии</Link>
 
     return(
         <>
@@ -51,7 +59,12 @@ export const Header = observer(() =>{
                         </div>                
                     </div>
                     <div className={`dropdown-menu ${open? 'active' : 'inactive'}`}>
-                        <DropDownMenu handleLogout={handleLogout}/>
+                        <DropDownMenu
+                            handleLogout={handleLogout} 
+                            auth={auth} 
+                            link={link}
+                            link1={link1}
+                            link2={link2}/>
                     </div>
                     <div className={styles.b}></div>
                 </div>

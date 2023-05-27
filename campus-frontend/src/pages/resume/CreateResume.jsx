@@ -62,7 +62,7 @@ export const CreateResume = () =>{
       }
 
     return(
-        <div className='resume-page'>
+        <div className={styles.page}>
             <Header />
             <form className={styles.container} onSubmit={handleSubmit}>
                 <div className={styles.title}>

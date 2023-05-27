@@ -3,14 +3,9 @@ import styles from './DropDownMenu.module.css'
 import { observer } from 'mobx-react'
 import { useContext } from 'react'
 import { Context } from '../..'
-import { AuthBtn } from '../button/AuthBtn'
 
-export const DropDownMenu = observer(({handleLogout, onClick}) =>{
+export const DropDownMenu = observer(({handleLogout, auth, link, link1, link2}) =>{
     const {store} = useContext(Context)
-    const router = '/SingUp'
-    // const account = '/PersonalAccount'
-    const auth = '/SingIn'
-    
 
     return(
         <>
@@ -52,7 +47,7 @@ export const DropDownMenu = observer(({handleLogout, onClick}) =>{
                         <li className={styles.link}>
                             <Link to='/PersonalAccount'>Настройки</Link>
                         </li>
-                        <div className={styles.link}>
+                        <div className={styles.button}>
                             <button onClick={handleLogout}>Выйти</button>
                         </div>   
                     </ul>
@@ -60,14 +55,18 @@ export const DropDownMenu = observer(({handleLogout, onClick}) =>{
             ):(
                 <div className={styles.component1}>
                     <ul>
-                        <div className={styles.singIn}>
-                            <AuthBtn router={router} auth={auth}/>
-                        </div>
+                        <li className={styles.lk}>
+                            <Link to={auth}><img src='/img/union2.svg' alt=''/> Вход в личный кабинет</Link>
+                        </li>
+                        <hr style={{border:"1px solid #9AA5B5", marginBottom:'10px'}}></hr>
                         <li className={styles.link}>
-                            <Link to='/'>Разместить вакансию</Link>
+                            {link}
                         </li>
                         <li className={styles.link}>
-                            <Link to='/Vacancy'>Вакансии</Link>
+                            {link1}
+                        </li>
+                        <li className={styles.link}>
+                            {link2}
                         </li>
                         <li className={styles.link}>
                             <Link to='/'>Помощь</Link>

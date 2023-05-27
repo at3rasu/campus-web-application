@@ -7,7 +7,7 @@ export const FormRegisterCompany = () => {
     const navigate = useNavigate()
 
     return (
-        <Form className={styles.boxCompany}>
+        <Form className={styles.box}>
             <div className={styles.title}>
                     <img src='/img/Union.svg' alt='campus_logo'/>
                     <h1>Регистрация</h1>

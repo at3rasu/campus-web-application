@@ -42,7 +42,7 @@ export const Vacancy = observer(() =>{
     
     return(
 
-        <div className="vacancy">
+        <div className={styles.page}>
             <Header />
             <div className={styles.container}>
                 <div className={styles.search}>
