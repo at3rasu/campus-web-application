@@ -20,20 +20,6 @@ async function start() {
 
   app.useStaticAssets(join(__dirname, '..', 'build'));
   
-  
-  // app.use('*', (req, res) => {
-  //   res.sendFile(join(__dirname, '..', 'build', 'index.html'));
-  // });
-
-  // app.use(/^\/(?!api\/).*$/, (req, res, next) => {
-  //   const filePath = join(__dirname, '..', 'build', req.path);
-  //   res.sendFile(filePath, err => {
-  //     if (err) {
-  //       next(new NotFoundException());
-  //     }
-  //   });
-  // });
-
   await app.listen(PORT, () => console.log('Server started on port default ' + PORT))
   
 }

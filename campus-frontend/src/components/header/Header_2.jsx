@@ -6,7 +6,7 @@ import { observer } from 'mobx-react'
 import { AuthBtn } from "../button/AuthBtn"
 import { AccountBtn } from "../button/AccountBtn"
 import { AuthError } from "../alert/AuthError"
-import { DropDownMenu, DropDownMenuCompany } from "../dropDown_menu/DropDownMenu"
+import { DropDownMenuCompany } from "../dropDown_menu/DropDownMenu"
 import { notify } from "../../utils/Consts"
 
 export const Header = observer(() =>{

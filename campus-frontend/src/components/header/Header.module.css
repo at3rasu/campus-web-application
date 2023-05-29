@@ -141,8 +141,7 @@
 
 .btn{
     padding-top: 30px;
-    padding-left: 370px;
-    
+    padding-left: 287px;
 }
 
 .modileHeader{  
@@ -166,7 +165,11 @@
 .modileContainer{
     padding-top: 24px;
     display: flex;
-    gap: 12%;
+}
+
+.modileLogo{
+    width: 200px;
+    margin: 0 auto;
 }
 
 .b{
@@ -174,6 +177,15 @@
     height: 10px;
     margin-top: -38px;
 }
+
+
+@media (max-width: 1600px){                        
+    .btn{
+        padding-top: 30px;
+        padding-left: 110px;     
+    }
+}
+
 
 
 

@@ -17,6 +17,7 @@ export const AccountCompany = observer(() =>{
                         <h1>Личные данные</h1>
                         <hr></hr>    
                     </div>
+
                     <div> 
                         {store.user && store.user.companyName ? (
                             <div>

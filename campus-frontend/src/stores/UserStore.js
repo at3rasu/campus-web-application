@@ -81,7 +81,6 @@ export default class UserStore{
     async loadUser() {
         try {
             const user_response = await api.get('/users/get_user')
-            console.log(1)
             this.user = user_response.data
         } catch (error) {
             console.log('Error loading user:', error)

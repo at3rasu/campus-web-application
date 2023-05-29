@@ -1,7 +1,7 @@
 import styles from './MainPage.module.css'
 import { Header } from "../../components/header/Header"
 import { Footer } from "../../components/footer/Footer"
-import { Link, useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 import { useContext, useEffect } from "react"
 import { Context } from '../..'
 import { notify } from '../../utils/Consts'
@@ -18,7 +18,6 @@ export const MainPage = () => {
         <div className={styles.page}>
             <Header />
             <div className={styles.container}>
-                <Link to='/AccountCompany'>Верстальщик</Link>
                 <div className={styles.firstContainer}>
                     <div className={styles.fisrtContent}>
                         <div className={styles.firstText}>

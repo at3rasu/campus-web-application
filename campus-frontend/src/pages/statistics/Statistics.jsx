@@ -1,8 +1,7 @@
 import styles from './Statistics.module.css'
 import { ChartRegister } from '../../components/charts/ChartRegister'
 import { ChartCity } from '../../components/charts/ChartCity'
-import { useEffect, useState } from 'react'
-import { Table } from '../../components/charts/Table'
+import { useEffect } from 'react'
 
 export const Statistics = () => {
     useEffect(() => {

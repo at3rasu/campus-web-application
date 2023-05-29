@@ -21,6 +21,8 @@ const users_company_model_1 = require("./users-company/users-company.model");
 const user_company_roles_1 = require("./roles/user_company_roles");
 const vacancies_model_1 = require("./vacancies/vacancies.model");
 const vacancies_module_1 = require("./vacancies/vacancies.module");
+const serve_static_1 = require("@nestjs/serve-static");
+const path = require("path");
 const resume_module_1 = require("./resume/resume.module");
 const resume_model_1 = require("./resume/resume.model");
 let AppModule = class AppModule {
@@ -32,6 +34,9 @@ AppModule = __decorate([
         imports: [
             config_1.ConfigModule.forRoot({
                 envFilePath: '.development.env'
+            }),
+            serve_static_1.ServeStaticModule.forRoot({
+                rootPath: path.join(__dirname, '..', 'build'),
             }),
             sequelize_1.SequelizeModule.forRoot({
                 dialect: 'postgres',

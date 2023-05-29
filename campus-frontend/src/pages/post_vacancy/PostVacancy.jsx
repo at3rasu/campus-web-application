@@ -9,12 +9,12 @@ import { createVacancy } from '../../api/vacancy-api'
 import { toast } from 'react-toastify'
 
 export const PostVacancy = () =>{
-    const onChange = (file) => {
-        const { files } = file.target;
-        if (files && files.length !== 0) {
-            setImage(files[0]);
-        }
-    }
+    // const onChange = (file) => {
+    //     const { files } = file.target;
+    //     if (files && files.length !== 0) {
+    //         setImage(files[0]);
+    //     }
+    // }
     useEffect(() => {
         document.title = 'Опубликовать вакансию'
     })
@@ -29,8 +29,8 @@ export const PostVacancy = () =>{
     const [fullAddress, setFullAddress] = useState('')
     const [number, setNumber] = useState('')
     const [email, setEmail] = useState('')
-    const [image, setImage] = useState();
-
+    // const [image, setImage] = useState();
+    const image =undefined
     const handleSubmit = (e) => {
         e.preventDefault();
         if (!number || !email || !skills || !nameCompany|| !nameVacancy
@@ -77,7 +77,13 @@ export const PostVacancy = () =>{
     }
 
     
-    
+    const getTextAreaHeight = (text) => {
+        const lineHeight = 30
+        const lines = text.split('\n').length
+        const minHeight = 50
+        return `${Math.max(lines * lineHeight, minHeight)}px`;
+    }
+
     return(
         <div className={styles.postVacancy}>
             <Header />
@@ -133,7 +139,7 @@ export const PostVacancy = () =>{
                             type='text'
                             value={duties} 
                             placeholder='Введите обязанности стажера, для разделения текста воспользуйтесь символом новой строки(Enter)'
-                            style={{ resize: "none" }}
+                            style={{ height: getTextAreaHeight(duties), resize:'none' }}
                             onChange={(e) => setDuties(e.target.value)}></textarea>
                     </div>
                     <div className={styles.inputData}>
@@ -141,7 +147,7 @@ export const PostVacancy = () =>{
                         <textarea
                             type='text'
                             value={expectations}
-                            style={{ resize: "none" }} 
+                            style={{ height: getTextAreaHeight(expectations), resize:'none' }} 
                             placeholder='Введите знания, которыми должен обладать стажер, для разделения текста воспользуйтесь символом новой строки(Enter)'
                             onChange={(e) => setExpectations(e.target.value)}></textarea>
                     </div>
@@ -150,7 +156,7 @@ export const PostVacancy = () =>{
                         <textarea
                             type='text'
                             value={skills} 
-                            style={{ resize: "none" }}
+                            style={{ height: getTextAreaHeight(skills), resize:'none' }}
                             placeholder='Введите знания, которые будут плюсом к основным, для разделения текста воспользуйтесь символом новой строки(Enter)'
                             onChange={(e) => setSkills(e.target.value)}></textarea>
                     </div>
@@ -159,7 +165,7 @@ export const PostVacancy = () =>{
                         <textarea
                             type='text'
                             value={conditions} 
-                            style={{ resize: "none" }}
+                            style={{ height: getTextAreaHeight(conditions), resize:'none' }}
                             placeholder='Введите условия работы, для разделения текста воспользуйтесь символом новой строки(Enter)'
                             onChange={(e) => setConditions(e.target.value)}></textarea>
                     </div>
@@ -208,7 +214,7 @@ export const PostVacancy = () =>{
                             type='submit'
                             onClick={ 
                                 async () => {
-                                const response = await createVacancy (nameVacancy, nameCompany, companyDescription, duties,
+                                await createVacancy (nameVacancy, nameCompany, companyDescription, duties,
                                     expectations, skills, conditions, image, fullAddress, number, email)
                                 }
                             }

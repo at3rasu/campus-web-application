@@ -81,7 +81,6 @@
 .inputData input{
     font-family: 'Inter';
     width: 98%;
-    height: 48px;
     background-color: #fafafa;
     border:0;
     box-shadow:0 0 4px rgba(0,0,0,0.3);
@@ -96,6 +95,7 @@
     font-family: 'Inter';
     width: 98%;
     height: 48px;
+    overflow: hidden;
     background-color: #fafafa;
     border:0;
     box-shadow:0 0 4px rgba(0,0,0,0.3);

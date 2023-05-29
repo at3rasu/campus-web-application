@@ -8,7 +8,6 @@ import { observer } from 'mobx-react'
 
 
 export const Vacancy = observer(() =>{
-
     useEffect(() => {
         document.title = 'Вакансии'
     })

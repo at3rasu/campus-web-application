@@ -4,8 +4,6 @@
     border-radius: 20px;
     width: 90vw;
     max-width: 1255px;
-    height: 30vh;
-    max-height: 263px;
     font-family: 'Inter';
     font-style: normal;
     margin: 50px 262px;
@@ -40,7 +38,7 @@
 
 .text{
     display: flex;
-    padding: 15px 0 59px 30px;
+    padding: 15px 0 39px 30px;
 }
 
 .text p{
@@ -68,12 +66,12 @@
 
 .url{
     padding-left: 30px;
+    padding-bottom: 20px;
 }
 
 @media (max-width: 480px){
     .component{
         max-height: 400px;
-        height: 330px;
         border-radius: 15px;
         margin: 50px 20px;
     }

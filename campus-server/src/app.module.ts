@@ -1,4 +1,4 @@
-import { Module } from "@nestjs/common";
+import { MiddlewareConsumer, Module, NestModule } from "@nestjs/common";
 import { ConfigModule } from "@nestjs/config";
 import { SequelizeModule } from "@nestjs/sequelize";
 import { UsersModule } from "./users/users.module";
@@ -21,7 +21,8 @@ import { Resume } from "./resume/resume.model";
 
 
 @Module({
-    controllers: [],
+    controllers: [
+    ],
     providers: [],
     imports: [
       ConfigModule.forRoot({
@@ -31,11 +32,8 @@ import { Resume } from "./resume/resume.model";
       // ServeStaticModule.forRoot({
       //   rootPath: path.join(__dirname, 'uploads'), // Путь к папке с загруженными файлами
       // }),
-
       ServeStaticModule.forRoot({
-
         rootPath: path.join(__dirname, '..', 'build'),
-        
       }),
 
       SequelizeModule.forRoot({
@@ -66,4 +64,11 @@ import { Resume } from "./resume/resume.model";
     ]
 })
 
+// export class AppModule implements NestModule{
+//   configure(consumer: MiddlewareConsumer) {
+//     consumer
+//       .apply(FrontendMiddleware)
+//       .forRoutes('**');
+//   }
+// }
 export class AppModule{}

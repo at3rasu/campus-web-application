@@ -32,3 +32,10 @@ export const PrivateRouteUser = () =>{
     )
 }
 
+export const getTextAreaHeight = (text) => {
+    const lineHeight = 30
+    const lines = text.split('\n').length
+    const minHeight = 50
+    return `${Math.max(lines * lineHeight, minHeight)}px`;
+}
+
