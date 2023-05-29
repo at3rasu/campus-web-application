@@ -3,39 +3,38 @@ import { AppModule } from "./app.module"
 import * as cookieParser from 'cookie-parser'
 import { CorsOptions } from "@nestjs/common/interfaces/external/cors-options.interface";
 import { NestExpressApplication } from "@nestjs/platform-express";
+import path, { join, resolve } from "path";
+import { NotFoundException } from "@nestjs/common";
 
 async function start() {
   const PORT = process.env.PORT || 5000
-  // const app = await NestFactory.create<NestFastifyApplication>(
-  //   AppModule,
-  //   new FastifyAdapter(),
-  // );
-  // await app.register(fastifyCookie, {
-  //   secret: 'my-secret', // for cookies signature
-  // });
-  const app = await NestFactory.create(AppModule)
+ 
+  const app = await NestFactory.create<NestExpressApplication>(AppModule)
+  // const app = await NestFactory.create(AppModule)
   app.use(cookieParser())
   app.enableCors({
     origin: true,
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
     credentials: true,
   })
-  // const app = await NestFactory.create(AppModule);
-  // var cors = require('cors')
-  // app.use(cors())
-  // Set CORS options
-  // const corsOptions: CorsOptions = {
-  //   origin: 'http://localhost:3000',
-  //   methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  //   credentials: true,
-  // };
+
+  app.useStaticAssets(join(__dirname, '..', 'build'));
   
-  // Enable CORS
-  // app.enableCors(corsOptions);
-  // const authRouter = require('./routers/auth-router')
-  // app.use('/auth', authRouter)
   
-  await app.listen(PORT, () => console.log('Server started on port ' + PORT))
+  // app.use('*', (req, res) => {
+  //   res.sendFile(join(__dirname, '..', 'build', 'index.html'));
+  // });
+
+  // app.use(/^\/(?!api\/).*$/, (req, res, next) => {
+  //   const filePath = join(__dirname, '..', 'build', req.path);
+  //   res.sendFile(filePath, err => {
+  //     if (err) {
+  //       next(new NotFoundException());
+  //     }
+  //   });
+  // });
+
+  await app.listen(PORT, () => console.log('Server started on port default ' + PORT))
   
 }
 
