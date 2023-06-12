@@ -19,6 +19,7 @@ export const ChartRegister = () =>{
     const data = {
         labels: ["Сен.", "Окт.", "Ноя.", "Дек.", "Янв.", "Фев."],
         datasets: [{
+            label: "Студентов",
             data: [ 24, 38, 45, 56, 61, 81, 91], 
             fill: true, // Закрасить область под линией данных
             backgroundColor: 'rgba(245, 45, 48, 0.21)'

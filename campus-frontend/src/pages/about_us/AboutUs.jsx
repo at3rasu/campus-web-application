@@ -1,6 +1,5 @@
-import { Footer } from "../../components/footer/Footer"
-import { Header } from "../../components/header/Header"
 import { useEffect } from "react"
+import { Header, Footer } from '../index'
 import styles from './AboutUs.module.css'
 
 export const AboutUs = () =>{

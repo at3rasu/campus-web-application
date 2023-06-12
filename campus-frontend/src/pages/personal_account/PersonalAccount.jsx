@@ -1,9 +1,8 @@
-import styles from './PersonalAccount.module.css'
-import { Header } from '../../components/header/Header'
-import { Footer } from '../../components/footer/Footer'
 import { useContext } from 'react'
-import { Context } from '../..'
 import { observer } from 'mobx-react'
+import { Header, Footer } from '../index'
+import { Context } from '../..'
+import styles from './PersonalAccount.module.css'
 
 export const PersonalAccount = observer(() =>{
     const {store} = useContext(Context)

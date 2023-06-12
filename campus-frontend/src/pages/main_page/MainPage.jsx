@@ -1,10 +1,9 @@
-import styles from './MainPage.module.css'
-import { Header } from "../../components/header/Header"
-import { Footer } from "../../components/footer/Footer"
-import { useNavigate } from "react-router-dom"
 import { useContext, useEffect } from "react"
+import { useNavigate } from "react-router-dom"
+import { Header, Footer } from "../index"
 import { Context } from '../..'
 import { notify } from '../../utils/Consts'
+import styles from './MainPage.module.css'
 
 export const MainPage = () => {
     const navigate = useNavigate()

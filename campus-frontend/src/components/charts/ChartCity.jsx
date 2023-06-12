@@ -1,15 +1,19 @@
 import styles from './ChartCity.module.css'
 import { useState } from 'react';
-import { Doughnut  } from 'react-chartjs-2'
+import { Pie } from 'react-chartjs-2'
 import {
     Chart as ChartJS,
     PieController,
     ArcElement,
+    Title, 
+    Legend
 }from 'chart.js'
 
 ChartJS.register(
     PieController,
     ArcElement, 
+    Title, 
+    Legend
 )
 
 export const ChartCity = () =>{
@@ -24,7 +28,10 @@ export const ChartCity = () =>{
       })
 
     const options = {
-        
+        legend: {
+            display: true,
+            position: "left"
+        },
         borderColor: 'white',
         pointBorderColor: 'red',
         pointRadius: 5,
@@ -36,13 +43,13 @@ export const ChartCity = () =>{
             "#F3B200",
             "#8269EF"
         ],
-        
     }
 
     return(
         <div className={styles.box}>
+            <h1>Статистика всех студентов</h1>
             <div className={styles.chart}>
-                <Doughnut  data={chartCity} options={options}></Doughnut>
+                <Pie  data={chartCity} options={options}></Pie>
             </div> 
         </div>
     )

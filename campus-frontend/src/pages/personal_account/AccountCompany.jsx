@@ -1,6 +1,5 @@
 import styles from './AccountCompany.module.css'
-import { Header } from '../../components/header/Header_2'
-import { Footer } from '../../components/footer/Footer'
+import { Header2, Footer } from '../index'
 import { useContext } from 'react'
 import { Context } from '../..'
 import { observer } from 'mobx-react-lite'
@@ -10,7 +9,7 @@ export const AccountCompany = observer(() =>{
     const {store} = useContext(Context)
     return(
         <div className={styles.page}>
-            <Header/>
+            <Header2 />
                 <div className={styles.container}>
                     <div className={styles.title}>
                         <hr></hr>

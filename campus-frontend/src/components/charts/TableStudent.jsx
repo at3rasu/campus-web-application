@@ -2,23 +2,24 @@ import { useMemo } from 'react'
 import { useTable, useFilters  } from 'react-table'
 import styles from './Table.module.css'
 
-export const Table = () => {
+export const TableStudent = () => {
 
   const data = useMemo(
     () => [
-      { name: 'Иманкулов Артур Александрович', city: "Екатеринбург", edu: 'УрФУ' },
-      { name: 'Обухов Даниил Александрович', city: "Екатеринбург", edu: 'УрГУПС' },
-      { name: 'Маканков Павел Евгеньевич', city: "Рудный", edu: 'УрФУ' },
-      { name: 'Белова Дарья Андреевна', city: "Екатеринбург", edu: 'УрФУ' },
-      { name: 'Токарев Алексей Андреевна', city: "Екатеринбург", edu: 'УрФУ' },
+      { name: 'Иманкулов Артур Александрович', direc: "Программная инженерия", edu: 'УрФУ', point: 222 },
+      { name: 'Обухов Даниил Александрович', direc: "Информатика и вычислительная техника", edu: 'УрГУПС', point: 221 },
+      { name: 'Маканков Павел Евгеньевич', direc: "Прикладная информатика", edu: 'УрФУ', point: 220 },
+      { name: 'Белова Дарья Андреевна', direc: "Информатика и вычислительная техника", edu: 'УрФУ', point: 210 },
+      { name: 'Токарев Алексей Андреевна', direc: "Программная инженерия", edu: 'УрФУ', point: 205 },
     ],[]
   )
 
   const columns = useMemo(
     () => [
       { Header: 'ФИО', accessor: 'name' },
-      { Header: 'Город', accessor: 'city' },
+      { Header: 'Направление', accessor: 'direc' },
       { Header: 'ВУЗ', accessor: 'edu' },
+      { Header: 'Балл', accessor: 'point' },
     ],[]
   )
 
@@ -39,7 +40,7 @@ export const Table = () => {
   return (
     <div className={styles.box}>
       <div className={styles.title}>
-        <h1>Получатели стипендиальной поддержки</h1>
+        <h1>Рейтинг студентов</h1>
       </div>
       <table {...getTableProps()} style={{ borderCollapse: 'collapse' }} className={styles.table}>
         <thead>
