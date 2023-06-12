@@ -5,8 +5,7 @@ node_modules
 # testing
 /coverage
 
-# production
-/build
+
 
 /README.md
 # misc
@@ -21,5 +20,6 @@ yarn-debug.log*
 yarn-error.log*
 
 
-/build
-/.development.env
+../campus-frontend/build
+*/build
+.development.env
