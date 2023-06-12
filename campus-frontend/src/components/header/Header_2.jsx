@@ -9,7 +9,7 @@ import { AuthError } from "../alert/AuthError"
 import { DropDownMenuCompany } from "../dropDown_menu/DropDownMenu"
 import { notify } from "../../utils/Consts"
 
-export const Header = observer(() =>{
+export const Header2 = observer(() =>{
     const {store} = useContext(Context)
     const navigate = useNavigate ()
     const button = 'Разместить вакансию'

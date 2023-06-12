@@ -1,10 +1,8 @@
-import styles from './CreateResume.module.css'
-
-import { Header } from '../../components/header/Header'
-import { Footer } from '../../components/footer/Footer'
 import { useEffect, useState } from 'react'
 import { toast } from 'react-toastify'
+import { Header, Footer } from '../index'
 import { createResume } from '../../api/resume-api'
+import styles from './CreateResume.module.css'
 
 export const CreateResume = () =>{
     useEffect(() => {

@@ -1,0 +1,72 @@
+.table {
+	width: 100%;
+	border: none;
+	margin-bottom: 20px;
+}
+.table thead th {
+	padding: 10px;
+	font-weight: 500;
+	font-size: 16px;
+	line-height: 20px;
+	text-align: left;
+	color: #444441;
+	font-family: 'Inter';
+	font-weight: 500;
+	border-bottom: 2px solid #716561;
+}
+.table tbody td {
+	padding: 10px;
+	font-size: 14px;
+	line-height: 20px;
+	color: #444441;
+	font-family: 'Inter';
+	font-weight: 500;
+	border-top: 1px solid #716561;
+}
+
+.table input{
+	border: none;
+	outline: none;
+}
+
+.box{
+	width: 100%;
+    background: #FFFFFF;
+    border-radius: 18px;
+    box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.11);
+	padding: 30px;
+}
+
+.title h1{
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 20px;
+	line-height: 10px;
+	color: #000000;
+	padding-bottom: 20px;
+}
+
+.btn{
+	display: flex;
+	gap: 330px;
+}
+
+.btn button{
+	outline: none;
+	border: none;
+	background: #F52D30;
+	border-radius: 24px;
+	width: 173px;
+	height: 34px;
+	color: #FFFFFF;
+	font-family: "Inter";
+	font-weight: 500;
+	cursor: pointer;
+}
+
+.btn button:active{
+	background: #F54345;
+}
+
+

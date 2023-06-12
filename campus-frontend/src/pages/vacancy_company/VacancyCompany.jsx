@@ -1,5 +1,5 @@
 import { useContext, useEffect } from "react"
-import { Header } from "../../components/header/Header_2"
+import { Header2, Footer } from '../index'
 import { Context } from "../.."
 import { VacancyByUser } from "../../components/card_vacancy_company/VacancyByUser"
 import { observer } from "mobx-react"
@@ -12,10 +12,11 @@ export const VacancyCompany = observer(() =>{
 
     return(
         <>
-            <Header />
+            <Header2 />
             {vacancyStore.vacancies.map((vacancy) => (
                 <VacancyByUser key={vacancy.id} vacancy={vacancy}/>
             ))}
+            <Footer />
         </>
     )
 })
