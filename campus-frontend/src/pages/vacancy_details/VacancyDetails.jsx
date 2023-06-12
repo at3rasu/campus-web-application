@@ -30,7 +30,7 @@ export const VacancyDetails = observer(() =>{
                         <button>Подать заявку</button>
                     </div>
                     <div className={styles.company}>
-                        <p>Место для картинки</p>
+                        <img src={`${process.env.REACT_APP_API_URL}/${vacancy.image}`}></img>
                         <h1 >{vacancy.nameCompany}</h1>
                         <p>{vacancy.fullAddress}</p>
                     </div>

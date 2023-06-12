@@ -36,6 +36,9 @@ AppModule = __decorate([
                 envFilePath: '.development.env'
             }),
             serve_static_1.ServeStaticModule.forRoot({
+                rootPath: path.join(__dirname, 'uploads'),
+            }),
+            serve_static_1.ServeStaticModule.forRoot({
                 rootPath: path.join(__dirname, '..', 'build'),
             }),
             sequelize_1.SequelizeModule.forRoot({

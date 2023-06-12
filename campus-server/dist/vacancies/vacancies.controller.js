@@ -24,7 +24,7 @@ let VacanciesController = class VacanciesController {
         this.vacanciesService = vacanciesService;
     }
     create(vacancyDto, image, request) {
-        return this.vacanciesService.createVacancy(vacancyDto, request);
+        return this.vacanciesService.createVacancy(vacancyDto, image, request);
     }
     getAllVacancies() {
         return this.vacanciesService.getAllVacancies();

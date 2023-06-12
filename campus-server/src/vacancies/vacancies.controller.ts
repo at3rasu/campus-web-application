@@ -19,7 +19,7 @@ export class VacanciesController {
            @UploadedFile() image,
            @Req() request: Request
         ){
-        return this.vacanciesService.createVacancy(vacancyDto, request);
+        return this.vacanciesService.createVacancy(vacancyDto, image, request);
     }
 
     @Get('/get_all_vacancies')

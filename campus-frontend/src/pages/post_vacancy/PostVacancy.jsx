@@ -5,12 +5,12 @@ import { createVacancy } from '../../api/vacancy-api'
 import { toast } from 'react-toastify'
 
 export const PostVacancy = () =>{
-    // const onChange = (file) => {
-    //     const { files } = file.target;
-    //     if (files && files.length !== 0) {
-    //         setImage(files[0]);
-    //     }
-    // }
+    const onChange = (file) => {
+        const { files } = file.target;
+        if (files && files.length !== 0) {
+            setImage(files[0]);
+        }
+    }
     useEffect(() => {
         document.title = 'Опубликовать вакансию'
     })
@@ -25,8 +25,8 @@ export const PostVacancy = () =>{
     const [fullAddress, setFullAddress] = useState('')
     const [number, setNumber] = useState('')
     const [email, setEmail] = useState('')
-    // const [image, setImage] = useState();
-    const image =undefined
+    const [image, setImage] = useState();
+    // const image =undefined
     const handleSubmit = (e) => {
         e.preventDefault();
         if (!number || !email || !skills || !nameCompany|| !nameVacancy
@@ -108,7 +108,7 @@ export const PostVacancy = () =>{
                             placeholder='Кратное описание компании'
                             onChange={(e) => setCompanyDescription(e.target.value)}></input>
                     </div>
-                    {/* <div className={styles.inputFile}>
+                    <div className={styles.inputFile}>
                         <label>Логотип компании</label>
                         <span className={styles.flex}>
                             <input
@@ -116,7 +116,7 @@ export const PostVacancy = () =>{
                                 onChange={onChange}></input>
                             <p className={styles.file}>Добавьте изображение в формате PNG</p>
                         </span>
-                    </div> */}
+                    </div>
                 </div>
                 <hr className={styles.hrData}></hr>
                 <h2 className={styles.briefInfo}>Основная информация о вакансии</h2>
