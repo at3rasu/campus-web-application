@@ -20,19 +20,19 @@ export class Resume extends Model<Resume, ResumeCreationAttrs>{
     @Column({type: DataType.STRING, allowNull: false})
     number: string
 
-    @Column({type: DataType.STRING, allowNull: false})
+    @Column({type: DataType.TEXT, allowNull: false})
     city: string
     
-    @Column({type: DataType.STRING, allowNull: false})
+    @Column({type: DataType.TEXT, allowNull: false})
     aboutYou: string
 
-    @Column({type: DataType.STRING,  allowNull: false})
+    @Column({type: DataType.TEXT,  allowNull: false})
     vacancy: string
 
-    @Column({type: DataType.STRING, allowNull: false})
+    @Column({type: DataType.TEXT, allowNull: false})
     workExamples: string
 
-    @Column({type: DataType.STRING, allowNull: false})
+    @Column({type: DataType.TEXT, allowNull: false})
     educational: string
 
     @Column({type: DataType.STRING})

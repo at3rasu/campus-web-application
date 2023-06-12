@@ -19,19 +19,19 @@ export class Vacancy extends Model<Vacancy, VacancyCreationAttrs>{
     @Column({type: DataType.STRING, allowNull: false})
     nameCompany: string
 
-    @Column({type: DataType.STRING, allowNull: false})
+    @Column({type: DataType.TEXT, allowNull: false})
     companyDescription: string
     
-    @Column({type: DataType.STRING, allowNull: false})
+    @Column({type: DataType.TEXT, allowNull: false})
     duties: string
 
-    @Column({type: DataType.STRING,  allowNull: false})
+    @Column({type: DataType.TEXT,  allowNull: false})
     expectations: string
 
-    @Column({type: DataType.STRING, allowNull: false})
+    @Column({type: DataType.TEXT, allowNull: false})
     skills: string
 
-    @Column({type: DataType.STRING, allowNull: false})
+    @Column({type: DataType.TEXT, allowNull: false})
     conditions: string
 
     @Column({type: DataType.STRING, allowNull: false})
