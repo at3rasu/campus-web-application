@@ -13,7 +13,7 @@
 
         npm run start
 
-   Чтобы запустить campus-server через Docker в терминале необходимо прописать команды:
+   Чтобы запустить server через Docker в терминале необходимо прописать команды:
 
         docker-compose build
 
