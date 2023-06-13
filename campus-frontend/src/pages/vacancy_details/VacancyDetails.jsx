@@ -5,9 +5,10 @@ import { observer } from 'mobx-react'
 import { Header } from "../../components/header/Header"
 import styles from "./VacancyDetails.module.css"
 import { Footer } from "../../components/footer/Footer";
+import { info } from "../../utils/Consts";
 
 export const VacancyDetails = observer(() =>{
-    const { vacancyStore } = useContext(Context)
+    const { vacancyStore, store } = useContext(Context)
     const { id } = useParams()
     const vacancy = vacancyStore.getVacancyById(id)
 
@@ -27,10 +28,16 @@ export const VacancyDetails = observer(() =>{
                     <div className={styles.vacancy}>
                         <h1>{vacancy.nameVacancy}</h1>
                         <p>{vacancy.companyDescription}</p>
-                        <button>Подать заявку</button>
+                        {store.IsAuth ?(
+                            <button>Подать заявку</button>
+                        ):(
+                            <button 
+                                onClick={info}
+                                >Подать заявку</button>
+                        )}
                     </div>
                     <div className={styles.company}>
-                        <img src={`${process.env.REACT_APP_API_URL}/${vacancy.image}`}></img>
+                        {/* <img src={`${process.env.REACT_APP_API_URL}/${vacancy.image}`}></img> */}
                         <h1 >{vacancy.nameCompany}</h1>
                         <p>{vacancy.fullAddress}</p>
                     </div>
