@@ -1,10 +1,11 @@
-import { useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { toast } from 'react-toastify'
 import { Header, Footer } from '../index'
-import { createResume } from '../../api/resume-api'
 import styles from './CreateResume.module.css'
+import { Context } from '../..'
 
 export const CreateResume = () =>{
+    const {resumeStore} = useContext(Context)
     useEffect(() => {
         document.title = 'Создать резюме'
     })
@@ -17,9 +18,11 @@ export const CreateResume = () =>{
     const [workExamples, setWorkExamples] = useState('')
     const [educational, setEducational] = useState('')
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-    
+        
+        await resumeStore.createResume(name, number, city, aboutYou, vacancy, workExamples, educational)
+
         // Проверка заполнения всех полей
         if (!number || !name || !city || !aboutYou|| !vacancy
             || !workExamples || !educational) {
@@ -135,11 +138,7 @@ export const CreateResume = () =>{
                 <div className={styles.boxContent}>           
                     <div className={styles.buttonSubmit}>
                         <button
-                            type='submit' onClick={
-                                async () => {
-                                    await createResume (name, number, city, aboutYou, vacancy, workExamples, educational)
-                                    }
-                            }>Опубликовать резюме</button>
+                            type='submit'>Опубликовать резюме</button>
                     </div>
                 </div>
             </form>

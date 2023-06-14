@@ -13,9 +13,11 @@ export const VacancyCompany = observer(() =>{
     return(
         <>
             <Header2 />
-            {vacancyStore.vacancies.map((vacancy) => (
-                <VacancyByUser key={vacancy.id} vacancy={vacancy}/>
-            ))}
+            <div className="container" style={{minHeight:'calc(100vh - 120px)'}}>
+                {vacancyStore.vacancies.map((vacancy) => (
+                    <VacancyByUser key={vacancy.id} vacancy={vacancy}/>
+                ))}
+            </div>
             <Footer />
         </>
     )

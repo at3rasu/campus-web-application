@@ -1,8 +1,8 @@
 import styles from './PostVacancy.module.css'
 import { Header2, Footer } from '../index'
-import { useEffect, useState  } from "react"
-import { createVacancy } from '../../api/vacancy-api'
+import { useContext, useEffect, useState  } from "react"
 import { toast } from 'react-toastify'
+import { Context } from '../..'
 
 export const PostVacancy = () =>{
     const onChange = (file) => {
@@ -14,6 +14,8 @@ export const PostVacancy = () =>{
     useEffect(() => {
         document.title = 'Опубликовать вакансию'
     })
+
+    const {vacancyStore} = useContext(Context)
 
     const [nameVacancy, setNameVacancy] = useState('')
     const [nameCompany, setNameCompany] = useState('')
@@ -27,8 +29,12 @@ export const PostVacancy = () =>{
     const [email, setEmail] = useState('')
     const [image, setImage] = useState();
     // const image =undefined
-    const handleSubmit = (e) => {
+    const handleSubmit = async(e) => {
         e.preventDefault();
+
+        await vacancyStore.createVacancy (nameVacancy, nameCompany, companyDescription, duties,
+            expectations, skills, conditions, image, fullAddress, number, email)
+
         if (!number || !email || !skills || !nameCompany|| !nameVacancy
             || !companyDescription || !duties || !expectations || !conditions
             || !fullAddress) {
@@ -197,14 +203,7 @@ export const PostVacancy = () =>{
                 <div className={styles.boxContent}>
                     <div className={styles.buttonSubmit}>
                         <button
-                            type='submit'
-                            onClick={ 
-                                async () => {
-                                    await createVacancy (nameVacancy, nameCompany, companyDescription, duties,
-                                        expectations, skills, conditions, image, fullAddress, number, email)
-                                }
-                            }
-                        >Опубликовать вакансию</button>
+                            type='submit'>Опубликовать вакансию</button>
                     </div>
                 </div>
             </form>
