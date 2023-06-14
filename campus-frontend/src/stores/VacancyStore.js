@@ -11,7 +11,7 @@ export default class VacancyStore{
 
 
     async createVacancy (nameVacancy, nameCompany, companyDescription, duties,
-        expectations, skills, conditions, image, fullAddress, number, email) {
+        expectations, skills, conditions, fullAddress, number, email) {
         try{
             const formData = new FormData()
             formData.append('nameVacancy', nameVacancy)
@@ -21,7 +21,7 @@ export default class VacancyStore{
             formData.append('expectations', expectations)
             formData.append('skills', skills)
             formData.append('conditions', conditions)
-            formData.append('image', image)
+            // formData.append('image', image)
             formData.append('fullAddress', fullAddress)
             formData.append('number', number)
             formData.append('email', email)

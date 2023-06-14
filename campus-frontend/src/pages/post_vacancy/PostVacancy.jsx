@@ -5,12 +5,12 @@ import { toast } from 'react-toastify'
 import { Context } from '../..'
 
 export const PostVacancy = () =>{
-    const onChange = (file) => {
-        const { files } = file.target;
-        if (files && files.length !== 0) {
-            setImage(files[0]);
-        }
-    }
+    // const onChange = (file) => {
+    //     const { files } = file.target;
+    //     if (files && files.length !== 0) {
+    //         setImage(files[0]);
+    //     }
+    // }
     useEffect(() => {
         document.title = 'Опубликовать вакансию'
     })
@@ -27,13 +27,13 @@ export const PostVacancy = () =>{
     const [fullAddress, setFullAddress] = useState('')
     const [number, setNumber] = useState('')
     const [email, setEmail] = useState('')
-    const [image, setImage] = useState();
+    // const [image, setImage] = useState();
     // const image =undefined
     const handleSubmit = async(e) => {
         e.preventDefault();
 
         await vacancyStore.createVacancy (nameVacancy, nameCompany, companyDescription, duties,
-            expectations, skills, conditions, image, fullAddress, number, email)
+            expectations, skills, conditions, fullAddress, number, email)
 
         if (!number || !email || !skills || !nameCompany|| !nameVacancy
             || !companyDescription || !duties || !expectations || !conditions
