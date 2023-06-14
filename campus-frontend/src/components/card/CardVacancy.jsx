@@ -1,8 +1,11 @@
+import { useContext } from 'react';
 import styles from './Card.module.css'
-
 import { Link } from "react-router-dom";
+import { Context } from '../..';
+import { info } from '../../utils/Consts';
 
 export const CardVacancy = ({vacancy}) =>{
+    const { store } = useContext(Context)
     return(
         <div className={styles.card}>
 
@@ -16,7 +19,13 @@ export const CardVacancy = ({vacancy}) =>{
                 <p>{vacancy.fullAddress}</p>
             </div>
             <div className={styles.link}>
-                <button>Подать заявку</button>
+                {store.IsAuth ?(
+                    <button>Подать заявку</button>
+                ):(
+                    <button 
+                        onClick={info}
+                        >Подать заявку</button>
+                )}
             </div>
         </div>
     )
