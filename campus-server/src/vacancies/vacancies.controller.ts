@@ -16,10 +16,10 @@ export class VacanciesController {
     @Roles('admin', 'user_company')
     @UseInterceptors(FileInterceptor('image'))
     create(@Body() vacancyDto: CreateVacancyDto,
-           @UploadedFile() image,
+        //    @UploadedFile() image,
            @Req() request: Request
         ){
-        return this.vacanciesService.createVacancy(vacancyDto, image, request);
+        return this.vacanciesService.createVacancy(vacancyDto, request);
     }
 
     @Get('/get_all_vacancies')
