@@ -5,7 +5,7 @@ import { observer } from 'mobx-react'
 import { Header } from "../../components/header/Header"
 import styles from "./VacancyDetails.module.css"
 import { Footer } from "../../components/footer/Footer";
-import { info } from "../../utils/Consts";
+import { info, success } from "../../utils/Consts";
 
 export const VacancyDetails = observer(() =>{
     const { vacancyStore, store } = useContext(Context)
@@ -29,7 +29,9 @@ export const VacancyDetails = observer(() =>{
                         <h1>{vacancy.nameVacancy}</h1>
                         <p>{vacancy.companyDescription}</p>
                         {store.IsAuth ?(
-                            <button>Подать заявку</button>
+                            <button 
+                                onClick={success}
+                                >Подать заявку</button>
                         ):(
                             <button 
                                 onClick={info}
