@@ -13,7 +13,7 @@ export const Alert = () =>{
             draggable
             pauseOnHover
             theme="light"
-            style={{width: "600px", fontSize:'18px'}}
+            style={{ whiteSpace: 'nowrap', margin: '10px', width: 'fit-content', fontSize:'18px' }}  
         />
     )
 }
