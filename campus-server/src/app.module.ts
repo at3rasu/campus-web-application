@@ -29,9 +29,9 @@ import { Resume } from "./resume/resume.model";
         envFilePath: '.development.env'
       }),
       
-      ServeStaticModule.forRoot({
-        rootPath: path.join(__dirname, 'uploads'), // Путь к папке с загруженными файлами
-      }),
+      // ServeStaticModule.forRoot({
+      //   rootPath: path.join(__dirname, 'uploads'), // Путь к папке с загруженными файлами
+      // }),
       ServeStaticModule.forRoot({
         rootPath: path.join(__dirname, '..', 'build'),
       }),
