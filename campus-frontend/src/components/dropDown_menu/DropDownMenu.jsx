@@ -42,7 +42,7 @@ export const DropDownMenu = observer(({handleLogout, auth, link, link1, link2}) 
                             <Link to='/UserResume'>Мои резюме</Link>
                         </li>
                         <li className={styles.link}>
-                            <Link to='/'>Мои отклики</Link>
+                            <Link to='/Feedback'>Мои отклики</Link>
                         </li>
                         <li className={styles.link}>
                             <Link to='/PersonalAccount'>Настройки</Link>

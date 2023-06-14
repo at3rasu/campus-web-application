@@ -17,6 +17,7 @@ import { UserResume } from "../pages/user_resume/UserResume";
 import { Error404 } from "../components/error/Error404";
 import { PrivateRouteCompany, PrivateRouteUser } from "../utils/Consts";
 import { VacancyCompany } from "../pages/vacancy_company/VacancyCompany";
+import { Feedback } from "../pages/feedback/Feedback";
 
 
 export const Router = () =>{
@@ -27,6 +28,7 @@ export const Router = () =>{
                 <Route path="/CreateResume" element={<CreateResume />}/>
                 <Route path="/PersonalAccount" element={<PersonalAccount />}/>
                 <Route path="/UserResume" element={<UserResume />}/>
+                <Route path="/Feedback" element={<Feedback />}/>
             </Route>
             <Route path="/Employers" element={<Employers />}/>
             <Route element={<PrivateRouteCompany />}>
