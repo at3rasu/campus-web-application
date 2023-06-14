@@ -114,7 +114,7 @@ export const PostVacancy = () =>{
                             placeholder='Кратное описание компании'
                             onChange={(e) => setCompanyDescription(e.target.value)}></input>
                     </div>
-                    <div className={styles.inputFile}>
+                    {/* <div className={styles.inputFile}>
                         <label>Логотип компании</label>
                         <span className={styles.flex}>
                             <input
@@ -122,7 +122,7 @@ export const PostVacancy = () =>{
                                 onChange={onChange}></input>
                             <p className={styles.file}>Добавьте изображение в формате PNG</p>
                         </span>
-                    </div>
+                    </div> */}
                 </div>
                 <hr className={styles.hrData}></hr>
                 <h2 className={styles.briefInfo}>Основная информация о вакансии</h2>
