@@ -52,7 +52,10 @@ import { Resume } from "./resume/resume.model";
           UserCompanyRoles,
           Resume
         ],
-        autoLoadModels: true
+        autoLoadModels: true,
+        dialectOptions: {
+          hostAuthMethod: 'trust'
+        }
       }),
       UsersModule,
       RolesModule,

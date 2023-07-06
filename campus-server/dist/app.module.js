@@ -54,7 +54,10 @@ AppModule = __decorate([
                     user_company_roles_1.UserCompanyRoles,
                     resume_model_1.Resume
                 ],
-                autoLoadModels: true
+                autoLoadModels: true,
+                dialectOptions: {
+                    hostAuthMethod: 'trust'
+                }
             }),
             users_module_1.UsersModule,
             roles_module_1.RolesModule,
